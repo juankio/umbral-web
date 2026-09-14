@@ -86,18 +86,19 @@ export default defineNuxtConfig({
         { property: 'og:site_name', content: 'UMBRAL · CRGS' },
         { property: 'og:title', content: 'UMBRAL · Centro Roberto Garza Sada | Universidad de Monterrey' },
         { property: 'og:description', content: 'Plataforma oficial del Centro Roberto Garza Sada (CRGS). Escuela de Arte, Arquitectura y Diseño de la Universidad de Monterrey. Zona Maco 2027.' },
-        { property: 'og:image', content: '/images/og-umbral.png' },
-        { property: 'og:image:secure_url', content: '/images/og-umbral.png' },
+        { property: 'og:url', content: 'https://umbral-web-three.vercel.app/' },
+        { property: 'og:image', content: 'https://umbral-web-three.vercel.app/images/og-umbral.jpg' },
+        { property: 'og:image:secure_url', content: 'https://umbral-web-three.vercel.app/images/og-umbral.jpg' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
-        { property: 'og:image:type', content: 'image/png' },
+        { property: 'og:image:type', content: 'image/jpeg' },
         { property: 'og:type', content: 'website' },
 
         // Twitter Cards
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'UMBRAL · Centro Roberto Garza Sada | Universidad de Monterrey' },
         { name: 'twitter:description', content: 'Plataforma oficial del Centro Roberto Garza Sada (CRGS) · UDEM. Zona Maco 2027.' },
-        { name: 'twitter:image', content: '/images/og-umbral.png' }
+        { name: 'twitter:image', content: 'https://umbral-web-three.vercel.app/images/og-umbral.jpg' }
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
