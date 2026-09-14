@@ -1,46 +1,95 @@
 <template>
-  <section class="w-full bg-[#141414] text-white border-y border-neutral-800 py-12 lg:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-        <!-- Left: Date Announcement & Title -->
-        <div class="space-y-2 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-neutral-800/80 border border-neutral-700 text-xs font-mono uppercase tracking-widest text-neutral-300">
-            <span class="w-2 h-2 rounded-full bg-emerald-400" />
-            <span>Centro Citibanamex · Ciudad de México</span>
-          </div>
+  <section class="w-full bg-[#5E5E5E] py-8 md:py-0 md:min-h-[188px] flex items-center">
+    <div class="max-w-[1720px] w-full mx-auto px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
+      <!-- Texto a la izquierda -->
+      <h2 class="font-barlow font-bold text-3xl md:text-5xl lg:text-[64px] text-[#F6F6F6] uppercase tracking-wide leading-none text-center md:text-left">
+        DEL 3 AL 7 DE FEBRERO 2027
+      </h2>
 
-          <h2 class="font-barlow font-bold text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tightest leading-none text-white">
-            DEL 3 AL 7 DE FEBRERO 2027
-          </h2>
-
-          <p class="font-barlow text-xl sm:text-2xl text-neutral-400 font-light tracking-wide">
-            Pabellón CRGS / UMBRAL · Sección Diseño & Arte Contemporáneo
-          </p>
-        </div>
-
-        <!-- Right: Action Button and Badges -->
-        <div class="flex flex-col sm:flex-row items-center gap-4">
-          <NuxtLink
-            to="/zona-maco"
-            class="px-8 py-4 bg-white text-neutral-950 hover:bg-neutral-100 font-barlow font-bold text-lg uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98] flex items-center gap-3 group border border-white"
-          >
-            <span>VER UBICACIÓN & OBRAS</span>
-            <svg
-              class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5"
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </NuxtLink>
-        </div>
+      <!-- Botón blanco con micro-interacción magnética sutil -->
+      <div class="inline-block">
+        <NuxtLink
+          ref="buttonRef"
+          to="/zona-maco"
+          @mousemove="handleMouseMove"
+          @mouseleave="handleMouseLeave"
+          class="relative inline-flex items-center justify-center bg-white text-[#1C1C1C] font-barlow font-bold text-2xl md:text-3xl lg:text-[40px] px-8 lg:px-12 py-3 lg:py-4 uppercase leading-none transition-colors duration-200 hover:bg-neutral-100 active:scale-[0.98] shadow-sm whitespace-nowrap will-change-transform select-none"
+        >
+          <span ref="textRef" class="inline-block pointer-events-none will-change-transform">
+            VER UBICACIÓN
+          </span>
+        </NuxtLink>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-// Banner de llamado a Zona Maco 2027
+import { ref, onMounted, onUnmounted } from 'vue'
+import { animate } from 'animejs'
+
+const buttonRef = ref<HTMLElement | null>(null)
+const textRef = ref<HTMLElement | null>(null)
+let isPointerFine = false
+let prefersReducedMotion = false
+
+onMounted(() => {
+  if (!import.meta.client) return
+  isPointerFine = window.matchMedia('(pointer: fine)').matches
+  prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+})
+
+const handleMouseMove = (e: MouseEvent) => {
+  if (!isPointerFine || prefersReducedMotion || !buttonRef.value) return
+  const rect = buttonRef.value.getBoundingClientRect()
+  const centerX = rect.left + rect.width / 2
+  const centerY = rect.top + rect.height / 2
+  const distX = e.clientX - centerX
+  const distY = e.clientY - centerY
+
+  // Atracción magnética sutil y refinada
+  const moveX = Math.max(-12, Math.min(12, distX * 0.22))
+  const moveY = Math.max(-10, Math.min(10, distY * 0.28))
+
+  animate(buttonRef.value, {
+    translateX: moveX,
+    translateY: moveY,
+    duration: 200,
+    ease: 'outQuad'
+  })
+
+  if (textRef.value) {
+    animate(textRef.value, {
+      translateX: moveX * 0.4,
+      translateY: moveY * 0.4,
+      duration: 200,
+      ease: 'outQuad'
+    })
+  }
+}
+
+const handleMouseLeave = () => {
+  if (!buttonRef.value || prefersReducedMotion) return
+  animate(buttonRef.value, {
+    translateX: 0,
+    translateY: 0,
+    duration: 550,
+    ease: 'outCubic'
+  })
+
+  if (textRef.value) {
+    animate(textRef.value, {
+      translateX: 0,
+      translateY: 0,
+      duration: 550,
+      ease: 'outCubic'
+    })
+  }
+}
+
+onUnmounted(() => {
+  if (buttonRef.value) {
+    animate(buttonRef.value, { translateX: 0, translateY: 0, duration: 0 })
+  }
+})
 </script>

@@ -1,94 +1,51 @@
 <template>
   <header
-    class="sticky top-0 z-50 w-full transition-all duration-300 ease-out"
-    :class="[
-      isScrolled
-        ? 'bg-white/95 backdrop-blur-md border-b border-neutral-200/90 shadow-sm'
-        : 'bg-white/80 backdrop-blur-sm border-b border-neutral-200/40 shadow-none'
-    ]"
+    class="sticky top-0 z-50 w-full bg-white transition-all duration-200"
+    :class="isScrolled ? 'border-b border-neutral-200 shadow-sm' : ''"
   >
-    <div
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ease-out"
-      :class="isScrolled ? 'h-16' : 'h-20'"
-    >
-      <!-- Logo Umbral -->
-      <NuxtLink
-        to="/"
-        class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
-        aria-label="Ir a la página de inicio de Umbral CRGS"
-      >
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-12 py-5 flex items-center justify-between">
+      <!-- Logo Umbral izquierda -->
+      <NuxtLink to="/" class="inline-flex items-center" aria-label="Ir al inicio de Umbral">
         <img
           src="/images/logo-umbral.png"
-          alt="Umbral CRGS"
-          class="w-auto object-contain transition-all duration-300"
-          :class="isScrolled ? 'h-8 sm:h-9' : 'h-9 sm:h-10'"
+          alt="Umbral"
+          class="h-10 sm:h-12 w-auto object-contain"
         />
-        <div class="hidden md:flex flex-col border-l border-neutral-300 pl-3">
-          <span class="font-barlow font-bold text-xs uppercase tracking-widest text-neutral-900 leading-none">CRGS</span>
-          <span class="font-sans text-[10px] text-neutral-500 uppercase tracking-wider">UDEM</span>
-        </div>
       </NuxtLink>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden sm:flex items-center gap-8 font-barlow text-lg tracking-wider uppercase font-medium">
+      <!-- Navegación desktop derecha -->
+      <nav class="hidden md:flex items-center gap-10">
         <NuxtLink
           to="/zona-maco"
-          class="group relative py-2 text-neutral-700 hover:text-neutral-950 flex items-center gap-1.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          active-class="!text-neutral-950 font-bold"
+          class="inline-flex items-center gap-2.5 font-barlow text-[28px] sm:text-[32px] font-normal text-black normal-case border-b-[3px] border-[#A3A3A3] pb-0.5 hover:border-black transition-colors"
         >
           <span>Zona Maco</span>
-          <svg
-            class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-neutral-400 group-hover:text-neutral-900"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 12L12 4" />
-            <path d="M5 4h7v7" />
-          </svg>
-          <span
-            class="absolute bottom-0 left-0 w-0 h-[2px] bg-neutral-900 transition-all duration-300 group-hover:w-full"
-            :class="{ 'w-full': $route.path === '/zona-maco' }"
+          <img
+            src="/images/nav-chevron.svg"
+            alt=""
+            class="w-4 h-2.5 object-contain"
+            aria-hidden="true"
           />
         </NuxtLink>
 
         <NuxtLink
           to="/crgs"
-          class="group relative py-2 text-neutral-700 hover:text-neutral-950 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          active-class="!text-neutral-950 font-bold"
+          class="font-barlow text-[28px] sm:text-[32px] font-normal text-black normal-case border-b-[3px] border-[#A3A3A3] pb-0.5 hover:border-black transition-colors"
         >
-          <span>Nosotros</span>
-          <span
-            class="absolute bottom-0 left-0 w-0 h-[2px] bg-neutral-900 transition-all duration-300 group-hover:w-full"
-            :class="{ 'w-full': $route.path === '/crgs' }"
-          />
+          Nosotros
         </NuxtLink>
-
-        <div class="h-4 w-px bg-neutral-300 mx-1" />
-
-        <a
-          href="https://www.udem.edu.mx/es/arte-arquitectura-diseno"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-xs tracking-widest text-neutral-500 hover:text-neutral-900 uppercase font-mono transition-all duration-200 hover:scale-[1.02]"
-        >
-          CRGS · UDEM
-        </a>
       </nav>
 
-      <!-- Mobile Menu Toggle -->
+      <!-- Botón móvil -->
       <button
         type="button"
         @click="isMobileMenuOpen = !isMobileMenuOpen"
-        class="sm:hidden p-2 text-neutral-800 hover:text-neutral-950 focus:outline-none active:scale-95 transition-transform duration-150"
-        aria-label="Abrir menú"
+        class="md:hidden p-2 text-black focus:outline-none"
+        aria-label="Alternar menú de navegación"
       >
         <svg
           v-if="!isMobileMenuOpen"
-          class="w-6 h-6"
+          class="w-7 h-7"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -97,7 +54,7 @@
         </svg>
         <svg
           v-else
-          class="w-6 h-6"
+          class="w-7 h-7"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -107,38 +64,27 @@
       </button>
     </div>
 
-    <!-- Mobile Dropdown -->
+    <!-- Menú móvil desplegable -->
     <div
       v-if="isMobileMenuOpen"
-      class="sm:hidden border-t border-neutral-200 bg-white/98 backdrop-blur-md px-6 py-5 flex flex-col gap-4 font-barlow text-xl tracking-wider uppercase font-medium shadow-lg transition-all duration-200"
+      class="md:hidden border-t border-neutral-200 bg-white px-6 py-6 flex flex-col gap-6"
     >
       <NuxtLink
         to="/zona-maco"
         @click="isMobileMenuOpen = false"
-        class="py-2 text-neutral-800 hover:text-neutral-950 flex items-center justify-between border-b border-neutral-100"
+        class="inline-flex items-center justify-between font-barlow text-[28px] font-normal text-black normal-case border-b-[3px] border-[#A3A3A3] pb-1"
       >
         <span>Zona Maco</span>
-        <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 12L12 4M5 4h7v7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img src="/images/nav-chevron.svg" alt="" class="w-4 h-2.5 object-contain" />
       </NuxtLink>
 
       <NuxtLink
         to="/crgs"
         @click="isMobileMenuOpen = false"
-        class="py-2 text-neutral-800 hover:text-neutral-950 border-b border-neutral-100"
+        class="inline-block font-barlow text-[28px] font-normal text-black normal-case border-b-[3px] border-[#A3A3A3] pb-1"
       >
-        <span>Nosotros / CRGS</span>
+        Nosotros
       </NuxtLink>
-
-      <a
-        href="https://www.udem.edu.mx"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-xs tracking-widest text-neutral-500 uppercase font-mono pt-2"
-      >
-        Universidad de Monterrey
-      </a>
     </div>
   </header>
 </template>
@@ -149,6 +95,5 @@ import { useWindowScroll } from '@vueuse/core'
 
 const isMobileMenuOpen = ref(false)
 const { y } = useWindowScroll()
-
-const isScrolled = computed(() => y.value > 20)
+const isScrolled = computed(() => y.value > 10)
 </script>

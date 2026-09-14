@@ -3,29 +3,29 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Two Columns: Degrees Info & Graduate Programs -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-        <!-- More info about Careers -->
+        <!-- Más información de carreras -->
         <div class="border border-neutral-800 bg-[#1A1A1A] p-8 sm:p-10 flex flex-col justify-between">
           <div class="space-y-4">
             <span class="font-mono text-xs uppercase tracking-widest text-neutral-400">
               Admisiones & Proceso
             </span>
             <h3 class="font-barlow font-bold text-3xl sm:text-4xl uppercase tracking-tight text-white">
-              Más Información de Carreras
+              Más información de carreras
             </h3>
             <p class="font-sans text-sm text-neutral-300 leading-relaxed">
               El proceso de admisión al Centro Roberto Garza Sada incluye evaluación de portafolio creativo, entrevista con directores de programa y examen de aptitudes de diseño.
             </p>
             <ul class="space-y-2 font-mono text-xs text-neutral-400 pt-2">
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-purple-400" />
+                <span class="w-1.5 h-1.5 bg-neutral-400" />
                 Becas a la Excelencia Artística y Arquitectónica
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-purple-400" />
+                <span class="w-1.5 h-1.5 bg-neutral-400" />
                 Intercambios con más de 80 universidades internacionales
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-purple-400" />
+                <span class="w-1.5 h-1.5 bg-neutral-400" />
                 Prácticas profesionales en firmas y museos globales
               </li>
             </ul>
@@ -46,25 +46,25 @@
           </div>
         </div>
 
-        <!-- Graduate Studies / Posgrados -->
+        <!-- Información de posgrados -->
         <div class="border border-neutral-800 bg-[#1A1A1A] p-8 sm:p-10 flex flex-col justify-between">
           <div class="space-y-4">
             <span class="font-mono text-xs uppercase tracking-widest text-neutral-400">
               Especialización & Maestría
             </span>
             <h3 class="font-barlow font-bold text-3xl sm:text-4xl uppercase tracking-tight text-white">
-              Posgrados y Educación Continua
+              Información de posgrados
             </h3>
             <p class="font-sans text-sm text-neutral-300 leading-relaxed">
               Programas avanzados para profesionales que buscan profundizar en investigación proyectual, diseño estratégico, habitabilidad y gestión de proyectos culturales.
             </p>
-            <div class="space-y-2 pt-2">
-              <div class="border border-neutral-800 p-3 bg-neutral-900/60">
-                <h4 class="font-barlow font-bold text-lg uppercase text-white">Maestría en Arquitectura y Ciudad</h4>
+            <div class="space-y-2.5 pt-2">
+              <div class="border border-neutral-800 p-3.5 bg-neutral-900/80">
+                <h4 class="font-barlow font-bold text-lg uppercase text-white tracking-tight">Maestría en Arquitectura y Ciudad</h4>
                 <p class="font-mono text-[11px] text-neutral-400">Enfoque en resiliencia urbana y diseño sostenible</p>
               </div>
-              <div class="border border-neutral-800 p-3 bg-neutral-900/60">
-                <h4 class="font-barlow font-bold text-lg uppercase text-white">Maestría en Diseño Gráfico Estratégico</h4>
+              <div class="border border-neutral-800 p-3.5 bg-neutral-900/80">
+                <h4 class="font-barlow font-bold text-lg uppercase text-white tracking-tight">Maestría en Diseño Gráfico Estratégico</h4>
                 <p class="font-mono text-[11px] text-neutral-400">Branding, experiencia de usuario y narrativas visuales</p>
               </div>
             </div>
@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <!-- Poetic Closing Statement -->
+      <!-- Poetic Closing Statement: "El futuro inspira nuestra mejor versión." -->
       <div class="border-t border-neutral-800 pt-16 text-center max-w-3xl mx-auto space-y-4">
         <span class="font-mono text-xs uppercase tracking-widest text-neutral-500 block">
           Lema CRGS · Universidad de Monterrey
@@ -103,5 +103,5 @@
 </template>
 
 <script setup lang="ts">
-// Bloque de admisiones, posgrados y cierre poético
+// Carreras, posgrados y lema oficial del CRGS
 </script>

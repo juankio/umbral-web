@@ -1,12 +1,12 @@
 <template>
-  <section class="py-16 lg:py-24 bg-[#F4F4F4] border-b border-neutral-200">
+  <section class="py-16 lg:py-24 bg-white border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
         <span class="font-mono text-xs uppercase tracking-widest text-neutral-500 block mb-2">
           Génesis & Proceso
         </span>
-        <h2 class="font-barlow font-bold text-4xl sm:text-5xl uppercase tracking-tight text-neutral-900">
-          Contexto Repentina: De Dónde Nacen los Proyectos
+        <h2 class="font-barlow font-bold text-4xl sm:text-5xl uppercase tracking-tight text-neutral-950">
+          Contexto repentina y de dónde nacen los proyectos
         </h2>
         <p class="mt-2 font-barlow text-xl text-neutral-600 font-light tracking-wide max-w-2xl">
           48 horas de inmersión total en los talleres del CRGS donde la frontera entre disciplinas se desvanece.
@@ -58,7 +58,7 @@
           <div class="bg-white border border-neutral-200 p-6 sm:p-8 shadow-sm flex-1">
             <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-4">
               <span class="font-mono text-xs uppercase tracking-wider text-neutral-500">Bitácora de Taller</span>
-              <span class="font-mono text-xs text-neutral-400">Ed. 2026-2027</span>
+              <span class="font-mono text-xs text-neutral-400">Ed. 2026</span>
             </div>
             <div class="space-y-4">
               <div class="flex gap-4 items-start">

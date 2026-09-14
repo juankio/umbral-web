@@ -1,23 +1,22 @@
 <template>
   <div
-    class="w-full bg-[#1C1C1C] text-white py-3.5 overflow-hidden select-none border-y border-neutral-800"
+    class="w-full h-[141px] bg-[#1C1C1C] flex items-center overflow-hidden select-none"
     aria-hidden="true"
   >
-    <div class="animate-marquee whitespace-nowrap flex items-center gap-6">
-      <span
-        v-for="i in 12"
+    <div class="animate-marquee whitespace-nowrap flex items-center">
+      <div
+        v-for="i in 8"
         :key="i"
-        class="inline-flex items-center gap-6 font-barlow font-bold text-xl sm:text-2xl uppercase tracking-[0.25em] text-neutral-100"
+        class="flex items-center flex-shrink-0"
       >
-        <span>PENSAMIENTO. MATERIA. CREACIÓN.</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-neutral-500 inline-block" />
-        <span class="text-neutral-400 font-light">UMBRAL \ CRGS</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-neutral-500 inline-block" />
-      </span>
+        <span class="font-barlow text-3xl md:text-[48px] font-normal text-white tracking-widest uppercase px-6 md:px-10">
+          PENSAMIENTO. MATERIA. CREACIÓN.
+        </span>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// Ticker infinito con animación CSS nativa de alto rendimiento
+// Marquee infinito continuo oficial de Figma (141px de altura)
 </script>

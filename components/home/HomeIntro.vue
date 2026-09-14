@@ -1,87 +1,64 @@
 <template>
-  <section class="py-20 lg:py-28 bg-[#F6F6F6] border-b border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
-        <div class="lg:col-span-8">
-          <span class="font-mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">
-            01 / Manifiesto Institucional
-          </span>
-          <h2 class="font-barlow font-bold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tighter text-neutral-900 leading-[0.95]">
-            Un Umbral entre la Escuela y el Mundo
-          </h2>
-        </div>
-        <div class="lg:col-span-4 lg:text-right">
-          <p class="font-mono text-xs uppercase tracking-widest text-neutral-500">
-            Monterrey · Febrero 2027
-          </p>
-        </div>
-      </div>
+  <section class="w-full bg-white py-16 lg:py-28">
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <!-- Columna Izquierda: Logo y Manifiesto Oficial -->
+        <div class="lg:col-span-6 flex flex-col space-y-8">
+          <div class="max-w-[450px] w-full">
+            <img
+              src="/images/logo-umbral.png"
+              alt="Umbral - CRGS"
+              class="w-full h-auto object-contain"
+            />
+          </div>
 
-      <!-- Bento / Editorial Collage Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
-        <!-- Main Statement Card -->
-        <div class="md:col-span-7 bg-white p-8 sm:p-12 border border-neutral-200/80 flex flex-col justify-between shadow-sm">
-          <div class="space-y-6">
-            <div class="w-12 h-1 bg-neutral-950" />
-            <p class="font-barlow font-light text-2xl sm:text-3xl lg:text-4xl text-neutral-900 leading-snug tracking-tight">
-              <strong class="font-semibold">UMBRAL \ CRGS</strong> es la plataforma del Centro Roberto Garza Sada concebida para visibilizar el rigor creativo de sus estudiantes y egresados.
+          <div class="space-y-6 font-barlow text-2xl md:text-[36px] leading-[1.2] text-[#1C1C1C] text-justify font-normal">
+            <p>
+              Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> la Escuela de Arte, Arquitectura y Diseño de la Universidad de Monterrey.
             </p>
-            <p class="font-sans text-neutral-600 text-sm sm:text-base leading-relaxed">
-              Funciona como un umbral entre la Escuela y el mundo, conectando los procesos de experimentación académica con el circuito del coleccionismo, galerías e industrias de vanguardia.
+
+            <p>
+              <strong class="font-bold">Funciona como un umbral entre la Escuela y el mundo:</strong> el lugar donde el trabajo de sus estudiantes y egresados, diseñadores y artistas, se cura, se presenta y se pone a circular. Más que un mercado, es una vitrina del talento que se forma en sus aulas y talleres.
             </p>
-            <p class="font-sans text-neutral-600 text-sm sm:text-base leading-relaxed">
-              La <strong class="text-neutral-900 font-medium">Repentina Zona Maco 2027</strong> es el primer capítulo de este proyecto: un ejercicio de 48 horas continuas donde estudiantes de Arquitectura, Arte y Diseño desarrollaron prototipos y piezas que ahora se presentan en la feria de arte más relevante de América Latina.
+
+            <p>
+              Cada pieza que aparece aquí atravesó el mismo camino: un pensamiento que se hizo materia para convertirse finalmente en creación.
+            </p>
+
+            <p>
+              <strong class="font-bold">La Repentina Zona Maco 2027 es el primer capítulo de este proyecto.</strong>
             </p>
           </div>
-
-          <div class="pt-8 mt-8 border-t border-neutral-100 flex items-center justify-between">
-            <span class="font-mono text-xs uppercase tracking-wider text-neutral-400">Escuela de Arte y Diseño</span>
-            <NuxtLink to="/crgs" class="font-barlow font-bold text-sm tracking-widest uppercase text-neutral-900 hover:text-neutral-600 flex items-center gap-1.5 transition-colors">
-              <span>Leer Más</span>
-              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </NuxtLink>
-          </div>
         </div>
 
-        <!-- Architectural Image Bento 1: Building View -->
-        <div class="md:col-span-5 relative group overflow-hidden border border-neutral-200 bg-neutral-900 min-h-[300px] md:min-h-[auto]">
-          <img
-            src="/images/crgs-building.png"
-            alt="Edificio Centro Roberto Garza Sada por Tadao Ando"
-            class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-            <span class="font-mono text-[11px] text-neutral-300 uppercase tracking-widest">La Puerta de la Creación</span>
-            <h3 class="font-barlow font-bold text-2xl text-white uppercase tracking-tight">Hormigón Vaciado en Sitio</h3>
+        <!-- Columna Derecha: Composición geométrica con fotos y polígono amarillo -->
+        <div class="lg:col-span-6 relative flex flex-col items-center">
+          <!-- Foto superior: Geometría CRGS -->
+          <div class="w-full max-w-[580px] overflow-hidden">
+            <img
+              src="/images/crgs-geometry.png"
+              alt="Arquitectura geométrica del Centro Roberto Garza Sada"
+              class="w-full h-auto object-cover"
+            />
           </div>
-        </div>
 
-        <!-- Architectural Image Bento 2: Geometry -->
-        <div class="md:col-span-6 relative group overflow-hidden border border-neutral-200 bg-neutral-900 h-72 sm:h-80">
-          <img
-            src="/images/crgs-geometry.png"
-            alt="Geometría y cortes de luz en el CRGS"
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-6">
-            <span class="font-mono text-[11px] text-neutral-300 uppercase tracking-widest">Luz & Tensión</span>
-            <h3 class="font-barlow font-bold text-2xl text-white uppercase tracking-tight">Cortes Geométricos Parabólicos</h3>
+          <!-- Triángulo amarillo dorado intermedio solapado -->
+          <div class="relative z-10 w-44 sm:w-60 lg:w-72 -my-8 sm:-my-12 lg:-my-14 pointer-events-none select-none">
+            <img
+              src="/images/intro-polygon-yellow.svg"
+              alt=""
+              class="w-full h-auto object-contain"
+              aria-hidden="true"
+            />
           </div>
-        </div>
 
-        <!-- Architectural Image Bento 3: Details & Texture -->
-        <div class="md:col-span-6 relative group overflow-hidden border border-neutral-200 bg-neutral-900 h-72 sm:h-80">
-          <img
-            src="/images/crgs-details.png"
-            alt="Detalles tectónicos y materialidad del CRGS"
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-6">
-            <span class="font-mono text-[11px] text-neutral-300 uppercase tracking-widest">Materialidad</span>
-            <h3 class="font-barlow font-bold text-2xl text-white uppercase tracking-tight">Texturas del Encofrado Manual</h3>
+          <!-- Foto inferior: Detalles tectónicos CRGS -->
+          <div class="w-full max-w-[580px] overflow-hidden">
+            <img
+              src="/images/crgs-details.png"
+              alt="Detalles de hormigón y encofrado del Centro Roberto Garza Sada"
+              class="w-full h-auto object-cover"
+            />
           </div>
         </div>
       </div>
@@ -90,5 +67,5 @@
 </template>
 
 <script setup lang="ts">
-// Sección Intro y Manifiesto de Umbral
+// Introducción oficial y composición geométrica de Umbral CRGS
 </script>

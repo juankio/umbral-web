@@ -1,162 +1,110 @@
 <template>
-  <section class="py-20 lg:py-28 bg-[#FAFAFA] border-b border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Title -->
-      <div class="mb-16">
-        <span class="font-mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">
-          02 / Legado & Visión
-        </span>
-        <h2 class="font-barlow font-bold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tighter text-neutral-900 leading-[0.95]">
-          Nuestra Inspiración
-        </h2>
-        <p class="mt-3 font-barlow text-xl sm:text-2xl text-neutral-600 font-light tracking-wide max-w-2xl">
-          Conoce acerca de los que hicieron el Centro Roberto Garza Sada una realidad.
-        </p>
-      </div>
+  <section class="w-full">
+    <!-- Bloque 1: Contenedor Negro #1C1C1C (Nuestra Inspiración) -->
+    <div class="w-full bg-[#1C1C1C] text-white py-20 lg:py-32">
+      <div class="max-w-[1720px] mx-auto px-6 sm:px-12 space-y-20 lg:space-y-28">
+        <!-- Encabezado de Inspiración -->
+        <div class="text-center space-y-4">
+          <h2 class="font-barlow font-medium text-5xl md:text-[90px] lg:text-[128px] text-white text-center leading-tight uppercase">
+            NUESTRA INSPIRACIÓN
+          </h2>
+          <p class="font-barlow text-xl md:text-[36px] lg:text-[48px] text-white/90 text-center leading-snug font-normal max-w-5xl mx-auto">
+            Conoce acerca de los que hicieron el Centro Roberto Garza Sada una realidad.
+          </p>
+        </div>
 
-      <!-- Don Roberto & Doña Margarita Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <!-- Don Roberto Garza Sada Card -->
-        <article class="bg-white border border-neutral-200 p-8 sm:p-10 flex flex-col justify-between group hover:border-neutral-900 transition-colors shadow-sm">
-          <div>
-            <div class="flex items-center gap-6 mb-6">
-              <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-none overflow-hidden bg-neutral-100 border border-neutral-200 flex-shrink-0">
-                <img
-                  src="/images/roberto-garza-sada.png"
-                  alt="Don Roberto Garza Sada"
-                  class="w-full h-full object-cover grayscale contrast-110 group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div>
-                <span class="font-mono text-xs uppercase tracking-widest text-neutral-500">Mecenazgo e Industria</span>
-                <h3 class="font-barlow font-bold text-2xl sm:text-3xl text-neutral-900 uppercase tracking-tight">
-                  Don Roberto Garza Sada
-                </h3>
-                <p class="font-barlow text-sm text-neutral-600 uppercase tracking-wider">1895 – 1979</p>
-              </div>
-            </div>
-            <p class="font-sans text-neutral-600 text-sm sm:text-base leading-relaxed">
-              Empresario, humanista y filántropo visionario. Su convicción en el poder transformador de la educación superior y el desarrollo industrial sentó las bases para el fomento a las artes y las ciencias aplicadas en el norte de México.
-            </p>
+        <!-- Don Roberto Garza Sada -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div class="lg:col-span-5 flex justify-center">
+            <img
+              src="/images/roberto-garza-sada.png"
+              alt="Don Roberto Garza Sada"
+              class="w-full max-w-[500px] h-auto object-cover"
+            />
           </div>
-          <div class="pt-6 mt-6 border-t border-neutral-100 font-mono text-xs text-neutral-400 uppercase tracking-widest">
-            Pilar Fundacional · UDEM
-          </div>
-        </article>
-
-        <!-- Doña Margarita Garza Sada de Fernández Card -->
-        <article class="bg-white border border-neutral-200 p-8 sm:p-10 flex flex-col justify-between group hover:border-neutral-900 transition-colors shadow-sm">
-          <div>
-            <div class="flex items-center gap-6 mb-6">
-              <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-none overflow-hidden bg-neutral-100 border border-neutral-200 flex-shrink-0">
-                <img
-                  src="/images/margarita-garza-sada.png"
-                  alt="Doña Margarita Garza Sada de Fernández"
-                  class="w-full h-full object-cover grayscale contrast-110 group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div>
-                <span class="font-mono text-xs uppercase tracking-widest text-neutral-500">Promotora de las Artes</span>
-                <h3 class="font-barlow font-bold text-2xl sm:text-3xl text-neutral-900 uppercase tracking-tight">
-                  Doña Margarita Garza Sada
-                </h3>
-                <p class="font-barlow text-sm text-neutral-600 uppercase tracking-wider">de Fernández · 1925 – 2014</p>
-              </div>
-            </div>
-            <p class="font-sans text-neutral-600 text-sm sm:text-base leading-relaxed">
-              Incansable coleccionista y promotora cultural. Su generosidad e insistencia en dotar a México de un espacio educativo con estándares arquitectónicos mundiales hicieron posible encomendar esta sede al maestro Tadao Ando.
-            </p>
-          </div>
-          <div class="pt-6 mt-6 border-t border-neutral-100 font-mono text-xs text-neutral-400 uppercase tracking-widest">
-            Impulsora del CRGS
-          </div>
-        </article>
-      </div>
-
-      <!-- Tadao Ando Highlight Section -->
-      <article class="relative overflow-hidden bg-[#151515] text-white border border-neutral-800 p-8 sm:p-12 lg:p-16">
-        <!-- Background Arch Polygon Graphic with subtle floating -->
-        <img
-          ref="tadaoArchRef"
-          src="/images/tadao-arch.svg"
-          alt="Geometría Tadao Ando"
-          class="absolute -right-16 -bottom-16 w-96 lg:w-[540px] opacity-20 pointer-events-none filter blur-[1px] will-change-transform"
-        />
-
-        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div class="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-            <div class="relative w-40 h-48 sm:w-48 sm:h-56 overflow-hidden border border-neutral-700 bg-neutral-900 shadow-2xl mb-4">
-              <img
-                src="/images/tadao-ando.png"
-                alt="Tadao Ando - Arquitecto Premio Pritzker"
-                class="w-full h-full object-cover grayscale contrast-125"
-              />
-            </div>
-            <span class="font-mono text-xs uppercase tracking-widest text-neutral-400">Premio Pritzker 1995</span>
-            <h3 class="font-barlow font-bold text-3xl sm:text-4xl text-white uppercase tracking-tight">
-              Tadao Ando
+          <div class="lg:col-span-7 space-y-6">
+            <h3 class="font-barlow font-medium text-3xl md:text-[48px] text-white leading-tight">
+              † Don Roberto Garza Sada
             </h3>
-            <p class="font-barlow text-sm text-neutral-400 uppercase tracking-wider">Osaka, Japón</p>
-          </div>
-
-          <div class="lg:col-span-8 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-neutral-800 border border-neutral-700 font-mono text-xs uppercase tracking-widest text-purple-300">
-              <span>La Puerta de la Creación</span>
-            </div>
-
-            <h4 class="font-barlow font-bold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tighter text-white leading-tight">
-              Un volumen escultórico de 30 metros de vuelo en concreto
-            </h4>
-
-            <p class="font-sans text-neutral-300 text-sm sm:text-base leading-relaxed">
-              El Centro Roberto Garza Sada fue concebido por Tadao Ando como una pieza escultórica habitable. El corazón del edificio es un gran vano parabólico que se eleva sobre el terreno, creando una puerta monumental que enmarca las montañas de Monterrey y simboliza el ingreso de los estudiantes a la vida creativa.
-            </p>
-
-            <blockquote class="border-l-2 border-purple-500 pl-4 py-1 italic font-barlow text-lg sm:text-xl text-neutral-200">
-              "El espacio debe tocar el alma de quienes lo habitan. Este edificio busca encender la chispa creadora en cada joven que cruza su umbral."
-            </blockquote>
-
-            <div class="pt-4 flex items-center gap-4">
-              <NuxtLink
-                to="/crgs"
-                class="font-barlow font-bold text-base uppercase tracking-widest text-white hover:text-purple-300 flex items-center gap-2 transition-colors"
-              >
-                <span>Descubre la arquitectura completa</span>
-                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </NuxtLink>
+            <div class="space-y-4 font-barlow text-lg md:text-[28px] lg:text-[32px] text-white leading-[1.2] text-justify font-normal">
+              <p>
+                El Centro lleva el nombre de Don Roberto Garza Sada como homenaje a quien dejara en la UDEM una huella más de su generoso espíritu y de su voluntad por impulsar el desarrollo cultural de nuestra sociedad.
+              </p>
+              <p>
+                El CRGS, sin duda, cristaliza sus intereses y grandes pasiones. Ingeniero de profesión, Roberto Garza Sada, fue por sus obras y sus talentos personales, un arquitecto, un diseñador y un artista; un espíritu innovador, generoso y sensible que marcó su tiempo y su entorno.
+              </p>
+              <p>
+                Sus aspiraciones superaron, en mucho, la esfera de la empresa, para volcarse generosamente hacia la promoción del arte, la educación y la cultura.
+              </p>
             </div>
           </div>
         </div>
-      </article>
+
+        <!-- Doña Margarita Garza Sada de Fernández -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div class="order-2 lg:order-1 lg:col-span-7 space-y-6">
+            <h3 class="font-barlow font-medium text-3xl md:text-[45px] text-white leading-tight">
+              † Doña Margarita Garza Sada de Fernández
+            </h3>
+            <div class="space-y-4 font-barlow text-lg md:text-[28px] lg:text-[32px] text-white leading-[1.2] text-justify font-normal">
+              <p>
+                De su padre, Don Roberto Garza Sada, heredó el amor por el arte, la inteligencia para los negocios, y su compromiso para el desarrollo de la comunidad.
+              </p>
+              <p>
+                Fue la principal benefactora del Centro Roberto Garza Sada de Arte, Arquitectura y Diseño de la Universidad de Monterrey, el cual visionó como un “portal de conocimiento y un crisol para la creatividad” y para el cual invitó a colaborar en su creación al reconocido arquitecto japonés Tadao Ando.
+              </p>
+              <p>
+                Durante su vida hizo innumerables contribuciones en educación, arte y filantropía.
+              </p>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 lg:col-span-5 flex justify-center">
+            <img
+              src="/images/margarita-garza-sada.png"
+              alt="Doña Margarita Garza Sada de Fernández"
+              class="w-full max-w-[540px] h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 2: SECCIÓN TADAO ANDO EN FONDO BLANCO PURO #FFFFFF -->
+    <div class="w-full bg-white py-20 lg:py-32">
+      <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <!-- Izquierda: Retrato angular recortado tadao-masked.png -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-start">
+            <img
+              src="/images/tadao-masked.png"
+              alt="Retrato de Tadao Ando"
+              class="w-full max-w-[520px] h-auto object-contain"
+            />
+          </div>
+
+          <!-- Derecha: Título, Subtítulo y Biografía oficial -->
+          <div class="lg:col-span-7 space-y-6">
+            <h3 class="font-barlow text-5xl md:text-[80px] lg:text-[96px] text-[#1C1C1C] leading-none font-normal">
+              Tadao Ando
+            </h3>
+            <p class="font-barlow font-medium text-2xl md:text-[36px] text-[#1C1C1C] leading-tight">
+              La visión artística del diseño del edificio
+            </p>
+            <div class="space-y-4 font-barlow text-lg md:text-[28px] lg:text-[32px] text-[#1C1C1C] leading-[1.2] text-justify font-normal">
+              <p>
+                El Centro Roberto Garza Sada (CRGS) fue diseñado por Tadao Ando, ganador del Premio Pritzker 1995 y uno de los arquitectos más reconocidos en el mundo. Su primera obra en Latinoamérica, refleja la trascendencia del proyecto.
+              </p>
+              <p>
+                Tadao Ando nació en 1941 en Osaka, Japón. En 1969, estableció la compañía Tadao Ando Architect & Associates y, desde entonces, ha sido reconocido por sus numerosos trabajos en Japón y en otros países. Entre sus reconocimientos se incluyen virtualmente todos los premios que Japón concede para la arquitectura y las artes, así como grandes premios internacionales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-import { animate } from 'animejs'
-
-const tadaoArchRef = ref<HTMLElement | null>(null)
-let tadaoFloatAnim: ReturnType<typeof animate> | null = null
-
-onMounted(() => {
-  if (import.meta.client && tadaoArchRef.value) {
-    tadaoFloatAnim = animate(tadaoArchRef.value, {
-      translateY: [-10, 8],
-      rotate: [-0.8, 0.8],
-      duration: 6500,
-      alternate: true,
-      loop: true,
-      ease: 'inOutSine'
-    })
-  }
-})
-
-onUnmounted(() => {
-  if (tadaoFloatAnim && typeof tadaoFloatAnim.pause === 'function') {
-    tadaoFloatAnim.pause()
-  }
-})
+// Sección Nuestra Inspiración: Don Roberto Garza Sada, Doña Margarita Garza Sada y Tadao Ando
 </script>

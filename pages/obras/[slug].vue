@@ -1,26 +1,30 @@
 <template>
-  <div v-if="obra">
+  <div v-if="obra" class="bg-white min-h-screen">
+    <!-- Título monumental (160px) & Encabezado -->
+    <ObraHero :obra="obra" />
+
+    <!-- Split Layout Exacto -->
     <article class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <!-- Columna Izquierda Fija/Sticky con Metadata -->
+        <!-- Columna Izquierda Fija: Año 2026, Precio $500, Diseñadoras, Cita, Materiales, Horas -->
         <div class="lg:col-span-5">
           <ObraMeta :obra="obra" />
         </div>
 
-        <!-- Columna Derecha con Galería de Imágenes en Alta Resolución -->
+        <!-- Columna Derecha: Fotos en Alta Resolución (obra-encuadre-1, 2, 3) -->
         <div class="lg:col-span-7">
           <ObraGallery :images="obra.gallery" :title="obra.title" />
         </div>
       </div>
     </article>
 
-    <!-- Carrusel Inferior de Proyectos Relacionados -->
+    <!-- Sección "Otros proyectos seleccionados" -->
     <ObraRelated :related="relatedObras" />
   </div>
 
-  <div v-else class="max-w-7xl mx-auto px-4 py-32 text-center">
-    <h1 class="font-barlow font-bold text-4xl text-neutral-900 uppercase">Obra no encontrada</h1>
-    <NuxtLink to="/zona-maco" class="mt-4 inline-block font-barlow text-lg text-neutral-600 underline">
+  <div v-else class="max-w-7xl mx-auto px-4 py-32 text-center bg-white min-h-screen">
+    <h1 class="font-barlow font-bold text-4xl text-neutral-950 uppercase tracking-tightest">Obra no encontrada</h1>
+    <NuxtLink to="/zona-maco" class="mt-4 inline-block font-barlow text-lg text-neutral-600 underline uppercase tracking-wider">
       Volver al catálogo de Zona Maco
     </NuxtLink>
   </div>
@@ -39,7 +43,7 @@ const obra = computed(() => getObraBySlug(slug.value))
 const relatedObras = computed(() => getRelatedObras(slug.value, 4))
 
 useSeoMeta({
-  title: computed(() => obra.value ? `${obra.value.title} · Zona Maco 2027 | UMBRAL` : 'Obra · UMBRAL'),
-  description: computed(() => obra.value?.description || 'Detalle de la obra seleccionada para Zona Maco 2027.')
+  title: computed(() => obra.value ? `${obra.value.title} · Zona Maco 2026 | UMBRAL` : 'Obra · UMBRAL'),
+  description: computed(() => obra.value?.description || 'Detalle de la obra seleccionada para Zona Maco 2026.')
 })
 </script>

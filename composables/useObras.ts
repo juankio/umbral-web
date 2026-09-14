@@ -24,18 +24,17 @@ export const useObras = () => {
       title: 'Encuadre',
       subtitle: 'Exploración geométrica del vacío y la masa',
       category: 'Diseño',
-      price: '$500 USD',
+      price: '$500',
       year: '2026',
       edition: 'Edición limitada 1/10',
-      designers: ['Ana Sofía Martínez', 'Carlos Lozano'],
-      materials: 'Concreto arquitectónico pulido, acero negro oxidado y vidrio óptico',
+      designers: ['Ximena Silva', 'Daniela García', 'María Regina Hinojosa'],
+      materials: 'Cemento de color, Barro, Yeso cerámico, Acrílicos de colores, Geopolímeros',
       dimensions: '45 × 32 × 18 cm',
-      hours: '140 horas de producción y acabado artesanal',
-      quote: 'El encuadre no encierra el espacio; le otorga una pausa para dialogar con la luz natural.',
+      hours: '1234 horas',
+      quote: 'Ciudades dentro de Ciudades',
       description: 'Inspirada en el monumental corte parabólico de Tadao Ando en La Puerta de la Creación, "Encuadre" condensa la tensión entre la pesadez telúrica del concreto y la permeabilidad lumínica. La pieza articula planos inclinados que enmarcan sombras dinámicas según el cenit solar.',
-      heroImage: '/images/obra-encuadre-hero.png',
+      heroImage: '/images/obra-encuadre-1.png',
       gallery: [
-        '/images/obra-encuadre-hero.png',
         '/images/obra-encuadre-1.png',
         '/images/obra-encuadre-2.png',
         '/images/obra-encuadre-3.png'
@@ -47,10 +46,10 @@ export const useObras = () => {
       title: 'Roberto',
       subtitle: 'Homenaje a la vocación filantrópica e industrial',
       category: 'Arte Moderno',
-      price: '$750 USD',
+      price: '$500',
       year: '2026',
       edition: 'Pieza única',
-      designers: ['Mateo Villarreal'],
+      designers: ['Mateo Villarreal', 'Sofía Elizondo'],
       materials: 'Bronce vaciado a la cera perdida, base en cantera gris',
       dimensions: '60 × 25 × 25 cm',
       hours: '180 horas',
@@ -61,14 +60,14 @@ export const useObras = () => {
         '/images/obra-roberto.png',
         '/images/obra-escultura.png'
       ],
-      colorBadge: 'bg-umbral-terracotta text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     },
     {
       slug: 'interconexion',
       title: 'Interconexión',
       subtitle: 'Flujos neuronales y convergencia multidisciplinaria',
       category: 'Diseño Emergente',
-      price: '$420 USD',
+      price: '$00',
       year: '2026',
       edition: 'Serie de 5',
       designers: ['Mariana Garza', 'Diego Sada'],
@@ -82,17 +81,17 @@ export const useObras = () => {
         '/images/obra-interconexion.png',
         '/images/crgs-details.png'
       ],
-      colorBadge: 'bg-umbral-green text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     },
     {
       slug: 'entretiempo',
       title: 'Entretiempo',
       subtitle: 'Pausa gravitacional sobre el hormigón',
       category: 'Arte Contemporáneo',
-      price: '$890 USD',
+      price: '$500',
       year: '2026',
       edition: 'Edición 2/3',
-      designers: ['Valentina Morales'],
+      designers: ['Valentina Morales', 'Andrés Cárdenas'],
       materials: 'Resina fenólica ámbar, escoria volcánica y latón cepillado',
       dimensions: '52 × 30 × 30 cm',
       hours: '210 horas',
@@ -103,17 +102,17 @@ export const useObras = () => {
         '/images/obra-entretiempo.png',
         '/images/obra-encuadre-2.png'
       ],
-      colorBadge: 'bg-umbral-amber text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     },
     {
       slug: 'sagaon',
       title: 'Sagaón',
       subtitle: 'Tipografía monumental como monumento táctil',
       category: 'Diseño',
-      price: '$380 USD',
+      price: '$00',
       year: '2026',
       edition: 'Edición de 12',
-      designers: ['Emilio Sagaón', 'CRGS Type Lab'],
+      designers: ['Emilio Sagaón', 'Alejandra Valdés'],
       materials: 'Madera de mezquite recuperado y tinta tipográfica mineral',
       dimensions: '70 × 50 × 6 cm',
       hours: '85 horas',
@@ -124,17 +123,17 @@ export const useObras = () => {
         '/images/obra-sagaon.png',
         '/images/obra-encuadre-1.png'
       ],
-      colorBadge: 'bg-neutral-800 text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     },
     {
       slug: 'reliquia',
       title: 'Reliquia',
       subtitle: 'Testimonio mineral de la cantera de Monterrey',
       category: 'Arte Moderno',
-      price: '$620 USD',
+      price: '$500',
       year: '2026',
       edition: 'Pieza única',
-      designers: ['Lucía Domínguez'],
+      designers: ['Lucía Domínguez', 'Mauricio Cantú'],
       materials: 'Piedra caliza erosionada y hoja de plata pura 999',
       dimensions: '35 × 28 × 22 cm',
       hours: '110 horas',
@@ -145,17 +144,17 @@ export const useObras = () => {
         '/images/obra-reliquia.png',
         '/images/crgs-details.png'
       ],
-      colorBadge: 'bg-neutral-700 text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     },
     {
       slug: 'mai',
       title: 'Mai',
       subtitle: 'Cerámica de alta temperatura y cenizas de encino',
       category: 'Diseño Emergente',
-      price: '$340 USD',
+      price: '$00',
       year: '2026',
       edition: 'Serie de 8',
-      designers: ['Camila Tanaka Treviño'],
+      designers: ['Camila Tanaka Treviño', 'Renata Lozano'],
       materials: 'Gres refractario, esmalte shino y chamota fina',
       dimensions: '28 × 24 × 24 cm',
       hours: '75 horas',
@@ -166,14 +165,14 @@ export const useObras = () => {
         '/images/obra-mai.png',
         '/images/obra-encuadre-3.png'
       ],
-      colorBadge: 'bg-umbral-terracotta text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     },
     {
       slug: 'cimiento',
       title: 'Cimiento',
       subtitle: 'Viga de compresión y anclaje gravitacional',
       category: 'Diseño',
-      price: '$1,150 USD',
+      price: '$500',
       year: '2026',
       edition: 'Edición 1/5',
       designers: ['Sebastián Cruz', 'Rodrigo Ramos'],
@@ -194,10 +193,10 @@ export const useObras = () => {
       title: 'Curado',
       subtitle: 'Monocromo táctil y pigmentos botánicos',
       category: 'Arte Contemporáneo',
-      price: '$590 USD',
+      price: '$00',
       year: '2026',
       edition: 'Pieza única',
-      designers: ['Paulina Treviño'],
+      designers: ['Paulina Treviño', 'Gabriel Almaguer'],
       materials: 'Lino belga crudo, carbón de ébano y cola de conejo',
       dimensions: '120 × 90 cm',
       hours: '130 horas',
@@ -208,17 +207,17 @@ export const useObras = () => {
         '/images/obra-curado.png',
         '/images/crgs-geometry.png'
       ],
-      colorBadge: 'bg-neutral-800 text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     },
     {
       slug: 'desmadre',
       title: 'Desmadre',
       subtitle: 'Orden fractal nacido del caos de taller',
       category: 'Diseño Emergente',
-      price: '$480 USD',
+      price: '$500',
       year: '2026',
       edition: 'Serie de 4',
-      designers: ['Rodrigo Garza', 'Estudio Repentina'],
+      designers: ['Rodrigo Garza', 'Estudio Repentina CRGS'],
       materials: 'Sobrantes de corte CNC, acrílico fundido y resina epóxica',
       dimensions: '55 × 45 × 15 cm',
       hours: '105 horas',
@@ -229,7 +228,7 @@ export const useObras = () => {
         '/images/obra-desmadre.png',
         '/images/hero-arch.svg'
       ],
-      colorBadge: 'bg-umbral-purple text-white'
+      colorBadge: 'bg-neutral-900 text-white'
     }
   ]
 
