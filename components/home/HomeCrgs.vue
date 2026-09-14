@@ -1,6 +1,6 @@
 <template>
   <section ref="sectionRef" class="relative w-full bg-white py-12 lg:py-20 overflow-hidden">
-    <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <!-- Columna Izquierda: Triángulo azul de fondo + Título y Descripción Oficial -->
         <div class="lg:col-span-6 relative">
@@ -53,7 +53,7 @@
               <img
                 src="/images/crgs-details.png"
                 alt="Interior y escaleras del Centro Roberto Garza Sada"
-                class="w-full aspect-square object-cover block transition-transform duration-700 ease-out hover:scale-105"
+                class="w-full aspect-square object-cover block grayscale contrast-110 brightness-95 transition-transform duration-700 ease-out hover:scale-105"
               />
             </div>
           </ArchitecturalBlueprintFrame>

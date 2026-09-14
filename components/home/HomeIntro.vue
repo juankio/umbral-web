@@ -1,6 +1,6 @@
 <template>
-  <section ref="sectionRef" class="w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-0 overflow-hidden">
-    <div class="max-w-[1240px] mx-auto px-6 sm:px-8">
+  <section ref="sectionRef" class="w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-14 items-center">
         <!-- Columna Izquierda: Logo y Manifiesto Oficial -->
         <div class="lg:col-span-7 flex flex-col space-y-6 sm:space-y-7">
@@ -24,21 +24,30 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Fotos encuadradas con triángulo amarillo solapado en diagonal -->
+        <!-- Columna Derecha: Fotos con marcos blueprint y triángulo amarillo en diagonal -->
         <div class="lg:col-span-5 relative flex flex-col items-center">
           <div
-            class="group w-full max-w-[380px] sm:max-w-[420px] overflow-hidden rounded-sm shadow-sm hover:shadow-md transition-all duration-700 ease-out will-change-transform"
+            class="w-full max-w-[380px] sm:max-w-[420px] transition-all duration-700 ease-out will-change-transform"
             :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
           >
-            <img
-              src="/images/crgs-geometry.png"
-              alt="Arquitectura geométrica del Centro Roberto Garza Sada"
-              class="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:contrast-[1.03]"
-            />
+            <ArchitecturalBlueprintFrame
+              theme="light"
+              technicalLabel="CRGS · VOLADIZO ESCULTÓRICO"
+              scaleLabel="ELEV · ATARDECER"
+              class="w-full"
+            >
+              <div class="overflow-hidden rounded-sm shadow-sm hover:shadow-md transition-shadow duration-500">
+                <img
+                  src="/images/crgs-geometry.png"
+                  alt="Arquitectura geométrica del Centro Roberto Garza Sada"
+                  class="w-full h-auto object-cover block transition-transform duration-700 ease-out hover:scale-105 hover:contrast-[1.03]"
+                />
+              </div>
+            </ArchitecturalBlueprintFrame>
           </div>
 
           <div
-            class="relative z-10 w-36 sm:w-44 lg:w-48 -my-8 sm:-my-10 lg:-my-12 pointer-events-none select-none will-change-transform"
+            class="relative z-20 w-36 sm:w-44 lg:w-48 -my-6 sm:-my-8 pointer-events-none select-none will-change-transform"
             :style="yellowParallaxStyle"
           >
             <div ref="yellowFloatingRef" class="w-full h-full flex items-center justify-center will-change-transform">
@@ -47,14 +56,23 @@
           </div>
 
           <div
-            class="group w-full max-w-[380px] sm:max-w-[420px] overflow-hidden rounded-sm shadow-sm hover:shadow-md transition-all duration-700 ease-out will-change-transform"
+            class="w-full max-w-[380px] sm:max-w-[420px] transition-all duration-700 ease-out will-change-transform"
             :class="isVisible ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-10'"
           >
-            <img
-              src="/images/crgs-details.png"
-              alt="Detalles de hormigón y encofrado del Centro Roberto Garza Sada"
-              class="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:contrast-[1.03]"
-            />
+            <ArchitecturalBlueprintFrame
+              theme="light"
+              technicalLabel="CRGS · ESCALINATA TECTÓNICA"
+              scaleLabel="CORTE B-B'"
+              class="w-full"
+            >
+              <div class="overflow-hidden rounded-sm shadow-sm hover:shadow-md transition-shadow duration-500">
+                <img
+                  src="/images/crgs-details.png"
+                  alt="Detalles de hormigón y encofrado del Centro Roberto Garza Sada"
+                  class="w-full h-auto object-cover block transition-transform duration-700 ease-out hover:scale-105 hover:contrast-[1.03]"
+                />
+              </div>
+            </ArchitecturalBlueprintFrame>
           </div>
         </div>
       </div>
@@ -66,6 +84,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
 import { animate } from 'animejs'
+import ArchitecturalBlueprintFrame from '~/components/ui/ArchitecturalBlueprintFrame.vue'
 
 const sectionRef = ref<HTMLElement | null>(null)
 const yellowFloatingRef = ref<HTMLElement | null>(null)

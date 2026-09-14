@@ -3,7 +3,7 @@
     ref="heroSectionRef"
     class="relative w-full overflow-hidden bg-white pt-6 pb-10 lg:pt-8 lg:pb-14"
   >
-    <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
       <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 lg:gap-8">
         <!-- Izquierda: Cruza el -->
         <div class="order-2 md:order-1 md:col-span-4 flex justify-center md:justify-end md:self-center pt-2 md:pt-16">
