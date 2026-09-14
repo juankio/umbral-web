@@ -81,31 +81,31 @@ const FACETS = [
   { id: 'left', clip: 'facet-left', bg: 'bg-gradient-to-r from-[#FAF9F6] via-[#F0ECE4] to-[#DFD9CD]', shade: 'bg-gradient-to-r from-transparent via-black/5 to-black/50', origin: '0% 50%', rx: 0, ry: -118, rz: -6, tz: 40, dx: 20, dy: 0 }
 ]
 
-// Reposo blanco puro (#FFFFFF) para progress <= 0.06
+// Reposo blanco puro (#FFFFFF) para progress <= 0.05
 const baseWhiteOpacity = computed(() => {
-  if (props.progress <= 0.06) return 1
-  if (props.progress >= 0.12) return 0
-  return 1 - (props.progress - 0.06) / 0.06
+  if (props.progress <= 0.05) return 1
+  if (props.progress >= 0.11) return 0
+  return 1 - (props.progress - 0.05) / 0.06
 })
 
-// Los matices de papel y textura solo surgen a partir de 0.06
+// Los matices de papel y textura solo surgen a partir de 0.05
 const facetShadeOpacity = computed(() => {
-  if (props.progress <= 0.06) return 0
-  return Math.min(Math.max((props.progress - 0.06) / 0.10, 0), 1)
+  if (props.progress <= 0.05) return 0
+  return Math.min(Math.max((props.progress - 0.05) / 0.10, 0), 1)
 })
 
-// Líneas de hendido: ocultas en reposo (progress <= 0.06), se desvanecen al abrir
+// Líneas de hendido: ocultas en reposo (progress <= 0.05), se desvanecen al abrir
 const linesOpacity = computed(() => {
-  if (props.progress <= 0.08) return 0
-  const fadeIn = Math.min(Math.max((props.progress - 0.08) / 0.05, 0), 1)
+  if (props.progress <= 0.05) return 0
+  const fadeIn = Math.min(Math.max((props.progress - 0.05) / 0.05, 0), 1)
   return fadeIn * Math.max(0, 1 - easedProgress.value * 2.8)
 })
 
-// Apertura dinámica y reactiva entre progress = 0.08 y progress = 0.45
+// Apertura dinámica y reactiva entre progress = 0.05 y progress = 0.65
 const openFactor = computed(() => {
-  if (props.progress <= 0.08) return 0
-  if (props.progress >= 0.45) return 1
-  return (props.progress - 0.08) / 0.37
+  if (props.progress <= 0.05) return 0
+  if (props.progress >= 0.65) return 1
+  return (props.progress - 0.05) / 0.60
 })
 
 const easedProgress = computed(() => {
@@ -113,16 +113,16 @@ const easedProgress = computed(() => {
   return 1 - Math.pow(1 - t, 3)
 })
 
-// Disolución limpia del papel hacia el cosmos negro entre 0.38 y 0.48
+// Disolución limpia del papel hacia el cosmos negro entre 0.52 y 0.70
 const paperOpacity = computed(() => {
   if (isReducedMotion.value) {
-    if (props.progress <= 0.08) return 1
-    if (props.progress >= 0.40) return 0
-    return 1 - (props.progress - 0.08) / 0.32
+    if (props.progress <= 0.05) return 1
+    if (props.progress >= 0.65) return 0
+    return 1 - (props.progress - 0.05) / 0.60
   }
-  if (props.progress <= 0.38) return 1
-  if (props.progress >= 0.48) return 0
-  return 1 - (props.progress - 0.38) / 0.10
+  if (props.progress <= 0.52) return 1
+  if (props.progress >= 0.70) return 0
+  return 1 - (props.progress - 0.52) / 0.18
 })
 
 const facetList = computed(() => {

@@ -42,6 +42,9 @@ export default <Partial<Config>>{
       letterSpacing: {
         tightest: '-0.04em',
         tighter: '-0.02em',
+      },
+      opacity: {
+        45: '0.45',
       }
     }
   }

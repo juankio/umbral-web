@@ -88,7 +88,7 @@ const isReducedMotion = ref(false)
 
 const centerStyle = computed(() => {
   if (isReducedMotion.value) return { opacity: '1', transform: 'translate3d(-50%, -50%, 0) scale(1)' }
-  const p = Math.min(Math.max((props.progress - 0.18) / 0.20, 0), 1)
+  const p = Math.min(Math.max((props.progress - 0.18) / 0.32, 0), 1)
   const scale = 0.92 + p * 0.08
   return {
     opacity: p.toFixed(2),
@@ -99,7 +99,7 @@ const centerStyle = computed(() => {
 
 const annotationStyle = computed(() => {
   if (isReducedMotion.value) return {}
-  const p = Math.min(Math.max((props.progress - 0.20) / 0.18, 0), 1)
+  const p = Math.min(Math.max((props.progress - 0.18) / 0.32, 0), 1)
   return {
     opacity: (p * 0.85).toFixed(2),
     transform: `translateY(${(1 - p) * 12}px)`,
@@ -113,9 +113,9 @@ const getNodeStyle = (index: number) => {
     return { opacity: 1, transform }
   }
 
-  // 7 nodos orbitales distribuidos armónicamente entre progress = 0.25 y 0.60
-  const start = 0.25 + (index * 0.035)
-  const span = 0.14
+  // Nodos aparecen escalonados entre 0.26 y 0.72
+  const start = 0.26 + (index * 0.045)
+  const span = 0.15
   const p = Math.min(Math.max((props.progress - start) / span, 0), 1)
 
   const translateY = (1 - p) * 18

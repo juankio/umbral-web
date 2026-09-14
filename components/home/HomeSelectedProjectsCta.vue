@@ -1,36 +1,39 @@
 <template>
-  <section class="w-full bg-[#FFFFFF] py-24 sm:py-32 lg:py-40 relative overflow-hidden select-none">
+  <section class="w-full bg-white py-20 sm:py-28 lg:py-36 relative overflow-hidden select-none">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex justify-center items-center">
       <NuxtLink
         to="/zona-maco"
-        class="group relative flex flex-col items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#7B4680]/30 rounded-3xl p-6 sm:p-10 transition-all duration-300 w-full max-w-5xl"
-        aria-label="Haz click para ver los Proyectos Seleccionados"
+        class="group relative flex flex-col items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#7B4680]/30 rounded-3xl p-4 sm:p-8 w-full max-w-5xl"
+        aria-label="Ver Proyectos Seleccionados - Zona Maco 2026"
       >
-        <!-- Triángulo Morado / Ciruela (#7B4680) de Figma SVG centrado -->
-        <div class="relative w-full max-w-[340px] sm:max-w-[500px] md:max-w-[640px] lg:max-w-[760px] flex items-center justify-center">
+        <!-- Polígono Morado y Capa de Texto Calibrada en el Centroide Geométrico -->
+        <div
+          class="relative w-full max-w-[360px] sm:max-w-[540px] md:max-w-[680px] lg:max-w-[780px] flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none"
+        >
+          <!-- SVG del Polígono Asimétrico (#7B4680) -->
           <svg
-            viewBox="0 0 520 340"
-            class="w-full h-auto drop-shadow-[0_20px_40px_rgba(123,70,128,0.25)] transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-1"
+            viewBox="0 0 780 440"
+            class="w-full h-auto drop-shadow-[0_25px_50px_rgba(123,70,128,0.3)] transition-all duration-500 ease-out motion-reduce:transition-none"
             aria-hidden="true"
           >
-            <polygon points="0,220 520,0 360,340" fill="#7B4680" />
+            <polygon points="0,240 780,0 640,440" fill="#7B4680" />
           </svg>
 
-          <!-- Bloque de Texto Centrado Superpuesto al Triángulo Morado -->
-          <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10 pointer-events-none">
-            <p class="font-barlow text-2xl sm:text-3xl text-neutral-800 text-center font-normal tracking-tight mb-2 sm:mb-4">
+          <!-- Contenedor de Texto Posicionado en el Centroide de la Masa Morada -->
+          <div
+            class="absolute left-[61.5%] top-[53.5%] -translate-x-1/2 -translate-y-1/2 w-auto max-w-[320px] sm:max-w-[380px] md:max-w-[420px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+          >
+            <span class="font-barlow text-xs sm:text-sm tracking-[0.2em] uppercase text-white/95 font-semibold mb-1">
               Haz click para ver los
-            </p>
+            </span>
 
-            <h2 class="font-barlow font-bold italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-neutral-950 tracking-tightest leading-none text-center">
-              <span class="relative inline-block pb-1 sm:pb-2">
-                Proyectos Seleccionados
-                <!-- Subrayado suave al hacer hover -->
-                <span
-                  class="absolute bottom-0 left-0 w-full h-[3px] sm:h-[4px] md:h-[6px] bg-neutral-950 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out pointer-events-none"
-                />
-              </span>
+            <h2 class="font-barlow font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-white uppercase tracking-tight leading-[0.92] select-none text-shadow-[0_4px_16px_rgba(0,0,0,0.35)]">
+              Proyectos<br> Seleccionados
             </h2>
+
+            <span class="font-mono text-[10px] sm:text-[11px] text-white uppercase tracking-[0.12em] bg-black/30 px-3.5 py-1 rounded-full border border-white/20 mt-2.5 inline-block whitespace-nowrap">
+              Zona Maco 2026 · Exposición Oficial →
+            </span>
           </div>
         </div>
       </NuxtLink>
@@ -39,6 +42,11 @@
 </template>
 
 <script setup lang="ts">
-// Sección 'Proyectos Seleccionados' de Figma con polígono morado (#7B4680)
-// Hover interactivo con subrayado suave y enlace a la página de obras (/zona-maco)
+// Calibración geométrica exacta basada en el centroide de la masa morada (#7B4680)
 </script>
+
+<style scoped>
+.text-shadow-\[0_4px_16px_rgba\(0\,0\,0\,0\.35\)\] {
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+</style>

@@ -1,123 +1,125 @@
 <template>
-  <section class="py-16 lg:py-24 bg-white border-b border-neutral-200">
+  <section id="contexto" class="py-16 sm:py-20 lg:py-24 bg-white border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-12">
-        <span class="font-mono text-xs uppercase tracking-widest text-neutral-500 block mb-2">
-          Génesis & Proceso
-        </span>
-        <h2 class="font-barlow font-bold text-4xl sm:text-5xl uppercase tracking-tight text-neutral-950">
-          Contexto repentina y de dónde nacen los proyectos
-        </h2>
-        <p class="mt-2 font-barlow text-xl text-neutral-600 font-light tracking-wide max-w-2xl">
-          48 horas de inmersión total en los talleres del CRGS donde la frontera entre disciplinas se desvanece.
-        </p>
-      </div>
-
-      <!-- Two Column Context: Video card & Process sketches -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        <!-- Video Card -->
-        <div class="lg:col-span-7 bg-neutral-950 border border-neutral-800 text-white flex flex-col justify-between overflow-hidden shadow-lg group">
-          <div class="relative aspect-video bg-neutral-900 overflow-hidden">
-            <img
-              src="/images/crgs-building.png"
-              alt="Video Documental Repentina CRGS"
-              class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-            />
-            <div class="absolute inset-0 bg-neutral-950/40 flex items-center justify-center">
-              <button
-                type="button"
-                @click="isPlaying = !isPlaying"
-                class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/90 text-neutral-950 flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-2xl focus:outline-none"
-                aria-label="Reproducir video documental de la repentina"
-              >
-                <svg v-if="!isPlaying" class="w-7 h-7 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <svg v-else class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                </svg>
-              </button>
-            </div>
-            <div class="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 bg-neutral-900/90 text-neutral-300 border border-neutral-700">
-              Cápsula Audiovisual · 03:45 min
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-8 space-y-3">
-            <h3 class="font-barlow font-bold text-2xl uppercase tracking-tight text-white">
-              Documental: Materia en Suspensión
-            </h3>
-            <p class="font-sans text-neutral-400 text-sm leading-relaxed">
-              Registro del proceso de ideación, prototipado rápido en talleres de madera, metal y vaciado de concreto en los niveles 2 y 4 de La Puerta de la Creación.
-            </p>
-          </div>
+      <!-- 1. Columnas superiores limpias de texto editorial -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start mb-12 sm:mb-16">
+        <div>
+          <h2 class="font-barlow font-bold text-2xl sm:text-4xl text-neutral-950 leading-tight uppercase tracking-tight">
+            Contexto repentina y de dónde nacen los proyectos
+          </h2>
+          <p class="mt-4 font-sans text-neutral-600 text-sm sm:text-base leading-relaxed font-light">
+            48 horas de inmersión total y experimentación continua en los talleres del Centro Roberto Garza Sada. La materia dialoga con la tensión del vacío para engendrar soluciones que disuelven fronteras entre disciplinas.
+          </p>
         </div>
 
-        <!-- Sketches & Workshop Notes -->
-        <div class="lg:col-span-5 flex flex-col justify-between gap-6">
-          <div class="bg-white border border-neutral-200 p-6 sm:p-8 shadow-sm flex-1">
-            <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-4">
-              <span class="font-mono text-xs uppercase tracking-wider text-neutral-500">Bitácora de Taller</span>
-              <span class="font-mono text-xs text-neutral-400">Ed. 2026</span>
-            </div>
-            <div class="space-y-4">
-              <div class="flex gap-4 items-start">
-                <div class="w-12 h-12 bg-neutral-100 border border-neutral-200 flex-shrink-0 flex items-center justify-center font-mono text-xs font-bold">
-                  01
-                </div>
-                <div>
-                  <h4 class="font-barlow font-bold text-lg uppercase text-neutral-900 tracking-tight">El Disparador Creativo</h4>
-                  <p class="font-sans text-neutral-600 text-xs sm:text-sm mt-1">
-                    Cada equipo recibió un fragmento de hormigón extraído de las obras de mantenimiento del edificio como eje conceptual ineludible.
-                  </p>
-                </div>
-              </div>
+        <div>
+          <h2 class="font-barlow font-bold text-2xl sm:text-4xl text-neutral-950 leading-tight uppercase tracking-tight">
+            Información general y proceso de selección
+          </h2>
+          <p class="mt-4 font-sans text-neutral-600 text-sm sm:text-base leading-relaxed font-light">
+            El comité curatorial del CRGS y especialistas invitados de Zona Maco evaluaron más de 60 propuestas de taller para seleccionar las 10 piezas definitivas que conforman la colección oficial 2026.
+          </p>
+        </div>
+      </div>
 
-              <div class="flex gap-4 items-start">
-                <div class="w-12 h-12 bg-neutral-100 border border-neutral-200 flex-shrink-0 flex items-center justify-center font-mono text-xs font-bold">
-                  02
-                </div>
-                <div>
-                  <h4 class="font-barlow font-bold text-lg uppercase text-neutral-900 tracking-tight">Cruce Disciplinar Forzado</h4>
-                  <p class="font-sans text-neutral-600 text-xs sm:text-sm mt-1">
-                    Los equipos se integraron obligatoriamente por estudiantes de Artes, Diseño Industrial, Gráfico y Arquitectura de Interiores.
-                  </p>
-                </div>
-              </div>
+      <!-- 2. Marco panorámico arquitectónico de video -->
+      <div class="max-w-6xl mx-auto aspect-[16/8] sm:aspect-[16/9] bg-neutral-900 border border-neutral-300 relative overflow-hidden group shadow-lg">
+        <img
+          src="/images/crgs-building.png"
+          alt="Video proceso repentina"
+          class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-60 group-hover:scale-105 group-hover:opacity-75 transition-all duration-700"
+        />
+        <div class="absolute inset-0 bg-neutral-950/50 group-hover:bg-neutral-950/40 transition-colors duration-500" />
 
-              <div class="flex gap-4 items-start">
-                <div class="w-12 h-12 bg-neutral-100 border border-neutral-200 flex-shrink-0 flex items-center justify-center font-mono text-xs font-bold">
-                  03
-                </div>
-                <div>
-                  <h4 class="font-barlow font-bold text-lg uppercase text-neutral-900 tracking-tight">Curaduría Externa</h4>
-                  <p class="font-sans text-neutral-600 text-xs sm:text-sm mt-1">
-                    Un jurado internacional seleccionó las 10 piezas finales que viajan con acreditación completa al pabellón de Zona Maco.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Trazos arquitectónicos diagonales en cruz / perspectiva isométrica -->
+        <svg
+          class="absolute inset-0 w-full h-full pointer-events-none z-10"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          viewBox="0 0 100 100"
+        >
+          <line x1="0" y1="0" x2="100" y2="100" stroke="rgba(255,255,255,0.22)" stroke-width="0.35" stroke-dasharray="2,2" />
+          <line x1="100" y1="0" x2="0" y2="100" stroke="rgba(255,255,255,0.22)" stroke-width="0.35" stroke-dasharray="2,2" />
+          <polygon points="50,0 100,50 50,100 0,50" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.3" stroke-dasharray="1.5,1.5" />
+          <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="0.25" />
+          <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.12)" stroke-width="0.25" />
+          <path d="M 0,5 L 5,5 L 5,0" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
+          <path d="M 100,5 L 95,5 L 95,0" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
+          <path d="M 0,95 L 5,95 L 5,100" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
+          <path d="M 100,95 L 95,95 L 95,100" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
+        </svg>
 
-          <!-- Secondary Image Preview -->
-          <div class="relative overflow-hidden h-36 border border-neutral-200 bg-neutral-900">
-            <img
-              src="/images/crgs-geometry.png"
-              alt="Bocetos y geometría"
-              class="w-full h-full object-cover grayscale contrast-125"
-            />
-            <div class="absolute inset-0 bg-neutral-950/60 p-4 flex items-center justify-between">
-              <span class="font-barlow font-bold text-lg uppercase tracking-wider text-white">
-                Ver Cuadernos de Bocetos
-              </span>
-              <span class="font-mono text-xs uppercase tracking-widest text-neutral-300">
-                PDF Archivo (14 MB)
-              </span>
-            </div>
-          </div>
+        <!-- Metadatos perimetrales técnicos -->
+        <div class="absolute top-4 left-4 sm:top-6 sm:left-6 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-300 z-20">
+          REGISTRO AUDIOVISUAL · 03:45 MIN
+        </div>
+        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-300 z-20">
+          25°39'45"N 100°25'08"W
+        </div>
+        <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 z-20 hidden sm:block">
+          CRGS · TALLERES DE PRODUCCIÓN
+        </div>
+        <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 z-20 hidden sm:block">
+          EDICIÓN ZONA MACO 2026
+        </div>
+
+        <!-- Contenido centralizado sobre el video -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-20">
+          <button
+            type="button"
+            @click="isPlaying = true"
+            class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 hover:bg-white text-white hover:text-neutral-950 border border-white/40 backdrop-blur-md flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50 cursor-pointer"
+            aria-label="Reproducir video proceso repentina"
+          >
+            <svg class="w-7 h-7 sm:w-8 sm:h-8 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+          <h3 class="font-barlow font-bold text-3xl sm:text-5xl text-white uppercase tracking-wide drop-shadow-lg">
+            Video proceso repentina
+          </h3>
         </div>
       </div>
     </div>
+
+    <!-- Reproductor Modal Overlay -->
+    <Teleport to="body">
+      <div
+        v-if="isPlaying"
+        class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+        tabindex="0"
+        @click.self="isPlaying = false"
+        @keydown.esc="isPlaying = false"
+      >
+        <div class="relative w-full max-w-5xl aspect-video bg-neutral-950 border border-neutral-800 shadow-2xl overflow-hidden flex flex-col justify-between p-6 sm:p-10">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs uppercase tracking-widest text-neutral-400">CRGS · CÁPSULA DOCUMENTAL</span>
+            <button
+              type="button"
+              @click="isPlaying = false"
+              class="font-mono text-xs uppercase tracking-widest text-neutral-300 hover:text-white px-3 py-1 border border-neutral-700 hover:border-white transition-colors"
+            >
+              Cerrar [ESC]
+            </button>
+          </div>
+          <div class="text-center my-auto">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-full border border-white/20 flex items-center justify-center">
+              <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping" />
+            </div>
+            <h4 class="font-barlow font-bold text-2xl sm:text-4xl text-white uppercase tracking-tight mb-2">
+              Materia en Suspensión · Proceso de Taller
+            </h4>
+            <p class="font-sans text-neutral-400 text-sm max-w-lg mx-auto">
+              Documental del proceso de ideación, prototipado 1:1 y selección curatorial de las obras para Zona Maco 2026.
+            </p>
+          </div>
+          <div class="flex items-center justify-between font-mono text-[11px] text-neutral-500">
+            <span>DURACIÓN: 03:45 MIN</span>
+            <span>CENTRO ROBERTO GARZA SADA</span>
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </section>
 </template>
 
