@@ -1,8 +1,8 @@
 <template>
-  <section class="w-full bg-[#5E5E5E] py-8 md:py-0 md:min-h-[188px] flex items-center">
+  <section class="w-full bg-[#5E5E5E] py-6 sm:py-8 md:py-0 md:min-h-[130px] lg:min-h-[150px] flex items-center">
     <div class="max-w-[1720px] w-full mx-auto px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
       <!-- Texto a la izquierda -->
-      <h2 class="font-barlow font-bold text-3xl md:text-5xl lg:text-[64px] text-[#F6F6F6] uppercase tracking-wide leading-none text-center md:text-left">
+      <h2 class="font-barlow font-bold text-2xl sm:text-4xl lg:text-5xl text-[#F6F6F6] uppercase tracking-wide leading-none text-center md:text-left">
         DEL 3 AL 7 DE FEBRERO 2027
       </h2>
 
@@ -13,7 +13,7 @@
           to="/zona-maco"
           @mousemove="handleMouseMove"
           @mouseleave="handleMouseLeave"
-          class="relative inline-flex items-center justify-center bg-white text-[#1C1C1C] font-barlow font-bold text-2xl md:text-3xl lg:text-[40px] px-8 lg:px-12 py-3 lg:py-4 uppercase leading-none transition-colors duration-200 hover:bg-neutral-100 active:scale-[0.98] shadow-sm whitespace-nowrap will-change-transform select-none"
+          class="relative inline-flex items-center justify-center bg-white text-[#1C1C1C] font-barlow font-bold text-xl sm:text-2xl lg:text-3xl px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 uppercase leading-none transition-colors duration-200 hover:bg-neutral-100 active:scale-[0.98] shadow-sm whitespace-nowrap will-change-transform select-none"
         >
           <span ref="textRef" class="inline-block pointer-events-none will-change-transform">
             VER UBICACIÓN
