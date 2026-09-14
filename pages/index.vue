@@ -6,6 +6,7 @@
     <HomeBannerZM />
     <HomeCrgs />
     <HomeInspiration />
+    <HomeSelectedProjectsCta />
   </div>
 </template>
 

@@ -11,7 +11,7 @@ export interface AutoplayOptions {
 export function useInspirationAutoplay(options: AutoplayOptions) {
   const {
     total,
-    initialIndex = 1,
+    initialIndex = 0,
     duration = 5500,
     tickInterval = 50,
     onNavigate

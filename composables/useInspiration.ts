@@ -21,7 +21,7 @@ export const inspirationCarouselSlides: InspirationSlide[] = [
       'Durante su vida hizo innumerables contribuciones en educación, arte y filantropía.'
     ],
     image: '/images/margarita-garza-sada.png',
-    clipPath: 'polygon(0% 100%, 65% 0%, 100% 100%)',
+    clipPath: 'polygon(0% 100%, 72% 0%, 100% 100%)',
     alt: 'Doña Margarita Garza Sada de Fernández'
   },
   {
@@ -46,7 +46,7 @@ export const inspirationCarouselSlides: InspirationSlide[] = [
       'Tadao Ando nació en 1941 en Osaka, Japón. En 1969, estableció la compañía Tadao Ando Architect & Associates y, desde entonces, ha sido reconocido por sus numerosos trabajos en Japón y en otros países. Entre sus reconocimientos se incluyen virtualmente todos los premios que Japón concede para la arquitectura y las artes, así como grandes premios internacionales.'
     ],
     image: '/images/tadao-ando.png',
-    clipPath: 'polygon(0% 50%, 100% 0%, 100% 100%)',
+    clipPath: 'polygon(100% 0%, 0% 50%, 100% 100%)',
     alt: 'Tadao Ando'
   }
 ]
