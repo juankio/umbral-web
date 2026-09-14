@@ -31,7 +31,11 @@
           <div class="w-full lg:w-1/2 flex justify-center">
             <div
               class="relative w-full max-w-[520px] aspect-[4/3] overflow-hidden bg-neutral-100 shadow-md group"
-              :class="idx % 2 === 0 ? '[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]' : '[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]'"
+              :style="{
+                clipPath: idx % 2 === 0
+                  ? 'polygon(0% 15%, 85% 0%, 100% 85%, 15% 100%)'
+                  : 'polygon(15% 0%, 100% 15%, 85% 100%, 0% 85%)'
+              }"
             >
               <img
                 :src="prog.image"
@@ -90,36 +94,36 @@ const programs: Program[] = [
     code: 'LAED',
     name: 'Licenciatura en Animación y Efectos Digitales',
     description: 'Desarrolla narrativas visuales inmersivas, animación digital 2D/3D y efectos especiales cinematográficos con rigor artístico y técnico.',
-    image: '/images/obra-interconexion.png',
-    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-animacion-y-efectos-digitales'
+    image: '/images/crgs-student-laed.png',
+    link: 'https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional/licenciatura-en-animacion-y-efectos-digitales'
   },
   {
     code: 'LDG',
     name: 'Licenciatura en Diseño Gráfico',
     description: 'Domina los sistemas de comunicación visual, tipografía experimental, diseño editorial y experiencias multimedia de alcance internacional.',
-    image: '/images/crgs-details.png',
-    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-grafico'
-  },
-  {
-    code: 'LDI',
-    name: 'Licenciatura en Diseño Industrial',
-    description: 'Diseña objetos, sistemas de mobiliario y productos manufacturados con alto valor estético, funcional y rigor productivo sostenible.',
-    image: '/images/obra-sagaon-vase.png',
-    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-industrial'
+    image: '/images/crgs-student-ldg.png',
+    link: 'https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional/licenciatura-en-diseno-grafico'
   },
   {
     code: 'LINT',
     name: 'Licenciatura en Diseño de Interiores',
     description: 'Transforma atmósferas y espacios habitables integrando iluminación arquitectónica, tecnología constructiva y psicología ambiental.',
-    image: '/images/carrera-lint.png',
-    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-de-interiores'
+    image: '/images/crgs-student-lint.png',
+    link: 'https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional/licenciatura-en-diseno-de-interiores'
   },
   {
     code: 'LDM',
     name: 'Licenciatura en Diseño de Moda',
     description: 'Crea colecciones textiles, indumentaria contemporánea y patronaje tridimensional con un profundo enfoque en la sostenibilidad.',
-    image: '/images/carrera-design.png',
-    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-de-modas'
+    image: '/images/crgs-student-ldm.png',
+    link: 'https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional/licenciatura-en-diseno-de-moda'
+  },
+  {
+    code: 'LDI',
+    name: 'Licenciatura en Diseño Industrial',
+    description: 'Diseña objetos, sistemas de mobiliario y productos manufacturados con alto valor estético, funcional y rigor productivo sostenible.',
+    image: '/images/crgs-student-ldi.png',
+    link: 'https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional/licenciatura-en-diseno-industrial'
   }
 ]
 

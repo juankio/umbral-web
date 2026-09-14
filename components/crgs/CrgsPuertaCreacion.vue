@@ -12,11 +12,6 @@
       <div class="w-[500px] sm:w-[750px] h-[360px] sm:h-[500px] bg-[#4BA550]/20 blur-[140px] rounded-full" />
     </div>
 
-    <!-- Anotación a la izquierda (exacta de Figma) -->
-    <p class="font-barlow italic text-neutral-400 text-xs sm:text-sm max-w-[190px] leading-snug absolute left-6 sm:left-12 lg:left-16 top-1/2 -translate-y-1/2 z-20 text-left pointer-events-none">
-      Video + close up del triangulo como la inspo de "close the gap" pero como abriendose
-    </p>
-
     <!-- Escenario Monumental Origami 3D -->
     <div class="relative w-full max-w-[980px] mx-auto px-4 flex items-center justify-center perspective-[1200px]">
       <!-- Cápsula Audiovisual Documental (Nivel Fondo Z-10) -->

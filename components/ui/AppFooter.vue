@@ -28,28 +28,34 @@
       <div class="md:col-span-4 flex justify-center">
         <ul class="flex flex-col space-y-3 sm:space-y-4 font-barlow text-lg sm:text-xl md:text-2xl text-white leading-relaxed text-center md:text-left">
           <li>
-            <NuxtLink
-              to="/crgs"
+            <a
+              href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/centro-artes-udem"
+              target="_blank"
+              rel="noopener noreferrer"
               class="group relative inline-block text-white/90 hover:text-white underline underline-offset-8 decoration-white/40 hover:decoration-[#F6D152] transition-colors duration-200 active:scale-95"
             >
-              <span>Centro de Artes I UDEM</span>
-            </NuxtLink>
+              <span>Centro de Artes | UDEM</span>
+            </a>
           </li>
           <li>
-            <NuxtLink
-              to="/crgs"
+            <a
+              href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/quienes-somos/historia"
+              target="_blank"
+              rel="noopener noreferrer"
               class="group relative inline-block text-white/90 hover:text-white underline underline-offset-8 decoration-white/40 hover:decoration-[#F6D152] transition-colors duration-200 active:scale-95"
             >
               <span>Historia del CRGS</span>
-            </NuxtLink>
+            </a>
           </li>
           <li>
-            <NuxtLink
-              to="/crgs"
+            <a
+              href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/recorrido-crgs"
+              target="_blank"
+              rel="noopener noreferrer"
               class="group relative inline-block text-white/90 hover:text-white underline underline-offset-8 decoration-white/40 hover:decoration-[#F6D152] transition-colors duration-200 active:scale-95"
             >
               <span>Recorridos</span>
-            </NuxtLink>
+            </a>
           </li>
           <li>
             <a
