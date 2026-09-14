@@ -26,7 +26,7 @@ export const inspirationCarouselSlides: InspirationSlide[] = [
   {
     id: 'roberto',
     name: '† Don Roberto Garza Sada',
-    badge: 'PATRÓN E INSPIRACIÓN',
+    badge: 'INSPIRACIÓN',
     paragraphs: [
       'El Centro lleva el nombre de Don Roberto Garza Sada como homenaje a quien dejara en la UDEM una huella más de su generoso espíritu y de su voluntad por impulsar el desarrollo cultural de nuestra sociedad.',
       'El CRGS, sin duda, cristaliza sus intereses y grandes pasiones. Ingeniero de profesión, Roberto Garza Sada, fue por sus obras y sus talentos personales, un arquitecto, un diseñador y un artista; un espíritu innovador, generoso y sensible que marcó su tiempo y su entorno.',
