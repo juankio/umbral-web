@@ -16,7 +16,7 @@
               <strong class="font-bold">Funciona como un umbral entre la Escuela y el mundo:</strong> el lugar donde el trabajo de sus estudiantes y egresados, diseñadores y artistas, se cura, se presenta y se pone a circular. Más que un mercado, es una vitrina del talento que se forma en sus aulas y talleres.
             </p>
             <p>
-              Cada pieza que aparece aquí atravesó el mismo camino: un pensamiento que se hizo materia para convertirse finalmente en creación.
+              Cada pieza que atravesó el mismo camino: un pensamiento que se hizo materia para convertirse finalmente en creación.
             </p>
             <p>
               <strong class="font-bold">La Repentina Zona Maco 2027 es el primer capítulo de este proyecto.</strong>
@@ -24,7 +24,7 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Fotos con marcos blueprint y triángulo amarillo en diagonal -->
+        <!-- Columna Derecha: Fotos con marcos blueprint y origami amarillo facetado -->
         <div class="lg:col-span-5 relative flex flex-col items-center">
           <div
             class="w-full max-w-[380px] sm:max-w-[420px] transition-all duration-700 ease-out will-change-transform"
@@ -46,12 +46,31 @@
             </ArchitecturalBlueprintFrame>
           </div>
 
+          <!-- Origami Amarillo Plegado con Flexión 3D al Hover y Sombra Proyectada Dinámica -->
           <div
-            class="relative z-20 w-36 sm:w-44 lg:w-48 -my-6 sm:-my-8 pointer-events-none select-none will-change-transform"
+            class="relative z-20 w-40 sm:w-48 lg:w-52 -my-6 sm:-my-8 select-none will-change-transform cursor-pointer"
             :style="yellowParallaxStyle"
+            @mouseenter="onYellowEnter"
+            @mousemove="onYellowMouseMove"
+            @mouseleave="onYellowMouseLeave"
           >
             <div ref="yellowFloatingRef" class="w-full h-full flex items-center justify-center will-change-transform">
-              <img src="/images/intro-polygon-yellow.svg" alt="" class="w-full h-auto object-contain filter drop-shadow-md" aria-hidden="true" />
+              <div class="w-full h-full will-change-transform" :style="yellow3dStyle">
+                <svg viewBox="0 0 652 432" class="w-full h-auto overflow-visible block" fill="none">
+                  <!-- Cara Superior (Luz Directa) -->
+                  <polygon points="0,276.52 651.90,0 536.28,216" fill="#F6D152" stroke="#F6D152" stroke-width="0.5" />
+                  <!-- Cara Inferior (En Sombra Plegada) -->
+                  <polygon points="0,276.52 536.28,216 420.66,432" fill="#E69D37" stroke="#E69D37" stroke-width="0.5" />
+                  <!-- Líneas Auxiliares Isométricas de Doblez Origami -->
+                  <line x1="268.14" y1="108" x2="536.28" y2="216" stroke="#D48D28" stroke-width="1" stroke-dasharray="4 3" opacity="0.45" />
+                  <line x1="210.33" y1="354.26" x2="536.28" y2="216" stroke="#C47A20" stroke-width="1" stroke-dasharray="4 3" opacity="0.45" />
+                  <!-- Pliegue Central de Origami -->
+                  <line x1="0" y1="276.52" x2="536.28" y2="216" stroke="#D48D28" stroke-width="2.5" stroke-linecap="round" />
+                  <!-- Micro-Nodos de Calibración Geométrica -->
+                  <circle cx="536.28" cy="216" r="3.5" fill="#D48D28" />
+                  <circle cx="0" cy="276.52" r="3" fill="#D48D28" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -91,6 +110,12 @@ const yellowFloatingRef = ref<HTMLElement | null>(null)
 const { y: scrollY } = useWindowScroll()
 const isVisible = ref(false)
 const sectionTop = ref(0)
+const isReducedMotion = ref(false)
+
+const yellowHoverX = ref(0)
+const yellowHoverY = ref(0)
+const isYellowHovered = ref(false)
+
 let yellowAnimation: any = null
 let observer: IntersectionObserver | null = null
 
@@ -98,6 +123,25 @@ const updateOffset = () => {
   if (sectionRef.value && import.meta.client) {
     sectionTop.value = window.scrollY + sectionRef.value.getBoundingClientRect().top
   }
+}
+
+const onYellowEnter = () => {
+  if (!isReducedMotion.value) isYellowHovered.value = true
+}
+
+const onYellowMouseMove = (e: MouseEvent) => {
+  if (isReducedMotion.value) return
+  const target = e.currentTarget as HTMLElement
+  if (!target) return
+  const rect = target.getBoundingClientRect()
+  yellowHoverX.value = ((e.clientX - rect.left) / rect.width - 0.5) * 2
+  yellowHoverY.value = ((e.clientY - rect.top) / rect.height - 0.5) * 2
+}
+
+const onYellowMouseLeave = () => {
+  isYellowHovered.value = false
+  yellowHoverX.value = 0
+  yellowHoverY.value = 0
 }
 
 const yellowParallaxStyle = computed(() => {
@@ -109,9 +153,27 @@ const yellowParallaxStyle = computed(() => {
   }
 })
 
+const yellow3dStyle = computed(() => {
+  if (isReducedMotion.value) return {}
+  const rotX = isYellowHovered.value ? -yellowHoverY.value * 22 : 0
+  const rotY = isYellowHovered.value ? yellowHoverX.value * 24 : 0
+  const scale = isYellowHovered.value ? 1.08 : 1
+  const shadowX = isYellowHovered.value ? -yellowHoverX.value * 14 : 0
+  const shadowY = isYellowHovered.value ? 16 + yellowHoverY.value * 10 : 8
+  const blur = isYellowHovered.value ? 24 : 10
+  const alpha = isYellowHovered.value ? 0.45 : 0.2
+
+  return {
+    transform: `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(${scale}, ${scale}, ${scale})`,
+    filter: `drop-shadow(${shadowX}px ${shadowY}px ${blur}px rgba(212, 141, 40, ${alpha})) drop-shadow(0 8px 16px rgba(0,0,0,0.08))`,
+    transition: 'transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease-out'
+  }
+})
+
 onMounted(() => {
   if (!import.meta.client) return
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  isReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (isReducedMotion.value) {
     isVisible.value = true
     return
   }
@@ -144,8 +206,6 @@ onMounted(() => {
 onUnmounted(() => {
   if (import.meta.client) window.removeEventListener('resize', updateOffset)
   observer?.disconnect()
-  if (yellowAnimation && typeof yellowAnimation.pause === 'function') {
-    yellowAnimation.pause()
-  }
+  if (yellowAnimation?.pause) yellowAnimation.pause()
 })
 </script>

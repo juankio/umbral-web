@@ -1,20 +1,28 @@
 <template>
   <div
     ref="rootRef"
-    class="relative w-full h-full flex items-center justify-center select-none"
+    class="relative w-full h-full flex items-center justify-center select-none cursor-pointer"
     style="perspective: 1200px"
-    @mousemove="handleMouseMove"
+    @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
+    @mousemove="handleMouseMove"
   >
-    <!-- Haz de luz interior del UMBRAL al abrir la puerta con scroll -->
+    <!-- Haz de luz interior del UMBRAL ("La Puerta de la Creación") -->
     <div
       class="absolute inset-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center"
       :style="{ opacity: lightBeamOpacity }"
     >
-      <div class="w-28 sm:w-36 h-60 bg-gradient-to-t from-transparent via-[#f5a623]/25 to-white/40 blur-xl rounded-full transform -rotate-12 scale-125" />
+      <div
+        class="w-32 sm:w-44 h-64 bg-gradient-to-t from-[#f5a623]/10 via-[#f5a623]/40 to-amber-100/70 blur-2xl rounded-full transform -rotate-12 transition-transform duration-500 will-change-transform"
+        :style="{ transform: `rotate(-12deg) scale(${lightBeamScale})` }"
+      />
+      <div
+        class="w-10 sm:w-14 h-52 bg-gradient-to-b from-amber-100 via-white/80 to-[#f5a623] blur-md rounded-full transition-opacity duration-300"
+        :style="{ opacity: innerGlowOpacity }"
+      />
     </div>
 
-    <!-- Contenedor Maestro 3D (Tilt, Parallax y Oscilación) -->
+    <!-- Contenedor Maestro 3D -->
     <div
       ref="container3DRef"
       class="relative w-full h-full will-change-transform"
@@ -73,6 +81,11 @@ const { y: scrollY } = useWindowScroll()
 const mouseX = ref(0)
 const mouseY = ref(0)
 const isReducedMotion = ref(false)
+const isHovered = ref(false)
+const hoverProgress = ref(0)
+const hoverState = { val: 0 }
+
+let hoverAnim: any = null
 let idleFloatAnim: any = null
 
 const handleMouseMove = (e: MouseEvent) => {
@@ -82,22 +95,50 @@ const handleMouseMove = (e: MouseEvent) => {
   mouseY.value = ((e.clientY - rect.top) / rect.height - 0.5) * 2
 }
 
+const handleMouseEnter = () => {
+  if (isReducedMotion.value) return
+  isHovered.value = true
+  if (hoverAnim?.pause) hoverAnim.pause()
+  hoverAnim = animate(hoverState, {
+    val: 0.85,
+    duration: 600,
+    ease: 'outExpo',
+    onUpdate: () => { hoverProgress.value = hoverState.val }
+  })
+}
+
 const handleMouseLeave = () => {
   mouseX.value = 0
   mouseY.value = 0
+  if (isReducedMotion.value) return
+  isHovered.value = false
+  if (hoverAnim?.pause) hoverAnim.pause()
+  hoverAnim = animate(hoverState, {
+    val: 0,
+    duration: 700,
+    ease: 'outCubic',
+    onUpdate: () => { hoverProgress.value = hoverState.val }
+  })
 }
 
-const openProgress = computed(() => {
+const scrollProgress = computed(() => {
   if (isReducedMotion.value) return 0
   return Math.min(Math.max(scrollY.value / 450, 0), 1)
 })
 
-const lightBeamOpacity = computed(() => openProgress.value * 0.9)
+const openProgress = computed(() => {
+  if (isReducedMotion.value) return 0
+  return Math.min(1, scrollProgress.value + hoverProgress.value)
+})
+
+const lightBeamOpacity = computed(() => Math.min(1, openProgress.value * 0.95 + (isHovered.value ? 0.35 : 0)))
+const lightBeamScale = computed(() => 1 + hoverProgress.value * 0.45)
+const innerGlowOpacity = computed(() => 0.25 + hoverProgress.value * 0.7)
 
 const master3DStyle = computed(() => {
   if (isReducedMotion.value) return {}
-  const rotX = -mouseY.value * 7
-  const rotY = mouseX.value * 9
+  const rotX = -mouseY.value * 8
+  const rotY = mouseX.value * 10
   const transY = openProgress.value * 28
   return {
     transform: `rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(${transY}px)`,
@@ -107,9 +148,9 @@ const master3DStyle = computed(() => {
 
 const leftWingStyle = computed(() => {
   if (isReducedMotion.value) return {}
-  const angle = openProgress.value * -32
-  const shiftX = openProgress.value * -16
-  const shiftZ = openProgress.value * 24
+  const angle = openProgress.value * -35
+  const shiftX = openProgress.value * -20
+  const shiftZ = openProgress.value * 30
   return {
     transform: `rotateY(${angle}deg) rotateX(${openProgress.value * 6}deg) translate3d(${shiftX}px, 0, ${shiftZ}px)`,
     transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -118,9 +159,9 @@ const leftWingStyle = computed(() => {
 
 const rightWingStyle = computed(() => {
   if (isReducedMotion.value) return {}
-  const angle = openProgress.value * 35
-  const shiftX = openProgress.value * 18
-  const shiftZ = openProgress.value * -20
+  const angle = openProgress.value * 38
+  const shiftX = openProgress.value * 22
+  const shiftZ = openProgress.value * -24
   return {
     transform: `rotateY(${angle}deg) rotateX(${openProgress.value * -5}deg) translate3d(${shiftX}px, 0, ${shiftZ}px)`,
     transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -130,9 +171,7 @@ const rightWingStyle = computed(() => {
 const specularHighlightStyle = computed(() => {
   const x = (mouseX.value + 1) * 50
   const y = (mouseY.value + 1) * 50
-  return {
-    background: `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.4) 0%, transparent 60%)`
-  }
+  return { background: `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.4) 0%, transparent 60%)` }
 })
 
 onMounted(() => {
@@ -140,32 +179,25 @@ onMounted(() => {
   isReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   if (isReducedMotion.value) return
 
-  // Origami Unfold: Hoja virtual se pliega en 3D en el espacio
   if (container3DRef.value) {
     animate(container3DRef.value, {
       opacity: [0, 1], scale: [0.55, 1], rotateX: [65, 0], rotateY: [-50, 0],
       duration: 1400, ease: 'outExpo'
     })
-  }
-
-  // Alas convergen a posición monolítica
-  if (leftWingRef.value && rightWingRef.value) {
-    animate(leftWingRef.value, { rotateY: [-55, 0], duration: 1300, delay: 150, ease: 'outCubic' })
-    animate(rightWingRef.value, { rotateY: [60, 0], duration: 1300, delay: 200, ease: 'outCubic' })
-  }
-
-  // Respiración ingrávida en reposo
-  if (container3DRef.value) {
     idleFloatAnim = animate(container3DRef.value, {
       translateY: [-6, 6], rotateZ: [-1.2, 1.2], duration: 4600, delay: 1400,
       alternate: true, loop: true, ease: 'inOutSine'
     })
   }
+
+  if (leftWingRef.value && rightWingRef.value) {
+    animate(leftWingRef.value, { rotateY: [-55, 0], duration: 1300, delay: 150, ease: 'outCubic' })
+    animate(rightWingRef.value, { rotateY: [60, 0], duration: 1300, delay: 200, ease: 'outCubic' })
+  }
 })
 
 onUnmounted(() => {
-  if (idleFloatAnim && typeof idleFloatAnim.pause === 'function') {
-    idleFloatAnim.pause()
-  }
+  if (idleFloatAnim?.pause) idleFloatAnim.pause()
+  if (hoverAnim?.pause) hoverAnim.pause()
 })
 </script>
