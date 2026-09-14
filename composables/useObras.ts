@@ -5,6 +5,7 @@ export interface Obra {
   category: 'Diseño' | 'Arte Contemporáneo' | 'Diseño Emergente' | 'Arte Moderno'
   price: string
   year: string
+  publishedDate?: string
   edition?: string
   designers: string[]
   materials: string
@@ -26,14 +27,15 @@ export const useObras = () => {
       category: 'Diseño',
       price: '$500',
       year: '2026',
+      publishedDate: '28/08/2026',
       edition: 'Edición limitada 1/10',
       designers: ['Ximena Silva', 'Daniela García', 'María Regina Hinojosa'],
       materials: 'Cemento de color, Barro, Yeso cerámico, Acrílicos de colores, Geopolímeros',
       dimensions: '45 × 32 × 18 cm',
       hours: '1234 horas',
       quote: 'Ciudades dentro de Ciudades',
-      description: 'Inspirada en el monumental corte parabólico de Tadao Ando en La Puerta de la Creación, "Encuadre" condensa la tensión entre la pesadez telúrica del concreto y la permeabilidad lumínica. La pieza articula planos inclinados que enmarcan sombras dinámicas según el cenit solar.',
-      heroImage: '/images/obra-encuadre-1.png',
+      description: 'Inspirada en el monumental corte parabólico de Tadao Ando en La Puerta de la Creación, "Encuadre" condensa la tensión entre la pesadez telúrica del concreto y la permeabilidad lumínica.\n\nLa pieza articula planos inclinados que enmarcan sombras dinámicas según el cenit solar, integrando el vacío como materia plástica fundamental.',
+      heroImage: '/images/obra-encuadre-red.png',
       gallery: [
         '/images/obra-encuadre-1.png',
         '/images/obra-encuadre-2.png',
@@ -55,52 +57,10 @@ export const useObras = () => {
       hours: '180 horas',
       quote: 'La materia recuerda el carácter firme de quienes levantaron una escuela sobre la montaña.',
       description: 'Una abstracción tectónica de la solidez y visión del mecenazgo industrial regiomontano. Superficies ásperas contrastadas con aristas afiladas como navajas de afeitar.',
-      heroImage: '/images/obra-roberto.png',
+      heroImage: '/images/obra-roberto-table.png',
       gallery: [
-        '/images/obra-roberto.png',
-        '/images/obra-escultura.png'
-      ],
-      colorBadge: 'bg-neutral-900 text-white'
-    },
-    {
-      slug: 'interconexion',
-      title: 'Interconexión',
-      subtitle: 'Flujos neuronales y convergencia multidisciplinaria',
-      category: 'Diseño Emergente',
-      price: '$00',
-      year: '2026',
-      edition: 'Serie de 5',
-      designers: ['Mariana Garza', 'Diego Sada'],
-      materials: 'Aluminio anodizado mate y filamento bio-polímero translúcido',
-      dimensions: '38 × 38 × 12 cm',
-      hours: '95 horas',
-      quote: 'Ninguna disciplina existe aislada dentro del umbral del CRGS.',
-      description: 'Representa el nodo colaborativo entre arte, diseño y tecnología. La urdimbre de líneas genera una celosía cinemática que muta según la perspectiva del observador.',
-      heroImage: '/images/obra-interconexion.png',
-      gallery: [
-        '/images/obra-interconexion.png',
-        '/images/crgs-details.png'
-      ],
-      colorBadge: 'bg-neutral-900 text-white'
-    },
-    {
-      slug: 'entretiempo',
-      title: 'Entretiempo',
-      subtitle: 'Pausa gravitacional sobre el hormigón',
-      category: 'Arte Contemporáneo',
-      price: '$500',
-      year: '2026',
-      edition: 'Edición 2/3',
-      designers: ['Valentina Morales', 'Andrés Cárdenas'],
-      materials: 'Resina fenólica ámbar, escoria volcánica y latón cepillado',
-      dimensions: '52 × 30 × 30 cm',
-      hours: '210 horas',
-      quote: 'El tiempo se suspende en el pliegue entre el día y la noche.',
-      description: 'Pieza que captura la temporalidad de la luz en el cañón de Huasteca. Los estratos translúcidos retienen gradientes cálidos de oro y ámbar.',
-      heroImage: '/images/obra-entretiempo.png',
-      gallery: [
-        '/images/obra-entretiempo.png',
-        '/images/obra-encuadre-2.png'
+        '/images/obra-roberto-table.png',
+        '/images/obra-roberto.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -118,9 +78,9 @@ export const useObras = () => {
       hours: '85 horas',
       quote: 'La letra es estructura antes de ser sonido.',
       description: 'Una exploración de la letra no como signo legible inmediato sino como volumen arquitectónico habitable y contundente.',
-      heroImage: '/images/obra-sagaon.png',
+      heroImage: '/images/obra-sagaon-vase.png',
       gallery: [
-        '/images/obra-sagaon.png',
+        '/images/obra-sagaon-vase.png',
         '/images/obra-encuadre-1.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
@@ -142,6 +102,27 @@ export const useObras = () => {
       heroImage: '/images/obra-reliquia.png',
       gallery: [
         '/images/obra-reliquia.png',
+        '/images/crgs-details.png'
+      ],
+      colorBadge: 'bg-neutral-900 text-white'
+    },
+    {
+      slug: 'interconexion',
+      title: 'Interconexión',
+      subtitle: 'Flujos neuronales y convergencia multidisciplinaria',
+      category: 'Diseño Emergente',
+      price: '$00',
+      year: '2026',
+      edition: 'Serie de 5',
+      designers: ['Mariana Garza', 'Diego Sada'],
+      materials: 'Aluminio anodizado mate y filamento bio-polímero translúcido',
+      dimensions: '38 × 38 × 12 cm',
+      hours: '95 horas',
+      quote: 'Ninguna disciplina existe aislada dentro del umbral del CRGS.',
+      description: 'Representa el nodo colaborativo entre arte, diseño y tecnología. La urdimbre de líneas genera una celosía cinemática que muta según la perspectiva del observador.',
+      heroImage: '/images/obra-interconexion-tower.png',
+      gallery: [
+        '/images/obra-interconexion-tower.png',
         '/images/crgs-details.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'

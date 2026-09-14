@@ -1,91 +1,120 @@
 <template>
-  <div class="lg:sticky lg:top-28 space-y-7 pr-0 lg:pr-6">
-    <!-- Category & Edition Badges -->
-    <div class="flex items-center justify-between gap-4 pb-4 border-b border-neutral-200">
-      <span class="px-2.5 py-1 text-xs font-mono uppercase tracking-widest bg-neutral-950 text-white font-semibold">
-        {{ obra.category }}
-      </span>
-      <span class="font-mono text-xs uppercase tracking-widest text-neutral-500">
-        {{ obra.edition || 'Edición Oficial 2026' }}
-      </span>
+  <!-- Contenedor estático/sticky según especificación de Figma -->
+  <div class="lg:sticky lg:top-28 space-y-6">
+    <!-- Título de la Obra -->
+    <h1 class="font-barlow font-bold text-5xl sm:text-6xl text-neutral-950 uppercase leading-none">
+      {{ obra.title }}
+    </h1>
+
+    <!-- Texto de descripción: Dos párrafos editoriales bien formateados -->
+    <div class="space-y-4 font-sans text-sm text-neutral-700 leading-relaxed">
+      <p v-for="(paragraph, idx) in descriptionParagraphs" :key="idx">
+        {{ paragraph }}
+      </p>
     </div>
 
-    <!-- Price and Year Bar -->
-    <div class="flex items-baseline justify-between py-4 border-b border-neutral-200">
-      <div>
-        <span class="font-mono text-[11px] uppercase tracking-wider text-neutral-400 block mb-0.5">Precio Estimado</span>
-        <span class="font-barlow font-bold text-4xl sm:text-5xl text-neutral-950 tracking-tight">{{ obra.price }}</span>
-      </div>
-      <div class="text-right">
-        <span class="font-mono text-[11px] uppercase tracking-wider text-neutral-400 block mb-0.5">Año</span>
-        <span class="font-barlow font-bold text-3xl sm:text-4xl text-neutral-950">{{ obra.year }}</span>
-      </div>
-    </div>
+    <!-- Línea divisoria negra horizontal -->
+    <div class="h-[2px] bg-neutral-950 my-6" />
 
-    <!-- Designers / Diseñadoras -->
-    <div>
-      <span class="font-mono text-xs uppercase tracking-widest text-neutral-400 block mb-1.5">
-        Diseñadoras / Autoría
-      </span>
-      <div class="flex flex-wrap gap-x-2 gap-y-1">
-        <span
-          v-for="(designer, idx) in obra.designers"
-          :key="designer"
-          class="font-barlow font-bold text-xl uppercase tracking-wide text-neutral-950"
-        >
-          {{ designer }}<span v-if="idx < obra.designers.length - 1" class="text-neutral-300 ml-2">·</span>
+    <!-- Tabla / Ficha Técnica con líneas divisorias finas -->
+    <div class="space-y-4">
+      <!-- Fila 1: Publicado -->
+      <div class="flex items-baseline justify-between gap-4 py-1">
+        <span class="font-sans text-sm text-neutral-500 font-medium">Publicado</span>
+        <span class="font-sans text-sm text-neutral-950 text-right">
+          {{ publishedDate }}
         </span>
       </div>
-      <span class="font-mono text-xs text-neutral-500 block mt-1">
-        Estudiantes CRGS · Universidad de Monterrey
-      </span>
+
+      <!-- Línea divisoria fina -->
+      <div class="h-[1px] bg-neutral-200" />
+
+      <!-- Fila 2: Materiales -->
+      <div class="flex items-start justify-between gap-4 py-1">
+        <span class="font-sans text-sm text-neutral-500 font-medium pt-0.5 flex-shrink-0">Materiales</span>
+        <div class="flex flex-col items-end text-right space-y-1">
+          <span
+            v-for="(material, idx) in materialsList"
+            :key="idx"
+            class="font-sans text-sm text-neutral-950"
+          >
+            {{ material }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Línea divisoria fina -->
+      <div class="h-[1px] bg-neutral-200" />
+
+      <!-- Fila 3: Diseñado por -->
+      <div class="flex items-start justify-between gap-4 py-1">
+        <span class="font-sans text-sm text-neutral-500 font-medium pt-0.5 flex-shrink-0">Diseñado por</span>
+        <div class="flex flex-col items-end text-right space-y-1">
+          <span
+            v-for="(designer, idx) in obra.designers"
+            :key="idx"
+            class="font-sans text-sm text-neutral-950 font-medium"
+          >
+            {{ designer }}
+          </span>
+        </div>
+      </div>
     </div>
 
-    <!-- Quote / Cita "Ciudades dentro de Ciudades" -->
-    <blockquote class="border-l-2 border-neutral-950 pl-4 py-2 italic font-barlow text-2xl text-neutral-800 leading-snug">
-      "{{ obra.quote }}"
-    </blockquote>
-
-    <!-- Description -->
-    <div class="space-y-3 text-sm font-sans text-neutral-600 leading-relaxed">
-      <p>{{ obra.description }}</p>
-    </div>
-
-    <!-- Technical Specs (Materiales, Producción, Dimensiones) -->
-    <div class="bg-neutral-50 border border-neutral-200 p-5 space-y-3 font-mono text-xs">
-      <div class="flex justify-between items-start gap-4 border-b border-neutral-200/80 pb-2.5">
-        <span class="text-neutral-500 uppercase flex-shrink-0">Materiales</span>
-        <span class="text-neutral-950 font-medium text-right">{{ obra.materials }}</span>
-      </div>
-      <div class="flex justify-between items-center border-b border-neutral-200/80 pb-2.5">
-        <span class="text-neutral-500 uppercase">Producción</span>
-        <span class="text-neutral-950 font-bold text-right">{{ obra.hours }}</span>
-      </div>
-      <div class="flex justify-between items-center">
-        <span class="text-neutral-500 uppercase">Dimensiones</span>
-        <span class="text-neutral-950 font-medium">{{ obra.dimensions }}</span>
-      </div>
-    </div>
-
-    <!-- Inquiry CTA -->
-    <div class="pt-2">
+    <!-- Botón Consultar Adquisición -->
+    <div class="pt-4">
       <a
-        href="mailto:crgs@udem.edu.mx?subject=Consulta%20Adquisicion%20Obra%20Zona%20Maco%202026"
-        class="w-full py-4 bg-neutral-950 text-white font-barlow font-bold text-base uppercase tracking-widest text-center block hover:bg-black hover:shadow-xl hover:scale-[1.015] active:scale-95 transition-all duration-200 ease-out shadow-sm select-none cursor-pointer"
+        :href="mailtoLink"
+        class="w-full py-4 px-6 bg-neutral-950 text-white font-barlow font-bold text-base uppercase tracking-widest text-center block hover:bg-neutral-800 transition-colors duration-200 shadow-sm"
       >
         Consultar Adquisición
       </a>
-      <p class="text-center font-mono text-[10px] uppercase tracking-widest text-neutral-400 mt-2.5">
-        Pabellón Escolar UMBRAL · Zona Maco 2026
-      </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Obra } from '~/composables/useObras'
 
-defineProps<{
+const props = defineProps<{
   obra: Obra
 }>()
+
+// Fecha de publicación con fallback a fecha de Figma
+const publishedDate = computed(() => {
+  return props.obra.publishedDate || '28/08/2026'
+})
+
+// Lista vertical de materiales desglosados
+const materialsList = computed(() => {
+  if (!props.obra.materials) return []
+  return props.obra.materials
+    .split(',')
+    .map(item => item.trim())
+    .filter(Boolean)
+})
+
+// Dos párrafos editoriales estructurados
+const descriptionParagraphs = computed(() => {
+  if (!props.obra.description) return []
+  if (props.obra.description.includes('\n\n')) {
+    return props.obra.description.split('\n\n').filter(Boolean)
+  }
+  const sentences = props.obra.description.match(/[^.!?]+[.!?]+/g)
+  if (sentences && sentences.length >= 2) {
+    const mid = Math.ceil(sentences.length / 2)
+    return [
+      sentences.slice(0, mid).join(' ').trim(),
+      sentences.slice(mid).join(' ').trim()
+    ]
+  }
+  return [props.obra.description]
+})
+
+// Link de consulta de adquisición
+const mailtoLink = computed(() => {
+  const subject = encodeURIComponent(`Consulta Adquisición: ${props.obra.title} · Zona Maco 2026`)
+  return `mailto:crgs@udem.edu.mx?subject=${subject}`
+})
 </script>

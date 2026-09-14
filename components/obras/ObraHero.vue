@@ -1,32 +1,40 @@
 <template>
-  <header class="border-b border-neutral-200 bg-white pt-8 pb-6 lg:pt-14 lg:pb-10 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-400 mb-4 sm:mb-6">
-        <NuxtLink to="/" class="hover:text-neutral-900 transition-colors">Inicio</NuxtLink>
-        <span>/</span>
-        <NuxtLink to="/zona-maco" class="hover:text-neutral-900 transition-colors">Zona Maco</NuxtLink>
-        <span>/</span>
-        <span class="text-neutral-900 font-semibold truncate">{{ obra.title }}</span>
-      </nav>
-
-      <!-- Monumental 160px Title -->
-      <div class="relative">
-        <h1 class="font-barlow font-bold text-5xl sm:text-7xl md:text-8xl lg:text-[130px] xl:text-[160px] uppercase tracking-tightest leading-[0.85] text-neutral-950 break-words select-none">
-          {{ obra.title }}
-        </h1>
-        <div class="flex flex-wrap items-center justify-between gap-4 mt-3 sm:mt-4 pt-4 border-t border-neutral-100">
-          <p v-if="obra.subtitle" class="font-barlow text-lg sm:text-2xl text-neutral-500 font-light uppercase tracking-wide">
-            {{ obra.subtitle }}
-          </p>
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-neutral-500">
-            <span class="px-2.5 py-0.5 bg-neutral-950 text-white font-semibold">{{ obra.category }}</span>
-            <span>Edición 2026</span>
-          </div>
-        </div>
-      </div>
+  <section class="relative w-full bg-white pt-10 pb-14 lg:pt-16 lg:pb-20 overflow-hidden select-none border-b border-neutral-200">
+    <!-- Triángulo negro lateral izquierdo con flotación sutil como gif -->
+    <div
+      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 sm:-translate-x-10 lg:-translate-x-4 w-52 sm:w-72 lg:w-[420px] pointer-events-none z-0 will-change-transform opacity-95 animate-float-left"
+    >
+      <svg viewBox="0 0 380 460" class="w-full h-auto drop-shadow-2xl" fill="none">
+        <polygon points="0,0 380,230 0,460" fill="#0A0A0A" />
+      </svg>
     </div>
-  </header>
+
+    <!-- Triángulo negro lateral derecho con flotación sutil en contrapunto -->
+    <div
+      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 sm:translate-x-10 lg:translate-x-4 w-52 sm:w-72 lg:w-[420px] pointer-events-none z-0 will-change-transform opacity-95 animate-float-right"
+    >
+      <svg viewBox="0 0 380 460" class="w-full h-auto drop-shadow-2xl" fill="none">
+        <polygon points="380,0 0,230 380,460" fill="#0A0A0A" />
+      </svg>
+    </div>
+
+    <!-- Contenido central: Foto enmarcada + Título -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+      <!-- Marco Cuadrado de la Obra según Figma -->
+      <div class="w-[280px] sm:w-[340px] md:w-[390px] aspect-square bg-neutral-100 border border-neutral-200 shadow-2xl overflow-hidden group">
+        <img
+          :src="obra.heroImage || obra.gallery?.[0]"
+          :alt="obra.title"
+          class="w-full h-full object-cover grayscale-[8%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+        />
+      </div>
+
+      <!-- Título de la Obra Centrado -->
+      <h1 class="font-barlow font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-neutral-950 uppercase tracking-tight leading-none mt-6 sm:mt-8">
+        {{ obra.title }}
+      </h1>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -36,3 +44,38 @@ defineProps<{
   obra: Obra
 }>()
 </script>
+
+<style scoped>
+@keyframes floatLeft {
+  0%, 100% {
+    transform: translateY(-50%) translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) translate3d(8px, -6px, 0) rotate(1.2deg);
+  }
+}
+
+@keyframes floatRight {
+  0%, 100% {
+    transform: translateY(-50%) translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) translate3d(-8px, 6px, 0) rotate(-1.2deg);
+  }
+}
+
+.animate-float-left {
+  animation: floatLeft 6.8s ease-in-out infinite;
+}
+
+.animate-float-right {
+  animation: floatRight 7.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-left,
+  .animate-float-right {
+    animation: none;
+  }
+}
+</style>

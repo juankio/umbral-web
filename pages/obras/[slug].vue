@@ -1,19 +1,19 @@
 <template>
   <div v-if="obra" class="bg-white min-h-screen">
-    <!-- Título monumental (160px) & Encabezado -->
+    <!-- Hero con triángulos laterales animados y fotografía central según Figma -->
     <ObraHero :obra="obra" />
 
-    <!-- Split Layout Exacto -->
+    <!-- Split Layout Exacto Figma "Obras layout" -->
     <article class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <!-- Columna Izquierda Fija: Año 2026, Precio $500, Diseñadoras, Cita, Materiales, Horas -->
-        <div class="lg:col-span-5">
-          <ObraMeta :obra="obra" />
-        </div>
-
-        <!-- Columna Derecha: Fotos en Alta Resolución (obra-encuadre-1, 2, 3) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+        <!-- Columna Izquierda: Fotos en Vertical y Alta Resolución (lg:col-span-7) -->
         <div class="lg:col-span-7">
           <ObraGallery :images="obra.gallery" :title="obra.title" />
+        </div>
+
+        <!-- Columna Derecha: Ficha Técnica y Metadatos Estáticos / Sticky (lg:col-span-5) -->
+        <div class="lg:col-span-5">
+          <ObraMeta :obra="obra" />
         </div>
       </div>
     </article>
