@@ -94,19 +94,20 @@ const onWindowMouseMove = (e: MouseEvent) => {
 
 const triggerScroll = () => {
   if (typeof window === 'undefined') return
-  window.scrollTo({ top: 380, behavior: 'smooth' })
+  window.scrollTo({ top: 450, behavior: 'smooth' })
 }
 
-// Sincronizado para disolverse suavemente hacia 0.28 y reaparecer armónicamente al subir
+// Sincronizado para reaparecer nítido al regresar a 250px (progress ~0.21 -> ~0.70 opacidad)
+// y disolverse suavemente hacia 0.34 para que a 400px emerja la constelación
 const triangleOpacity = computed(() => {
-  if (isReducedMotion.value) return props.progress > 0.28 ? 0 : 1
-  if (props.progress <= 0.05) return 1
-  if (props.progress >= 0.28) return 0
-  return 1 - (props.progress - 0.05) / 0.23
+  if (isReducedMotion.value) return props.progress > 0.34 ? 0 : 1
+  if (props.progress <= 0.16) return 1
+  if (props.progress >= 0.34) return 0
+  return 1 - (props.progress - 0.16) / 0.18
 })
 
 const normalizedProgress = computed(() => {
-  return Math.min(Math.max((props.progress - 0.05) / 0.23, 0), 1)
+  return Math.min(Math.max((props.progress - 0.08) / 0.24, 0), 1)
 })
 
 const indicatorOpacity = computed(() => {

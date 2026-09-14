@@ -2,7 +2,7 @@
   <section
     id="hero-triangle"
     ref="containerRef"
-    class="relative w-full h-[135vh] bg-[#0A0A0A] select-none"
+    class="relative w-full h-[175vh] bg-[#0A0A0A] select-none"
   >
     <!-- Viewport Pinned 100vh Sticky Scroll Container -->
     <div class="sticky top-0 h-screen w-full overflow-hidden bg-[#0A0A0A]">

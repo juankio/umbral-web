@@ -52,8 +52,8 @@
       <!-- Portal Origami Aperture (Triángulo Monumental Verde Esmeralda) -->
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20" style="transform-style: preserve-3d">
         <div
-          class="relative w-[340px] sm:w-[440px] lg:w-[480px] aspect-[420/560] cursor-pointer pointer-events-auto transition-transform duration-700"
-          :class="isOpen ? 'scale-95' : 'hover:scale-[1.02]'"
+          class="relative w-[340px] sm:w-[440px] lg:w-[480px] aspect-[420/560] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          :class="isOpen ? 'scale-95 pointer-events-none opacity-0' : 'scale-100 cursor-pointer pointer-events-auto hover:scale-[1.02] opacity-100'"
           role="button"
           :aria-expanded="isOpen"
           aria-label="Desplegar portal documental de La Puerta de la Creación"
@@ -79,10 +79,10 @@
         </div>
       </div>
 
-      <!-- Titular Monumental Itálico en una sola línea centrado directamente sobre el triángulo -->
+      <!-- Titular Monumental Itálico centrado que se desplaza hacia arriba al abrirse -->
       <h2
-        class="font-barlow italic font-medium sm:font-semibold text-5xl sm:text-7xl lg:text-8xl text-white text-center whitespace-nowrap select-none drop-shadow-[0_8px_32px_rgba(0,0,0,0.85)] z-20 pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out"
-        :class="isOpen ? '-translate-y-[150%] sm:-translate-y-[170%] scale-75 sm:scale-85 text-white/90' : 'scale-100 text-white'"
+        class="font-barlow italic font-medium sm:font-semibold text-5xl sm:text-7xl lg:text-8xl text-center whitespace-nowrap select-none drop-shadow-[0_8px_32px_rgba(0,0,0,0.85)] z-20 pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        :class="isOpen ? '-translate-y-[calc(50%+150px)] sm:-translate-y-[calc(50%+280px)] scale-75 text-white/90' : '-translate-y-1/2 scale-100 text-white'"
       >
         La Puerta de la Creación
       </h2>
@@ -115,19 +115,21 @@ const togglePortal = () => {
 }
 
 const leftFacetStyle = computed(() => isReducedMotion.value
-  ? { opacity: isOpen.value ? '0.15' : '1', pointerEvents: isOpen.value ? 'none' : 'auto' }
+  ? { opacity: isOpen.value ? '0' : '1', pointerEvents: (isOpen.value ? 'none' : 'auto') as const }
   : {
     transformOrigin: '15% 50%',
-    transform: isOpen.value ? 'rotateY(-78deg) translateX(-90px) translateZ(-20px) scale(0.9)' : 'none',
-    opacity: isOpen.value ? '0.2' : '1'
+    transform: isOpen.value ? 'rotateY(-90deg) translateX(-180px) scale(0.8)' : 'none',
+    opacity: isOpen.value ? '0' : '1',
+    pointerEvents: (isOpen.value ? 'none' : 'auto') as const
   })
 
 const rightFacetStyle = computed(() => isReducedMotion.value
-  ? { opacity: isOpen.value ? '0.15' : '1', pointerEvents: isOpen.value ? 'none' : 'auto' }
+  ? { opacity: isOpen.value ? '0' : '1', pointerEvents: (isOpen.value ? 'none' : 'auto') as const }
   : {
     transformOrigin: '85% 50%',
-    transform: isOpen.value ? 'rotateY(78deg) translateX(90px) translateZ(-20px) scale(0.9)' : 'none',
-    opacity: isOpen.value ? '0.2' : '1'
+    transform: isOpen.value ? 'rotateY(90deg) translateX(180px) scale(0.8)' : 'none',
+    opacity: isOpen.value ? '0' : '1',
+    pointerEvents: (isOpen.value ? 'none' : 'auto') as const
   })
 
 onMounted(() => {

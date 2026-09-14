@@ -1,101 +1,26 @@
 <template>
   <section
-    ref="sectionRef"
-    class="bg-white py-28 sm:py-36 lg:py-48 relative overflow-hidden flex items-center justify-center select-none"
-    @mousemove="handleMouseMove"
-    @mouseleave="handleMouseLeave"
+    id="futuro-inspiracion"
+    class="bg-white py-20 sm:py-28 lg:py-36 relative overflow-hidden flex items-center justify-center select-none border-b border-neutral-200"
   >
-    <!-- Triángulo Arquitectónico Tadao Ando (Azul Pastel) -->
-    <div
-      ref="triangleRef"
-      class="absolute pointer-events-none flex items-center justify-center w-[340px] sm:w-[540px] md:w-[700px] lg:w-[860px] aspect-[500/320]"
-      :style="mouseParallaxStyle"
-      aria-hidden="true"
-    >
+    <div class="group relative w-full max-w-[780px] aspect-[780/440] flex items-center justify-center">
       <svg
-        viewBox="0 0 500 320"
-        class="w-full h-full overflow-visible drop-shadow-[0_20px_45px_rgba(165,188,213,0.35)] animate-triangle-breathe"
+        viewBox="0 0 780 440"
+        class="absolute inset-0 w-full h-full drop-shadow-[0_25px_45px_rgba(66,99,136,0.35)] transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
       >
-        <polygon points="0,180 500,0 350,320" fill="#A5BCD5" />
+        <polygon points="0,280 780,0 580,440" fill="#46698E" />
       </svg>
-    </div>
 
-    <!-- Titular Monumental Centrado directamente sobre el triángulo -->
-    <h2
-      class="font-barlow font-bold sm:font-semibold text-5xl sm:text-7xl lg:text-8xl text-neutral-950 text-center leading-[1.05] tracking-tight drop-shadow-sm select-none z-10 px-4"
-    >
-      El futuro inspira nuestra<br />
-      mejor versión.
-    </h2>
+      <div class="absolute left-[61%] top-[52%] -translate-x-1/2 -translate-y-1/2 z-10 text-center text-white flex flex-col items-center justify-center w-[320px] sm:w-[430px] pointer-events-none">
+        <h2 class="font-barlow font-bold text-3xl sm:text-4xl md:text-[42px] text-white uppercase tracking-tight leading-[1.05] select-none text-shadow-[0_4px_16px_rgba(0,0,0,0.35)]">
+          El futuro inspira nuestra<br>mejor versión.
+        </h2>
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-import { animate } from 'animejs'
-
-const sectionRef = ref<HTMLElement | null>(null)
-const triangleRef = ref<HTMLElement | null>(null)
-const mouseOffset = ref({ x: 0, y: 0 })
-const isReducedMotion = ref(false)
-
-const mouseParallaxStyle = computed(() => {
-  if (isReducedMotion.value) return {}
-  return {
-    transform: `translate3d(${mouseOffset.value.x}px, ${mouseOffset.value.y}px, 0)`,
-    transition: 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-  }
-})
-
-const handleMouseMove = (e: MouseEvent) => {
-  if (isReducedMotion.value || !sectionRef.value) return
-  const rect = sectionRef.value.getBoundingClientRect()
-  const normX = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2)
-  const normY = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2)
-  mouseOffset.value = { x: normX * 14, y: normY * 10 }
-}
-
-const handleMouseLeave = () => {
-  mouseOffset.value = { x: 0, y: 0 }
-}
-
-onMounted(() => {
-  if (!import.meta.client) return
-  isReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (isReducedMotion.value || !triangleRef.value) return
-
-  // Entrada monumental a 60fps con Anime.js
-  animate(triangleRef.value, {
-    opacity: [0, 1],
-    scale: [0.92, 1],
-    duration: 1200,
-    ease: 'outExpo'
-  })
-})
+// Armonía y proporción arquitectónica idéntica al prisma morado
 </script>
-
-<style scoped>
-@keyframes triangleBreathe {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -10px, 0) rotate(1.2deg) scale(1.025);
-  }
-}
-
-.animate-triangle-breathe {
-  will-change: transform;
-  transform-origin: 50% 50%;
-  animation: triangleBreathe 6.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-triangle-breathe {
-    animation: none !important;
-    transform: none !important;
-  }
-}
-</style>
