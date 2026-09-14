@@ -101,6 +101,7 @@ export default defineNuxtConfig({
         { name: 'twitter:image', content: 'https://umbral-web-three.vercel.app/images/og-umbral.jpg' }
       ],
       link: [
+        { rel: 'image_src' as any, href: 'https://umbral-web-three.vercel.app/images/og-umbral.jpg' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
