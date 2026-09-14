@@ -3,6 +3,7 @@
     <CrgsHero />
     <AppMarquee />
     <CrgsPedagogy />
+    <CrgsPuertaCreacion />
     <CrgsPrograms />
     <CrgsGraduate />
   </div>

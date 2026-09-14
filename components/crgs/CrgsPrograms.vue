@@ -1,77 +1,72 @@
 <template>
-  <section class="py-16 lg:py-24 bg-white border-b border-neutral-200" id="programas">
+  <section id="programas" class="py-20 lg:py-28 bg-white border-b border-neutral-200 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-neutral-200">
-        <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-neutral-500 block mb-2">
-            02 / Oferta Académica
-          </span>
-          <h2 class="font-barlow font-bold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tightest text-neutral-950">
-            Programas Profesionales
-          </h2>
-        </div>
-        <p class="font-barlow text-xl text-neutral-600 font-light max-w-md">
-          Formación multidisciplinaria que conecta arte, hábitat, moda y diseño de producto.
+      <!-- Encabezado Centrado Institucional -->
+      <div class="text-center max-w-3xl mx-auto mb-20 lg:mb-28">
+        <span class="font-mono text-xs uppercase tracking-widest text-neutral-400 block mb-3">
+          Oferta Académica Oficial
+        </span>
+        <h2 class="font-barlow font-bold text-5xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-neutral-950">
+          PROGRAMAS PROFESIONAL
+        </h2>
+        <p class="font-sans text-base sm:text-xl text-neutral-600 max-w-2xl mx-auto text-center mt-3 leading-relaxed">
+          Aprende en clases de estudio dirigidas por la práctica e impartidas por una facultad de artistas y diseñadores.
         </p>
       </div>
 
-      <!-- Programs Grid (4 Carreras oficiales solicitadas) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Lista Escalonada de Programas Académicos (Alternancia en Flujo Vertical) -->
+      <div class="space-y-20 lg:space-y-28">
         <article
-          v-for="prog in programs"
+          v-for="(prog, idx) in programs"
           :key="prog.code"
-          class="bg-white border border-neutral-200 overflow-hidden flex flex-col justify-between group hover:border-neutral-950 transition-all duration-300 hover:shadow-lg"
+          :ref="(el) => setItemRef(el, idx)"
+          :data-index="idx"
+          class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 transition-all duration-700 ease-out"
+          :class="[
+            idx % 2 === 1 ? 'lg:flex-row-reverse' : '',
+            visibleMap[idx] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          ]"
         >
-          <div>
-            <!-- Image Frame -->
-            <div class="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
+          <!-- Retrato/Fotografía con Corte Triangular Arquitectónico -->
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <div
+              class="relative w-full max-w-[520px] aspect-[4/3] overflow-hidden bg-neutral-100 shadow-md group"
+              :class="idx % 2 === 0 ? '[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]' : '[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]'"
+            >
               <img
                 :src="prog.image"
                 :alt="prog.name"
-                class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 group-hover:grayscale-0 transition-transform duration-500"
+                class="w-full h-full object-cover grayscale-[25%] contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                 loading="lazy"
               />
-              <div class="absolute top-3 left-3">
-                <span class="px-2.5 py-1 text-xs font-mono font-bold uppercase tracking-widest bg-neutral-950 text-white">
-                  {{ prog.code }}
-                </span>
-              </div>
-              <div class="absolute bottom-3 right-3">
-                <span class="px-2 py-0.5 text-[11px] font-mono uppercase bg-white/95 text-neutral-900 border border-neutral-200 font-medium">
-                  {{ prog.duration }}
-                </span>
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="p-5">
-              <span class="font-mono text-[10px] uppercase tracking-wider text-neutral-400 block mb-1">
-                Licenciatura Oficial
-              </span>
-              <h3 class="font-barlow font-bold text-xl uppercase tracking-tight text-neutral-950 group-hover:text-neutral-700 transition-colors leading-tight">
-                {{ prog.name }}
-              </h3>
-              <p class="font-sans text-xs text-neutral-600 mt-2.5 leading-relaxed">
-                {{ prog.description }}
-              </p>
+              <div class="absolute inset-0 bg-neutral-950/10 pointer-events-none group-hover:opacity-0 transition-opacity duration-500" />
             </div>
           </div>
 
-          <!-- Bottom Footer -->
-          <div class="p-5 pt-0 border-t border-neutral-100 mt-3 flex items-center justify-between font-mono text-xs">
-            <span class="text-neutral-400 text-[11px]">{{ prog.credits }}</span>
-            <a
-              :href="prog.link"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-barlow font-bold text-xs uppercase tracking-wider text-neutral-950 group-hover:underline flex items-center gap-1"
-            >
-              Plan de Estudios
-              <svg class="w-3 h-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 12L12 4M5 4h7v7" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+          <!-- Información del Programa Académico -->
+          <div class="w-full lg:w-1/2 space-y-4">
+            <span class="font-mono text-xs font-bold uppercase tracking-widest px-2.5 py-1 bg-neutral-950 text-white inline-block">
+              {{ prog.code }}
+            </span>
+            <h3 class="font-barlow font-bold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-neutral-950 leading-tight">
+              {{ prog.name }}
+            </h3>
+            <p class="font-sans text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl">
+              {{ prog.description }}
+            </p>
+            <div class="pt-2">
+              <a
+                :href="prog.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-barlow font-bold text-sm uppercase tracking-wider text-neutral-950 hover:text-neutral-600 inline-flex items-center gap-2 border-b-2 border-neutral-950 hover:border-neutral-500 pb-1 transition-colors group"
+              >
+                Plan de Estudios
+                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 12L12 4M5 4h7v7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </div>
         </article>
       </div>
@@ -80,11 +75,11 @@
 </template>
 
 <script setup lang="ts">
+import { reactive, onMounted, onBeforeUnmount, type ComponentPublicInstance } from 'vue'
+
 interface Program {
   code: string
   name: string
-  duration: string
-  credits: string
   description: string
   image: string
   link: string
@@ -92,40 +87,73 @@ interface Program {
 
 const programs: Program[] = [
   {
-    code: 'LINT',
-    name: 'Licenciatura en Diseño de Interiores',
-    duration: '9 Semestres',
-    credits: 'Acreditación CACEI',
-    description: 'Transforma atmósferas y espacios habitables integrando iluminación, tecnología constructiva y psicología ambiental.',
-    image: '/images/carrera-lint.png',
-    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-de-interiores'
-  },
-  {
-    code: 'LDM',
-    name: 'Diseño de Moda',
-    duration: '9 Semestres',
-    credits: 'Acreditación Internacional',
-    description: 'Crea colecciones textiles, indumentaria de vanguardia y patronaje tridimensional con enfoque en sostenibilidad.',
-    image: '/images/carrera-design.png',
-    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-de-modas'
+    code: 'LAED',
+    name: 'Licenciatura en Animación y Efectos Digitales',
+    description: 'Desarrolla narrativas visuales inmersivas, animación digital 2D/3D y efectos especiales cinematográficos con rigor artístico y técnico.',
+    image: '/images/obra-interconexion.png',
+    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-animacion-y-efectos-digitales'
   },
   {
     code: 'LDG',
-    name: 'Diseño Gráfico',
-    duration: '9 Semestres',
-    credits: 'Premios Quórum & Behance',
-    description: 'Domina los sistemas de comunicación visual, tipografía experimental, diseño editorial y experiencias multimedia.',
+    name: 'Licenciatura en Diseño Gráfico',
+    description: 'Domina los sistemas de comunicación visual, tipografía experimental, diseño editorial y experiencias multimedia de alcance internacional.',
     image: '/images/crgs-details.png',
     link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-grafico'
   },
   {
     code: 'LDI',
-    name: 'Diseño Industrial',
-    duration: '9 Semestres',
-    credits: 'Convenios Red Dot',
-    description: 'Diseña objetos, mobiliario y productos manufacturados con alto valor estético, funcional y rigor productivo.',
-    image: '/images/crgs-geometry.png',
+    name: 'Licenciatura en Diseño Industrial',
+    description: 'Diseña objetos, sistemas de mobiliario y productos manufacturados con alto valor estético, funcional y rigor productivo sostenible.',
+    image: '/images/obra-sagaon-vase.png',
     link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-industrial'
+  },
+  {
+    code: 'LINT',
+    name: 'Licenciatura en Diseño de Interiores',
+    description: 'Transforma atmósferas y espacios habitables integrando iluminación arquitectónica, tecnología constructiva y psicología ambiental.',
+    image: '/images/carrera-lint.png',
+    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-de-interiores'
+  },
+  {
+    code: 'LDM',
+    name: 'Licenciatura en Diseño de Moda',
+    description: 'Crea colecciones textiles, indumentaria contemporánea y patronaje tridimensional con un profundo enfoque en la sostenibilidad.',
+    image: '/images/carrera-design.png',
+    link: 'https://www.udem.edu.mx/es/arte-arquitectura-diseno/licenciatura-en-diseno-de-modas'
   }
 ]
+
+const itemElements: HTMLElement[] = []
+const setItemRef = (el: Element | ComponentPublicInstance | null, index: number) => {
+  if (el && '$el' in el) {
+    itemElements[index] = el.$el as HTMLElement
+  } else if (el) {
+    itemElements[index] = el as HTMLElement
+  }
+}
+
+const visibleMap = reactive<Record<number, boolean>>({})
+let observer: IntersectionObserver | null = null
+
+onMounted(() => {
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const idx = Number(entry.target.getAttribute('data-index'))
+        if (!isNaN(idx)) {
+          visibleMap[idx] = true
+          observer?.unobserve(entry.target)
+        }
+      }
+    })
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' })
+
+  itemElements.forEach((el) => {
+    if (el) observer?.observe(el)
+  })
+})
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+})
 </script>
