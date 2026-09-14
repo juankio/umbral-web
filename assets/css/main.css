@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Barlow Condensed', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #FAFAFA;
+    color: #1C1C1C;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  ::selection {
+    background-color: #1C1C1C;
+    color: #FAFAFA;
+  }
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0F0F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #A3A3A3;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5E5E5E;
+}
+
+/* Architectural typography utilities */
+.font-editorial {
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Marquee infinite scroll animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
