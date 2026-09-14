@@ -1,24 +1,27 @@
 <template>
-  <section class="w-full bg-[#5E5E5E] py-6 sm:py-8 md:py-0 md:min-h-[130px] lg:min-h-[150px] flex items-center">
-    <div class="max-w-[1720px] w-full mx-auto px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
-      <!-- Texto a la izquierda -->
-      <h2 class="font-barlow font-bold text-2xl sm:text-4xl lg:text-5xl text-[#F6F6F6] uppercase tracking-wide leading-none text-center md:text-left">
-        DEL 3 AL 7 DE FEBRERO 2027
-      </h2>
+  <section class="w-full bg-white pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20">
+    <div class="max-w-[1240px] mx-auto px-6 sm:px-8">
+      <!-- Caja rectangular contenida del mismo ancho que HomeIntro -->
+      <div class="w-full bg-[#4A4A4A] py-7 sm:py-9 lg:py-10 px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 shadow-sm">
+        <!-- Texto a la izquierda -->
+        <h2 class="font-barlow font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#F6F6F6] uppercase tracking-wide leading-none text-center md:text-left">
+          DEL 3 AL 7 DE FEBRERO 2027
+        </h2>
 
-      <!-- Botón blanco con micro-interacción magnética sutil -->
-      <div class="inline-block">
-        <NuxtLink
-          ref="buttonRef"
-          to="/zona-maco"
-          @mousemove="handleMouseMove"
-          @mouseleave="handleMouseLeave"
-          class="relative inline-flex items-center justify-center bg-white text-[#1C1C1C] font-barlow font-bold text-xl sm:text-2xl lg:text-3xl px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 uppercase leading-none transition-colors duration-200 hover:bg-neutral-100 active:scale-[0.98] shadow-sm whitespace-nowrap will-change-transform select-none"
-        >
-          <span ref="textRef" class="inline-block pointer-events-none will-change-transform">
-            VER UBICACIÓN
-          </span>
-        </NuxtLink>
+        <!-- Botón blanco con micro-interacción magnética -->
+        <div class="inline-block shrink-0">
+          <NuxtLink
+            ref="buttonRef"
+            to="/zona-maco"
+            @mousemove="handleMouseMove"
+            @mouseleave="handleMouseLeave"
+            class="relative inline-flex items-center justify-center bg-white text-[#1C1C1C] font-barlow font-bold text-xl sm:text-2xl px-8 py-3 uppercase leading-none transition-colors duration-200 hover:bg-neutral-100 active:scale-[0.98] shadow-sm whitespace-nowrap will-change-transform select-none"
+          >
+            <span ref="textRef" class="inline-block pointer-events-none will-change-transform">
+              VER UBICACIÓN
+            </span>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>
@@ -47,7 +50,6 @@ const handleMouseMove = (e: MouseEvent) => {
   const distX = e.clientX - centerX
   const distY = e.clientY - centerY
 
-  // Atracción magnética sutil y refinada
   const moveX = Math.max(-12, Math.min(12, distX * 0.22))
   const moveY = Math.max(-10, Math.min(10, distY * 0.28))
 

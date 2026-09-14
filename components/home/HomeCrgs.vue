@@ -10,11 +10,7 @@
             class="absolute -left-12 sm:-left-20 top-0 w-[420px] sm:w-[560px] z-0 pointer-events-none select-none will-change-transform"
             :style="blueParallaxStyle"
           >
-            <!-- Wrapper interior: Entrada suave deslizándose desde la izquierda -->
-            <div
-              ref="blueInnerRef"
-              class="w-full h-full will-change-transform"
-            >
+            <div ref="blueInnerRef" class="w-full h-full will-change-transform">
               <img
                 src="/images/crgs-bg-vector.svg"
                 alt=""
@@ -33,7 +29,6 @@
               <p>
                 Es un espacio de ideas y expresiones que congrega y desarrolla el mejor talento creativo, consolidándose como la sede de la formación, creación y preservación del arte, arquitectura y diseño en Latinoamérica.
               </p>
-
               <p>
                 <strong class="font-bold">"La Puerta de la Creación",</strong> es una joya arquitectónica, un emblema de diseño moderno y sostenibilidad y también un vibrante espacio educativo que inspira a estudiantes y profesionales por igual.
               </p>
@@ -41,21 +36,27 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Fotografía cuadrada con efecto interactivo de profundidad al hover -->
+        <!-- Columna Derecha: Blueprint Frame con interacción 3D -->
         <div class="lg:col-span-6 flex justify-center lg:justify-end">
-          <div
-            ref="cardRef"
-            class="group w-full max-w-[480px] overflow-hidden rounded-sm shadow-md hover:shadow-2xl transition-shadow duration-500 will-change-transform cursor-pointer"
-            :style="card3dStyle"
-            @mousemove="onCardMouseMove"
-            @mouseleave="onCardMouseLeave"
+          <ArchitecturalBlueprintFrame
+            theme="light"
+            technicalLabel="CRGS · SECCIÓN LONGITUDINAL"
+            scaleLabel="CORTE A-A' · 1:100"
           >
-            <img
-              src="/images/crgs-details.png"
-              alt="Interior y escaleras del Centro Roberto Garza Sada"
-              class="w-full aspect-square object-cover block transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-          </div>
+            <div
+              ref="cardRef"
+              class="w-full max-w-[480px] overflow-hidden rounded-sm shadow-md hover:shadow-2xl transition-shadow duration-500 will-change-transform cursor-pointer"
+              :style="card3dStyle"
+              @mousemove="onCardMouseMove"
+              @mouseleave="onCardMouseLeave"
+            >
+              <img
+                src="/images/crgs-details.png"
+                alt="Interior y escaleras del Centro Roberto Garza Sada"
+                class="w-full aspect-square object-cover block transition-transform duration-700 ease-out hover:scale-105"
+              />
+            </div>
+          </ArchitecturalBlueprintFrame>
         </div>
       </div>
     </div>
@@ -66,6 +67,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
 import { animate } from 'animejs'
+import ArchitecturalBlueprintFrame from '~/components/ui/ArchitecturalBlueprintFrame.vue'
 
 const sectionRef = ref<HTMLElement | null>(null)
 const blueParallaxRef = ref<HTMLElement | null>(null)
@@ -79,23 +81,18 @@ const isReducedMotion = ref(false)
 const cardRotateX = ref(0)
 const cardRotateY = ref(0)
 const cardScale = ref(1)
-
 let observer: IntersectionObserver | null = null
 
 const updateSectionOffset = () => {
   if (!sectionRef.value || !import.meta.client) return
-  const rect = sectionRef.value.getBoundingClientRect()
-  sectionTop.value = window.scrollY + rect.top
+  sectionTop.value = window.scrollY + sectionRef.value.getBoundingClientRect().top
 }
 
 const blueParallaxStyle = computed(() => {
   if (isReducedMotion.value || !import.meta.client) return {}
   const delta = scrollY.value - sectionTop.value + 400
-  const parallaxY = delta * 0.12
-  const parallaxRotate = delta * 0.008
-
   return {
-    transform: `translate3d(0, ${parallaxY}px, 0) rotate(${parallaxRotate}deg)`,
+    transform: `translate3d(0, ${delta * 0.12}px, 0) rotate(${delta * 0.008}deg)`,
     transition: 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)'
   }
 })
@@ -103,11 +100,9 @@ const blueParallaxStyle = computed(() => {
 const onCardMouseMove = (event: MouseEvent) => {
   if (isReducedMotion.value || !cardRef.value) return
   const rect = cardRef.value.getBoundingClientRect()
-  const x = (event.clientX - rect.left) / rect.width - 0.5
-  const y = (event.clientY - rect.top) / rect.height - 0.5
-  cardRotateX.value = -y * 11
-  cardRotateY.value = x * 13
-  cardScale.value = 1.028
+  cardRotateX.value = -((event.clientY - rect.top) / rect.height - 0.5) * 11
+  cardRotateY.value = ((event.clientX - rect.left) / rect.width - 0.5) * 13
+  cardScale.value = 1.025
 }
 
 const onCardMouseLeave = () => {
@@ -126,48 +121,29 @@ const card3dStyle = computed(() => {
 
 onMounted(() => {
   if (!import.meta.client) return
-
   isReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   updateSectionOffset()
   window.addEventListener('resize', updateSectionOffset, { passive: true })
-
   if (isReducedMotion.value) return
 
-  // Entrada suave deslizándose desde la izquierda al intersecar viewport
   if (sectionRef.value && 'IntersectionObserver' in window) {
-    observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          if (blueInnerRef.value) {
-            animate(blueInnerRef.value, {
-              opacity: [0, 0.95],
-              translateX: [-70, 0],
-              duration: 1250,
-              ease: 'outCubic'
-            })
-          }
-          observer?.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
+    observer = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting && blueInnerRef.value) {
+        animate(blueInnerRef.value, {
+          opacity: [0, 0.95],
+          translateX: [-70, 0],
+          duration: 1250,
+          ease: 'outCubic'
+        })
+        observer?.disconnect()
+      }
+    }, { threshold: 0.15 })
     observer.observe(sectionRef.value)
-  } else if (blueInnerRef.value) {
-    animate(blueInnerRef.value, {
-      opacity: [0, 0.95],
-      translateX: [-70, 0],
-      duration: 1250,
-      ease: 'outCubic'
-    })
   }
 })
 
 onUnmounted(() => {
-  if (import.meta.client) {
-    window.removeEventListener('resize', updateSectionOffset)
-  }
-  if (observer) {
-    observer.disconnect()
-  }
+  if (import.meta.client) window.removeEventListener('resize', updateSectionOffset)
+  observer?.disconnect()
 })
 </script>

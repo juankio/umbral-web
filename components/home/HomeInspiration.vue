@@ -16,11 +16,17 @@
         <!-- Don Roberto Garza Sada -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div class="lg:col-span-5 flex justify-center">
-            <img
-              src="/images/roberto-garza-sada.png"
-              alt="Don Roberto Garza Sada"
-              class="w-full max-w-[500px] h-auto object-cover"
-            />
+            <ArchitecturalBlueprintFrame
+              theme="dark"
+              technicalLabel="CRGS · PATRON · RGS"
+              scaleLabel="ELEV · 01"
+            >
+              <img
+                src="/images/roberto-garza-sada.png"
+                alt="Don Roberto Garza Sada"
+                class="w-full max-w-[480px] h-auto object-cover grayscale contrast-110 transition-all duration-700 hover:grayscale-0"
+              />
+            </ArchitecturalBlueprintFrame>
           </div>
           <div class="lg:col-span-7 space-y-6">
             <h3 class="font-barlow font-medium text-3xl md:text-[48px] text-white leading-tight">
@@ -59,11 +65,17 @@
             </div>
           </div>
           <div class="order-1 lg:order-2 lg:col-span-5 flex justify-center">
-            <img
-              src="/images/margarita-garza-sada.png"
-              alt="Doña Margarita Garza Sada de Fernández"
-              class="w-full max-w-[540px] h-auto object-cover"
-            />
+            <ArchitecturalBlueprintFrame
+              theme="dark"
+              technicalLabel="CRGS · BENEFACTOR · MGS"
+              scaleLabel="ELEV · 02"
+            >
+              <img
+                src="/images/margarita-garza-sada.png"
+                alt="Doña Margarita Garza Sada de Fernández"
+                class="w-full max-w-[480px] h-auto object-cover grayscale contrast-110 transition-all duration-700 hover:grayscale-0"
+              />
+            </ArchitecturalBlueprintFrame>
           </div>
         </div>
       </div>
@@ -73,13 +85,19 @@
     <div class="w-full bg-white py-20 lg:py-32">
       <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <!-- Izquierda: Retrato angular recortado tadao-masked.png -->
+          <!-- Izquierda: Retrato Tadao Ando con Blueprint Frame -->
           <div class="lg:col-span-5 flex justify-center lg:justify-start">
-            <img
-              src="/images/tadao-masked.png"
-              alt="Retrato de Tadao Ando"
-              class="w-full max-w-[520px] h-auto object-contain"
-            />
+            <ArchitecturalBlueprintFrame
+              theme="light"
+              technicalLabel="PRITZKER 1995 · TADAO ANDO"
+              scaleLabel="AXIS TA-01"
+            >
+              <img
+                src="/images/tadao-masked.png"
+                alt="Retrato de Tadao Ando"
+                class="w-full max-w-[480px] h-auto object-contain transition-transform duration-700 hover:scale-105"
+              />
+            </ArchitecturalBlueprintFrame>
           </div>
 
           <!-- Derecha: Título, Subtítulo y Biografía oficial -->
@@ -106,5 +124,5 @@
 </template>
 
 <script setup lang="ts">
-// Sección Nuestra Inspiración: Don Roberto Garza Sada, Doña Margarita Garza Sada y Tadao Ando
+import ArchitecturalBlueprintFrame from '~/components/ui/ArchitecturalBlueprintFrame.vue'
 </script>
