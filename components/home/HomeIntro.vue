@@ -47,26 +47,14 @@
             </ArchitecturalBlueprintFrame>
           </div>
 
-          <!-- Triángulo Dorado Limpio, Afilado y Flotante con Parallax entre las fotos -->
-          <div
-            class="relative z-20 w-44 sm:w-52 lg:w-56 -my-6 sm:-my-8 select-none will-change-transform cursor-pointer"
-            :style="yellowParallaxStyle"
-            @mouseenter="isHovered = true"
-            @mousemove="onMouseMove"
-            @mouseleave="onMouseLeave"
-          >
-            <div
-              ref="yellowShapeRef"
-              class="w-full h-full will-change-transform"
-              :style="yellow3dStyle"
-            >
-              <svg viewBox="0 0 652 432" class="w-full h-auto overflow-visible block drop-shadow-lg" fill="none">
-                <!-- Cara Superior Luz Dorada Nítida -->
-                <polygon points="0,276.52 651.90,0 536.28,216" fill="#F6D152" />
-                <!-- Cara Inferior Sombra Dorada Cálida -->
-                <polygon points="0,276.52 536.28,216 420.66,432" fill="#E69D37" />
-              </svg>
-            </div>
+          <!-- Triángulo Dorado Limpio, Afilado y Sólido de Figma (Estático) -->
+          <div class="relative z-20 w-44 sm:w-52 lg:w-56 -my-6 sm:-my-8 select-none pointer-events-none">
+            <svg viewBox="0 0 652 432" class="w-full h-auto overflow-visible block drop-shadow-md" fill="none">
+              <!-- Cara Superior Luz Dorada Nítida -->
+              <polygon points="0,276.52 651.90,0 536.28,216" fill="#F6D152" />
+              <!-- Cara Inferior Sombra Dorada Cálida -->
+              <polygon points="0,276.52 536.28,216 420.66,432" fill="#E69D37" />
+            </svg>
           </div>
 
           <!-- Foto Inferior: Escalinata Tectónica -->
@@ -96,83 +84,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useWindowScroll } from '@vueuse/core'
-import { animate } from 'animejs'
+import { ref, onMounted, onUnmounted } from 'vue'
 import ArchitecturalBlueprintFrame from '~/components/ui/ArchitecturalBlueprintFrame.vue'
 
 const sectionRef = ref<HTMLElement | null>(null)
-const yellowShapeRef = ref<HTMLElement | null>(null)
-const { y: scrollY } = useWindowScroll()
 const isVisible = ref(false)
-const sectionTop = ref(0)
-const isReducedMotion = ref(false)
-
-const tiltX = ref(0)
-const tiltY = ref(0)
-const isHovered = ref(false)
-
-let floatAnim: any = null
 let observer: IntersectionObserver | null = null
-
-const updateOffset = () => {
-  if (sectionRef.value && import.meta.client) {
-    sectionTop.value = window.scrollY + sectionRef.value.getBoundingClientRect().top
-  }
-}
-
-const onMouseMove = (e: MouseEvent) => {
-  if (isReducedMotion.value) return
-  const target = e.currentTarget as HTMLElement
-  if (!target) return
-  const rect = target.getBoundingClientRect()
-  tiltX.value = ((e.clientX - rect.left) / rect.width - 0.5) * 22
-  tiltY.value = -((e.clientY - rect.top) / rect.height - 0.5) * 20
-}
-
-const onMouseLeave = () => {
-  isHovered.value = false
-  tiltX.value = 0
-  tiltY.value = 0
-}
-
-const yellowParallaxStyle = computed(() => {
-  if (!import.meta.client || isReducedMotion.value) return {}
-  const delta = scrollY.value - sectionTop.value + 350
-  return {
-    transform: `translate3d(0, ${delta * -0.14}px, 0)`,
-    transition: 'transform 0.1s cubic-bezier(0.16, 1, 0.3, 1)'
-  }
-})
-
-const yellow3dStyle = computed(() => {
-  if (isReducedMotion.value) return {}
-  const scale = isHovered.value ? 1.06 : 1
-  return {
-    transform: `perspective(600px) rotateX(${tiltY.value}deg) rotateY(${tiltX.value}deg) scale(${scale})`,
-    transition: 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
-  }
-})
 
 onMounted(() => {
   if (!import.meta.client) return
-  isReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (isReducedMotion.value) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     isVisible.value = true
     return
-  }
-  updateOffset()
-  window.addEventListener('resize', updateOffset, { passive: true })
-
-  if (yellowShapeRef.value) {
-    floatAnim = animate(yellowShapeRef.value, {
-      translateY: [-8, 8],
-      rotate: [-3, 3],
-      duration: 3800,
-      alternate: true,
-      loop: true,
-      ease: 'inOutSine'
-    })
   }
 
   if (sectionRef.value && 'IntersectionObserver' in window) {
@@ -189,8 +112,6 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (import.meta.client) window.removeEventListener('resize', updateOffset)
   observer?.disconnect()
-  if (floatAnim?.pause) floatAnim.pause()
 })
 </script>

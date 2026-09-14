@@ -1,26 +1,3 @@
 <svg width="985" height="639" viewBox="0 0 985 639" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Cara Superior (Luz) -->
-  <polygon points="0,302.05 985,0 761.84,319.24" fill="#A5BCD5"/>
-  <!-- Cara Inferior (Sombra de Pliegue) -->
-  <polygon points="0,302.05 761.84,319.24 538.69,638.49" fill="#93ADC9"/>
-  <!-- Pliegue Central de Origami -->
-  <line x1="0" y1="302.05" x2="761.84" y2="319.24" stroke="#6F90AE" stroke-width="2"/>
-
-  <!-- Líneas Isométricas de Pliegue Punteadas en #7A9BB8 -->
-  <line x1="492.5" y1="151" x2="761.84" y2="319.24" stroke="#7A9BB8" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <line x1="269.34" y1="470.27" x2="761.84" y2="319.24" stroke="#7A9BB8" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <line x1="492.5" y1="151" x2="269.34" y2="470.27" stroke="#7A9BB8" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.8"/>
-
-  <!-- Micro-Sello de Cota de Doblez -->
-  <g transform="translate(340, 276)">
-    <rect x="0" y="0" width="176" height="26" rx="2" fill="#FFFFFF" fill-opacity="0.9" stroke="#7A9BB8" stroke-width="1"/>
-    <line x1="6" y1="13" x2="14" y2="13" stroke="#7A9BB8" stroke-width="1"/>
-    <line x1="10" y1="9" x2="10" y2="17" stroke="#7A9BB8" stroke-width="1"/>
-    <text x="22" y="17" fill="#426688" font-family="monospace" font-size="10" font-weight="600" letter-spacing="0.08em">∠ 128.4° · PLIEGUE CRGS</text>
-  </g>
-  <!-- Arco de Ángulo y Cotas de Vértices -->
-  <path d="M 720 295 A 40 40 0 0 1 745 350" fill="none" stroke="#7A9BB8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <text x="752" y="326" fill="#426688" font-family="monospace" font-size="10" letter-spacing="0.06em">R·38</text>
-  <circle cx="761.84" cy="319.24" r="4" fill="#7A9BB8"/>
-  <circle cx="0" cy="302.05" r="3.5" fill="#7A9BB8"/>
+  <path d="M538.685 638.486L-4.96872e-05 302.049L984.999 -9.52707e-05L538.685 638.486Z" fill="#A5BCD5"/>
 </svg>
