@@ -1,9 +1,9 @@
 <template>
-  <section class="relative bg-white overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24 border-b border-neutral-200">
+  <section class="relative bg-white overflow-hidden pt-6 pb-12 lg:pt-10 lg:pb-16 border-b border-neutral-200">
     <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
       <!-- Header Institucional Superior -->
       <header
-        class="flex flex-wrap items-center justify-between gap-4 font-barlow text-xs sm:text-sm uppercase tracking-widest text-neutral-400 pb-4 mb-8 sm:mb-12 border-b border-neutral-200 transition-opacity duration-700"
+        class="flex flex-wrap items-center justify-between gap-4 font-barlow text-xs sm:text-sm uppercase tracking-widest text-neutral-400 pb-3 mb-6 sm:mb-8 border-b border-neutral-200 transition-opacity duration-700"
         :class="isLoaded ? 'opacity-100' : 'opacity-0'"
       >
         <div class="flex items-center gap-2">
@@ -19,35 +19,27 @@
       </header>
 
       <!-- Hero Grid: Titular Monumental & Polígono Arquitectónico -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
         <!-- Izquierda: Titular monumental masivo -->
         <div
-          class="lg:col-span-7 space-y-6 transition-all duration-1000 ease-out"
-          :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+          class="lg:col-span-7 space-y-4 transition-all duration-1000 ease-out"
+          :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
         >
           <span class="font-barlow text-xs sm:text-sm uppercase tracking-widest text-neutral-500 block font-medium">
             Universidad de Monterrey · Escuela de Arte y Diseño
           </span>
 
-          <h1 class="font-barlow font-bold text-6xl sm:text-8xl lg:text-9xl xl:text-[140px] text-neutral-950 leading-[0.88] tracking-tight">
+          <h1 class="font-barlow font-bold text-6xl sm:text-8xl lg:text-9xl xl:text-[130px] text-neutral-950 leading-[0.88] tracking-tight">
             Centro Roberto<br />
             Garza Sada
           </h1>
-
-          <p class="font-barlow font-normal text-2xl sm:text-3xl lg:text-4xl text-neutral-700 tracking-tight">
-            "La Puerta de la Creación"
-          </p>
-
-          <p class="font-sans text-neutral-600 text-base sm:text-lg leading-relaxed max-w-xl text-justify">
-            Diseñado por el maestro Tadao Ando, este monolito de 13,000 m² de concreto aparente es un hito de la arquitectura contemporánea y el portal de excelencia creativa en Latinoamérica.
-          </p>
         </div>
 
         <!-- Derecha: Polígono masivo negro de Tadao Ando cortando diagonalmente -->
         <div class="lg:col-span-5 flex justify-center lg:justify-end">
           <div
-            class="relative w-full max-w-[540px] aspect-[5/6] sm:aspect-[6/7] lg:aspect-auto lg:h-[540px] transition-all duration-1000 delay-150 ease-out"
-            :class="isLoaded ? 'opacity-100 translate-x-0 translate-y-0 scale-100' : 'opacity-0 translate-x-8 -translate-y-4 scale-95'"
+            class="relative w-full max-w-[480px] aspect-[5/6] sm:aspect-[6/7] lg:aspect-auto lg:h-[460px] transition-all duration-1000 delay-150 ease-out"
+            :class="isLoaded ? 'opacity-100 translate-x-0 translate-y-0 scale-100' : 'opacity-0 translate-x-6 -translate-y-2 scale-95'"
           >
             <svg
               viewBox="0 0 600 680"

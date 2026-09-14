@@ -1,11 +1,8 @@
 <template>
   <div class="bg-white min-h-screen">
     <CrgsHero />
-    <AppMarquee />
-    <CrgsPedagogy />
     <CrgsPuertaCreacion />
     <CrgsPrograms />
-    <CrgsGraduate />
   </div>
 </template>
 
