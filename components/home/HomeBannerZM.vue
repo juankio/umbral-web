@@ -1,21 +1,33 @@
 <template>
-  <section class="w-full bg-white pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20">
-    <div class="max-w-[1240px] mx-auto px-6 sm:px-8">
-      <!-- Caja rectangular contenida del mismo ancho que HomeIntro -->
-      <div class="w-full bg-[#4A4A4A] py-7 sm:py-9 lg:py-10 px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 shadow-sm">
-        <!-- Texto a la izquierda -->
-        <h2 class="font-barlow font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#F6F6F6] uppercase tracking-wide leading-none text-center md:text-left">
-          DEL 3 AL 7 DE FEBRERO 2027
-        </h2>
+  <section class="w-full bg-white py-4 sm:py-6 lg:py-8">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
+      <!-- Caja contenida piedra carbón con detalle arquitectónico -->
+      <div class="relative w-full bg-[#1C1C1C] border border-[#2E2E2E] py-6 sm:py-8 px-8 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 shadow-sm">
+        <!-- Cotas técnicas en las 4 esquinas del marco -->
+        <span class="absolute top-2 left-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
+        <span class="absolute top-2 right-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
+        <span class="absolute bottom-2 left-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
+        <span class="absolute bottom-2 right-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
 
-        <!-- Botón blanco con micro-interacción magnética -->
-        <div class="inline-block shrink-0">
+        <!-- Columna Izquierda: Micro-tag y Fechas Oficiales -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left z-10">
+          <div class="flex items-center gap-2 mb-1.5 font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase select-none">
+            <span class="inline-block w-1.5 h-1.5 bg-[#F6D152] rounded-full animate-ping"></span>
+            <span>REPENTINA · ZONA MACO</span>
+          </div>
+          <h2 class="font-barlow font-bold text-3xl sm:text-4xl lg:text-[46px] text-white tracking-wide uppercase leading-none">
+            DEL 3 AL 7 DE FEBRERO 2027
+          </h2>
+        </div>
+
+        <!-- Columna Derecha: Botón blanco impecable con atracción magnética al cursor y elevación -->
+        <div class="inline-block shrink-0 z-10">
           <NuxtLink
             ref="buttonRef"
             to="/zona-maco"
             @mousemove="handleMouseMove"
             @mouseleave="handleMouseLeave"
-            class="relative inline-flex items-center justify-center bg-white text-[#1C1C1C] font-barlow font-bold text-xl sm:text-2xl px-8 py-3 uppercase leading-none transition-colors duration-200 hover:bg-neutral-100 active:scale-[0.98] shadow-sm whitespace-nowrap will-change-transform select-none"
+            class="relative inline-flex items-center justify-center font-barlow font-bold text-xl sm:text-2xl text-black px-8 py-3.5 bg-white hover:bg-neutral-50 transition-all shadow-md hover:shadow-2xl hover:scale-[1.03] uppercase leading-none whitespace-nowrap select-none active:scale-95 will-change-transform"
           >
             <span ref="textRef" class="inline-block pointer-events-none will-change-transform">
               VER UBICACIÓN
@@ -50,21 +62,21 @@ const handleMouseMove = (e: MouseEvent) => {
   const distX = e.clientX - centerX
   const distY = e.clientY - centerY
 
-  const moveX = Math.max(-12, Math.min(12, distX * 0.22))
-  const moveY = Math.max(-10, Math.min(10, distY * 0.28))
+  const moveX = Math.max(-14, Math.min(14, distX * 0.28))
+  const moveY = Math.max(-10, Math.min(10, distY * 0.32))
 
   animate(buttonRef.value, {
     translateX: moveX,
-    translateY: moveY,
-    duration: 200,
+    translateY: moveY - 3,
+    duration: 180,
     ease: 'outQuad'
   })
 
   if (textRef.value) {
     animate(textRef.value, {
-      translateX: moveX * 0.4,
-      translateY: moveY * 0.4,
-      duration: 200,
+      translateX: moveX * 0.45,
+      translateY: moveY * 0.45,
+      duration: 180,
       ease: 'outQuad'
     })
   }
@@ -76,7 +88,7 @@ const handleMouseLeave = () => {
     translateX: 0,
     translateY: 0,
     duration: 550,
-    ease: 'outCubic'
+    ease: 'outElastic(1, .6)'
   })
 
   if (textRef.value) {
@@ -84,7 +96,7 @@ const handleMouseLeave = () => {
       translateX: 0,
       translateY: 0,
       duration: 550,
-      ease: 'outCubic'
+      ease: 'outElastic(1, .6)'
     })
   }
 }

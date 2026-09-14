@@ -3,6 +3,7 @@
     <HomeHero />
     <AppMarquee />
     <HomeIntro />
+    <HomeBannerZM />
     <HomeCrgs />
     <HomeInspiration />
   </div>

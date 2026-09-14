@@ -52,9 +52,11 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 25s linear infinite;
+  animation: marquee 26s linear infinite;
+  transition: animation-duration 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+.animate-marquee-hover-boost:hover .animate-marquee {
+  animation-duration: 12s;
 }

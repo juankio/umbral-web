@@ -68,9 +68,9 @@
               @mouseleave="onCardMouseLeave"
             >
               <img
-                src="/images/crgs-details.png"
-                alt="Interior y escaleras del Centro Roberto Garza Sada"
-                class="w-full aspect-square object-cover block grayscale contrast-110 brightness-95 transition-transform duration-700 ease-out hover:scale-105"
+                src="/images/crgs-building.png"
+                alt="Centro Roberto Garza Sada - Interior y escalinatas tectónicas"
+                class="w-full aspect-[4/3] object-cover block grayscale contrast-110 brightness-95 transition-transform duration-700 ease-out hover:scale-105"
               />
             </div>
           </ArchitecturalBlueprintFrame>
@@ -148,9 +148,10 @@ onMounted(() => {
       if (entry?.isIntersecting && blueInnerRef.value) {
         animate(blueInnerRef.value, {
           opacity: [0, 0.95],
-          translateX: [-70, 0],
-          duration: 1250,
-          ease: 'outCubic'
+          translateX: [-90, 0],
+          translateY: [20, 0],
+          duration: 1400,
+          ease: 'outExpo'
         })
         observer?.disconnect()
       }

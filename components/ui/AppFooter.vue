@@ -1,9 +1,9 @@
 <template>
   <footer class="w-full bg-[#1C1C1C] min-h-[358px] flex items-center py-12 md:py-0">
     <div class="max-w-[1720px] w-full mx-auto px-6 sm:px-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center text-center md:text-left">
-      <!-- Izquierda: Logo CRGS -->
+      <!-- Izquierda: Logo CRGS con elevación sutil -->
       <div class="md:col-span-4 flex justify-center md:justify-start">
-        <NuxtLink to="/crgs" class="inline-block" aria-label="Centro Roberto Garza Sada">
+        <NuxtLink to="/crgs" class="inline-block transition-transform duration-300 hover:scale-105 active:scale-95" aria-label="Centro Roberto Garza Sada">
           <img
             src="/images/footer-crgs.png"
             alt="Centro Roberto Garza Sada"
@@ -12,22 +12,34 @@
         </NuxtLink>
       </div>
 
-      <!-- Centro: 4 enlaces oficiales subrayados -->
+      <!-- Centro: 4 enlaces oficiales con subrayado expansivo y feedback táctil -->
       <div class="md:col-span-4 flex justify-center">
-        <ul class="flex flex-col space-y-1 sm:space-y-2 font-barlow text-xl md:text-[32px] text-white underline leading-relaxed text-center md:text-left">
+        <ul class="flex flex-col space-y-2 sm:space-y-3 font-barlow text-xl md:text-[30px] text-white leading-relaxed text-center md:text-left">
           <li>
-            <NuxtLink to="/crgs" class="hover:text-neutral-300 transition-colors">
-              Centro de Artes I UDEM
+            <NuxtLink
+              to="/crgs"
+              class="group relative inline-block text-white/90 hover:text-white transition-colors duration-200 active:scale-95"
+            >
+              <span>Centro de Artes I UDEM</span>
+              <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#F6D152] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out pointer-events-none" />
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/crgs" class="hover:text-neutral-300 transition-colors">
-              Historia del CRGS
+            <NuxtLink
+              to="/crgs"
+              class="group relative inline-block text-white/90 hover:text-white transition-colors duration-200 active:scale-95"
+            >
+              <span>Historia del CRGS</span>
+              <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#F6D152] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out pointer-events-none" />
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/crgs" class="hover:text-neutral-300 transition-colors">
-              Recorridos
+            <NuxtLink
+              to="/crgs"
+              class="group relative inline-block text-white/90 hover:text-white transition-colors duration-200 active:scale-95"
+            >
+              <span>Recorridos</span>
+              <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#F6D152] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out pointer-events-none" />
             </NuxtLink>
           </li>
           <li>
@@ -35,21 +47,22 @@
               href="https://www.udem.edu.mx"
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-neutral-300 transition-colors"
+              class="group relative inline-block text-white/90 hover:text-white transition-colors duration-200 active:scale-95"
             >
-              Universidad de Monterrey
+              <span>Universidad de Monterrey</span>
+              <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#F6D152] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out pointer-events-none" />
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Derecha: Logo UDEM -->
+      <!-- Derecha: Logo UDEM con micro-escala -->
       <div class="md:col-span-4 flex justify-center md:justify-end">
         <a
           href="https://www.udem.edu.mx"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-block"
+          class="inline-block transition-transform duration-300 hover:scale-105 active:scale-95"
           aria-label="Universidad de Monterrey"
         >
           <img
@@ -64,5 +77,5 @@
 </template>
 
 <script setup lang="ts">
-// Footer institucional oficial de Figma (Altura ~358px, fondo #1C1C1C)
+// Footer institucional oficial de Figma con subrayado expansivo y feedback táctil
 </script>

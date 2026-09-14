@@ -24,7 +24,7 @@
               <img
                 src="/images/roberto-garza-sada.png"
                 alt="Don Roberto Garza Sada"
-                class="w-full max-w-[480px] h-auto object-cover grayscale contrast-110 transition-all duration-700 hover:grayscale-0"
+                class="w-full max-w-[480px] h-auto object-cover grayscale contrast-110 transition-all duration-700 hover:grayscale-0 hover:scale-[1.03]"
               />
             </ArchitecturalBlueprintFrame>
           </div>
@@ -73,7 +73,7 @@
               <img
                 src="/images/margarita-garza-sada.png"
                 alt="Doña Margarita Garza Sada de Fernández"
-                class="w-full max-w-[480px] h-auto object-cover grayscale contrast-110 transition-all duration-700 hover:grayscale-0"
+                class="w-full max-w-[480px] h-auto object-cover grayscale contrast-110 transition-all duration-700 hover:grayscale-0 hover:scale-[1.03]"
               />
             </ArchitecturalBlueprintFrame>
           </div>
@@ -85,18 +85,25 @@
     <div class="w-full bg-white py-20 lg:py-32">
       <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <!-- Izquierda: Retrato Tadao Ando con Blueprint Frame -->
+          <!-- Izquierda: Retrato Tadao Ando con Máscara angular y Elevación 3D -->
           <div class="lg:col-span-5 flex justify-center lg:justify-start">
             <ArchitecturalBlueprintFrame
               theme="light"
               technicalLabel="PRITZKER 1995 · TADAO ANDO"
               scaleLabel="AXIS TA-01"
             >
-              <img
-                src="/images/tadao-masked.png"
-                alt="Retrato de Tadao Ando"
-                class="w-full max-w-[480px] h-auto object-contain transition-transform duration-700 hover:scale-105"
-              />
+              <div
+                class="w-full max-w-[480px] overflow-hidden will-change-transform cursor-pointer"
+                :style="tadao3dStyle"
+                @mousemove="onTadaoMove"
+                @mouseleave="onTadaoLeave"
+              >
+                <img
+                  src="/images/tadao-masked.png"
+                  alt="Retrato de Tadao Ando"
+                  class="w-full h-auto object-contain transition-all duration-500 drop-shadow-xl hover:contrast-105"
+                />
+              </div>
             </ArchitecturalBlueprintFrame>
           </div>
 
@@ -124,5 +131,36 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import ArchitecturalBlueprintFrame from '~/components/ui/ArchitecturalBlueprintFrame.vue'
+
+const rotX = ref(0)
+const rotY = ref(0)
+const isHovered = ref(false)
+
+const onTadaoMove = (e: MouseEvent) => {
+  const target = e.currentTarget as HTMLElement
+  if (!target) return
+  const rect = target.getBoundingClientRect()
+  rotX.value = -((e.clientY - rect.top) / rect.height - 0.5) * 16
+  rotY.value = ((e.clientX - rect.left) / rect.width - 0.5) * 18
+  isHovered.value = true
+}
+
+const onTadaoLeave = () => {
+  rotX.value = 0
+  rotY.value = 0
+  isHovered.value = false
+}
+
+const tadao3dStyle = computed(() => {
+  const scale = isHovered.value ? 1.05 : 1
+  const shadowY = isHovered.value ? 24 : 8
+  const shadowBlur = isHovered.value ? 30 : 12
+  return {
+    transform: `perspective(800px) rotateX(${rotX.value}deg) rotateY(${rotY.value}deg) scale3d(${scale}, ${scale}, ${scale})`,
+    filter: `drop-shadow(0 ${shadowY}px ${shadowBlur}px rgba(0,0,0,${isHovered.value ? 0.22 : 0.08}))`,
+    transition: 'transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease-out'
+  }
+})
 </script>

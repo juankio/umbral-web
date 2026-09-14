@@ -71,7 +71,7 @@
     <div class="pt-2">
       <a
         href="mailto:crgs@udem.edu.mx?subject=Consulta%20Adquisicion%20Obra%20Zona%20Maco%202026"
-        class="w-full py-4 bg-neutral-950 text-white font-barlow font-bold text-base uppercase tracking-widest text-center block hover:bg-neutral-800 transition-colors shadow-sm active:scale-[0.99]"
+        class="w-full py-4 bg-neutral-950 text-white font-barlow font-bold text-base uppercase tracking-widest text-center block hover:bg-black hover:shadow-xl hover:scale-[1.015] active:scale-95 transition-all duration-200 ease-out shadow-sm select-none cursor-pointer"
       >
         Consultar Adquisición
       </a>

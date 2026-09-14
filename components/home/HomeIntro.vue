@@ -24,8 +24,9 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Fotos con marcos blueprint y origami amarillo facetado -->
+        <!-- Columna Derecha: Fotos con marcos blueprint y triángulo dorado afilado -->
         <div class="lg:col-span-5 relative flex flex-col items-center">
+          <!-- Foto Superior: Voladizo Escultórico -->
           <div
             class="w-full max-w-[380px] sm:max-w-[420px] transition-all duration-700 ease-out will-change-transform"
             :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
@@ -36,44 +37,39 @@
               scaleLabel="ELEV · ATARDECER"
               class="w-full"
             >
-              <div class="overflow-hidden rounded-sm shadow-sm hover:shadow-md transition-shadow duration-500">
+              <div class="overflow-hidden rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                 <img
                   src="/images/crgs-geometry.png"
                   alt="Arquitectura geométrica del Centro Roberto Garza Sada"
-                  class="w-full h-auto object-cover block transition-transform duration-700 ease-out hover:scale-105 hover:contrast-[1.03]"
+                  class="w-full h-auto object-cover block transition-transform duration-700 ease-out hover:scale-105"
                 />
               </div>
             </ArchitecturalBlueprintFrame>
           </div>
 
-          <!-- Origami Amarillo Plegado con Flexión 3D al Hover y Sombra Proyectada Dinámica -->
+          <!-- Triángulo Dorado Limpio, Afilado y Flotante con Parallax entre las fotos -->
           <div
-            class="relative z-20 w-40 sm:w-48 lg:w-52 -my-6 sm:-my-8 select-none will-change-transform cursor-pointer"
+            class="relative z-20 w-44 sm:w-52 lg:w-56 -my-6 sm:-my-8 select-none will-change-transform cursor-pointer"
             :style="yellowParallaxStyle"
-            @mouseenter="onYellowEnter"
-            @mousemove="onYellowMouseMove"
-            @mouseleave="onYellowMouseLeave"
+            @mouseenter="isHovered = true"
+            @mousemove="onMouseMove"
+            @mouseleave="onMouseLeave"
           >
-            <div ref="yellowFloatingRef" class="w-full h-full flex items-center justify-center will-change-transform">
-              <div class="w-full h-full will-change-transform" :style="yellow3dStyle">
-                <svg viewBox="0 0 652 432" class="w-full h-auto overflow-visible block" fill="none">
-                  <!-- Cara Superior (Luz Directa) -->
-                  <polygon points="0,276.52 651.90,0 536.28,216" fill="#F6D152" stroke="#F6D152" stroke-width="0.5" />
-                  <!-- Cara Inferior (En Sombra Plegada) -->
-                  <polygon points="0,276.52 536.28,216 420.66,432" fill="#E69D37" stroke="#E69D37" stroke-width="0.5" />
-                  <!-- Líneas Auxiliares Isométricas de Doblez Origami -->
-                  <line x1="268.14" y1="108" x2="536.28" y2="216" stroke="#D48D28" stroke-width="1" stroke-dasharray="4 3" opacity="0.45" />
-                  <line x1="210.33" y1="354.26" x2="536.28" y2="216" stroke="#C47A20" stroke-width="1" stroke-dasharray="4 3" opacity="0.45" />
-                  <!-- Pliegue Central de Origami -->
-                  <line x1="0" y1="276.52" x2="536.28" y2="216" stroke="#D48D28" stroke-width="2.5" stroke-linecap="round" />
-                  <!-- Micro-Nodos de Calibración Geométrica -->
-                  <circle cx="536.28" cy="216" r="3.5" fill="#D48D28" />
-                  <circle cx="0" cy="276.52" r="3" fill="#D48D28" />
-                </svg>
-              </div>
+            <div
+              ref="yellowShapeRef"
+              class="w-full h-full will-change-transform"
+              :style="yellow3dStyle"
+            >
+              <svg viewBox="0 0 652 432" class="w-full h-auto overflow-visible block drop-shadow-lg" fill="none">
+                <!-- Cara Superior Luz Dorada Nítida -->
+                <polygon points="0,276.52 651.90,0 536.28,216" fill="#F6D152" />
+                <!-- Cara Inferior Sombra Dorada Cálida -->
+                <polygon points="0,276.52 536.28,216 420.66,432" fill="#E69D37" />
+              </svg>
             </div>
           </div>
 
+          <!-- Foto Inferior: Escalinata Tectónica -->
           <div
             class="w-full max-w-[380px] sm:max-w-[420px] transition-all duration-700 ease-out will-change-transform"
             :class="isVisible ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-10'"
@@ -84,11 +80,11 @@
               scaleLabel="CORTE B-B'"
               class="w-full"
             >
-              <div class="overflow-hidden rounded-sm shadow-sm hover:shadow-md transition-shadow duration-500">
+              <div class="overflow-hidden rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                 <img
                   src="/images/crgs-details.png"
                   alt="Detalles de hormigón y encofrado del Centro Roberto Garza Sada"
-                  class="w-full h-auto object-cover block transition-transform duration-700 ease-out hover:scale-105 hover:contrast-[1.03]"
+                  class="w-full h-auto object-cover block transition-transform duration-700 ease-out hover:scale-105"
                 />
               </div>
             </ArchitecturalBlueprintFrame>
@@ -106,17 +102,17 @@ import { animate } from 'animejs'
 import ArchitecturalBlueprintFrame from '~/components/ui/ArchitecturalBlueprintFrame.vue'
 
 const sectionRef = ref<HTMLElement | null>(null)
-const yellowFloatingRef = ref<HTMLElement | null>(null)
+const yellowShapeRef = ref<HTMLElement | null>(null)
 const { y: scrollY } = useWindowScroll()
 const isVisible = ref(false)
 const sectionTop = ref(0)
 const isReducedMotion = ref(false)
 
-const yellowHoverX = ref(0)
-const yellowHoverY = ref(0)
-const isYellowHovered = ref(false)
+const tiltX = ref(0)
+const tiltY = ref(0)
+const isHovered = ref(false)
 
-let yellowAnimation: any = null
+let floatAnim: any = null
 let observer: IntersectionObserver | null = null
 
 const updateOffset = () => {
@@ -125,48 +121,36 @@ const updateOffset = () => {
   }
 }
 
-const onYellowEnter = () => {
-  if (!isReducedMotion.value) isYellowHovered.value = true
-}
-
-const onYellowMouseMove = (e: MouseEvent) => {
+const onMouseMove = (e: MouseEvent) => {
   if (isReducedMotion.value) return
   const target = e.currentTarget as HTMLElement
   if (!target) return
   const rect = target.getBoundingClientRect()
-  yellowHoverX.value = ((e.clientX - rect.left) / rect.width - 0.5) * 2
-  yellowHoverY.value = ((e.clientY - rect.top) / rect.height - 0.5) * 2
+  tiltX.value = ((e.clientX - rect.left) / rect.width - 0.5) * 22
+  tiltY.value = -((e.clientY - rect.top) / rect.height - 0.5) * 20
 }
 
-const onYellowMouseLeave = () => {
-  isYellowHovered.value = false
-  yellowHoverX.value = 0
-  yellowHoverY.value = 0
+const onMouseLeave = () => {
+  isHovered.value = false
+  tiltX.value = 0
+  tiltY.value = 0
 }
 
 const yellowParallaxStyle = computed(() => {
-  if (!import.meta.client) return {}
+  if (!import.meta.client || isReducedMotion.value) return {}
   const delta = scrollY.value - sectionTop.value + 350
   return {
-    transform: `translate3d(0, ${delta * -0.12}px, 0) rotate(${delta * 0.01}deg)`,
-    transition: 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)'
+    transform: `translate3d(0, ${delta * -0.14}px, 0)`,
+    transition: 'transform 0.1s cubic-bezier(0.16, 1, 0.3, 1)'
   }
 })
 
 const yellow3dStyle = computed(() => {
   if (isReducedMotion.value) return {}
-  const rotX = isYellowHovered.value ? -yellowHoverY.value * 22 : 0
-  const rotY = isYellowHovered.value ? yellowHoverX.value * 24 : 0
-  const scale = isYellowHovered.value ? 1.08 : 1
-  const shadowX = isYellowHovered.value ? -yellowHoverX.value * 14 : 0
-  const shadowY = isYellowHovered.value ? 16 + yellowHoverY.value * 10 : 8
-  const blur = isYellowHovered.value ? 24 : 10
-  const alpha = isYellowHovered.value ? 0.45 : 0.2
-
+  const scale = isHovered.value ? 1.06 : 1
   return {
-    transform: `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(${scale}, ${scale}, ${scale})`,
-    filter: `drop-shadow(${shadowX}px ${shadowY}px ${blur}px rgba(212, 141, 40, ${alpha})) drop-shadow(0 8px 16px rgba(0,0,0,0.08))`,
-    transition: 'transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease-out'
+    transform: `perspective(600px) rotateX(${tiltY.value}deg) rotateY(${tiltX.value}deg) scale(${scale})`,
+    transition: 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
   }
 })
 
@@ -179,17 +163,18 @@ onMounted(() => {
   }
   updateOffset()
   window.addEventListener('resize', updateOffset, { passive: true })
-  if (yellowFloatingRef.value) {
-    yellowAnimation = animate(yellowFloatingRef.value, {
+
+  if (yellowShapeRef.value) {
+    floatAnim = animate(yellowShapeRef.value, {
       translateY: [-8, 8],
-      rotate: [-4, 5],
-      scale: [0.98, 1.02],
-      duration: 4500,
+      rotate: [-3, 3],
+      duration: 3800,
       alternate: true,
       loop: true,
       ease: 'inOutSine'
     })
   }
+
   if (sectionRef.value && 'IntersectionObserver' in window) {
     observer = new IntersectionObserver(([entry]) => {
       if (entry?.isIntersecting) {
@@ -206,6 +191,6 @@ onMounted(() => {
 onUnmounted(() => {
   if (import.meta.client) window.removeEventListener('resize', updateOffset)
   observer?.disconnect()
-  if (yellowAnimation?.pause) yellowAnimation.pause()
+  if (floatAnim?.pause) floatAnim.pause()
 })
 </script>

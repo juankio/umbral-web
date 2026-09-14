@@ -27,14 +27,14 @@
         <article
           v-for="obra in filteredObras"
           :key="obra.slug"
-          class="obra-card group relative bg-white border border-neutral-200 overflow-hidden flex flex-col justify-between transition-[transform,box-shadow,border-color] duration-300 ease-out hover:shadow-xl hover:border-neutral-900 hover:-translate-y-1 will-change-transform"
+          class="obra-card group relative bg-white border border-neutral-200 overflow-hidden flex flex-col justify-between transition-all duration-500 ease-out hover:shadow-2xl hover:border-neutral-950 hover:-translate-y-2 will-change-transform"
         >
           <!-- Image Container with Hover reveal -->
           <div class="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
             <img
               :src="obra.heroImage"
               :alt="obra.title"
-              class="w-full h-full object-cover grayscale-[15%] contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-[transform,filter] duration-700 ease-out will-change-transform"
+              class="w-full h-full object-cover grayscale-[15%] contrast-105 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform"
               loading="lazy"
             />
             <!-- Category badge -->
@@ -76,10 +76,10 @@
               <span class="text-neutral-400">{{ obra.dimensions }}</span>
               <NuxtLink
                 :to="`/obras/${obra.slug}`"
-                class="font-barlow font-bold text-sm uppercase tracking-wider text-neutral-900 group-hover:underline flex items-center gap-1 group/ft"
+                class="font-barlow font-bold text-sm uppercase tracking-wider text-neutral-900 group-hover:text-black flex items-center gap-1.5 group/ft"
               >
                 <span>Ficha Técnica</span>
-                <svg class="w-3 h-3 transition-transform duration-200 group-hover/ft:translate-x-0.5 group-hover/ft:-translate-y-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M5 4h7v7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover/ft:translate-x-1.5 group-hover/ft:-translate-y-1" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M5 4h7v7" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </NuxtLink>
             </div>
           </div>
