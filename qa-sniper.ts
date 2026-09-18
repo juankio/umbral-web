@@ -114,7 +114,7 @@ async function runQA() {
           desc: `Banner ZM detectado: ${bannerZMExists}`
         })
       } else if (r.path === '/zona-maco') {
-        // Zona Maco: Héroe triángulo origami, titular Proyectos seleccionados, carrusel y fotos
+        // Zona Maco: Héroe triángulo origami, titular Proyectos seleccionados, grid 2 columnas y 10 fotos
         const heroTriangleExists = (await page.locator('#hero-triangle').count()) > 0
         const projectsTitleExists = (await page.locator('h2').filter({ hasText: 'Proyectos seleccionados' }).count()) > 0
         const projectsCardsCount = await page.locator('#proyectos article').count()
@@ -130,9 +130,9 @@ async function runQA() {
           desc: `Titular H2 detectado: ${projectsTitleExists}`
         })
         domChecks.push({
-          element: 'Zona Maco Carrusel de Obras (#proyectos article)',
-          passed: projectsCardsCount > 0,
-          desc: `${projectsCardsCount} tarjetas de proyectos renderizadas`
+          element: 'Zona Maco Grid Monumental de 10 Obras (#proyectos article)',
+          passed: projectsCardsCount === 10,
+          desc: `${projectsCardsCount} de 10 tarjetas de proyectos renderizadas en grid`
         })
       } else if (r.path === '/obras/encuadre') {
         // Obra Encuadre: Héroe de Obra, H1 Encuadre, Ficha técnica y Galería
@@ -378,34 +378,26 @@ async function runQA() {
     await context.close()
   }
 
-  // Interacción 4: Zona Maco - Navegación de Carrusel con Flechas (Next / Prev)
+  // Interacción 4: Zona Maco - Grid Monumental de 2 Columnas y Hover de Proyectos
   {
     const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } })
     const page = await context.newPage()
     await page.goto('http://localhost:3000/zona-maco', { waitUntil: 'networkidle' })
     await page.waitForTimeout(600)
 
-    const nextBtn = page.locator('button[aria-label="Siguiente proyecto"]')
-    const prevBtn = page.locator('button[aria-label="Proyecto anterior"]')
-
-    const nextVisible = await nextBtn.isVisible()
-    const prevVisible = await prevBtn.isVisible()
-
-    // Clic en Next para mover el track del carrusel
-    await nextBtn.click()
-    await page.waitForTimeout(400)
-    await nextBtn.click()
-    await page.waitForTimeout(400)
-    await prevBtn.click()
-    await page.waitForTimeout(400)
-
     const cardCount = await page.locator('#proyectos article').count()
+    const firstCard = page.locator('#proyectos article').first()
+    
+    // Simular hover sobre la primera tarjeta para verificar revelado de título
+    await firstCard.hover()
+    await page.waitForTimeout(350)
+    const titleVisible = await firstCard.locator('.card-title').isVisible()
 
     results.push({
       suite: 'Interacciones',
-      name: 'Zona Maco - Carrusel Infinito de Proyectos (Next / Prev / Drag)',
-      status: nextVisible && prevVisible && cardCount > 0 ? 'PASS' : 'FAIL',
-      details: `Botones activos: Next=${nextVisible}, Prev=${prevVisible} | ${cardCount} tarjetas en carrusel`
+      name: 'Zona Maco - Grid Monumental de 10 Proyectos (2 Columnas & Hover)',
+      status: cardCount === 10 && titleVisible ? 'PASS' : 'FAIL',
+      details: `Total tarjetas: ${cardCount}/10 | Título en hover activo: ${titleVisible}`
     })
 
     await context.close()

@@ -1,37 +1,20 @@
 <template>
   <div class="bg-white min-h-screen">
-    <ZonaMacoHero @select="handleCategorySelect" />
+    <ZonaMacoHero />
     <ZonaMacoContext />
-    <ZonaMacoProjectsCarousel ref="carouselComponentRef" />
-    <ZonaMacoStudentsConstellation />
+    <ZonaMacoSelection />
+    <ZonaMacoAdvisors />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import ZonaMacoHero from '~/components/zona-maco/ZonaMacoHero.vue'
-import ZonaMacoContext from '~/components/zona-maco/ZonaMacoContext.vue'
-import ZonaMacoProjectsCarousel from '~/components/zona-maco/ZonaMacoProjectsCarousel.vue'
-import ZonaMacoStudentsConstellation from '~/components/zona-maco/ZonaMacoStudentsConstellation.vue'
-
 useSeoMeta({
   title: 'Zona Maco 2026 · Expositores CRGS | UMBRAL',
-  description: 'Catálogo de obras seleccionadas del Centro Roberto Garza Sada para Zona Maco 2026. A través del Umbral.'
+  ogTitle: 'Zona Maco 2026 · Expositores CRGS | UMBRAL',
+  description: 'Catálogo de obras seleccionadas del Centro Roberto Garza Sada para Zona Maco 2026. A través del Umbral.',
+  ogDescription: 'Catálogo de obras seleccionadas del Centro Roberto Garza Sada para Zona Maco 2026. A través del Umbral.',
+  ogImage: 'https://umbral-web-three.vercel.app/images/og-umbral.jpg',
+  ogUrl: 'https://umbral-web-three.vercel.app/zona-maco',
+  twitterCard: 'summary_large_image'
 })
-
-const carouselComponentRef = ref<{ setCategory: (cat: string) => void; scrollToCategory: (cat: string) => void } | null>(null)
-
-const categoryMap: Record<string, string> = {
-  'ARTE CONTEMPORÁNEO': 'Arte Contemporáneo',
-  'ARTE MODERNO': 'Arte Moderno',
-  'DISEÑO EMERGENTE': 'Diseño Emergente',
-  'DISEÑO': 'Diseño'
-}
-
-const handleCategorySelect = (rawCat: string) => {
-  const target = categoryMap[rawCat] || 'Todas'
-  if (carouselComponentRef.value?.setCategory) {
-    carouselComponentRef.value.setCategory(target)
-  }
-}
 </script>

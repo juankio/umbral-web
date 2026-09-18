@@ -1,102 +1,78 @@
 <template>
-  <section class="py-16 lg:py-24 bg-white border-b border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-12">
-        <span class="font-mono text-xs uppercase tracking-widest text-neutral-500 block mb-2">
-          Curaduría & Jurado
-        </span>
-        <h2 class="font-barlow font-bold text-4xl sm:text-5xl uppercase tracking-tight text-neutral-950">
-          Información general y proceso de selección
-        </h2>
-        <p class="mt-3 font-sans text-neutral-600 text-base leading-relaxed">
-          Cada año, el comité curatorial del Centro Roberto Garza Sada y curadores invitados de Zona Maco evalúan más de 60 propuestas generadas durante las 48 horas de la Repentina para seleccionar las 10 piezas que integran la colección oficial.
-        </p>
-      </div>
+  <section id="proyectos" class="py-16 sm:py-24 lg:py-32 bg-white select-none border-b border-neutral-200">
+    <!-- Encabezado de sección -->
+    <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-barlow font-normal text-5xl sm:text-7xl lg:text-[128px] text-[#070707] text-center leading-none uppercase">
+        Proyectos Seleccionados
+      </h2>
+      <!-- Línea divisoria horizontal continua -->
+      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1720px] mx-auto mt-6 sm:mt-8 mb-12 sm:mb-16" />
+    </div>
 
-      <!-- Steps / Selection stages -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div
-          v-for="step in selectionSteps"
-          :key="step.number"
-          class="border border-neutral-200 p-8 flex flex-col justify-between bg-white hover:border-neutral-950 transition-colors duration-300"
+    <!-- Grid Monumental de 2 Columnas -->
+    <div class="max-w-[1380px] mx-auto px-6 sm:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
+        <article
+          v-for="item in productos"
+          :key="item.slug"
+          class="relative w-full aspect-square group overflow-hidden border border-neutral-200/80 shadow-sm hover:shadow-xl transition-shadow duration-500"
+          :style="{ backgroundColor: item.bg }"
         >
-          <div>
-            <div class="flex items-center justify-between pb-4 mb-6 border-b border-neutral-100">
-              <span class="font-mono text-2xl font-bold text-neutral-950">{{ step.number }}</span>
-              <span class="font-mono text-[10px] uppercase tracking-widest text-neutral-400">{{ step.tag }}</span>
+          <NuxtLink
+            :to="`/obras/${item.slug}`"
+            :aria-label="`Ver proyecto ${item.title}`"
+            class="block w-full h-full relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950"
+          >
+            <!-- Imagen con sutil zoom en hover -->
+            <img
+              :src="item.image"
+              :alt="item.title"
+              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              loading="lazy"
+              draggable="false"
+            />
+
+            <!-- Overlay fluido que revela el título en hover -->
+            <div
+              class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-center justify-center p-6 text-center"
+            >
+              <h3
+                class="card-title font-barlow font-normal text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 ease-out drop-shadow-md"
+              >
+                {{ item.title }}
+              </h3>
             </div>
-            <h3 class="font-barlow font-bold text-2xl uppercase tracking-tight text-neutral-950 mb-3">
-              {{ step.title }}
-            </h3>
-            <p class="font-sans text-xs sm:text-sm text-neutral-600 leading-relaxed">
-              {{ step.description }}
-            </p>
-          </div>
-
-          <div class="pt-6 mt-6 border-t border-neutral-100 font-mono text-[11px] text-neutral-500">
-            <span class="text-neutral-400 block uppercase text-[10px]">Criterio Clave</span>
-            <span class="font-semibold text-neutral-900">{{ step.criterion }}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- General Info Accordion / Summary Bar -->
-      <div class="mt-12 p-8 border border-neutral-200 bg-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div>
-          <span class="font-mono text-xs uppercase tracking-wider text-neutral-400 block mb-1">Comité Curatorial</span>
-          <p class="font-barlow font-bold text-lg text-neutral-950 uppercase tracking-tight">Facultad CRGS & Curadores Zona Maco</p>
-          <span class="font-mono text-[11px] text-neutral-500">Evaluación a ciegas por rúbrica</span>
-        </div>
-        <div>
-          <span class="font-mono text-xs uppercase tracking-wider text-neutral-400 block mb-1">Piezas Postuladas</span>
-          <p class="font-barlow font-bold text-lg text-neutral-950 uppercase tracking-tight">64 Proyectos de Taller</p>
-          <span class="font-mono text-[11px] text-neutral-500">Estudiantes de 5 licenciaturas</span>
-        </div>
-        <div>
-          <span class="font-mono text-xs uppercase tracking-wider text-neutral-400 block mb-1">Piezas Seleccionadas</span>
-          <p class="font-barlow font-bold text-lg text-neutral-950 uppercase tracking-tight">10 Obras Oficiales</p>
-          <span class="font-mono text-[11px] text-neutral-500">Pabellón escolar oficial 2026</span>
-        </div>
-        <div>
-          <span class="font-mono text-xs uppercase tracking-wider text-neutral-400 block mb-1">Destino de Fondos</span>
-          <p class="font-barlow font-bold text-lg text-neutral-950 uppercase tracking-tight">Fondo de Becas CRGS</p>
-          <span class="font-mono text-[11px] text-neutral-500">Apoyo a futuros talentos UDEM</span>
-        </div>
+          </NuxtLink>
+        </article>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-interface SelectionStep {
-  number: string
-  tag: string
+interface ProductSelection {
   title: string
-  description: string
-  criterion: string
+  slug: string
+  image: string
+  bg: string
 }
 
-const selectionSteps: SelectionStep[] = [
-  {
-    number: '01',
-    tag: 'Fase Inicial',
-    title: 'Ronda de Ideación',
-    description: 'Los proyectos son evaluados en bocetaje, viabilidad tectónica y capacidad de sintetizar el vacío de La Puerta de la Creación.',
-    criterion: 'Concepto & Tensión Arquitectónica'
-  },
-  {
-    number: '02',
-    tag: 'Fase Taller',
-    title: 'Prototipado 1:1',
-    description: 'Verificación de acabados en concreto, metales y cerámicas con pruebas de resistencia y montaje en salas de exposición.',
-    criterion: 'Rigor Técnico & Materialidad'
-  },
-  {
-    number: '03',
-    tag: 'Fase Final',
-    title: 'Dictamen Curatorial',
-    description: 'Selección colegiada de las 10 piezas que viajan al Centro Citibanamex para representar el rigor y la audacia del CRGS.',
-    criterion: 'Diálogo con la Escena Global'
-  }
+// 10 productos exactos de Figma en orden estricto de izquierda a derecha, fila por fila
+const productos: ProductSelection[] = [
+  // Fila 1
+  { title: 'Encuadre', slug: 'encuadre', image: '/images/figma-product-encuadre.png', bg: '#EDEDED' },
+  { title: 'Roberto', slug: 'roberto', image: '/images/figma-product-roberto.png', bg: '#E5E5E0' },
+  // Fila 2
+  { title: 'Entretiempo', slug: 'entretiempo', image: '/images/figma-product-entretiempo.png', bg: '#EAEAEA' },
+  { title: 'Sagaón', slug: 'sagaon', image: '/images/figma-product-sagaon.png', bg: '#D5CFC9' },
+  // Fila 3
+  { title: 'Interconexión', slug: 'interconexion', image: '/images/figma-product-interconexion.png', bg: '#434B2E' },
+  { title: 'Reliquia', slug: 'reliquia', image: '/images/figma-product-reliquia.png', bg: '#BEBEBE' },
+  // Fila 4
+  { title: 'Curado', slug: 'curado', image: '/images/figma-product-curado.png', bg: '#DCDCDC' },
+  { title: 'Cimiento', slug: 'cimiento', image: '/images/figma-product-cimiento.png', bg: '#D0D0D0' },
+  // Fila 5
+  { title: 'Mai', slug: 'mai', image: '/images/figma-product-mai.png', bg: '#E2DFD8' },
+  { title: 'Desmadre', slug: 'desmadre', image: '/images/figma-product-desmadre.png', bg: '#D3D3D3' }
 ]
 </script>
