@@ -17,7 +17,7 @@
         <!-- Frase Intermedia en Móvil / Izquierda en Desktop: Cruza el -->
         <h2
           ref="leftTextRef"
-          class="order-2 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[58%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mb-4 sm:mb-6 lg:mb-0"
+          class="order-2 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[44%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mb-4 sm:mb-6 lg:mb-0"
         >
           Cruza el
         </h2>
