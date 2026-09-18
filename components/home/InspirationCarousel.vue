@@ -55,7 +55,7 @@
               <AppImage
                 :src="currentSlide.image"
                 :alt="currentSlide.alt"
-                img-class="w-full h-full object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] pointer-events-none"
+                img-class="w-full h-full object-contain pointer-events-none"
                 wrapper-class="w-full h-full flex items-center justify-center"
                 loading="eager"
                 fetchpriority="high"

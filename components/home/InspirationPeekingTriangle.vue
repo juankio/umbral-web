@@ -6,7 +6,7 @@
     :class="side === 'left' ? '-left-4 lg:-left-10 xl:-left-14' : '-right-4 lg:-right-10 xl:-right-14'"
     @click="$emit('navigate')"
   >
-    <div class="w-28 sm:w-36 lg:w-44 h-40 sm:h-52 lg:h-64 flex items-center justify-center filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)]">
+    <div class="w-28 sm:w-36 lg:w-44 h-40 sm:h-52 lg:h-64 flex items-center justify-center">
       <AppImage
         :src="figure.image"
         :alt="figure.alt"
