@@ -1,6 +1,6 @@
 <template>
   <div
-    class="animate-marquee-hover-boost group relative w-full h-[141px] bg-[#1C1C1C] flex items-center overflow-hidden select-none cursor-pointer"
+    class="animate-marquee-hover-boost group relative w-full h-16 sm:h-24 lg:h-[141px] bg-[#1C1C1C] flex items-center overflow-hidden select-none cursor-pointer"
     aria-hidden="true"
   >
     <div class="animate-marquee whitespace-nowrap flex items-center group-hover:opacity-95 transition-opacity duration-300">
@@ -9,7 +9,7 @@
         :key="i"
         class="flex items-center flex-shrink-0"
       >
-        <span class="font-barlow text-3xl md:text-[48px] font-normal text-white tracking-widest uppercase px-6 md:px-10 transition-colors duration-500 group-hover:text-amber-100">
+        <span class="font-barlow text-lg sm:text-3xl lg:text-[48px] font-normal text-white tracking-widest uppercase px-4 sm:px-8 lg:px-10 transition-colors duration-500 group-hover:text-amber-100">
           PENSAMIENTO. MATERIA. CREACIÓN.
         </span>
       </div>
