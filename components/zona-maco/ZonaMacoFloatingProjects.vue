@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+  <div class="hidden lg:block absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
     <div class="relative w-full h-full max-w-[1720px] mx-auto">
       <!-- 1. Top-Left: Encuadre (escalinata terracota) -->
       <NuxtLink

@@ -1,6 +1,6 @@
 <template>
-  <footer class="w-full bg-[#0A0A0A] py-12 sm:py-14 px-6 sm:px-12 border-t border-white/10 text-white">
-    <div class="max-w-[1720px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 items-center">
+  <footer class="w-full bg-[#0A0A0A] py-10 sm:py-14 px-6 sm:px-12 border-t border-white/10 text-white select-text">
+    <div class="max-w-[1720px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-8 items-start lg:items-center">
       <!-- Columna 1: Escuela de Arte y Diseño -->
       <div class="font-barlow font-bold text-sm sm:text-base tracking-[0.14em] uppercase text-white/95 leading-tight select-none">
         ESCUELA DE<br>

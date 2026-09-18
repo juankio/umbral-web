@@ -46,7 +46,7 @@
 
         <!-- Columna Triángulo Monumental Activo (A la derecha) -->
         <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center">
-          <div class="relative w-[320px] sm:w-[380px] lg:w-[420px] h-[460px] sm:h-[520px] lg:h-[560px] flex items-center justify-center [perspective:1200px]">
+          <div class="relative w-[240px] sm:w-[320px] lg:w-[420px] h-[300px] sm:h-[420px] lg:h-[560px] flex items-center justify-center [perspective:1200px]">
             <div
               ref="activeTriangleRef"
               class="w-full h-full flex items-center justify-center will-change-transform"

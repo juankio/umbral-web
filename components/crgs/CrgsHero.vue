@@ -5,7 +5,7 @@
     <!-- Contenedor del Título a la izquierda según Figma (#332:303 / #240:6) -->
     <div class="relative z-10 max-w-[1920px] mx-auto w-full px-6 sm:px-12 lg:px-20 xl:px-28 py-16 lg:py-24">
       <h1
-        class="font-barlow font-semibold text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[145px] text-[#070707] leading-[0.92] tracking-tight max-w-2xl xl:max-w-3xl"
+        class="font-barlow font-semibold text-4xl sm:text-6xl md:text-8xl lg:text-[120px] xl:text-[145px] text-[#070707] leading-[0.92] tracking-tight max-w-2xl xl:max-w-3xl"
       >
         Centro Roberto<br />
         Garza Sada

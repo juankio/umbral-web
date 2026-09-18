@@ -8,8 +8,8 @@
       <!-- Composición Unificada Encuadrada en la Mitad Vertical -->
       <div class="relative w-full">
         <!-- Fila Superior: Párrafo oficial rozando la línea del título -->
-        <div class="w-full flex justify-end mb-2 sm:mb-3 z-30 relative">
-          <p class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[23px] xl:text-[26px] text-white text-right leading-[1.18] tracking-normal select-none max-w-[560px] lg:max-w-[660px]">
+        <div class="w-full flex justify-start sm:justify-end mb-4 sm:mb-3 z-30 relative">
+          <p class="font-barlow font-normal text-sm sm:text-lg md:text-xl lg:text-[23px] xl:text-[26px] text-white text-left sm:text-right leading-snug lg:leading-[1.18] tracking-normal select-none max-w-full sm:max-w-[560px] lg:max-w-[660px]">
             El CRGS participará por tercer año consecutivo en Zona Maco, la<br class="hidden lg:block">
             feria de arte y diseño más importante de Latinoamérica, <strong class="font-bold text-white">del 3 al 7</strong><br class="hidden lg:block">
             <strong class="font-bold text-white">de febrero de 2027 en la Ciudad de México.</strong> Este año el stand se<br class="hidden lg:block">
@@ -26,14 +26,14 @@
             class="group inline-block focus:outline-none"
             aria-label="Ver Proyectos Seleccionados en Zona Maco"
           >
-            <h2 class="font-barlow italic font-medium text-white text-4xl sm:text-6xl md:text-7xl lg:text-[84px] xl:text-[98px] 2xl:text-[108px] tracking-tight leading-none whitespace-nowrap drop-shadow-sm transition-all duration-300 group-hover:opacity-90">
+            <h2 class="font-barlow italic font-medium text-white text-3xl sm:text-5xl md:text-6xl lg:text-[84px] xl:text-[98px] 2xl:text-[108px] tracking-tight leading-none whitespace-normal lg:whitespace-nowrap drop-shadow-sm transition-all duration-300 group-hover:opacity-90">
               <span class="group-hover:underline underline-offset-8 decoration-2 decoration-white">Proyectos Seleccionados</span>
             </h2>
           </NuxtLink>
         </div>
 
         <!-- Triángulo Morado Oficial (#834384, id: 222:32): centrado sobre la mitad de la letra -->
-        <div class="absolute left-16 sm:left-28 lg:left-36 xl:left-44 bottom-[-60px] sm:bottom-[-80px] lg:bottom-[-95px] w-[320px] sm:w-[440px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10">
+        <div class="absolute left-4 sm:left-16 lg:left-36 xl:left-44 bottom-[-40px] sm:bottom-[-60px] lg:bottom-[-95px] w-[260px] sm:w-[400px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10 opacity-90 lg:opacity-100">
           <svg
             viewBox="0 0 609 459"
             fill="none"

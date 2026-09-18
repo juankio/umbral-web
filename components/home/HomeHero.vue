@@ -5,22 +5,22 @@
   >
     <div class="relative w-full max-w-[1720px] mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center items-center">
       <!-- Contenedor relativo para el ensamble fiel a Figma -->
-      <div class="relative w-full flex items-center justify-center">
-        <!-- Frase Izquierda: Cruza el (alineada con el tercio inferior del triángulo) -->
+      <div class="relative w-full flex flex-col lg:flex-row items-center justify-center">
+        <!-- Frase Superior en Móvil / Derecha en Desktop: Abre la puerta, -->
         <h2
-          ref="leftTextRef"
-          class="order-2 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[58%] lg:-translate-y-1/2 font-barlow text-4xl sm:text-6xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mb-4 lg:mb-0"
+          ref="rightTextRef"
+          class="order-1 lg:order-none lg:absolute lg:right-4 xl:right-12 2xl:right-20 lg:top-[18%] lg:-translate-y-1/2 font-barlow text-3xl sm:text-5xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-right leading-none select-none tracking-normal will-change-transform mb-3 sm:mb-4 lg:mb-0"
         >
-          Cruza el
+          Abre la puerta,
         </h2>
 
         <!-- Centro: Triángulo negro estático + Titular UMBRAL -->
-        <div class="order-3 lg:order-none flex flex-col items-center justify-center will-change-transform z-10">
+        <div class="order-2 lg:order-none flex flex-col items-center justify-center will-change-transform z-10 my-2 sm:my-4 lg:my-0">
           <!-- Vector SVG estático proporcional a la altura de la pantalla (Figma 112:13) -->
           <div ref="triangleRef" class="flex justify-center select-none pointer-events-none">
             <svg
               viewBox="0 0 365 500"
-              class="h-[34vh] sm:h-[40vh] lg:h-[46vh] max-h-[480px] min-h-[260px] w-auto block select-none"
+              class="h-[26vh] sm:h-[34vh] lg:h-[46vh] max-h-[480px] min-h-[190px] w-auto block select-none"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -32,18 +32,18 @@
           <!-- Titular monumental UMBRAL centrado directamente debajo -->
           <h1
             ref="umbralTitleRef"
-            class="font-barlow font-normal text-6xl sm:text-8xl lg:text-[100px] xl:text-[130px] 2xl:text-[144px] leading-none text-black tracking-tight text-center select-none mt-3 sm:mt-5 lg:mt-6 will-change-transform"
+            class="font-barlow font-normal text-5xl sm:text-7xl lg:text-[100px] xl:text-[130px] 2xl:text-[144px] leading-none text-black tracking-tight text-center select-none mt-3 sm:mt-5 lg:mt-6 will-change-transform"
           >
             UMBRAL
           </h1>
         </div>
 
-        <!-- Frase Derecha: Abre la puerta, (alineada con la parte superior del triángulo) -->
+        <!-- Frase Inferior en Móvil / Izquierda en Desktop: Cruza el -->
         <h2
-          ref="rightTextRef"
-          class="order-1 lg:order-none lg:absolute lg:right-4 xl:right-12 2xl:right-20 lg:top-[18%] lg:-translate-y-1/2 font-barlow text-4xl sm:text-6xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-right leading-none select-none tracking-normal will-change-transform mb-4 lg:mb-0"
+          ref="leftTextRef"
+          class="order-3 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[58%] lg:-translate-y-1/2 font-barlow text-3xl sm:text-5xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mt-3 sm:mt-4 lg:mt-0"
         >
-          Abre la puerta,
+          Cruza el
         </h2>
       </div>
     </div>
