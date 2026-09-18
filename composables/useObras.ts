@@ -101,9 +101,9 @@ export const useObras = () => {
       hours: '110 horas',
       quote: 'La montaña nos provee la piedra y el viento le talla su memoria.',
       description: 'Pieza arqueológica ficticia rescatada del subsuelo donde se asientan las zapatas de La Puerta de la Creación.',
-      heroImage: '/images/obra-reliquia.png',
+      heroImage: '/images/figma-product-reliquia.png',
       gallery: [
-        '/images/obra-reliquia.png',
+        '/images/figma-product-reliquia.png',
         '/images/crgs-details.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
@@ -164,9 +164,9 @@ export const useObras = () => {
       hours: '75 horas',
       quote: 'El fuego concluye la conversación que las manos iniciaron con el barro.',
       description: 'Cruce entre la tradición cerámica japonesa y la flora del semidesierto neoleonés, evocando simplicidad wabi-sabi.',
-      heroImage: '/images/obra-mai.png',
+      heroImage: '/images/figma-product-mai.png',
       gallery: [
-        '/images/obra-mai.png',
+        '/images/figma-product-mai.png',
         '/images/obra-encuadre-3.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
@@ -206,9 +206,9 @@ export const useObras = () => {
       hours: '130 horas',
       quote: 'El lienzo respira cuando la pintura renuncia a la saturación.',
       description: 'Superficie austera que absorbe la luz incidente, creando una presencia casi táctil en el muro.',
-      heroImage: '/images/obra-curado.png',
+      heroImage: '/images/figma-product-curado.png',
       gallery: [
-        '/images/obra-curado.png',
+        '/images/figma-product-curado.png',
         '/images/crgs-geometry.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
@@ -227,9 +227,9 @@ export const useObras = () => {
       hours: '105 horas',
       quote: 'En el clímax de la repentina, el desorden se transforma en rigor geométrico.',
       description: 'Una oda al proceso frenético de las 48 horas de la Repentina. Los descartes de corte industrial son reensamblados en una pieza vibrante.',
-      heroImage: '/images/obra-desmadre.png',
+      heroImage: '/images/figma-product-desmadre.png',
       gallery: [
-        '/images/obra-desmadre.png',
+        '/images/figma-product-desmadre.png',
         '/images/hero-arch.svg'
       ],
       colorBadge: 'bg-neutral-900 text-white'

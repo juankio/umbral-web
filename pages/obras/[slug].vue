@@ -43,7 +43,7 @@ const slug = computed(() => route.params.slug as string)
 const { obras, getObraBySlug } = useObras()
 
 const obra = computed(() => getObraBySlug(slug.value))
-const relatedObras = computed(() => obras.filter(o => o.slug !== slug.value))
+const relatedObras = computed(() => obras) // pasar toda la colección para que el carrusel muestre todos
 
 useSeoMeta({
   title: computed(() => obra.value ? `${obra.value.title} · Zona Maco 2026 | UMBRAL` : 'Obra · UMBRAL'),
