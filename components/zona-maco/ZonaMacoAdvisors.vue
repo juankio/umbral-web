@@ -2,16 +2,16 @@
   <section id="asesores" class="py-16 sm:py-24 lg:py-32 bg-white select-none overflow-hidden">
     <!-- Encabezado de sección -->
     <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-barlow font-normal text-5xl sm:text-7xl lg:text-[128px] text-[#070707] text-center leading-none">
+      <h2 class="font-barlow font-normal text-[clamp(2.5rem,5vw,5rem)] text-[#070707] text-center leading-none uppercase tracking-tight">
         Asesores de Proyectos
       </h2>
 
       <!-- Línea divisoria horizontal continua -->
-      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1720px] mx-auto mt-6 sm:mt-8 mb-12 sm:mb-16" />
+      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1140px] mx-auto mt-6 mb-12 sm:mb-16" />
     </div>
 
     <!-- Contenido debajo de la línea: Polígono arquitectónico exacto de Figma -->
-    <div class="max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20">
+    <div class="max-w-[1140px] mx-auto px-6 sm:px-8">
       <div class="pt-4 sm:pt-8">
         <svg
           viewBox="0 0 365 500"

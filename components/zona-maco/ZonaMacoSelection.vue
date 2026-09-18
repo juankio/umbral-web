@@ -2,16 +2,16 @@
   <section id="proyectos" class="py-16 sm:py-24 lg:py-32 bg-white select-none border-b border-neutral-200">
     <!-- Encabezado de sección -->
     <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-barlow font-normal text-5xl sm:text-7xl lg:text-[128px] text-[#070707] text-center leading-none uppercase">
+      <h2 class="font-barlow font-normal text-[clamp(2.5rem,5vw,5rem)] text-[#070707] text-center leading-none uppercase tracking-tight">
         Proyectos Seleccionados
       </h2>
       <!-- Línea divisoria horizontal continua -->
-      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1720px] mx-auto mt-6 sm:mt-8 mb-12 sm:mb-16" />
+      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1140px] mx-auto mt-6 mb-12 sm:mb-16" />
     </div>
 
     <!-- Grid Monumental de 2 Columnas -->
-    <div class="max-w-[1380px] mx-auto px-6 sm:px-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
+    <div class="max-w-[1140px] mx-auto px-6 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
         <article
           v-for="item in productos"
           :key="item.slug"

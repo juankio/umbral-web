@@ -5,11 +5,11 @@
   >
     <div class="max-w-[1720px] mx-auto px-6 sm:px-12 flex items-center justify-between">
       <NuxtLink to="/" class="inline-flex items-center transition-opacity hover:opacity-85 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0" aria-label="Ir al inicio de Umbral">
-        <img src="/images/logo-umbral.png" alt="Umbral" class="h-9 sm:h-11 w-auto object-contain" />
+        <img src="/images/logo-umbral.png" alt="Umbral" class="h-8 sm:h-9 w-auto object-contain" />
       </NuxtLink>
 
       <!-- Desktop nav exacto Figma (Zona Maco + Nosotros) -->
-      <nav class="hidden md:flex items-center gap-8 lg:gap-12 font-barlow text-[28px] sm:text-[32px] font-normal leading-none">
+      <nav class="hidden md:flex items-center gap-8 lg:gap-10 font-barlow text-xl sm:text-2xl font-normal leading-none">
         <!-- Dropdown Zona Maco -->
         <div class="relative group" @mouseenter="isDropdownOpen = true" @mouseleave="isDropdownOpen = false">
           <NuxtLink
