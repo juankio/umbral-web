@@ -1,15 +1,15 @@
 <template>
   <section
     id="banner-zm"
-    class="relative w-full bg-[#1C1C1C] text-white min-h-[580px] lg:h-[calc(100vh-210px)] max-h-[820px] flex flex-col justify-end overflow-hidden pb-8 sm:pb-12 lg:pb-14 select-none scroll-mt-[72px]"
+    class="relative w-full bg-[#1C1C1C] text-white min-h-[620px] lg:h-[calc(100vh-180px)] max-h-[860px] flex flex-col justify-center items-center overflow-hidden py-12 lg:py-16 select-none scroll-mt-[72px]"
   >
-    <!-- Contenedor Maestro Centrado en la Página -->
-    <div class="relative w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col justify-end">
-      <!-- Composición Unificada: Párrafo bajado para rozar justo sobre Seleccionados + Título + Triángulo -->
+    <!-- Contenedor Maestro Centrado Exactamente en la Mitad del Frame (Figma 112:2 / Rectangle 21) -->
+    <div class="relative w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col justify-center items-center my-auto">
+      <!-- Composición Unificada Encuadrada en la Mitad Vertical -->
       <div class="relative w-full">
-        <!-- Fila Superior: Párrafo oficial bajado al ras (rozando la línea del título) -->
+        <!-- Fila Superior: Párrafo oficial rozando la línea del título -->
         <div class="w-full flex justify-end mb-2 sm:mb-3 z-30 relative">
-          <p class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[25px] text-white text-right leading-[1.18] tracking-normal select-none max-w-[560px] lg:max-w-[660px]">
+          <p class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[23px] xl:text-[26px] text-white text-right leading-[1.18] tracking-normal select-none max-w-[560px] lg:max-w-[660px]">
             El CRGS participará por tercer año consecutivo en Zona Maco, la<br class="hidden lg:block">
             feria de arte y diseño más importante de Latinoamérica, <strong class="font-bold text-white">del 3 al 7</strong><br class="hidden lg:block">
             <strong class="font-bold text-white">de febrero de 2027 en la Ciudad de México.</strong> Este año el stand se<br class="hidden lg:block">
@@ -19,7 +19,7 @@
           </p>
         </div>
 
-        <!-- Título Cursivo Oficial: en flujo directo justo debajo del párrafo (rozando la 6ta línea) -->
+        <!-- Título Cursivo Oficial: rozando la 6ta línea del párrafo -->
         <div class="relative z-30 w-full pointer-events-auto">
           <NuxtLink
             to="/zona-maco#proyectos"
@@ -32,7 +32,7 @@
           </NuxtLink>
         </div>
 
-        <!-- Triángulo Morado Oficial (#834384, id: 222:32): centrado exactamente sobre la mitad de la letra -->
+        <!-- Triángulo Morado Oficial (#834384, id: 222:32): centrado sobre la mitad de la letra -->
         <div class="absolute left-16 sm:left-28 lg:left-36 xl:left-44 bottom-[-60px] sm:bottom-[-80px] lg:bottom-[-95px] w-[320px] sm:w-[440px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10">
           <svg
             viewBox="0 0 609 459"
@@ -52,5 +52,5 @@
 </template>
 
 <script setup lang="ts">
-// Sección 3: Rectangle 21 exacto de Figma con párrafo bajado rozando sobre 'Seleccionados'
+// Sección 3: Rectangle 21 exacto de Figma centrado armónicamente en la mitad del frame
 </script>
