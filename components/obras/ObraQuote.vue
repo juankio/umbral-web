@@ -23,14 +23,18 @@
 
       <!-- Cita del equipo alineada a la izquierda bajo el marco del video -->
       <blockquote class="font-barlow italic font-normal text-xl sm:text-2xl lg:text-3xl text-black text-left leading-tight mt-6 select-none">
-        {{ quote || '“Cita de algunx de lxs integrantes del equipo”' }}
+        {{ displayQuote }}
       </blockquote>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+
+const props = defineProps<{
   quote?: string
 }>()
+
+const displayQuote = computed(() => props.quote || '“Cita de algunx de lxs integrantes del equipo”')
 </script>
