@@ -1,193 +1,40 @@
 <template>
-  <div
-    v-if="triangleOpacity > 0"
-    ref="containerRef"
-    class="absolute inset-0 w-full h-full flex flex-col items-center justify-center px-4 overflow-hidden select-none pointer-events-none"
-    :style="{ opacity: triangleOpacity }"
-    style="perspective: 1200px"
-  >
-    <!-- Monumental Tadao Ando Arch Triangle (Group 38 Figma w:840 h:981) -->
-    <div
-      ref="triangleRef"
-      class="relative w-[320px] sm:w-[500px] md:w-[680px] lg:w-[800px] xl:w-[840px] h-[340px] sm:h-[530px] md:h-[720px] lg:h-[850px] xl:h-[890px] max-h-[72vh] will-change-transform flex items-center justify-center"
-      :style="triangleTransform"
+  <div class="relative w-full max-w-[702px] flex items-center justify-center select-none">
+    <svg
+      viewBox="0 0 702 726"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full max-w-[702px] h-auto block select-none"
     >
-      <svg
-        viewBox="0 0 702 726"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-full h-full drop-shadow-2xl select-none pointer-events-none"
-      >
-        <!-- Triángulo negro monumental Tadao Ando (Vector 1 Figma id:325:26) -->
-        <path d="M0 552.98L236.16 0L702 725.64L0 552.98Z" fill="#1C1C1C" />
-        <path d="M80 320L702 725.64" stroke="#2A2A2A" stroke-width="1.5" stroke-linecap="round" />
-        <path d="M380 280L160 590" stroke="#262626" stroke-width="1.2" stroke-linecap="round" />
-      </svg>
+      <!-- Triángulo monumental Tadao Ando (Figma Group 38 / Frame 325:2 / Vector 1) -->
+      <path d="M0 552.98L236.16 0L702 725.64L0 552.98Z" fill="#1C1C1C" />
 
-      <!-- Logo Umbral 2 en el centro de la masa monumental (Figma id:325:52 w:298 h:45 / Capa_2) -->
-      <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
-        <img
-          src="/images/logo-umbral.png"
-          alt="UMBRAL"
-          class="w-[180px] sm:w-[240px] md:w-[280px] lg:w-[298px] h-auto object-contain brightness-0 invert opacity-95 drop-shadow select-none"
-          draggable="false"
-        />
-        <span class="font-barlow font-normal text-xs sm:text-sm tracking-[0.3em] uppercase text-neutral-400 mt-2">
-          CRGS · ZONA MACO 2026
-        </span>
-      </div>
+      <!-- Vectores integrados de UMBRAL \ CRGS oficiales de Figma -->
+      <g clip-path="url(#clip0_zm_monolith)">
+        <path d="M115.639 423.501H109.069C109.069 423.501 108.421 423.77 108.421 424.218V465.389C108.421 467.183 107.866 468.887 106.94 470.233C105.737 472.116 103.794 473.103 101.573 473.103C97.0384 473.193 94.4472 469.246 94.4472 465.12V424.218C94.4472 424.218 94.1696 423.501 93.7069 423.501H87.414C87.414 423.501 86.6737 423.59 86.4886 423.949V465.21C86.4886 467.273 87.1364 469.426 87.9693 471.309C88.7096 473.013 89.8201 474.538 91.1157 475.794C93.5218 478.036 96.4831 479.292 99.9072 479.561H103.054C104.812 479.382 106.478 479.113 108.051 478.306C111.105 476.87 113.418 474.449 114.806 471.489C115.732 469.515 116.287 467.362 116.287 465.12V424.218C116.287 424.218 116.009 423.501 115.639 423.501Z" fill="white" />
+        <path d="M157.561 423.411H151.083C151.083 423.411 150.343 423.68 150.157 424.039L141.644 438.839C141.644 438.839 141.273 439.018 141.181 438.839L138.775 434.802L132.575 424.128C132.575 424.128 132.112 423.59 131.742 423.59H125.171C125.171 423.59 124.523 423.859 124.523 424.308V478.485C124.523 478.485 124.801 479.202 125.264 479.202H131.742C132.204 479.202 132.482 478.664 132.482 478.216V438.839C132.482 438.839 132.852 439.018 132.945 439.108L137.109 446.642L140.718 453.19C140.718 453.19 141.088 453.639 141.366 453.639C141.644 453.639 141.829 453.549 142.014 453.28L149.972 438.928C149.972 438.928 150.25 438.659 150.343 438.839V478.395C150.343 478.844 150.62 479.113 151.083 479.113H157.468C157.468 479.113 158.209 478.844 158.209 478.485V424.039C158.209 424.039 157.838 423.411 157.561 423.411Z" fill="white" />
+        <path d="M189.395 450.23C194.485 447.719 196.058 443.234 196.058 438.031C196.058 433.816 194.948 429.869 191.616 426.999C190.228 425.833 188.747 424.936 186.989 424.398C185.046 423.77 183.195 423.411 181.159 423.411H167.463C167.463 423.411 166.815 423.68 166.815 424.128V478.306C166.815 478.754 167.092 479.023 167.555 479.023H181.436C186.341 479.023 190.783 477.409 193.745 473.641C196.706 469.874 197.169 464.582 196.336 460.097C195.595 455.971 193.282 452.473 189.395 450.23ZM174.866 430.048H180.974C182.454 430.048 183.75 430.587 184.953 431.304C186.434 432.291 187.359 433.726 187.822 435.341C188.47 437.493 188.47 439.646 187.914 441.888C187.082 445.297 184.213 447.45 180.604 447.45H174.588V430.318C174.588 430.138 174.681 430.048 174.866 430.048ZM187.822 467.811C186.619 470.681 183.935 472.296 180.789 472.296H174.959C174.959 472.296 174.681 472.206 174.681 471.937V453.459C174.681 453.459 174.866 453.101 175.051 453.101H181.251C183.38 453.101 185.231 454.087 186.619 455.702C188.285 457.765 188.747 460.366 188.747 462.967C188.747 464.672 188.562 466.196 187.914 467.811H187.822Z" fill="white" />
+        <path d="M224.283 453.908C224.283 453.908 224.283 453.459 224.469 453.28C231.317 450.051 233.26 442.158 231.964 435.251C231.594 433.098 230.761 431.035 229.558 429.151C227.245 425.653 223.358 423.411 219.101 423.411H203.462C203.462 423.411 202.814 423.68 202.814 424.039V478.306C202.814 478.306 203.184 478.933 203.554 478.933H210.032C210.495 478.933 210.772 478.575 210.772 478.126V454.625C210.772 454.625 210.957 454.446 211.143 454.446H217.065L224.654 478.126C224.839 478.664 225.116 478.933 225.764 478.933H232.242C232.242 478.933 232.705 478.844 232.797 478.664C232.89 478.485 232.89 478.306 232.797 478.126L224.469 453.818L224.283 453.908ZM217.713 448.347H210.68V430.048H217.62C219.379 430.048 220.952 430.945 222.062 432.111C223.08 433.278 223.728 434.533 224.098 436.058C224.839 439.287 224.561 443.234 222.433 445.835C221.23 447.27 219.656 448.347 217.713 448.347Z" fill="white" />
+        <path d="M256.673 423.949C256.673 423.949 256.395 423.321 255.933 423.321H249.085L248.437 423.411C247.974 423.411 247.604 423.59 247.511 424.128L235.296 478.216C235.296 478.216 235.573 479.023 235.944 479.023H240.201L242.514 478.933C242.792 478.933 243.069 478.664 243.162 478.395L244.92 468.977C244.92 468.977 245.198 468.708 245.383 468.708H258.616C258.616 468.708 258.987 468.887 259.079 469.067L260.837 478.216C260.837 478.216 261.3 478.844 261.67 478.844H268.241C268.241 478.844 269.074 478.485 268.889 478.036L256.673 423.949ZM246.678 462.698C246.678 462.698 246.401 462.698 246.401 462.429L251.861 434.264C251.861 434.264 251.861 434.175 251.953 434.175C251.953 434.175 252.138 434.175 252.138 434.354L257.784 462.788H246.678V462.698Z" fill="white" />
+        <path d="M400.02 452.742V452.383C402.519 451.576 404.555 450.141 406.128 447.988C407.424 446.194 408.257 444.221 408.627 442.068C409.182 439.198 409.182 436.327 408.534 433.457C407.979 431.215 407.053 429.152 405.573 427.358C403.444 424.846 400.483 423.231 397.059 423.231H383.363C383.363 423.231 382.715 423.501 382.715 423.859V478.036C382.715 478.036 382.993 478.754 383.455 478.754H386.417C386.417 478.754 387.064 478.485 387.064 478.036V453.101C387.064 453.101 387.064 452.742 387.342 452.742H395.763L404.832 478.126C405.018 478.575 405.295 478.754 405.758 478.754H408.719C408.719 478.754 409.182 478.664 409.274 478.485C409.274 478.306 409.274 478.126 409.274 477.947L400.02 452.742ZM387.435 449.244C387.435 449.244 387.064 449.154 387.064 448.975V427.358C387.064 427.358 387.064 427.088 387.25 426.999H396.226C398.54 426.999 400.668 428.165 402.056 429.959C403.167 431.304 403.815 432.829 404.185 434.533C404.647 436.776 404.74 439.108 404.185 441.35C403.444 445.387 400.668 448.975 396.134 449.244H387.157H387.435Z" fill="white" />
+        <path d="M300.445 472.296H281.567V423.949C281.567 423.59 281.197 423.321 280.826 423.321H274.349C274.349 423.321 273.608 423.59 273.608 424.039V478.216C273.608 478.216 273.978 478.844 274.349 478.844H300.353C300.353 478.844 301.093 478.575 301.093 478.126V472.834C301.093 472.834 300.815 472.206 300.445 472.206V472.296Z" fill="white" />
+        <path d="M420.75 431.215C422.6 427.088 427.228 425.653 431.67 426.64C434.353 427.268 436.482 429.241 437.407 431.753C437.777 432.919 437.962 433.995 437.962 435.161V439.108C437.962 439.108 438.24 439.736 438.61 439.736H441.664C441.664 439.736 442.312 439.377 442.312 438.929V434.623C442.312 433.098 442.034 431.753 441.479 430.318C440.091 426.64 436.852 423.859 432.873 422.962C430.281 422.335 427.598 422.335 425.007 422.962C420.75 423.949 417.326 427.088 416.215 431.215C415.845 432.56 415.66 433.816 415.66 435.161V466.824C415.66 468.259 415.845 469.515 416.215 470.771C417.326 474.538 420.287 477.498 424.081 478.664C427.135 479.651 431.392 479.561 434.353 478.485C437.592 477.319 440.091 474.897 441.386 471.847C442.034 470.323 442.312 468.887 442.312 467.183V451.845C442.312 451.845 441.942 451.217 441.664 451.217H429.819C429.819 451.217 429.078 451.576 429.078 451.935V454.267C429.078 454.267 429.449 454.895 429.819 454.895H437.685C437.685 454.895 437.962 455.074 437.962 455.253V466.645C437.962 470.681 435.649 474.269 431.484 475.166C429.726 475.525 427.968 475.525 426.21 475.166C423.526 474.538 421.49 472.744 420.565 470.233C420.194 469.246 419.917 468.17 419.917 467.093V434.802C419.917 433.547 420.194 432.381 420.75 431.304V431.215Z" fill="white" />
+        <path d="M474.794 459.649C473.961 457.765 472.666 456.061 471.185 454.625L467.483 451.576L461.931 447.539C458.692 445.118 454.805 442.337 454.065 438.301C453.695 436.238 453.787 434.175 454.342 432.201C455.083 429.779 456.748 427.896 459.155 426.999C461.098 426.281 463.134 426.371 465.17 426.999C466.835 427.447 468.131 428.703 469.149 430.138C470.26 431.753 470.722 433.547 470.907 435.43V438.928C470.907 438.928 471.185 439.646 471.555 439.646H474.516C474.516 439.646 475.349 439.467 475.257 439.018V435.789C475.257 432.739 473.869 428.972 471.648 426.73C469.982 425.025 467.946 423.68 465.632 423.231C463.967 422.962 462.486 422.783 460.82 422.873C458.969 423.052 457.119 423.411 455.545 424.308C452.769 425.922 450.826 428.344 449.993 431.304C449.067 434.533 449.16 438.749 450.548 441.888C451.659 444.4 453.324 446.553 455.545 448.257L461.098 452.473L466.65 456.688C468.131 457.855 469.334 459.2 470.167 460.815C470.907 462.07 471.278 463.505 471.37 464.941C471.648 468.618 470.537 472.116 467.391 474.359C466.003 475.346 464.337 475.794 462.671 475.794C460.82 475.794 459.247 475.346 457.674 474.359C455.36 472.834 453.88 469.425 453.88 466.645V463.864C453.88 463.864 453.509 463.147 453.139 463.147H450.271C450.271 463.147 449.53 463.416 449.53 463.775C449.345 467.99 449.808 471.847 452.677 475.166C453.88 476.601 455.268 477.767 457.026 478.395C458.877 479.113 460.728 479.472 462.671 479.472C464.8 479.472 466.835 479.113 468.686 478.126C471.277 476.781 473.221 474.628 474.424 472.027C475.349 469.874 475.72 467.542 475.72 465.21C475.72 463.326 475.534 461.442 474.702 459.649H474.794Z" fill="white" />
+        <path d="M372.628 464.044L369.574 463.864C369.574 463.864 368.834 464.133 368.834 464.492V467.362C368.649 468.798 368.278 470.233 367.538 471.489C366.15 473.821 363.744 475.345 360.875 475.615H358.747C354.027 475.256 350.881 471.399 350.881 466.914V435.251C350.881 431.304 353.009 428.165 356.803 426.819C358.376 426.281 359.95 426.281 361.615 426.55C364.207 426.909 366.335 428.434 367.631 430.587C368.371 431.842 368.741 433.188 368.741 434.623V437.583C368.741 437.583 369.111 438.301 369.481 438.301L372.443 438.121C372.443 438.121 373.183 437.762 373.183 437.314V434.982C373.183 433.636 372.905 432.381 372.535 431.035C371.332 427.088 368.093 424.128 364.021 423.052C362.171 422.604 360.32 422.514 358.469 422.604L357.266 422.873C352.361 423.501 348.382 426.909 347.086 431.573C346.716 432.829 346.531 433.995 346.531 435.341V466.735C346.531 469.605 347.456 472.834 349.307 474.987C352.084 478.216 355.6 479.472 359.95 479.472C362.171 479.472 364.299 479.113 366.242 478.216C369.481 476.691 371.795 473.821 372.72 470.412C373.183 468.618 373.276 466.824 373.276 464.941C373.276 464.582 373.276 464.044 372.72 464.044H372.628Z" fill="white" />
+        <path d="M315.992 423.949C315.992 423.949 315.622 423.321 315.252 423.321H312.106C312.106 423.321 311.55 423.59 311.643 424.039L325.617 478.216C325.617 478.664 325.987 478.933 326.45 478.933H329.503C329.503 478.933 330.059 478.575 329.966 478.216L315.992 423.949Z" fill="white" />
+      </g>
 
-      <h1 class="sr-only">UMBRAL \ CRGS - Zona Maco</h1>
-    </div>
+      <defs>
+        <clipPath id="clip0_zm_monolith">
+          <rect width="389" height="57" fill="white" transform="translate(86.4886 422.604) scale(1.00083)" />
+        </clipPath>
+      </defs>
+    </svg>
 
-    <!-- Enlaces a las 4 categorías o expositores de la feria (Figma ZM) -->
-    <div
-      class="absolute bottom-20 sm:bottom-24 lg:bottom-28 left-1/2 -translate-x-1/2 z-30 transition-opacity duration-300 pointer-events-auto flex flex-col items-center gap-3 sm:gap-4 max-w-2xl px-4 text-center"
-      :style="{ opacity: indicatorOpacity }"
-    >
-      <nav aria-label="Categorías Zona Maco" class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-neutral-200/80 shadow-sm">
-        <button
-          v-for="cat in categories"
-          :key="cat"
-          type="button"
-          class="font-barlow font-medium text-xs sm:text-sm tracking-[0.18em] uppercase text-neutral-700 hover:text-black hover:scale-105 active:scale-95 transition-all px-2 py-1 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black"
-          @click="handleCategorySelect(cat)"
-        >
-          {{ cat }}
-        </button>
-      </nav>
-
-      <!-- Botón deslizador de apertura (Cápsula interactiva) -->
-      <button
-        type="button"
-        class="group bg-neutral-950 text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.18)] ring-1 ring-white/10 hover:ring-white/30 border border-neutral-800 flex items-center gap-2.5 cursor-pointer pointer-events-auto hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30"
-        :class="{ 'animate-breathing': !isReducedMotion }"
-        aria-label="Desliza para abrir origami o haz click para explorar"
-        @click="triggerScroll"
-      >
-        <span class="relative flex items-center justify-center w-3 h-4.5 border-[1.5px] border-neutral-400 group-hover:border-white rounded-full transition-colors duration-300" aria-hidden="true">
-          <span class="w-1 h-1.2 bg-white rounded-full" :class="{ 'animate-scroll-wheel': !isReducedMotion }" />
-        </span>
-        <span class="font-barlow font-bold text-xs sm:text-xs tracking-[0.2em] uppercase text-white whitespace-nowrap select-none">
-          DESLIZA PARA ABRIR
-        </span>
-        <svg
-          class="w-3 h-3 text-neutral-400 group-hover:text-white transition-all duration-300"
-          :class="{ 'animate-chevron-nudge': !isReducedMotion }"
-          viewBox="0 0 14 14"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M3.5 5.25L7 8.75L10.5 5.25" />
-        </svg>
-      </button>
-    </div>
+    <h1 class="sr-only">UMBRAL \ CRGS - Zona Maco</h1>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-
-interface Props {
-  progress?: number
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  progress: 0
-})
-
-const emit = defineEmits<{ (e: 'select', category: string): void }>()
-
-const categories = ['Arte Contemporáneo', 'Arte Moderno', 'Diseño Emergente', 'Diseño']
-
-const handleCategorySelect = (category: string) => {
-  emit('select', category)
-  if (typeof document !== 'undefined') {
-    document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })
-  }
-}
-
-const containerRef = ref<HTMLElement | null>(null)
-const triangleRef = ref<HTMLElement | null>(null)
-const mouseX = ref(0)
-const mouseY = ref(0)
-const isReducedMotion = ref(false)
-
-const onWindowMouseMove = (e: MouseEvent) => {
-  if (isReducedMotion.value || triangleOpacity.value <= 0) return
-  mouseX.value = (e.clientX / window.innerWidth - 0.5) * 2
-  mouseY.value = (e.clientY / window.innerHeight - 0.5) * 2
-}
-
-const triggerScroll = () => {
-  if (typeof window !== 'undefined') window.scrollTo({ top: 450, behavior: 'smooth' })
-}
-
-// Sincronizado para reaparecer nítido al regresar a 250px (progress ~0.21 -> ~0.70 opacidad)
-// y disolverse suavemente hacia 0.34 para que a 400px emerja la constelación
-const triangleOpacity = computed(() => {
-  if (isReducedMotion.value) return props.progress > 0.34 ? 0 : 1
-  if (props.progress <= 0.16) return 1
-  if (props.progress >= 0.34) return 0
-  return 1 - (props.progress - 0.16) / 0.18
-})
-
-const normalizedProgress = computed(() => Math.min(Math.max((props.progress - 0.08) / 0.24, 0), 1))
-const indicatorOpacity = computed(() => (1 - Math.min(Math.max(props.progress / 0.09, 0), 1)).toFixed(2))
-
-const triangleTransform = computed(() => {
-  if (isReducedMotion.value) return {}
-  const tiltX = -mouseY.value * 6
-  const tiltY = mouseX.value * 8
-  const p = normalizedProgress.value
-  const scale = 1 + p * 0.36
-  const translateY = p * 32
-  const rotateZ = p * 3
-
-  return {
-    transform: `rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) rotateZ(${rotateZ.toFixed(2)}deg) scale(${scale.toFixed(3)}) translateY(${translateY.toFixed(1)}px)`,
-    transition: 'transform 0.20s cubic-bezier(0.16, 1, 0.3, 1)'
-  }
-})
-
-onMounted(() => {
-  if (typeof window !== 'undefined') {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    isReducedMotion.value = mq.matches
-    mq.addEventListener?.('change', (e) => { isReducedMotion.value = e.matches })
-    window.addEventListener('mousemove', onWindowMouseMove, { passive: true })
-  }
-})
-
-onUnmounted(() => {
-  if (typeof window !== 'undefined') {
-    window.removeEventListener('mousemove', onWindowMouseMove)
-  }
-})
+// Triángulo monumental estático 1:1 con Figma Group 38 (Frame 325:2)
 </script>
-
-<style scoped>
-@keyframes breathing {
-  0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.18); border-color: rgba(255,255,255,0.14); }
-  50% { box-shadow: 0 14px 34px rgba(0,0,0,0.28); border-color: rgba(255,255,255,0.32); }
-}
-@keyframes scroll-wheel {
-  0% { transform: translateY(-2px); opacity: 0; }
-  50% { transform: translateY(3.5px); opacity: 0.85; }
-  100% { transform: translateY(5px); opacity: 0; }
-}
-@keyframes chevron-nudge {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(3px); opacity: 1; }
-}
-.animate-breathing { animation: breathing 3.2s ease-in-out infinite; }
-.animate-scroll-wheel { animation: scroll-wheel 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
-.animate-chevron-nudge { animation: chevron-nudge 1.8s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) {
-  .animate-breathing, .animate-scroll-wheel, .animate-chevron-nudge { animation: none !important; }
-}
-</style>

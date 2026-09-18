@@ -4,7 +4,7 @@
     :class="isScrolled ? 'border-b border-neutral-200/80 shadow-xs py-3 sm:py-4' : 'border-b border-transparent py-5 sm:py-6'"
   >
     <div class="max-w-[1720px] mx-auto px-6 sm:px-12 flex items-center justify-between">
-      <NuxtLink to="/" class="inline-flex items-center transition-opacity hover:opacity-85" aria-label="Ir al inicio de Umbral">
+      <NuxtLink to="/" class="inline-flex items-center transition-opacity hover:opacity-85 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0" aria-label="Ir al inicio de Umbral">
         <img src="/images/logo-umbral.png" alt="Umbral" class="h-9 sm:h-11 w-auto object-contain" />
       </NuxtLink>
 
@@ -15,7 +15,7 @@
           <NuxtLink
             to="/zona-maco"
             @click="isDropdownOpen = !isDropdownOpen"
-            class="inline-flex items-center gap-2.5 pb-1 border-b-2 text-black transition-all duration-200 cursor-pointer"
+            class="inline-flex items-center gap-2.5 pb-1 border-b-2 text-black transition-all duration-200 cursor-pointer outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0 select-none"
             :class="isRouteActive('/zona-maco') ? 'border-black opacity-100' : 'border-transparent opacity-80 hover:opacity-100 hover:border-black/40'"
           >
             <span>Zona Maco</span>
@@ -39,7 +39,7 @@
                 :key="item.to"
                 :to="item.to"
                 @click="isDropdownOpen = false"
-                class="px-4 py-2.5 text-neutral-700 hover:text-black hover:bg-neutral-100/70 transition-colors flex items-center justify-between group/link"
+                class="px-4 py-2.5 text-neutral-700 hover:text-black hover:bg-neutral-100/70 transition-colors flex items-center justify-between group/link outline-none focus:outline-none focus-visible:outline-none"
               >
                 <span>{{ item.label }}</span>
                 <span class="text-neutral-400 group-hover/link:text-black group-hover/link:translate-x-0.5 transition-all font-mono">→</span>
@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <NuxtLink to="/crgs" class="inline-block pb-1 border-b-2 text-black transition-all duration-200"
+        <NuxtLink to="/crgs" class="inline-block pb-1 border-b-2 text-black transition-all duration-200 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0 select-none"
           :class="isRouteActive('/crgs') ? 'border-black opacity-100' : 'border-transparent opacity-80 hover:opacity-100 hover:border-black/40'">
           Nosotros
         </NuxtLink>
@@ -65,16 +65,16 @@
 
     <!-- Menú móvil desplegable -->
     <div v-if="isMobileMenuOpen" class="md:hidden border-t border-neutral-200 bg-white px-6 py-6 flex flex-col gap-6">
-      <NuxtLink to="/" @click="isMobileMenuOpen = false" class="inline-block font-barlow text-[28px] font-normal text-black pb-1 border-b-2"
+      <NuxtLink to="/" @click="isMobileMenuOpen = false" class="inline-block font-barlow text-[28px] font-normal text-black pb-1 border-b-2 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0"
         :class="route.path === '/' ? 'border-black' : 'border-neutral-200'">
         Inicio
       </NuxtLink>
-      <NuxtLink to="/zona-maco" @click="isMobileMenuOpen = false" class="inline-flex items-center justify-between font-barlow text-[28px] font-normal text-black pb-1 border-b-2"
+      <NuxtLink to="/zona-maco" @click="isMobileMenuOpen = false" class="inline-flex items-center justify-between font-barlow text-[28px] font-normal text-black pb-1 border-b-2 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0"
         :class="isRouteActive('/zona-maco') ? 'border-black' : 'border-neutral-200'">
         <span>Zona Maco</span>
         <img src="/images/nav-chevron.svg" alt="" class="w-4 h-2.5 object-contain" />
       </NuxtLink>
-      <NuxtLink to="/crgs" @click="isMobileMenuOpen = false" class="inline-block font-barlow text-[28px] font-normal text-black pb-1 border-b-2"
+      <NuxtLink to="/crgs" @click="isMobileMenuOpen = false" class="inline-block font-barlow text-[28px] font-normal text-black pb-1 border-b-2 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0"
         :class="isRouteActive('/crgs') ? 'border-black' : 'border-neutral-200'">
         Nosotros
       </NuxtLink>
