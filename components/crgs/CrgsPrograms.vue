@@ -1,14 +1,38 @@
 <template>
   <section id="programas-profesional" class="py-20 lg:py-28 bg-white border-b border-neutral-200 overflow-hidden select-text">
     <div class="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16">
-      <!-- Encabezado 1:1 Figma (#332:336) Centrado -->
-      <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+      <!-- Encabezado 1:1 Figma (#332:336) Centrado con controles para avanzar -->
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
         <h2 class="font-barlow font-normal text-4xl sm:text-5xl lg:text-6xl text-black leading-none">
           Programas Profesional
         </h2>
         <p class="font-barlow font-normal text-xl sm:text-2xl lg:text-3xl text-neutral-700 leading-snug mt-3">
           Aprende en clases de estudio dirigidas por la práctica e impartidas por una facultad de artistas y diseñadores.
         </p>
+
+        <!-- Controles para avanzar y retroceder en el carrusel -->
+        <div class="flex items-center justify-center gap-3 mt-6 sm:mt-8">
+          <button
+            type="button"
+            aria-label="Programa anterior"
+            class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 hover:border-black hover:bg-neutral-50 text-black flex items-center justify-center transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-black active:scale-95 shadow-xs"
+            @click="prevSlide"
+          >
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Programa siguiente"
+            class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 hover:border-black hover:bg-neutral-50 text-black flex items-center justify-center transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-black active:scale-95 shadow-xs"
+            @click="nextSlide"
+          >
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- Carrusel Horizontal Infinito con Triángulos Únicos de Figma -->
@@ -131,6 +155,21 @@ const updateDimensions = () => {
       singleSetWidth = calculatedWidth
     }
   }
+}
+
+const getStepWidth = () => {
+  if (singleSetWidth > 0 && programs.length) {
+    return singleSetWidth / programs.length
+  }
+  return 520
+}
+
+const prevSlide = () => {
+  targetX -= getStepWidth()
+}
+
+const nextSlide = () => {
+  targetX += getStepWidth()
 }
 
 const onPointerDown = (e: PointerEvent) => {
