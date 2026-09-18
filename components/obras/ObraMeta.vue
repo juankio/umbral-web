@@ -1,85 +1,74 @@
 <template>
-  <!-- Columna Derecha: Bloque Fijo Flotante a Escala Humana -->
-  <aside class="sticky top-24 self-start select-none">
-    <!-- Título en Title Case -->
-    <h2 class="font-barlow font-medium text-4xl sm:text-5xl lg:text-[56px] text-black leading-none mb-3">
-      {{ obra.title }}
-    </h2>
+  <!-- Columna Derecha Fija / Sticky según Figma Frame 112:102 -->
+  <div class="lg:sticky lg:top-24 space-y-6 lg:space-y-7 select-none">
+    <!-- Título en Title Case exacto a Figma (Node 112:134) -->
+    <div>
+      <h2 class="font-barlow font-medium text-4xl sm:text-5xl lg:text-[60px] xl:text-[68px] text-black leading-none tracking-tight">
+        {{ obra.title }}
+      </h2>
+    </div>
 
-    <!-- Descripción con Escala Proporcionada -->
-    <div class="font-barlow font-normal text-sm sm:text-base lg:text-[18px] leading-relaxed text-neutral-800 text-left mb-6 space-y-2">
+    <!-- Descripción Oficial en 2 Párrafos: Barlow Condensed Regular -->
+    <div class="space-y-4 font-barlow font-normal text-base sm:text-lg lg:text-[20px] text-neutral-800 leading-[1.25] text-left">
       <p v-for="(paragraph, idx) in descriptionParagraphs" :key="idx">
         {{ paragraph }}
       </p>
     </div>
 
-    <!-- Ficha Técnica con Líneas Divisorias Delgadas Continuas -->
-    <div class="w-full">
-      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
+    <!-- Ficha Técnica con Líneas Divisorias continuas (Line 7, Line 8, Line 9 de Figma) -->
+    <div class="pt-2">
+      <!-- Línea Divisoria 1 (Figma Line 9) -->
+      <div class="w-full h-[1.5px] bg-[#030303] my-4 lg:my-5" />
 
       <!-- Fila 1: Publicado -->
-      <div class="flex items-baseline justify-between gap-4">
-        <span class="font-barlow text-sm text-neutral-500 leading-none">
+      <div class="flex items-baseline justify-between gap-4 py-1">
+        <span class="font-barlow font-medium text-lg sm:text-xl lg:text-[24px] text-[#3F3F3F] leading-none">
           Publicado
         </span>
-        <span class="font-barlow text-sm sm:text-base text-black text-right leading-none">
+        <span class="font-barlow font-normal text-base sm:text-lg lg:text-[22px] text-black text-right leading-none">
           {{ publishedDate }}
         </span>
       </div>
 
-      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
+      <!-- Línea Divisoria 2 (Figma Line 7) -->
+      <div class="w-full h-[1.5px] bg-[#030303] my-4 lg:my-5" />
 
       <!-- Fila 2: Materiales -->
-      <div class="flex items-start justify-between gap-4">
-        <span class="font-barlow text-sm text-neutral-500 leading-none pt-0.5 flex-shrink-0">
+      <div class="flex items-start justify-between gap-4 py-1">
+        <span class="font-barlow font-medium text-lg sm:text-xl lg:text-[24px] text-[#3F3F3F] leading-none pt-1 flex-shrink-0">
           Materiales
         </span>
-        <div class="flex flex-col items-end text-right space-y-0.5">
+        <div class="flex flex-col items-end text-right space-y-1">
           <span
             v-for="(material, idx) in materialsList"
             :key="idx"
-            class="font-barlow text-sm sm:text-base text-black leading-snug"
+            class="font-barlow font-normal text-base sm:text-lg lg:text-[22px] text-black leading-[1.2]"
           >
             {{ material }}
           </span>
         </div>
       </div>
 
-      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
+      <!-- Línea Divisoria 3 (Figma Line 8) -->
+      <div class="w-full h-[1.5px] bg-[#030303] my-4 lg:my-5" />
 
       <!-- Fila 3: Diseñado por -->
-      <div class="flex items-start justify-between gap-4">
-        <span class="font-barlow text-sm text-neutral-500 leading-none pt-0.5 flex-shrink-0">
+      <div class="flex items-start justify-between gap-4 py-1">
+        <span class="font-barlow font-medium text-lg sm:text-xl lg:text-[24px] text-[#3F3F3F] leading-none pt-1 flex-shrink-0">
           Diseñado por
         </span>
-        <div class="flex flex-col items-end text-right space-y-0.5">
+        <div class="flex flex-col items-end text-right space-y-1">
           <span
             v-for="(designer, idx) in obra.designers"
             :key="idx"
-            class="font-barlow text-sm sm:text-base text-black leading-snug"
+            class="font-barlow font-normal text-base sm:text-lg lg:text-[22px] text-black leading-[1.2]"
           >
             {{ designer }}
           </span>
         </div>
       </div>
-
-      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
-
-      <!-- Adquisición y Precio Proporcionado -->
-      <div class="pt-2 flex items-center justify-between gap-4">
-        <span class="font-barlow font-normal text-2xl sm:text-3xl text-black leading-none">
-          {{ obra.price || '$00' }}
-        </span>
-
-        <a
-          :href="mailtoLink"
-          class="px-5 py-2.5 bg-black text-white font-barlow font-medium text-xs sm:text-sm uppercase tracking-wider text-center hover:bg-neutral-800 active:scale-[0.98] transition-all duration-200"
-        >
-          Consultar Adquisición
-        </a>
-      </div>
     </div>
-  </aside>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -90,20 +79,23 @@ const props = defineProps<{
   obra: Obra
 }>()
 
-const publishedDate = computed(() => props.obra.publishedDate || '28/08/2026')
+const publishedDate = computed(() => {
+  return props.obra.publishedDate || '28/08/2026'
+})
 
 const materialsList = computed(() => {
   if (!props.obra.materials) return []
-  return props.obra.materials.split(',').map(item => item.trim()).filter(Boolean)
+  return props.obra.materials
+    .split(',')
+    .map(item => item.trim())
+    .filter(Boolean)
 })
 
 const descriptionParagraphs = computed(() => {
   if (!props.obra.description) return []
-  return props.obra.description.split('\n\n').filter(Boolean)
-})
-
-const mailtoLink = computed(() => {
-  const subject = encodeURIComponent(`Consulta Adquisición: ${props.obra.title} · Zona Maco 2026`)
-  return `mailto:crgs@udem.edu.mx?subject=${subject}`
+  if (props.obra.description.includes('\n\n')) {
+    return props.obra.description.split('\n\n').filter(Boolean)
+  }
+  return [props.obra.description]
 })
 </script>

@@ -4,24 +4,21 @@
     <ObraHero :obra="obra" />
 
     <!-- 2. Split Layout Exacto Figma (y: 1271 a 3800) -->
-    <article class="max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 py-12 lg:py-20">
+    <article class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 py-10 lg:py-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-start">
-        <!-- Columna Izquierda (Scrollable): Galería de Alta Resolución -->
+        <!-- Columna Izquierda (Scrollable): Galería de Fotos + Fotograma de Video + Cita -->
         <div class="lg:col-span-7">
-          <ObraGallery :images="obra.gallery" :title="obra.title" />
+          <ObraGallery :images="obra.gallery" :title="obra.title" :quote="obra.quote" />
         </div>
 
-        <!-- Columna Derecha (Fija / Sticky): Ficha Técnica y Metadatos -->
+        <!-- Columna Derecha (Fija / Sticky): Ficha Técnica Limpia y Metadatos -->
         <div class="lg:col-span-5 self-stretch">
           <ObraMeta :obra="obra" />
         </div>
       </div>
     </article>
 
-    <!-- 3. Cita del equipo (y: 4543 en Figma con vector origami) -->
-    <ObraQuote :quote="obra.quote" />
-
-    <!-- 4. Sección "Otros proyectos seleccionados" (y: 4832 en Figma) -->
+    <!-- 3. Sección "Otros proyectos seleccionados" (Carrusel Horizontal Completo) -->
     <ObraRelated :related="relatedObras" />
   </div>
 
