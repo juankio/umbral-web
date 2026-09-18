@@ -1,98 +1,69 @@
 <template>
-  <section id="informacion-academica" class="relative py-24 sm:py-32 lg:py-44 bg-[#FAFAFA] text-[#070707] overflow-hidden border-b border-neutral-200 min-h-[900px] lg:min-h-[1200px] flex items-center">
-    <div class="max-w-[1920px] w-full mx-auto px-6 sm:px-12 lg:px-16 relative">
-      <!-- Layout Diagonal 1:1 Figma:
-           Izq: Titular Carreras (Arriba) -> Retrato Angular (Abajo)
-           Centro: Slash Monumental 1200px
-           Der: Retrato Angular (Arriba) -> Titular Posgrados (Abajo)
-      -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
-        <!-- Columna Izquierda: Carreras Profesional -->
-        <div class="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
-          <div class="space-y-3">
-            <span class="font-barlow text-xs sm:text-sm uppercase tracking-[0.25em] text-neutral-400 font-semibold block">
-              03 / Oferta de Grado
-            </span>
-            <a
-              href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-barlow text-4xl sm:text-5xl lg:text-[64px] font-medium text-[#070707] hover:text-[#4BA550] transition-colors leading-[0.95] tracking-tight block"
-            >
-              Más información<br class="hidden sm:inline" /> de carreras
-            </a>
-          </div>
-
-          <!-- Retrato Egresados/Estudiantes Carreras con Máscara Angular apuntando al centro -->
-          <div
-            class="relative w-full max-w-[460px] aspect-[4/3] overflow-hidden bg-neutral-200 shadow-2xl transition-transform duration-700 hover:scale-[1.02] group"
-            style="clip-path: polygon(0 45%, 100% 0, 82% 100%);"
-          >
-            <img
-              src="/images/crgs-student-carreras.png"
-              alt="Estudiantes de Carreras Profesionales CRGS"
-              class="w-full h-full object-cover grayscale-[15%] contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-              loading="eager"
-            />
-            <div class="absolute inset-0 bg-black/10 group-hover:opacity-0 transition-opacity duration-500" />
-          </div>
-
+  <section
+    id="informacion-academica"
+    class="relative py-20 sm:py-24 lg:py-32 bg-[#1C1C1C] text-white overflow-hidden flex items-center justify-center select-text"
+  >
+    <div class="max-w-6xl w-full mx-auto px-6 sm:px-10 lg:px-12">
+      <!-- Díptico Diagonal 1:1 Figma (#332:312 a #332:326) Compacto y Proporcional -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 relative">
+        <!-- Bloque Izquierdo: Texto Arriba a la Izquierda + Triángulo Carreras Abajo -->
+        <div class="flex flex-col items-start w-full sm:w-auto relative z-10">
           <a
-            href="https://www.udem.edu.mx/es/conoce/admisiones"
+            href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional"
             target="_blank"
             rel="noopener noreferrer"
-            class="font-barlow font-bold text-sm uppercase tracking-widest text-neutral-800 hover:text-black inline-flex items-center gap-2 border-b-2 border-neutral-900 pb-1 transition-colors"
+            class="font-barlow text-2xl sm:text-3xl lg:text-[38px] font-normal text-white hover:text-[#4BA550] transition-colors leading-[0.95] tracking-tight mb-3 sm:mb-4 select-text"
           >
-            <span>Convocatoria de Admisiones UDEM</span>
-            <span aria-hidden="true">&rarr;</span>
+            Más información<br />de carreras
+          </a>
+
+          <a
+            href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block group cursor-pointer"
+            aria-label="Más información de carreras"
+          >
+            <img
+              src="/images/figma-carreras-triangle.png"
+              alt="Más información de carreras"
+              class="w-[250px] sm:w-[310px] lg:w-[360px] h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              loading="lazy"
+            />
           </a>
         </div>
 
-        <!-- Columna Central: Slash Monumental 1200px (Barlow Condensed Thin) -->
-        <div class="lg:col-span-2 flex items-center justify-center select-none pointer-events-none my-4 lg:my-0" aria-hidden="true">
-          <span class="font-barlow font-thin text-[260px] sm:text-[500px] md:text-[750px] lg:text-[1000px] xl:text-[1200px] leading-[0.72] text-[#A5BCD5] select-none">
-            /
-          </span>
+        <!-- Barra Diagonal Blanca Central (Slash Inclinado "/" 1:1 Figma) -->
+        <div class="hidden md:flex items-center justify-center px-1 sm:px-3 lg:px-5 select-none pointer-events-none self-center z-20">
+          <div
+            class="w-3 sm:w-3.5 h-[340px] sm:h-[390px] lg:h-[430px] bg-white rounded-full rotate-[16deg] transform origin-center shadow-md"
+          />
         </div>
 
-        <!-- Columna Derecha: Posgrados & Maestrías (Retrato Arriba, Titular Abajo) -->
-        <div class="lg:col-span-5 flex flex-col items-center lg:items-end text-center lg:text-right space-y-8">
-          <!-- Retrato Egresados/Estudiantes Posgrados con Máscara Angular apuntando al centro -->
-          <div
-            class="relative w-full max-w-[460px] aspect-[4/3] overflow-hidden bg-neutral-200 shadow-2xl transition-transform duration-700 hover:scale-[1.02] group"
-            style="clip-path: polygon(18% 0, 100% 55%, 0 100%);"
-          >
-            <img
-              src="/images/crgs-student-posgrados.png"
-              alt="Estudiantes de Posgrados y Maestrías CRGS"
-              class="w-full h-full object-cover grayscale-[15%] contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-              loading="eager"
-            />
-            <div class="absolute inset-0 bg-black/10 group-hover:opacity-0 transition-opacity duration-500" />
-          </div>
-
-          <div class="space-y-3">
-            <span class="font-barlow text-xs sm:text-sm uppercase tracking-[0.25em] text-neutral-400 font-semibold block">
-              04 / Posgrados &amp; Maestrías
-            </span>
-            <a
-              href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/posgrados"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-barlow text-4xl sm:text-5xl lg:text-[64px] font-medium text-[#070707] hover:text-[#4BA550] transition-colors leading-[0.95] tracking-tight block"
-            >
-              Información<br class="hidden sm:inline" /> de posgrados
-            </a>
-          </div>
-
+        <!-- Bloque Derecho: Triángulo Posgrados Arriba + Texto Abajo a la Derecha -->
+        <div class="flex flex-col items-end w-full sm:w-auto relative z-10 md:-mt-8 lg:-mt-12">
           <a
-            href="https://www.udem.edu.mx/es/posgrados"
+            href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/posgrados"
             target="_blank"
             rel="noopener noreferrer"
-            class="font-barlow font-bold text-sm uppercase tracking-widest text-neutral-800 hover:text-black inline-flex items-center gap-2 border-b-2 border-neutral-900 pb-1 transition-colors"
+            class="block group cursor-pointer"
+            aria-label="Información de posgrados"
           >
-            <span>Catálogo Oficial de Posgrados UDEM</span>
-            <span aria-hidden="true">&rarr;</span>
+            <img
+              src="/images/figma-posgrados-triangle.png"
+              alt="Información de posgrados"
+              class="w-[250px] sm:w-[310px] lg:w-[360px] h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              loading="lazy"
+            />
+          </a>
+
+          <a
+            href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/posgrados"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-barlow text-2xl sm:text-3xl lg:text-[38px] font-normal text-white hover:text-[#4BA550] transition-colors leading-[0.95] tracking-tight text-right mt-3 sm:mt-4 select-text"
+          >
+            Información<br />de posgrados
           </a>
         </div>
       </div>
@@ -101,5 +72,6 @@
 </template>
 
 <script setup lang="ts">
-// Bloque Información Académica: Carreras y Posgrados con Slash Monumental 1200px
+// Bloque Información Académica 1:1 con Figma (#332:312 a #332:326)
+// Composición diagonal idéntica a Figma con barra inclinada en slash "/", triángulos paralelos y desfase vertical
 </script>

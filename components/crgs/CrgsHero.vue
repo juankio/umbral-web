@@ -1,77 +1,39 @@
 <template>
-  <section class="relative bg-white overflow-hidden pt-6 pb-16 lg:pt-10 lg:pb-24 border-b border-neutral-200">
-    <div class="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16">
-      <!-- Header Institucional Superior & Breadcrumb -->
-      <header
-        class="flex flex-wrap items-center justify-between gap-4 font-barlow text-xs sm:text-sm uppercase tracking-widest text-neutral-400 pb-3 mb-8 sm:mb-12 border-b border-neutral-200"
+  <section
+    class="relative bg-white overflow-hidden min-h-[75vh] sm:min-h-[85vh] lg:min-h-[calc(100vh-80px)] flex items-center select-text"
+  >
+    <!-- Contenedor del Título a la izquierda según Figma (#332:303 / #240:6) -->
+    <div class="relative z-10 max-w-[1920px] mx-auto w-full px-6 sm:px-12 lg:px-20 xl:px-28 py-16 lg:py-24">
+      <h1
+        class="font-barlow font-semibold text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[145px] text-[#070707] leading-[0.92] tracking-tight max-w-2xl xl:max-w-3xl"
       >
-        <nav class="flex items-center gap-2">
-          <NuxtLink to="/" class="hover:text-black transition-colors">Inicio</NuxtLink>
-          <span class="text-neutral-300">/</span>
-          <span class="text-[#070707] font-semibold">Nosotros · CRGS</span>
-        </nav>
-        <div class="flex items-center gap-3 text-neutral-500 font-sans text-xs">
-          <span>Universidad de Monterrey</span>
-          <span class="w-1 h-1 rounded-full bg-neutral-300" />
-          <span>Tadao Ando Architect &amp; Associates</span>
-        </div>
-      </header>
+        Centro Roberto<br />
+        Garza Sada
+      </h1>
+    </div>
 
-      <!-- Titular Monumental 1:1 Figma (Barlow Condensed SemiBold 150px) -->
-      <div class="mb-10 sm:mb-16">
-        <span class="font-barlow text-xs sm:text-sm uppercase tracking-[0.25em] text-neutral-500 block mb-3 font-medium">
-          Escuela de Arte, Arquitectura y Diseño
-        </span>
-        <h1 class="font-barlow font-semibold text-5xl sm:text-7xl md:text-9xl lg:text-[125px] xl:text-[150px] text-[#070707] leading-[0.88] tracking-tight">
-          Centro Roberto<br />
-          Garza Sada
-        </h1>
-      </div>
-
-      <!-- Monumental Building Stage: Group 24 (w: 2210, h: 1593) -->
-      <div
-        class="relative w-full max-w-[2210px] mx-auto overflow-hidden bg-neutral-100 shadow-2xl group"
-        style="aspect-ratio: 2210 / 1593;"
+    <!-- Triángulo Monumental Negro 1:1 Figma (Vector 1: #332:308 / #240:11)
+         En Figma el triángulo se desborda por la derecha (x: 497 a 2707 en frame de 1920px),
+         con el vértice superior en x: 1693px debajo de Nosotros y cortando el borde derecho a media altura -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+      <svg
+        viewBox="0 0 1920 1080"
+        class="w-full h-full"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
       >
-        <!-- Fotografía Monumental del Edificio CRGS -->
-        <img
-          src="/images/crgs-building.png"
-          alt="Centro Roberto Garza Sada - La Puerta de la Creación por Tadao Ando"
-          class="w-full h-full object-cover object-center grayscale-[15%] contrast-110 brightness-95 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-1000 ease-out"
-          loading="eager"
+        <!-- Polígono del triángulo con desborde derecho exacto de Figma -->
+        <polygon
+          points="1693,150 2707,1180 503,1080"
+          fill="#1C1C1C"
         />
-
-        <!-- Overlay Tectónico y Blueprint Constructivo (Group 24) -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-        <!-- Inscripciones Arquitectónicas Monumentales -->
-        <div class="absolute bottom-6 sm:bottom-12 left-6 sm:left-12 right-6 sm:right-12 flex flex-wrap items-end justify-between gap-6 pointer-events-none">
-          <div class="space-y-1 sm:space-y-2 text-white">
-            <span class="font-sans text-[10px] sm:text-xs tracking-[0.3em] uppercase text-neutral-300 block">
-              Planta &amp; Alzado Monumental · Tadao Ando
-            </span>
-            <p class="font-barlow font-medium text-xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-white leading-none">
-              13,000 m² · Concreto Aparente Esculpido
-            </p>
-          </div>
-          <div class="font-sans text-[11px] sm:text-xs text-neutral-300 tracking-[0.2em] uppercase text-right">
-            <span>25°39'44"N 100°25'08"W</span>
-            <span class="block text-neutral-400">San Pedro Garza García · N.L.</span>
-          </div>
-        </div>
-      </div>
+      </svg>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-
-const isLoaded = ref(false)
-
-onMounted(() => {
-  requestAnimationFrame(() => {
-    isLoaded.value = true
-  })
-})
+// Hero oficial de Nosotros / CRGS 1:1 con Figma (#332:301 / #240:2)
+// El triángulo negro (Vector 1) desborda la pantalla por la derecha exactamente como en el archivo de diseño
 </script>

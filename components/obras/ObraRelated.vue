@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-12 sm:py-16 lg:py-20 border-t border-neutral-200 select-text">
+  <section class="bg-white py-12 sm:py-16 lg:py-20 border-t border-neutral-200 select-text overflow-hidden">
     <div class="max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16">
       <!-- Encabezado con Título y Controles con flechas -->
       <div class="flex items-center justify-between gap-4 mb-6 sm:mb-8">
@@ -30,52 +30,199 @@
         </div>
       </div>
 
-      <!-- Carrusel horizontal fluido de los proyectos -->
+      <!-- Carrusel Horizontal Continuo Infinito -->
       <div
-        ref="carouselRef"
-        class="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth scrollbar-none py-4"
+        class="relative w-full overflow-hidden py-3"
+        @mouseenter="isHovered = true"
+        @mouseleave="onMouseLeave"
       >
-        <NuxtLink
-          v-for="item in related"
-          :key="item.slug"
-          :to="`/obras/${item.slug}`"
-          class="w-40 sm:w-48 lg:w-52 flex-shrink-0 group focus:outline-none"
+        <div
+          ref="trackRef"
+          class="flex gap-6 sm:gap-8 will-change-transform touch-pan-y select-none"
+          :class="isDragging ? 'cursor-grabbing' : 'cursor-grab'"
+          @pointerdown="onPointerDown"
+          @pointermove="onPointerMove"
+          @pointerup="onPointerUp"
+          @pointercancel="onPointerUp"
         >
-          <!-- Imagen oficial en marco cuadrado limpio sin bordes dobles -->
-          <div class="w-40 sm:w-48 lg:w-52 aspect-square bg-neutral-100 overflow-hidden">
-            <img
-              :src="item.heroImage"
-              :alt="item.title"
-              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-              loading="lazy"
-            />
-          </div>
+          <div
+            v-for="(item, idx) in repeatedList"
+            :key="`${item.slug}-${idx}`"
+            class="w-44 sm:w-52 lg:w-60 flex-shrink-0 group focus:outline-none"
+          >
+            <NuxtLink
+              :to="`/obras/${item.slug}`"
+              class="block w-full focus:outline-none"
+              @click="handleLinkClick"
+            >
+              <!-- Imagen en marco cuadrado con velo blanquito suave en hover como en proyectos -->
+              <div class="relative w-44 sm:w-52 lg:w-60 aspect-square bg-neutral-100 overflow-hidden shadow-xs">
+                <img
+                  :src="item.heroImage"
+                  :alt="item.title"
+                  class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 pointer-events-none select-none"
+                  loading="lazy"
+                  draggable="false"
+                />
 
-          <!-- Título debajo en Title Case -->
-          <h3 class="font-barlow font-normal text-lg sm:text-xl text-black leading-none mt-3">
-            {{ item.title }}
-          </h3>
-        </NuxtLink>
+                <!-- Velo blanquito suave en hover idéntico a selección de proyectos -->
+                <div
+                  class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"
+                />
+              </div>
+
+              <!-- Título debajo en Title Case -->
+              <h3 class="font-barlow font-normal text-lg sm:text-xl text-black leading-none mt-3 truncate group-hover:underline">
+                {{ item.title }}
+              </h3>
+            </NuxtLink>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import type { Obra } from '~/composables/useObras'
 
-defineProps<{
+const props = defineProps<{
   related: Obra[]
 }>()
 
-const carouselRef = ref<HTMLElement | null>(null)
+const trackRef = ref<HTMLElement | null>(null)
+const isHovered = ref(false)
+const isDragging = ref(false)
+
+// Cuadruplicamos el conjunto para garantizar continuidad visual infinita en cualquier resolución
+const repeatedList = computed(() => {
+  if (!props.related.length) return []
+  return [...props.related, ...props.related, ...props.related, ...props.related]
+})
+
+let currentX = 0
+let targetX = 0
+let singleSetWidth = 0
+let animFrameId: number | null = null
+let resizeObserver: ResizeObserver | null = null
+
+let startPointerX = 0
+let dragStartX = 0
+let didDrag = false
+
+const updateDimensions = () => {
+  if (!trackRef.value || !props.related.length) return
+  const cards = trackRef.value.children
+  const n = props.related.length
+  if (cards.length > n && cards[n] instanceof HTMLElement && cards[0] instanceof HTMLElement) {
+    const calculatedWidth = (cards[n] as HTMLElement).offsetLeft - (cards[0] as HTMLElement).offsetLeft
+    if (calculatedWidth > 0) {
+      singleSetWidth = calculatedWidth
+    }
+  }
+}
+
+const getStepWidth = () => {
+  if (singleSetWidth > 0 && props.related.length) {
+    return singleSetWidth / props.related.length
+  }
+  return 280
+}
 
 const prevSlide = () => {
-  carouselRef.value?.scrollBy({ left: -320, behavior: 'smooth' })
+  targetX -= getStepWidth()
 }
 
 const nextSlide = () => {
-  carouselRef.value?.scrollBy({ left: 320, behavior: 'smooth' })
+  targetX += getStepWidth()
 }
+
+const onPointerDown = (e: PointerEvent) => {
+  isDragging.value = true
+  didDrag = false
+  startPointerX = e.clientX
+  dragStartX = currentX
+}
+
+const onPointerMove = (e: PointerEvent) => {
+  if (!isDragging.value) return
+  const diff = e.clientX - startPointerX
+  if (Math.abs(diff) > 5) {
+    didDrag = true
+  }
+  currentX = dragStartX - diff
+  targetX = currentX
+}
+
+const onPointerUp = () => {
+  if (!isDragging.value) return
+  isDragging.value = false
+}
+
+const onMouseLeave = () => {
+  isHovered.value = false
+  if (isDragging.value) {
+    isDragging.value = false
+  }
+}
+
+const handleLinkClick = (e: MouseEvent) => {
+  if (didDrag) {
+    e.preventDefault()
+    e.stopPropagation()
+  }
+}
+
+const animate = () => {
+  if (singleSetWidth > 0) {
+    // Auto-desplazamiento continuo suave si no está en hover ni arrastre
+    if (!isHovered.value && !isDragging.value) {
+      targetX += 0.55
+    }
+
+    if (!isDragging.value) {
+      // Amortiguación fluida hacia targetX (lerp)
+      currentX += (targetX - currentX) * 0.08
+    }
+
+    // Normalización imperceptible para bucle infinito continuo
+    if (currentX >= singleSetWidth) {
+      currentX -= singleSetWidth
+      targetX -= singleSetWidth
+    } else if (currentX < 0) {
+      currentX += singleSetWidth
+      targetX += singleSetWidth
+    }
+
+    if (trackRef.value) {
+      trackRef.value.style.transform = `translate3d(${-currentX}px, 0, 0)`
+    }
+  }
+
+  animFrameId = requestAnimationFrame(animate)
+}
+
+onMounted(() => {
+  nextTick(() => {
+    updateDimensions()
+    animFrameId = requestAnimationFrame(animate)
+
+    if (typeof ResizeObserver !== 'undefined' && trackRef.value) {
+      resizeObserver = new ResizeObserver(() => {
+        updateDimensions()
+      })
+      resizeObserver.observe(trackRef.value)
+    }
+  })
+})
+
+onBeforeUnmount(() => {
+  if (animFrameId) {
+    cancelAnimationFrame(animFrameId)
+  }
+  if (resizeObserver) {
+    resizeObserver.disconnect()
+  }
+})
 </script>

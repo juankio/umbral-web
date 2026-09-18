@@ -4,7 +4,6 @@
     <CrgsPuertaCreacion />
     <CrgsPrograms />
     <CrgsInformacionAcademica />
-    <CrgsFuturoInspiracion />
   </div>
 </template>
 

@@ -1,71 +1,108 @@
 <template>
-  <section id="puerta-creacion" class="py-20 lg:py-32 bg-white border-b border-neutral-200 overflow-hidden">
-    <div class="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <!-- Columna Izquierda: Titular 146px + Descripción Arquitectónica de Tadao Ando -->
-        <div class="lg:col-span-7 space-y-8">
-          <div class="space-y-3">
-            <span class="font-barlow text-xs sm:text-sm uppercase tracking-[0.25em] text-neutral-500 font-semibold block">
-              01 / Espacio &amp; Arquitectura · Tadao Ando
-            </span>
-            <h2 class="font-barlow font-medium text-5xl sm:text-7xl md:text-9xl lg:text-[120px] xl:text-[146px] text-[#070707] leading-[0.9] tracking-tight">
-              La Puerta<br />de la Creación
-            </h2>
-          </div>
-
-          <!-- Píldoras de Metadatos Tectónicos -->
-          <div class="flex flex-wrap gap-2 sm:gap-3 font-sans text-xs uppercase tracking-wider text-neutral-600">
-            <span class="px-3 py-1 bg-neutral-100 border border-neutral-200">Premio Pritzker 1995</span>
-            <span class="px-3 py-1 bg-neutral-100 border border-neutral-200">70m Luz Estructural</span>
-            <span class="px-3 py-1 bg-neutral-100 border border-neutral-200">Certificación LEED Platino</span>
-          </div>
-
-          <!-- Descripción Arquitectónica Detallada -->
-          <div class="space-y-5 font-barlow text-lg sm:text-xl lg:text-2xl text-neutral-700 leading-snug max-w-3xl">
-            <p>
-              Concebido por el arquitecto japonés <strong class="font-semibold text-neutral-950">Tadao Ando</strong> como su primera obra construida en Latinoamérica, el Centro Roberto Garza Sada se articula en torno a un vano escultórico continuo que desafía la gravedad y enmarca la cordillera de la Sierra Madre Oriental.
-            </p>
-            <p class="text-base sm:text-lg text-neutral-600 font-sans leading-relaxed">
-              La monumental hendidura de concreto aparente postensado —conocida como "La Puerta de la Creación"— actúa como un umbral vivo donde convergen la luz cenital, las corrientes térmicas y las dinámicas creativas de más de 1,200 estudiantes y profesores. Sus más de 13,000 m² albergan talleres de escala 1:1, laboratorios de manufactura digital y espacios diáfanos que fomentan el aprendizaje interdisciplinario.
-            </p>
-          </div>
+  <section
+    id="puerta-creacion"
+    class="relative w-full min-h-[95vh] lg:min-h-screen bg-[#1C1C1C] flex flex-col items-center justify-center overflow-hidden py-20 sm:py-28 px-4 select-text"
+  >
+    <!-- Contenedor Central del Triángulo Verde Partido a la Mitad al Hacer Clic -->
+    <div class="relative flex items-center justify-center w-full max-w-5xl my-auto">
+      <!-- 1. El Triángulo Verde Oficial #4BA550 de Figma (dividido en 2 alas que se parten) -->
+      <div
+        class="relative w-[300px] sm:w-[380px] md:w-[440px] lg:w-[490px] xl:w-[520px] aspect-[650/890] max-h-[64vh] cursor-pointer group select-none transition-transform duration-500 ease-out"
+        :class="!isSplit ? 'hover:scale-[1.02]' : ''"
+        @click="!isSplit && toggleSplit()"
+      >
+        <!-- Ala Izquierda del Triángulo (se desliza a la izquierda al hacer clic) -->
+        <div
+          class="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
+          :class="isSplit ? '-translate-x-[110px] sm:-translate-x-[180px] md:-translate-x-[240px] lg:-translate-x-[300px] -rotate-2 opacity-70' : 'translate-x-0 rotate-0 opacity-100'"
+          style="clip-path: inset(0 50% 0 0);"
+        >
+          <img
+            src="/images/crgs-puerta-creacion.svg"
+            alt="La Puerta de la Creación - Mitad izquierda"
+            class="w-full h-full object-contain pointer-events-none"
+            draggable="false"
+          />
         </div>
 
-        <!-- Columna Derecha: Prisma Origami Verde (#4BA550) & Visual del Vano Escultórico -->
-        <div class="lg:col-span-5 flex justify-center lg:justify-end">
-          <div class="relative w-full max-w-[540px] aspect-[4/5] bg-neutral-950 overflow-hidden shadow-2xl group">
-            <!-- Fotografía con Grayscale Arquitectónico -->
-            <img
-              src="/images/crgs-building.png"
-              alt="Vano monumental de La Puerta de la Creación - Tadao Ando"
-              class="w-full h-full object-cover grayscale-[20%] contrast-115 brightness-95 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-1000 ease-out"
-              loading="lazy"
-            />
-            <!-- Facetas Geométricas de Origami Verde de la Identidad CRGS -->
-            <div class="absolute inset-0 pointer-events-none">
-              <svg viewBox="0 0 540 675" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="120,0 540,160 540,675 0,550" fill="#4BA550" fill-opacity="0.18" />
-                <polygon points="540,160 540,675 280,480" fill="#439A48" fill-opacity="0.25" />
-                <line x1="120" y1="0" x2="280" y2="480" stroke="#4BA550" stroke-width="1.5" stroke-opacity="0.6" />
-                <line x1="280" y1="480" x2="540" y2="160" stroke="#439A48" stroke-width="1.5" stroke-opacity="0.6" />
-              </svg>
-            </div>
-            <!-- Subtítulo técnico inferior -->
-            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 text-white">
-              <span class="font-sans text-[11px] uppercase tracking-[0.25em] text-[#4BA550] block mb-1">
-                Tectónica de Concreto
-              </span>
-              <p class="font-barlow font-semibold text-2xl uppercase tracking-tight">
-                Vano Escultórico · 70 Metros de Claro
-              </p>
-            </div>
-          </div>
+        <!-- Ala Derecha del Triángulo (se desliza a la derecha al hacer clic) -->
+        <div
+          class="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
+          :class="isSplit ? 'translate-x-[110px] sm:translate-x-[180px] md:translate-x-[240px] lg:translate-x-[300px] rotate-2 opacity-70' : 'translate-x-0 rotate-0 opacity-100'"
+          style="clip-path: inset(0 0 0 50%);"
+        >
+          <img
+            src="/images/crgs-puerta-creacion.svg"
+            alt="La Puerta de la Creación - Mitad derecha"
+            class="w-full h-full object-contain pointer-events-none"
+            draggable="false"
+          />
         </div>
+
+        <!-- Indicador sutil de clic para abrir cuando está cerrado -->
+        <div
+          v-if="!isSplit"
+          class="absolute -bottom-8 inset-x-0 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        >
+          <span class="font-barlow text-xs uppercase tracking-[0.2em] text-neutral-400">
+            Haz clic para abrir el vano
+          </span>
+        </div>
+      </div>
+
+      <!-- 2. Video Documental que emerge en el centro cuando el triángulo se parte a la mitad -->
+      <div
+        class="absolute inset-0 z-30 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        :class="isSplit ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-90 pointer-events-none'"
+      >
+        <div class="relative w-full max-w-2xl sm:max-w-3xl lg:max-w-4xl aspect-video bg-black border border-neutral-800 shadow-2xl overflow-hidden rounded-xs">
+          <!-- Botón para cerrar y volver a unir el triángulo -->
+          <button
+            type="button"
+            @click="toggleSplit"
+            class="absolute top-3 right-3 z-40 bg-black/80 hover:bg-white text-white hover:text-black border border-white/30 px-3 py-1 text-xs font-barlow uppercase tracking-wider rounded-full flex items-center gap-1.5 transition-all cursor-pointer shadow-lg"
+            aria-label="Cerrar video y unir triángulo"
+          >
+            <span>✕</span>
+            <span>Cerrar vano</span>
+          </button>
+
+          <!-- Iframe con el documental oficial -->
+          <iframe
+            v-if="isSplit"
+            class="w-full h-full"
+            src="https://www.youtube-nocookie.com/embed/Ro-pZcZIuPQ?autoplay=1&rel=0"
+            title="Centro Roberto Garza Sada: La Puerta de la Creación (Tadao Ando)"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+      </div>
+
+      <!-- 3. Título Blanco Cursivo Monumental 1:1 Figma (#332:320)
+           En reposo: centrado sobre el triángulo verde.
+           Al abrirse el video: se traslada abajo del reproductor de video de forma limpia y legible. -->
+      <div
+        class="absolute inset-x-0 z-20 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none px-4"
+        :class="isSplit ? 'translate-y-[240px] sm:translate-y-[290px] lg:translate-y-[330px] scale-75 sm:scale-85 opacity-95' : 'translate-y-0 scale-100 opacity-100'"
+      >
+        <h2
+          class="font-barlow font-medium italic text-4xl sm:text-6xl md:text-7xl lg:text-[100px] xl:text-[115px] text-white leading-none tracking-tight text-center drop-shadow-md select-none"
+        >
+          La Puerta de la Creación
+        </h2>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-// Sección 2: La Puerta de la Creación (Barlow Condensed Medium 146px + Descripción Arquitectónica)
+import { ref } from 'vue'
+
+const isSplit = ref(false)
+
+const toggleSplit = () => {
+  isSplit.value = !isSplit.value
+}
 </script>

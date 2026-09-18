@@ -1,15 +1,19 @@
 <template>
   <div
-    class="w-full relative select-none"
+    class="w-full relative select-none cursor-grab active:cursor-grabbing"
     role="region"
     aria-roledescription="carousel"
     aria-label="Personajes de Inspiración CRGS"
     @mouseenter="pauseAutoplay"
     @mouseleave="resumeAutoplay"
+    @pointerdown="onPointerDown"
+    @pointermove="onPointerMove"
+    @pointerup="onPointerUp"
+    @pointercancel="onPointerUp"
     @touchstart.passive="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <!-- Flanqueo Peeking Izquierdo (Figura anterior) -->
+    <!-- Flanqueo Peeking Izquierdo (Figura anterior en bucle infinito) -->
     <InspirationPeekingTriangle
       :figure="prevFigure"
       side="left"
@@ -19,7 +23,7 @@
     <!-- Escena Central: Información a la izquierda y Figura activa a la derecha -->
     <div class="mx-auto max-w-4xl lg:max-w-5xl px-4 sm:px-8 relative z-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center min-h-[460px]">
-        <!-- Columna Información y Biografía (A la izquierda, apuntada por la flecha de Don Roberto) -->
+        <!-- Columna Información y Biografía (A la izquierda) -->
         <div
           ref="activeTextRef"
           class="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-center space-y-6"
@@ -51,7 +55,8 @@
               <img
                 :src="currentSlide.image"
                 :alt="currentSlide.alt"
-                class="w-full h-full object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)]"
+                class="w-full h-full object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] pointer-events-none"
+                draggable="false"
               />
             </div>
           </div>
@@ -59,14 +64,14 @@
       </div>
     </div>
 
-    <!-- Flanqueo Peeking Derecho (Figura siguiente) -->
+    <!-- Flanqueo Peeking Derecho (Figura siguiente en bucle infinito) -->
     <InspirationPeekingTriangle
       :figure="nextFigure"
       side="right"
       @navigate="nextSlide"
     />
 
-    <!-- Controles al Pie: Flechas ( < ) ( > ), Contador 01 / 03 y 3 barras horizontales de navegación -->
+    <!-- Controles al Pie: Flechas ( < ) ( > ), Contador Circular y Barras de navegación -->
     <InspirationCarouselControls
       :current="currentIndex"
       :total="slides.length"
@@ -90,16 +95,19 @@ const slides = inspirationCarouselSlides
 const activeTriangleRef = ref<HTMLElement | null>(null)
 const activeTextRef = ref<HTMLElement | null>(null)
 
+let isPointerDown = false
+let pointerStartX = 0
+
 const playSlideAnimation = (dir: number = 1) => {
   if (!import.meta.client || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
   nextTick(() => {
     if (activeTriangleRef.value) {
       animate(activeTriangleRef.value, {
-        rotateY: [`${dir * 24}deg`, '0deg'],
-        scale: [0.92, 1],
+        translateX: [`${dir * 70}px`, '0px'],
+        scale: [0.93, 1],
         opacity: [0, 1],
-        duration: 700,
+        duration: 650,
         ease: 'outCubic'
       })
     }
@@ -109,9 +117,9 @@ const playSlideAnimation = (dir: number = 1) => {
       if (texts.length) {
         animate(texts, {
           opacity: [0, 1],
-          translateY: [16, 0],
+          translateX: [`${dir * 35}px`, '0px'],
           duration: 550,
-          delay: stagger(65),
+          delay: stagger(50),
           ease: 'outCubic'
         })
       }
@@ -136,6 +144,29 @@ const {
   onNavigate: (_index, dir) => playSlideAnimation(dir)
 })
 
+const onPointerDown = (e: PointerEvent) => {
+  isPointerDown = true
+  pointerStartX = e.clientX
+  pauseAutoplay()
+}
+
+const onPointerMove = (_e: PointerEvent) => {
+  // tracking si se desea feedback
+}
+
+const onPointerUp = (e: PointerEvent) => {
+  if (!isPointerDown) return
+  isPointerDown = false
+  resumeAutoplay()
+  const diff = e.clientX - pointerStartX
+  if (diff > 50) {
+    prevSlide()
+  } else if (diff < -50) {
+    nextSlide()
+  }
+}
+
+// Bucle circular infinito continuo
 const prevIndex = computed(() => (currentIndex.value - 1 + slides.length) % slides.length)
 const nextIndex = computed(() => (currentIndex.value + 1) % slides.length)
 
