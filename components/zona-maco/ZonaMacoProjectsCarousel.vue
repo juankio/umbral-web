@@ -34,14 +34,20 @@
 
           <!-- Imagen con enlace hacia /obras/[slug] -->
           <NuxtLink :to="`/obras/${obra.slug}`" @click="handleLinkClick" class="block relative aspect-[3/4] bg-neutral-100 overflow-hidden border border-neutral-200 group-hover:border-neutral-950 transition-colors duration-300 shadow-sm group-hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-neutral-950">
-            <img :src="obra.heroImage" :alt="obra.title" class="card-image w-full h-full object-cover" loading="lazy" draggable="false" />
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between pointer-events-none">
-              <span class="px-2.5 py-1 bg-white/95 text-neutral-950 font-mono text-[10px] uppercase tracking-widest self-start font-bold shadow">{{ obra.edition || 'Edición 2026' }}</span>
-              <div class="flex items-center justify-between text-white font-barlow text-sm uppercase tracking-wider">
-                <span>Ver Obra Completa</span>
-                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <AppImage
+              :src="obra.heroImage"
+              :alt="obra.title"
+              img-class="card-image w-full h-full object-cover"
+              loading="lazy"
+            >
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-neutral-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between pointer-events-none">
+                <span class="px-2.5 py-1 bg-white/95 text-neutral-950 font-mono text-[10px] uppercase tracking-widest self-start font-bold shadow">{{ obra.edition || 'Edición 2026' }}</span>
+                <div class="flex items-center justify-between text-white font-barlow text-sm uppercase tracking-wider">
+                  <span>Ver Obra Completa</span>
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </div>
               </div>
-            </div>
+            </AppImage>
           </NuxtLink>
 
           <div class="mt-2.5 px-1 flex items-center justify-between text-xs">

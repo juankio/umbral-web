@@ -52,11 +52,13 @@
               class="w-full h-full flex items-center justify-center will-change-transform"
               style="transform-style: preserve-3d"
             >
-              <img
+              <AppImage
                 :src="currentSlide.image"
                 :alt="currentSlide.alt"
-                class="w-full h-full object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] pointer-events-none"
-                draggable="false"
+                img-class="w-full h-full object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] pointer-events-none"
+                wrapper-class="w-full h-full flex items-center justify-center"
+                loading="eager"
+                fetchpriority="high"
               />
             </div>
           </div>

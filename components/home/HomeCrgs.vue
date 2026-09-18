@@ -40,10 +40,10 @@
         <!-- Columna Derecha: Fotografía limpia y pura de Figma (sin marcos técnicos) -->
         <div class="lg:col-span-6 flex justify-center lg:justify-end">
           <div class="w-full max-w-[540px] lg:max-w-[600px] xl:max-w-[640px] overflow-hidden shadow-sm">
-            <img
-              src="/images/figma-crgs-section4.png"
+            <AppImage
+              src="/images/figma-crgs-section4.webp"
               alt="Centro Roberto Garza Sada - Patio interior y escalinatas de Tadao Ando"
-              class="w-full aspect-[910/879] object-cover block"
+              img-class="w-full aspect-[910/879] object-cover block"
               loading="lazy"
             />
           </div>

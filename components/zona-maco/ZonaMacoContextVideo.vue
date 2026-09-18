@@ -1,9 +1,11 @@
 <template>
   <div class="max-w-[980px] mx-auto aspect-[16/8] sm:aspect-[16/9] bg-neutral-900 border border-neutral-700 relative overflow-hidden group shadow-2xl">
-    <img
-      src="/images/crgs-building.png"
+    <AppImage
+      src="/images/crgs-building.webp"
       alt="Video proceso repentina"
-      class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700"
+      img-class="w-full h-full object-cover grayscale contrast-125 opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700"
+      wrapper-class="absolute inset-0 w-full h-full"
+      loading="lazy"
     />
     <div class="absolute inset-0 bg-neutral-950/60 group-hover:bg-neutral-950/40 transition-colors duration-500" />
 

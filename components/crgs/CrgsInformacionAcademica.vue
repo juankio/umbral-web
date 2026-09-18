@@ -24,10 +24,10 @@
             class="block group cursor-pointer w-full"
             aria-label="Más información de carreras"
           >
-            <img
-              src="/images/figma-carreras-triangle.png"
+            <AppImage
+              src="/images/figma-carreras-triangle.webp"
               alt="Más información de carreras"
-              class="w-full max-w-[150px] sm:max-w-[240px] md:max-w-[310px] lg:max-w-[360px] h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              img-class="w-full max-w-[150px] sm:max-w-[240px] md:max-w-[310px] lg:max-w-[360px] h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               loading="lazy"
             />
           </a>
@@ -49,10 +49,10 @@
             class="block group cursor-pointer w-full flex justify-end"
             aria-label="Información de posgrados"
           >
-            <img
-              src="/images/figma-posgrados-triangle.png"
+            <AppImage
+              src="/images/figma-posgrados-triangle.webp"
               alt="Información de posgrados"
-              class="w-full max-w-[150px] sm:max-w-[240px] md:max-w-[310px] lg:max-w-[360px] h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              img-class="w-full max-w-[150px] sm:max-w-[240px] md:max-w-[310px] lg:max-w-[360px] h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               loading="lazy"
             />
           </a>

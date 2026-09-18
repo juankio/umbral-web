@@ -32,12 +32,12 @@
       <div
         class="relative w-[240px] sm:w-[320px] lg:w-[380px] xl:w-[420px] aspect-[476/526] bg-white border border-neutral-300 shadow-sm overflow-hidden"
       >
-        <img
+        <AppImage
           :src="obra.heroImage || obra.gallery?.[0]"
           :alt="obra.title"
-          class="w-full h-full object-cover"
+          img-class="w-full h-full object-cover"
           loading="eager"
-          draggable="false"
+          fetchpriority="high"
         />
       </div>
 

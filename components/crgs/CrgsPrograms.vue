@@ -33,12 +33,12 @@
           >
             <!-- Contenedor del Triángulo Oficial de Figma con su Orientación Geométrica Real -->
             <div class="h-44 sm:h-56 lg:h-64 max-w-[260px] sm:max-w-[310px] flex-shrink-0 flex items-center justify-center">
-              <img
+              <AppImage
                 :src="prog.image"
                 :alt="prog.name"
-                class="h-full w-auto max-w-full object-contain pointer-events-none transition-transform duration-500 ease-out group-hover:scale-105 drop-shadow-sm"
+                img-class="h-full w-auto max-w-full object-contain pointer-events-none transition-transform duration-500 ease-out group-hover:scale-105 drop-shadow-sm"
+                wrapper-class="h-full flex items-center justify-center"
                 loading="lazy"
-                draggable="false"
               />
             </div>
 
@@ -101,31 +101,31 @@ const programs: Program[] = [
     code: 'LDG',
     name: 'Licenciatura en Diseño Gráfico',
     description: 'Estudia la Licenciatura en Diseño Gráfico en UDEM y desarolla tu creatividad con técnicas innovadoras, preparándote para liderar el mundo del diseño visual.',
-    image: '/images/program-triangle-2.png'
+    image: '/images/program-triangle-2.webp'
   },
   {
     code: 'LINT',
     name: 'Licenciatura en Diseño de Interiores',
     description: 'Estudia la Licenciatura en Diseño de Interiores en UDEM, y transforma diferentes espacios con creatividad, creando ambientes funcionales, estéticos e impactantes.',
-    image: '/images/program-triangle-3.png'
+    image: '/images/program-triangle-3.webp'
   },
   {
     code: 'LDM',
     name: 'Licenciatura en Diseño de Moda',
     description: 'Estudia la Licenciatura en Diseño de Moda en UDEM y crea tendencias innovadoras con una formación integral en diseño, moda en la industria textil.',
-    image: '/images/program-triangle-4.png'
+    image: '/images/program-triangle-4.webp'
   },
   {
     code: 'LDI',
     name: 'Licenciatura en Diseño Industrial',
     description: 'Estudia la Licenciatura en Diseño Industrial en UDEM y desarolla productos innovadores con un enfoque en funcionalidad, estética para el mercado global.',
-    image: '/images/program-triangle-5.png'
+    image: '/images/program-triangle-5.webp'
   },
   {
     code: 'LAED',
     name: 'Licenciatura en Animación y Efectos Digitales',
     description: 'Estudia la Licenciatura en Animación y Efectos Digitales en UDEM y domina las técnicas más avanzadas para crear y producir efectos visuales de alto impacto.',
-    image: '/images/program-triangle-1.png'
+    image: '/images/program-triangle-1.webp'
   }
 ]
 

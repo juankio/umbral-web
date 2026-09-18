@@ -24,18 +24,17 @@
             class="block w-full h-full relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950"
           >
             <!-- Imagen con leve zoom en hover -->
-            <img
+            <AppImage
               :src="item.image"
               :alt="item.title"
-              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              img-class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               loading="lazy"
-              draggable="false"
-            />
-
-            <!-- Velo de fondo blanquito suave en hover según Figma -->
-            <div
-              class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"
-            />
+            >
+              <!-- Velo de fondo blanquito suave en hover según Figma -->
+              <div
+                class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"
+              />
+            </AppImage>
 
             <!-- Título en esquina inferior derecha sobre el fondo blanquito en hover (sin slash) -->
             <div
@@ -65,19 +64,19 @@ interface ProductSelection {
 // 10 productos exactos de Figma en orden estricto de izquierda a derecha, fila por fila
 const productos: ProductSelection[] = [
   // Fila 1
-  { title: 'Encuadre', slug: 'encuadre', image: '/images/figma-product-encuadre.png', bg: '#EDEDED' },
-  { title: 'Roberto', slug: 'roberto', image: '/images/figma-product-roberto.png', bg: '#E5E5E0' },
+  { title: 'Encuadre', slug: 'encuadre', image: '/images/figma-product-encuadre.webp', bg: '#EDEDED' },
+  { title: 'Roberto', slug: 'roberto', image: '/images/figma-product-roberto.webp', bg: '#E5E5E0' },
   // Fila 2
-  { title: 'Entretiempo', slug: 'entretiempo', image: '/images/figma-product-entretiempo.png', bg: '#EAEAEA' },
-  { title: 'Sagaón', slug: 'sagaon', image: '/images/figma-product-sagaon.png', bg: '#D5CFC9' },
+  { title: 'Entretiempo', slug: 'entretiempo', image: '/images/figma-product-entretiempo.webp', bg: '#EAEAEA' },
+  { title: 'Sagaón', slug: 'sagaon', image: '/images/figma-product-sagaon.webp', bg: '#D5CFC9' },
   // Fila 3
-  { title: 'Interconexión', slug: 'interconexion', image: '/images/figma-product-interconexion.png', bg: '#434B2E' },
-  { title: 'Reliquia', slug: 'reliquia', image: '/images/figma-product-reliquia.png', bg: '#BEBEBE' },
+  { title: 'Interconexión', slug: 'interconexion', image: '/images/figma-product-interconexion.webp', bg: '#434B2E' },
+  { title: 'Reliquia', slug: 'reliquia', image: '/images/figma-product-reliquia.webp', bg: '#BEBEBE' },
   // Fila 4
-  { title: 'Curado', slug: 'curado', image: '/images/figma-product-curado.png', bg: '#DCDCDC' },
-  { title: 'Cimiento', slug: 'cimiento', image: '/images/figma-product-cimiento.png', bg: '#D0D0D0' },
+  { title: 'Curado', slug: 'curado', image: '/images/figma-product-curado.webp', bg: '#DCDCDC' },
+  { title: 'Cimiento', slug: 'cimiento', image: '/images/figma-product-cimiento.webp', bg: '#D0D0D0' },
   // Fila 5
-  { title: 'Mai', slug: 'mai', image: '/images/figma-product-mai.png', bg: '#E2DFD8' },
-  { title: 'Desmadre', slug: 'desmadre', image: '/images/figma-product-desmadre.png', bg: '#D3D3D3' }
+  { title: 'Mai', slug: 'mai', image: '/images/figma-product-mai.webp', bg: '#E2DFD8' },
+  { title: 'Desmadre', slug: 'desmadre', image: '/images/figma-product-desmadre.webp', bg: '#D3D3D3' }
 ]
 </script>

@@ -3,12 +3,11 @@
     <div class="max-w-[1040px] mx-auto px-4 sm:px-6">
       <!-- Fotograma Panorámico de Video con Play (Figma Node 112:115 / 113:335) -->
       <div class="relative w-full aspect-[1209/568] bg-neutral-900 overflow-hidden shadow-md border border-black/80 group">
-        <img
-          src="/images/figma-obra-video-frame.png"
+        <AppImage
+          src="/images/figma-obra-video-frame.webp"
           alt="Fotograma de proceso en taller"
-          class="w-full h-full object-cover select-none"
+          img-class="w-full h-full object-cover select-none"
           loading="lazy"
-          draggable="false"
         />
         <button
           type="button"

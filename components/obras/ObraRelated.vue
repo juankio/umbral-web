@@ -57,18 +57,17 @@
             >
               <!-- Imagen en marco cuadrado con velo blanquito suave en hover como en proyectos -->
               <div class="relative w-44 sm:w-52 lg:w-60 aspect-square bg-neutral-100 overflow-hidden shadow-xs">
-                <img
+                <AppImage
                   :src="item.heroImage"
                   :alt="item.title"
-                  class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 pointer-events-none select-none"
+                  img-class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 pointer-events-none select-none"
                   loading="lazy"
-                  draggable="false"
-                />
-
-                <!-- Velo blanquito suave en hover idéntico a selección de proyectos -->
-                <div
-                  class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"
-                />
+                >
+                  <!-- Velo blanquito suave en hover idéntico a selección de proyectos -->
+                  <div
+                    class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"
+                  />
+                </AppImage>
               </div>
 
               <!-- Título debajo en Title Case -->

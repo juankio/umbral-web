@@ -9,12 +9,12 @@
       <!-- Marco Escultórico de la Repentina (Figma Group 7 / Node 325:11) -->
       <div class="relative w-full max-w-[1040px] aspect-[1697/751] bg-neutral-900 overflow-hidden shadow-2xl border border-black/80">
         <!-- Fotografía oficial del stand de exposición en Zona Maco (Node 325:19) -->
-        <img
-          src="/images/figma-zm-repentina-showcase.png"
+        <AppImage
+          src="/images/figma-zm-repentina-showcase.webp"
           alt="Exposición oficial de la Repentina en Zona Maco"
-          class="absolute inset-0 w-full h-full object-cover opacity-85"
-          loading="eager"
-          draggable="false"
+          img-class="w-full h-full object-cover opacity-85"
+          wrapper-class="absolute inset-0 w-full h-full"
+          loading="lazy"
         />
 
         <!-- Líneas Diagonales en X y Triángulo Central (Figma Lines 19 & 20 + Vector 4) -->

@@ -7,10 +7,11 @@
     @click="$emit('navigate')"
   >
     <div class="w-28 sm:w-36 lg:w-44 h-40 sm:h-52 lg:h-64 flex items-center justify-center filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)]">
-      <img
+      <AppImage
         :src="figure.image"
         :alt="figure.alt"
-        class="w-full h-full object-contain grayscale contrast-110 brightness-95 hover:grayscale-0 transition-all duration-500 block pointer-events-none"
+        img-class="w-full h-full object-contain grayscale contrast-110 brightness-95 hover:grayscale-0 transition-all duration-500 block pointer-events-none"
+        loading="lazy"
       />
     </div>
   </button>

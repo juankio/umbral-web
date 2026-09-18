@@ -31,10 +31,11 @@
         <div class="lg:col-span-5 relative flex flex-col items-center w-full max-w-[480px] lg:max-w-[500px] mx-auto lg:ml-auto">
           <!-- Foto 1 (Arriba): Exterior atardecer CRGS (desfasada a la derecha) -->
           <div class="relative z-10 w-[85%] sm:w-[88%] self-end shadow-sm">
-            <img
-              src="/images/figma-intro-crgs-top.png"
+            <AppImage
+              src="/images/figma-intro-crgs-top.webp"
               alt="Centro Roberto Garza Sada - Voladizo exterior al atardecer"
-              class="w-full h-auto object-cover block"
+              img-class="w-full h-auto object-cover block"
+              loading="lazy"
             />
           </div>
 
@@ -49,10 +50,11 @@
 
           <!-- Foto 2 (Abajo): Escalinata y patio de concreto CRGS -->
           <div class="relative z-0 w-full self-start shadow-sm">
-            <img
-              src="/images/figma-intro-crgs-bottom.png"
+            <AppImage
+              src="/images/figma-intro-crgs-bottom.webp"
               alt="Centro Roberto Garza Sada - Escalinata y patio de concreto"
-              class="w-full h-auto object-cover block"
+              img-class="w-full h-auto object-cover block"
+              loading="lazy"
             />
           </div>
         </div>

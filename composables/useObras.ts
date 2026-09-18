@@ -35,11 +35,11 @@ export const useObras = () => {
       hours: '1234 horas',
       quote: '“Cita de algunx de lxs integrantes del equipo”',
       description: 'Cuando la ciudad satura, los rincones que usualmente pasan desapercibidos susurran que nos tomemos un momento para observar.\n\nDe pronto, la geometría a la que tanto estábamos acostumbradas se extiende en líneas que nunca habíamos notado, para componer entonces un marco perfecto que captura la esencia del lugar.',
-      heroImage: '/images/figma-product-encuadre.png',
+      heroImage: '/images/figma-product-encuadre.webp',
       gallery: [
-        '/images/figma-obra-22.png',
-        '/images/figma-obra-24.png',
-        '/images/figma-obra-23.png'
+        '/images/figma-obra-22.webp',
+        '/images/figma-obra-24.webp',
+        '/images/figma-obra-23.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -57,10 +57,10 @@ export const useObras = () => {
       hours: '180 horas',
       quote: 'La materia recuerda el carácter firme de quienes levantaron una escuela sobre la montaña.',
       description: 'Una abstracción tectónica de la solidez y visión del mecenazgo industrial regiomontano. Superficies ásperas contrastadas con aristas afiladas como navajas de afeitar.',
-      heroImage: '/images/figma-related-roberto.png',
+      heroImage: '/images/figma-related-roberto.webp',
       gallery: [
-        '/images/figma-related-roberto.png',
-        '/images/obra-roberto-table.png'
+        '/images/figma-related-roberto.webp',
+        '/images/obra-roberto-table.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -79,10 +79,10 @@ export const useObras = () => {
       hours: '85 horas',
       quote: 'La letra es estructura antes de ser sonido.',
       description: 'Una exploración de la letra no como signo legible inmediato sino como volumen arquitectónico habitable y contundente.',
-      heroImage: '/images/figma-related-sagaon.png',
+      heroImage: '/images/figma-related-sagaon.webp',
       gallery: [
-        '/images/figma-related-sagaon.png',
-        '/images/obra-sagaon-vase.png'
+        '/images/figma-related-sagaon.webp',
+        '/images/obra-sagaon-vase.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -100,10 +100,10 @@ export const useObras = () => {
       hours: '110 horas',
       quote: 'La montaña nos provee la piedra y el viento le talla su memoria.',
       description: 'Pieza arqueológica ficticia rescatada del subsuelo donde se asientan las zapatas de La Puerta de la Creación.',
-      heroImage: '/images/figma-product-reliquia.png',
+      heroImage: '/images/figma-product-reliquia.webp',
       gallery: [
-        '/images/figma-product-reliquia.png',
-        '/images/crgs-details.png'
+        '/images/figma-product-reliquia.webp',
+        '/images/crgs-details.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -121,10 +121,10 @@ export const useObras = () => {
       hours: '95 horas',
       quote: 'Ninguna disciplina existe aislada dentro del umbral del CRGS.',
       description: 'Representa el nodo colaborativo entre arte, diseño y tecnología. La urdimbre de líneas genera una celosía cinemática que muta según la perspectiva del observador.',
-      heroImage: '/images/figma-related-interconexion.png',
+      heroImage: '/images/figma-related-interconexion.webp',
       gallery: [
-        '/images/figma-related-interconexion.png',
-        '/images/crgs-details.png'
+        '/images/figma-related-interconexion.webp',
+        '/images/crgs-details.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -143,9 +143,9 @@ export const useObras = () => {
       hours: '90 horas',
       quote: 'El intervalo entre dos instantes de contemplación pura.',
       description: 'Una composición que atrapa la luz rasante en planos transparentes y opacos.',
-      heroImage: '/images/figma-related-entretiempo.png',
+      heroImage: '/images/figma-related-entretiempo.webp',
       gallery: [
-        '/images/figma-related-entretiempo.png'
+        '/images/figma-related-entretiempo.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -163,10 +163,10 @@ export const useObras = () => {
       hours: '75 horas',
       quote: 'El fuego concluye la conversación que las manos iniciaron con el barro.',
       description: 'Cruce entre la tradición cerámica japonesa y la flora del semidesierto neoleonés, evocando simplicidad wabi-sabi.',
-      heroImage: '/images/figma-product-mai.png',
+      heroImage: '/images/figma-product-mai.webp',
       gallery: [
-        '/images/figma-product-mai.png',
-        '/images/obra-encuadre-3.png'
+        '/images/figma-product-mai.webp',
+        '/images/obra-encuadre-3.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -184,10 +184,10 @@ export const useObras = () => {
       hours: '160 horas',
       quote: 'Todo vuelo arquitectónico precisa un punto de apoyo inexorable.',
       description: 'Tributo directo al cálculo estructural del voladizo de 30 metros del edificio CRGS. Fuerza pura y equilibrio límite.',
-      heroImage: '/images/figma-related-cimiento.png',
+      heroImage: '/images/figma-related-cimiento.webp',
       gallery: [
-        '/images/figma-related-cimiento.png',
-        '/images/crgs-building.png'
+        '/images/figma-related-cimiento.webp',
+        '/images/crgs-building.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -205,10 +205,10 @@ export const useObras = () => {
       hours: '130 horas',
       quote: 'El lienzo respira cuando la pintura renuncia a la saturación.',
       description: 'Superficie austera que absorbe la luz incidente, creando una presencia casi táctil en el muro.',
-      heroImage: '/images/figma-product-curado.png',
+      heroImage: '/images/figma-product-curado.webp',
       gallery: [
-        '/images/figma-product-curado.png',
-        '/images/crgs-geometry.png'
+        '/images/figma-product-curado.webp',
+        '/images/crgs-geometry.webp'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -226,9 +226,9 @@ export const useObras = () => {
       hours: '105 horas',
       quote: 'En el clímax de la repentina, el desorden se transforma en rigor geométrico.',
       description: 'Una oda al proceso frenético de las 48 horas de la Repentina. Los descartes de corte industrial son reensamblados en una pieza vibrante.',
-      heroImage: '/images/figma-product-desmadre.png',
+      heroImage: '/images/figma-product-desmadre.webp',
       gallery: [
-        '/images/figma-product-desmadre.png',
+        '/images/figma-product-desmadre.webp',
         '/images/hero-arch.svg'
       ],
       colorBadge: 'bg-neutral-900 text-white'

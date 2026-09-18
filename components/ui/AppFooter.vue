@@ -14,7 +14,7 @@
       <div>
         <NuxtLink to="/crgs" class="inline-block hover:opacity-90 transition-opacity" aria-label="Centro Roberto Garza Sada">
           <img
-            src="/images/footer-crgs.png"
+            src="/images/footer-crgs.webp"
             alt="Centro Roberto Garza Sada de Arte Arquitectura y Diseño"
             class="h-20 w-auto object-contain"
           />
@@ -44,7 +44,7 @@
           class="flex items-center gap-4 group hover:opacity-90 transition-opacity"
           aria-label="Universidad de Monterrey"
         >
-          <img src="/images/footer-udem.png" alt="UDEM" class="h-10 w-auto object-contain brightness-110" />
+          <img src="/images/footer-udem.webp" alt="UDEM" class="h-10 w-auto object-contain brightness-110" />
           <div class="h-8 w-[1.5px] bg-white/50" />
           <span class="font-barlow font-bold text-sm tracking-[0.16em] uppercase text-white leading-tight">
             UNIVERSIDAD<br>DE MONTERREY
@@ -67,7 +67,7 @@
       <div class="flex-shrink-0 flex items-center justify-center">
         <NuxtLink to="/crgs" class="inline-block hover:opacity-90 transition-opacity" aria-label="Centro Roberto Garza Sada">
           <img
-            src="/images/footer-crgs.png"
+            src="/images/footer-crgs.webp"
             alt="CRGS"
             class="h-9 sm:h-12 w-auto object-contain"
           />
@@ -83,7 +83,7 @@
           class="flex items-center gap-1.5 sm:gap-2.5 group hover:opacity-90 transition-opacity"
           aria-label="Universidad de Monterrey"
         >
-          <img src="/images/footer-udem.png" alt="UDEM" class="h-5 sm:h-7 w-auto object-contain brightness-110" />
+          <img src="/images/footer-udem.webp" alt="UDEM" class="h-5 sm:h-7 w-auto object-contain brightness-110" />
           <div class="h-5 sm:h-6 w-[1px] bg-white/40" />
           <span class="font-barlow font-bold text-[8px] sm:text-[10px] tracking-[0.14em] uppercase text-white leading-none">
             UNIVERSIDAD<br>DE MONTERREY

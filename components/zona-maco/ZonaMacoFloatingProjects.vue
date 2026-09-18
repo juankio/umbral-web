@@ -9,7 +9,7 @@
       >
         <div class="w-full h-full relative overflow-hidden bg-[#EDEDED]">
           <img
-            src="/images/figma-product-encuadre.png"
+            src="/images/figma-product-encuadre.webp"
             alt="Encuadre"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="eager"
@@ -31,7 +31,7 @@
       >
         <div class="w-full h-full relative overflow-hidden bg-[#434B2E]">
           <img
-            src="/images/figma-product-interconexion.png"
+            src="/images/figma-product-interconexion.webp"
             alt="Interconexión"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="eager"
@@ -53,7 +53,7 @@
       >
         <div class="w-full h-full relative overflow-hidden bg-[#DCDCDC]">
           <img
-            src="/images/figma-product-curado.png"
+            src="/images/figma-product-curado.webp"
             alt="Curado"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="eager"
@@ -75,7 +75,7 @@
       >
         <div class="w-full h-full relative overflow-hidden bg-[#E5E5E0]">
           <img
-            src="/images/figma-product-roberto.png"
+            src="/images/figma-product-roberto.webp"
             alt="Roberto"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="eager"
@@ -97,7 +97,7 @@
       >
         <div class="w-full h-full relative overflow-hidden bg-[#D5CFC9]">
           <img
-            src="/images/figma-product-sagaon.png"
+            src="/images/figma-product-sagaon.webp"
             alt="Sagaón"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="eager"
@@ -119,7 +119,7 @@
       >
         <div class="w-full h-full relative overflow-hidden bg-[#EAEAEA]">
           <img
-            src="/images/figma-product-entretiempo.png"
+            src="/images/figma-product-entretiempo.webp"
             alt="Entretiempo"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="eager"

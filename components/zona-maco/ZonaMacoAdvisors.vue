@@ -45,11 +45,12 @@
             ref="triangleRef"
             class="relative w-[280px] sm:w-[340px] lg:w-[380px] aspect-[891/982] flex items-center justify-center will-change-transform"
           >
-            <img
+            <AppImage
               :src="currentAdvisor.image"
               :alt="currentAdvisor.name"
-              class="w-full h-full object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.12)]"
-              draggable="false"
+              img-class="w-full h-full object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.12)]"
+              wrapper-class="w-full h-full flex items-center justify-center"
+              loading="lazy"
             />
           </div>
         </div>

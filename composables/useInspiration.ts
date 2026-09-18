@@ -20,7 +20,7 @@ export const inspirationCarouselSlides: InspirationSlide[] = [
       'Fue la principal benefactora del Centro Roberto Garza Sada de Arte, Arquitectura y Diseño de la Universidad de Monterrey, el cual visionó como un “portal de conocimiento y un crisol para la creatividad” y para el cual invitó a colaborar en su creación al reconocido arquitecto japonés Tadao Ando.',
       'Durante su vida hizo innumerables contribuciones en educación, arte y filantropía.'
     ],
-    image: '/images/figma-margarita-mask-group.png',
+    image: '/images/figma-margarita-mask-group.webp',
     alt: 'Doña Margarita Garza Sada de Fernández'
   },
   {
@@ -32,7 +32,7 @@ export const inspirationCarouselSlides: InspirationSlide[] = [
       'El CRGS, sin duda, cristaliza sus intereses y grandes pasiones. Ingeniero de profesión, Roberto Garza Sada, fue por sus obras y sus talentos personales, un arquitecto, un diseñador y un artista; un espíritu innovador, generoso y sensible que marcó su tiempo y su entorno.',
       'Sus aspiraciones superaron, en mucho, la esfera de la empresa, para volcarse generosamente hacia la promoción del arte, la educación y la cultura.'
     ],
-    image: '/images/figma-roberto-masked.png',
+    image: '/images/figma-roberto-masked.webp',
     alt: 'Don Roberto Garza Sada'
   },
   {
@@ -43,7 +43,7 @@ export const inspirationCarouselSlides: InspirationSlide[] = [
       'El Centro Roberto Garza Sada (CRGS) fue diseñado por Tadao Ando, ganador del Premio Pritzker 1995 y uno de los arquitectos más reconocidos en el mundo. Su primera obra en Latinoamérica, refleja la trascendencia del proyecto.',
       'Tadao Ando nació en 1941 en Osaka, Japón. En 1969, estableció la compañía Tadao Ando Architect & Associates y, desde entonces, ha sido reconocido por sus numerosos trabajos en Japón y en otros países. Entre sus reconocimientos se incluyen virtualmente todos los premios que Japón concede para la arquitectura y las artes, así como grandes premios internacionales.'
     ],
-    image: '/images/figma-tadao-masked.png',
+    image: '/images/figma-tadao-masked.webp',
     alt: 'Tadao Ando'
   }
 ]
@@ -55,7 +55,7 @@ export const inspirationFigures: InspirationFigure[] = [
     name: 'Don Roberto Garza Sada',
     role: 'Ingeniero, filántropo y promotor del arte y la cultura',
     bio: 'Pionero e impulsor incansable de la educación superior en México. Su legado inspira la creación del CRGS como un centro de excelencia para detonar la creatividad, la técnica y el compromiso social.',
-    image: '/images/figma-roberto-masked.png',
+    image: '/images/figma-roberto-masked.webp',
     quote: '“La educación y el arte transforman de raíz el espíritu de una comunidad.”',
   },
   {
@@ -64,7 +64,7 @@ export const inspirationFigures: InspirationFigure[] = [
     name: 'Doña Margarita Garza Sada de Fernández',
     role: 'Mecenas cultural y benefactora visionaria del CRGS',
     bio: 'Principal benefactora que soñó un espacio sin precedentes para las artes en Monterrey y convocó personalmente a Tadao Ando para crear La Puerta de la Creación, un umbral monumental hacia el conocimiento.',
-    image: '/images/figma-margarita-mask-group.png',
+    image: '/images/figma-margarita-mask-group.webp',
     quote: '“Un espacio donde la imaginación encuentre alas y el arte transforme la vida.”',
   },
   {
@@ -73,7 +73,7 @@ export const inspirationFigures: InspirationFigure[] = [
     name: 'Tadao Ando',
     role: 'Arquitecto y autor de La Puerta de la Creación',
     bio: 'Maestro de la arquitectura contemporánea y galardonado con el Premio Pritzker en 1995. Diseñó el Centro Roberto Garza Sada como su primera obra construida en Latinoamérica, esculpiendo un vano monumental de concreto que rinde tributo a las montañas de Monterrey.',
-    image: '/images/figma-tadao-masked.png',
+    image: '/images/figma-tadao-masked.webp',
     quote: '“La arquitectura solo se vuelve memorable cuando dialoga con la luz, el viento y el espíritu de quienes la habitan.”',
   },
 ]

@@ -5,7 +5,7 @@
   >
     <div class="max-w-[1720px] mx-auto px-6 sm:px-12 flex items-center justify-between">
       <NuxtLink to="/" class="inline-flex items-center transition-opacity hover:opacity-85 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0" aria-label="Ir al inicio de Umbral">
-        <img src="/images/logo-umbral.png" alt="Umbral" class="h-8 sm:h-9 w-auto object-contain" />
+        <img src="/images/logo-umbral.webp" alt="Umbral" class="h-8 sm:h-9 w-auto object-contain" />
       </NuxtLink>
 
       <!-- Desktop nav exacto Figma (Zona Maco + Nosotros) -->
