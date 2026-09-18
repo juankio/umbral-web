@@ -19,7 +19,7 @@ export default <Partial<Config>>{
       },
       colors: {
         umbral: {
-          black: '#070707',
+          black: '#000000',
           dark: '#1C1C1C',
           charcoal: '#141414',
           card: '#151515',
@@ -29,14 +29,15 @@ export default <Partial<Config>>{
           border: '#D9D9D9',
           borderDark: '#2E2E2E',
           light: '#FAFAFA',
-          paper: '#F6F6F6',
-          offwhite: '#EDEDED',
-          terracotta: '#E16A5F',
-          green: '#13650F',
-          purple: '#7B4680',
-          iceblue: '#A5BCD5',
-          amber: '#E69D37',
-          gold: '#F6D152'
+          paper: '#F5F5F5',
+          offwhite: '#F5F5F5',
+          terracotta: '#F36059',
+          green: '#02A843',
+          purple: '#834384',
+          iceblue: '#A0BDD7',
+          amber: '#F39800',
+          gold: '#FDCF2C',
+          pink: '#DD8DA1'
         }
       },
       letterSpacing: {
