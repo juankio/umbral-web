@@ -17,7 +17,7 @@
           />
           <div class="absolute bottom-1.5 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             <span class="font-barlow font-medium text-xs sm:text-sm text-black uppercase bg-white/90 px-1.5 py-0.5 shadow-xs">
-              Encuadre\
+              Encuadre
             </span>
           </div>
         </div>
@@ -39,7 +39,7 @@
           />
           <div class="absolute bottom-1.5 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             <span class="font-barlow font-medium text-xs sm:text-sm text-black uppercase bg-white/90 px-1.5 py-0.5 shadow-xs">
-              Interconexión\
+              Interconexión
             </span>
           </div>
         </div>
@@ -61,7 +61,7 @@
           />
           <div class="absolute bottom-1.5 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             <span class="font-barlow font-medium text-xs sm:text-sm text-black uppercase bg-white/90 px-1.5 py-0.5 shadow-xs">
-              Curado\
+              Curado
             </span>
           </div>
         </div>
@@ -83,7 +83,7 @@
           />
           <div class="absolute bottom-1.5 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             <span class="font-barlow font-medium text-xs sm:text-sm text-black uppercase bg-white/90 px-1.5 py-0.5 shadow-xs">
-              Roberto\
+              Roberto
             </span>
           </div>
         </div>

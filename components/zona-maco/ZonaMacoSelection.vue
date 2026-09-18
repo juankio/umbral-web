@@ -23,7 +23,7 @@
             :aria-label="`Ver proyecto ${item.title}`"
             class="block w-full h-full relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950"
           >
-            <!-- Imagen 100% visible, nítida y limpia -->
+            <!-- Imagen con leve zoom en hover -->
             <img
               :src="item.image"
               :alt="item.title"
@@ -32,14 +32,19 @@
               draggable="false"
             />
 
-            <!-- Título en esquina inferior derecha sobre la base de la imagen en hover -->
+            <!-- Velo de fondo blanquito suave en hover según Figma -->
+            <div
+              class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"
+            />
+
+            <!-- Título en esquina inferior derecha sobre el fondo blanquito en hover (sin slash) -->
             <div
               class="absolute bottom-3 right-4 sm:bottom-4 sm:right-5 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
             >
               <h3
                 class="card-title font-barlow font-medium text-2xl sm:text-3xl lg:text-4xl text-black leading-none tracking-tight select-none"
               >
-                {{ item.title }}\
+                {{ item.title }}
               </h3>
             </div>
           </NuxtLink>
