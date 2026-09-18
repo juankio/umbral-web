@@ -27,10 +27,10 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Fotos puras y triángulo plano de Figma (#FDCF2C) -->
-        <div class="lg:col-span-5 relative flex flex-col items-center lg:items-end">
-          <!-- Foto 1 (Arriba): Exterior atardecer CRGS -->
-          <div class="relative z-20 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[380px] shadow-sm">
+        <!-- Columna Derecha: Fotos puras y triángulo oficial Vector 1 de Figma (#FDCF2C) -->
+        <div class="lg:col-span-5 relative flex flex-col items-center w-full max-w-[480px] lg:max-w-[500px] mx-auto lg:ml-auto">
+          <!-- Foto 1 (Arriba): Exterior atardecer CRGS (desfasada a la derecha) -->
+          <div class="relative z-10 w-[85%] sm:w-[88%] self-end shadow-sm">
             <img
               src="/images/figma-intro-crgs-top.png"
               alt="Centro Roberto Garza Sada - Voladizo exterior al atardecer"
@@ -38,17 +38,17 @@
             />
           </div>
 
-          <!-- Triángulo Amarillo Sólido de Figma (#FDCF2C) -->
+          <!-- Triángulo Amarillo Oficial Vector 1 de Figma (#FDCF2C, id: 214:130) -->
           <div
-            class="relative z-10 w-[340px] sm:w-[400px] lg:w-[450px] -my-10 sm:-my-14 lg:-my-16 self-center lg:self-end -translate-x-4 sm:-translate-x-8 lg:-translate-x-6 select-none pointer-events-none"
+            class="relative z-20 w-[96%] sm:w-[98%] -my-14 sm:-my-20 lg:-my-24 self-start select-none pointer-events-none"
           >
-            <svg viewBox="0 0 680 385" fill="none" class="w-full h-auto block select-none">
-              <path d="M229.276 384.749L0 0L680 194.197L229.276 384.749Z" fill="#FDCF2C" />
+            <svg viewBox="0 0 652 432" fill="none" class="w-full h-auto block select-none">
+              <path d="M420.661 432L0 276.517L651.902 0L420.661 432Z" fill="#FDCF2C" />
             </svg>
           </div>
 
           <!-- Foto 2 (Abajo): Escalinata y patio de concreto CRGS -->
-          <div class="relative z-0 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[380px] shadow-sm">
+          <div class="relative z-0 w-full self-start shadow-sm">
             <img
               src="/images/figma-intro-crgs-bottom.png"
               alt="Centro Roberto Garza Sada - Escalinata y patio de concreto"
