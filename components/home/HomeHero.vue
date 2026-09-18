@@ -1,7 +1,7 @@
 <template>
   <section
     ref="heroSectionRef"
-    class="relative w-full overflow-hidden bg-white pt-8 pb-12 lg:pt-14 lg:pb-16 xl:pt-[124px] xl:pb-24"
+    class="relative w-full overflow-hidden bg-white pt-6 pb-8 lg:pt-8 lg:pb-10"
   >
     <div class="max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-12">
       <!-- Contenedor central arquitectónico fiel a Figma -->
@@ -11,7 +11,7 @@
           <!-- Frase Arriba en mobile / Derecha en desktop: Abre la puerta, (alineado con el ápice del triángulo) -->
           <h2
             ref="rightTextRef"
-            class="order-1 lg:order-none lg:absolute lg:left-[100%] lg:ml-6 xl:ml-8 2xl:ml-10 lg:top-1 xl:top-2 font-barlow text-[clamp(2.25rem,4.5vw,4.5rem)] font-normal text-black text-center lg:text-left leading-none tracking-normal select-none whitespace-nowrap will-change-transform mb-4 lg:mb-0"
+            class="order-1 lg:order-none lg:absolute lg:left-[100%] lg:ml-6 xl:ml-8 2xl:ml-10 lg:top-1 xl:top-2 font-barlow text-2xl sm:text-3xl lg:text-4xl xl:text-[44px] font-normal text-black text-center lg:text-left leading-none tracking-normal select-none whitespace-nowrap will-change-transform mb-3 lg:mb-0"
           >
             Abre la puerta,
           </h2>
@@ -19,7 +19,7 @@
           <!-- Frase Previa en mobile / Izquierda en desktop: Cruza el (alineado con el tercio inferior del triángulo) -->
           <h2
             ref="leftTextRef"
-            class="order-2 lg:order-none lg:absolute lg:right-[100%] lg:mr-6 xl:mr-8 2xl:mr-10 lg:top-[250px] xl:top-[280px] font-barlow text-[clamp(2.25rem,4.5vw,4.5rem)] font-normal text-black text-center lg:text-right leading-none tracking-normal select-none whitespace-nowrap will-change-transform mb-6 lg:mb-0"
+            class="order-2 lg:order-none lg:absolute lg:right-[100%] lg:mr-6 xl:mr-8 2xl:mr-10 lg:top-[200px] xl:top-[220px] font-barlow text-2xl sm:text-3xl lg:text-4xl xl:text-[44px] font-normal text-black text-center lg:text-right leading-none tracking-normal select-none whitespace-nowrap will-change-transform mb-4 lg:mb-0"
           >
             Cruza el
           </h2>
@@ -31,7 +31,7 @@
           >
             <svg
               viewBox="0 0 365 500"
-              class="w-[220px] sm:w-[260px] lg:w-[300px] xl:w-[330px] h-auto block"
+              class="w-[180px] sm:w-[220px] lg:w-[250px] h-auto block"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -44,7 +44,7 @@
         <!-- Titular monumental UMBRAL directamente debajo del triángulo -->
         <h1
           ref="umbralTitleRef"
-          class="font-barlow font-normal text-[clamp(3.5rem,7vw,7.5rem)] leading-none text-black mt-6 sm:mt-8 lg:mt-10 tracking-tight text-center select-none will-change-transform"
+          class="font-barlow font-normal text-5xl sm:text-6xl lg:text-7xl xl:text-[84px] leading-none text-black mt-4 sm:mt-5 tracking-tight text-center select-none will-change-transform"
         >
           UMBRAL
         </h1>

@@ -1,17 +1,17 @@
 <template>
-  <section id="proyectos" class="py-16 sm:py-24 lg:py-32 bg-white select-none border-b border-neutral-200">
+  <section id="proyectos" class="py-10 sm:py-14 bg-white select-none border-b border-neutral-200">
     <!-- Encabezado de sección -->
-    <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-barlow font-normal text-[clamp(2.5rem,5vw,5rem)] text-[#070707] text-center leading-none uppercase tracking-tight">
+    <div class="w-full px-4 sm:px-6 text-center">
+      <h2 class="font-barlow font-normal text-3xl sm:text-4xl lg:text-5xl text-[#070707] text-center leading-none uppercase tracking-tight">
         Proyectos Seleccionados
       </h2>
-      <!-- Línea divisoria horizontal continua -->
-      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1140px] mx-auto mt-6 mb-12 sm:mb-16" />
+      <!-- Línea divisoria continua -->
+      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[860px] mx-auto mt-4 mb-8 sm:mb-10" />
     </div>
 
-    <!-- Grid Monumental de 2 Columnas -->
-    <div class="max-w-[1140px] mx-auto px-6 sm:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+    <!-- Grid Compacto de 2 Columnas -->
+    <div class="max-w-[860px] mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <article
           v-for="item in productos"
           :key="item.slug"
@@ -23,7 +23,7 @@
             :aria-label="`Ver proyecto ${item.title}`"
             class="block w-full h-full relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950"
           >
-            <!-- Imagen con sutil zoom en hover -->
+            <!-- Imagen 100% visible, nítida y limpia -->
             <img
               :src="item.image"
               :alt="item.title"
@@ -32,14 +32,14 @@
               draggable="false"
             />
 
-            <!-- Overlay fluido que revela el título en hover -->
+            <!-- Título en esquina inferior derecha sobre la base de la imagen en hover -->
             <div
-              class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-center justify-center p-6 text-center"
+              class="absolute bottom-3 right-4 sm:bottom-4 sm:right-5 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
             >
               <h3
-                class="card-title font-barlow font-normal text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 ease-out drop-shadow-md"
+                class="card-title font-barlow font-medium text-2xl sm:text-3xl lg:text-4xl text-black leading-none tracking-tight select-none"
               >
-                {{ item.title }}
+                {{ item.title }}\
               </h3>
             </div>
           </NuxtLink>

@@ -1,14 +1,14 @@
 <template>
-  <section ref="sectionRef" class="w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 overflow-hidden">
-    <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-14 items-center">
+  <section ref="sectionRef" class="w-full bg-white py-10 sm:py-12 overflow-hidden">
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
         <!-- Columna Izquierda: Logo y Manifiesto Oficial -->
-        <div class="lg:col-span-7 flex flex-col space-y-6 sm:space-y-7">
-          <div class="max-w-[260px] sm:max-w-[300px] w-full">
+        <div class="lg:col-span-7 flex flex-col space-y-5 sm:space-y-6">
+          <div class="max-w-[220px] sm:max-w-[260px] w-full">
             <img src="/images/logo-umbral.png" alt="Umbral - CRGS" class="w-full h-auto object-contain" />
           </div>
 
-          <div class="space-y-4 sm:space-y-5 font-barlow text-lg sm:text-xl lg:text-[22px] leading-relaxed text-[#1C1C1C] font-normal">
+          <div class="space-y-3.5 sm:space-y-4 font-barlow text-base sm:text-lg lg:text-xl leading-relaxed text-[#1C1C1C] font-normal">
             <p>
               Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> de la Escuela de Arte y Diseño de la Universidad de Monterrey.
             </p>
@@ -28,8 +28,8 @@
         <div class="lg:col-span-5 relative flex flex-col items-center">
           <!-- Foto Superior: Voladizo Escultórico -->
           <div
-            class="w-full max-w-[380px] sm:max-w-[420px] transition-all duration-700 ease-out will-change-transform"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+            class="w-full max-w-[320px] sm:max-w-[360px] transition-all duration-700 ease-out will-change-transform"
+            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
           >
             <ArchitecturalBlueprintFrame
               theme="light"
@@ -48,7 +48,7 @@
           </div>
 
           <!-- Triángulo Dorado Limpio, Afilado y Sólido de Figma (Estático) -->
-          <div class="relative z-20 w-44 sm:w-52 lg:w-56 -my-6 sm:-my-8 select-none pointer-events-none">
+          <div class="relative z-20 w-36 sm:w-44 lg:w-48 -my-5 sm:-my-6 select-none pointer-events-none">
             <svg viewBox="0 0 652 432" class="w-full h-auto overflow-visible block drop-shadow-md" fill="none">
               <!-- Cara Superior Luz Dorada Nítida -->
               <polygon points="0,276.52 651.90,0 536.28,216" fill="#F6D152" />
@@ -59,8 +59,8 @@
 
           <!-- Foto Inferior: Escalinata Tectónica -->
           <div
-            class="w-full max-w-[380px] sm:max-w-[420px] transition-all duration-700 ease-out will-change-transform"
-            :class="isVisible ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-10'"
+            class="w-full max-w-[320px] sm:max-w-[360px] transition-all duration-700 ease-out will-change-transform"
+            :class="isVisible ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-8'"
           >
             <ArchitecturalBlueprintFrame
               theme="light"

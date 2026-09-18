@@ -1,10 +1,10 @@
 <template>
-  <div class="relative w-full max-w-[702px] flex items-center justify-center select-none">
+  <div class="relative w-full max-w-[420px] sm:max-w-[460px] flex items-center justify-center select-none">
     <svg
       viewBox="0 0 702 726"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      class="w-full max-w-[702px] h-auto block select-none"
+      class="w-full max-w-[420px] sm:max-w-[460px] h-auto block select-none"
     >
       <!-- Triángulo monumental Tadao Ando (Figma Group 38 / Frame 325:2 / Vector 1) -->
       <path d="M0 552.98L236.16 0L702 725.64L0 552.98Z" fill="#1C1C1C" />
