@@ -35,12 +35,11 @@ export const useObras = () => {
       hours: '1234 horas',
       quote: '“Cita de algunx de lxs integrantes del equipo”',
       description: 'Cuando la ciudad satura, los rincones que usualmente pasan desapercibidos susurran que nos tomemos un momento para observar.\n\nDe pronto, la geometría a la que tanto estábamos acostumbradas se extiende en líneas que nunca habíamos notado, para componer entonces un marco perfecto que captura la esencia del lugar.',
-      heroImage: '/images/figma-obra-hero-11.png',
+      heroImage: '/images/figma-product-encuadre.png',
       gallery: [
         '/images/figma-obra-22.png',
         '/images/figma-obra-24.png',
-        '/images/figma-obra-23.png',
-        '/images/figma-obra-25-panoramic.png'
+        '/images/figma-obra-23.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },

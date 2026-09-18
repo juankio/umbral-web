@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-12 sm:py-16 lg:py-20 border-t border-neutral-200 select-none">
+  <section class="bg-white py-12 sm:py-16 lg:py-20 border-t border-neutral-200 select-text">
     <div class="max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16">
       <!-- Encabezado con Título y Controles con flechas -->
       <div class="flex items-center justify-between gap-4 mb-6 sm:mb-8">

@@ -1,6 +1,6 @@
 <template>
-  <!-- Columna Izquierda: Galería Vertical de Alta Resolución + Video Frame con Play + Cita según Figma -->
-  <div class="flex flex-col gap-10 sm:gap-14 lg:gap-16 select-none">
+  <!-- Columna Izquierda: Galería Vertical de Alta Resolución + Fotograma de Video según Figma -->
+  <div class="flex flex-col gap-10 sm:gap-14 lg:gap-16 select-text">
     <!-- Cascada de Fotografías Puras de Alta Resolución -->
     <div
       v-for="(img, idx) in images"
@@ -22,7 +22,7 @@
         <img
           src="/images/figma-obra-video-frame.png"
           alt="Fotograma de proceso en taller"
-          class="w-full h-full object-cover select-none"
+          class="w-full h-full object-cover"
           loading="lazy"
           draggable="false"
         />
@@ -36,23 +36,13 @@
           </svg>
         </div>
       </div>
-
-      <!-- Cita del equipo alineada a la izquierda directamente bajo el marco del video -->
-      <blockquote class="font-barlow italic font-normal text-xl sm:text-2xl lg:text-[28px] text-black text-left leading-tight mt-6 select-none">
-        {{ displayQuote }}
-      </blockquote>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
-const props = defineProps<{
+defineProps<{
   images: string[]
   title: string
-  quote?: string
 }>()
-
-const displayQuote = computed(() => props.quote || '“Cita de algunx de lxs integrantes del equipo”')
 </script>

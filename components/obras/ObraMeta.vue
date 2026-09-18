@@ -1,6 +1,6 @@
 <template>
-  <!-- Columna Derecha Fija / Sticky según Figma Frame 112:102 -->
-  <div class="lg:sticky lg:top-24 space-y-6 lg:space-y-7 select-none">
+  <!-- Columna Derecha Fija / Sticky según Figma Frame 112:102 (Texto seleccionable) -->
+  <div class="lg:sticky lg:top-24 space-y-6 lg:space-y-7 select-text">
     <!-- Título en Title Case exacto a Figma (Node 112:134) -->
     <div>
       <h2 class="font-barlow font-medium text-4xl sm:text-5xl lg:text-[60px] xl:text-[68px] text-black leading-none tracking-tight">
