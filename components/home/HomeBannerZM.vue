@@ -1,10 +1,17 @@
 <template>
-  <section class="relative w-full bg-[#1C1C1C] text-white min-h-[540px] lg:h-[640px] xl:h-[700px] flex items-center overflow-hidden py-14 sm:py-18 lg:py-20 select-none">
-    <div class="relative w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
-      <!-- Columna Izquierda: Composición del Triángulo Morado + Título Cursivo 'Proyectos Seleccionados' -->
-      <div class="relative w-fit flex-shrink-0">
-        <!-- Triángulo Morado Oficial (#834384, id: 222:32) a escala armónica -->
-        <div class="relative w-[280px] sm:w-[350px] lg:w-[400px] xl:w-[440px] select-none pointer-events-none">
+  <section class="relative w-full bg-[#1C1C1C] text-white min-h-[580px] lg:h-[680px] xl:h-[760px] flex flex-col justify-between overflow-hidden py-12 sm:py-16 lg:py-20 select-none">
+    <div class="relative w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-between">
+      <!-- Fila Superior: Párrafo oficial alineado a la derecha -->
+      <div class="w-full flex justify-end pt-2 sm:pt-4">
+        <p class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[24px] xl:text-[27px] text-white/95 text-right leading-snug max-w-[640px] xl:max-w-[740px] tracking-normal">
+          El CRGS participará por tercer año consecutivo en Zona Maco, la feria de arte y diseño más importante de Latinoamérica, <strong class="font-bold text-white">del 3 al 7 de febrero de 2027 en la Ciudad de México</strong>. Este año el stand se renueva: por primera vez, tanto el diseño del espacio como los productos que se exhiben y venden serán desarrollados por alumnos actuales de la escuela.
+        </p>
+      </div>
+
+      <!-- Fila Inferior: Composición del Triángulo Morado + Título Monumental Cursivo que llega hasta abajo del texto -->
+      <div class="relative w-full mt-8 sm:mt-12 lg:mt-0 pb-2 sm:pb-4">
+        <!-- Triángulo Morado Oficial (#834384, id: 222:32) centrado con la letra -->
+        <div class="relative w-[340px] sm:w-[460px] lg:w-[560px] xl:w-[640px] ml-16 sm:ml-28 lg:ml-40 xl:ml-52 select-none pointer-events-none">
           <svg
             viewBox="0 0 609 459"
             fill="none"
@@ -18,23 +25,18 @@
           </svg>
         </div>
 
-        <!-- Título Cursivo Oficial: inicia a la izquierda del triángulo y lo cruza horizontalmente -->
-        <NuxtLink
-          to="/zona-maco#proyectos"
-          class="group absolute -left-8 sm:-left-12 lg:-left-14 bottom-2 sm:bottom-4 lg:bottom-5 z-10 block focus:outline-none"
-          aria-label="Ver Proyectos Seleccionados en Zona Maco"
-        >
-          <h2 class="font-barlow italic font-medium text-white text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] tracking-normal leading-none whitespace-nowrap transition-all duration-300 group-hover:opacity-90 drop-shadow-sm">
-            <span class="group-hover:underline underline-offset-8 decoration-2 decoration-white">Proyectos Seleccionados</span>
-          </h2>
-        </NuxtLink>
-      </div>
-
-      <!-- Columna Derecha: Párrafo oficial alineado a la derecha en el tercio superior/medio -->
-      <div class="w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[500px] lg:self-start lg:pt-4">
-        <p class="font-barlow font-normal text-base sm:text-lg lg:text-[21px] xl:text-[23px] text-white/95 text-center lg:text-right leading-relaxed tracking-normal">
-          El CRGS participará por tercer año consecutivo en Zona Maco, la feria de arte y diseño más importante de Latinoamérica, <strong class="font-bold text-white">del 3 al 7 de febrero de 2027 en la Ciudad de México</strong>. Este año el stand se renueva: por primera vez, tanto el diseño del espacio como los productos que se exhiben y venden serán desarrollados por alumnos actuales de la escuela.
-        </p>
+        <!-- Título Monumental Cursivo: inicia a la izquierda del triángulo, lo cruza y llega hasta abajo del texto derecho -->
+        <div class="absolute left-0 bottom-3 sm:bottom-5 lg:bottom-8 z-10 w-full">
+          <NuxtLink
+            to="/zona-maco#proyectos"
+            class="group inline-block focus:outline-none"
+            aria-label="Ver Proyectos Seleccionados en Zona Maco"
+          >
+            <h2 class="font-barlow italic font-medium text-white text-4xl sm:text-6xl md:text-7xl lg:text-[88px] xl:text-[104px] 2xl:text-[116px] tracking-tight leading-none whitespace-nowrap drop-shadow-sm transition-all duration-300 group-hover:opacity-90">
+              <span class="group-hover:underline underline-offset-8 decoration-2 decoration-white">Proyectos Seleccionados</span>
+            </h2>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>
