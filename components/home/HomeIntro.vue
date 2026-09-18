@@ -10,13 +10,13 @@
 
           <div class="space-y-4 sm:space-y-5 font-barlow text-lg sm:text-xl lg:text-[22px] leading-relaxed text-[#1C1C1C] font-normal">
             <p>
-              Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> la Escuela de Arte, Arquitectura y Diseño de la Universidad de Monterrey.
+              Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> de la Escuela de Arte y Diseño de la Universidad de Monterrey.
             </p>
             <p>
               <strong class="font-bold">Funciona como un umbral entre la Escuela y el mundo:</strong> el lugar donde el trabajo de sus estudiantes y egresados, diseñadores y artistas, se cura, se presenta y se pone a circular. Más que un mercado, es una vitrina del talento que se forma en sus aulas y talleres.
             </p>
             <p>
-              Cada pieza que atravesó el mismo camino: un pensamiento que se hizo materia para convertirse finalmente en creación.
+              Cada pieza que aparece aquí atravesó el mismo camino: un pensamiento que se hizo materia para convertirse finalmente en creación.
             </p>
             <p>
               <strong class="font-bold">La Repentina Zona Maco 2027 es el primer capítulo de este proyecto.</strong>

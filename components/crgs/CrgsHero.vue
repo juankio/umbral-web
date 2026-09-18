@@ -1,69 +1,62 @@
 <template>
-  <section class="relative bg-white overflow-hidden pt-6 pb-12 lg:pt-10 lg:pb-16 border-b border-neutral-200">
-    <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
-      <!-- Header Institucional Superior -->
+  <section class="relative bg-white overflow-hidden pt-6 pb-16 lg:pt-10 lg:pb-24 border-b border-neutral-200">
+    <div class="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16">
+      <!-- Header Institucional Superior & Breadcrumb -->
       <header
-        class="flex flex-wrap items-center justify-between gap-4 font-barlow text-xs sm:text-sm uppercase tracking-widest text-neutral-400 pb-3 mb-6 sm:mb-8 border-b border-neutral-200 transition-opacity duration-700"
-        :class="isLoaded ? 'opacity-100' : 'opacity-0'"
+        class="flex flex-wrap items-center justify-between gap-4 font-barlow text-xs sm:text-sm uppercase tracking-widest text-neutral-400 pb-3 mb-8 sm:mb-12 border-b border-neutral-200"
       >
-        <div class="flex items-center gap-2">
+        <nav class="flex items-center gap-2">
           <NuxtLink to="/" class="hover:text-black transition-colors">Inicio</NuxtLink>
           <span class="text-neutral-300">/</span>
-          <span class="text-black font-semibold">Nosotros · CRGS</span>
-        </div>
-        <div class="hidden sm:flex items-center gap-3 text-neutral-500 font-mono text-xs">
-          <span>Tadao Ando Architect &amp; Associates</span>
+          <span class="text-[#070707] font-semibold">Nosotros · CRGS</span>
+        </nav>
+        <div class="flex items-center gap-3 text-neutral-500 font-sans text-xs">
+          <span>Universidad de Monterrey</span>
           <span class="w-1 h-1 rounded-full bg-neutral-300" />
-          <span>UDEM</span>
+          <span>Tadao Ando Architect &amp; Associates</span>
         </div>
       </header>
 
-      <!-- Hero Grid: Titular Monumental & Polígono Arquitectónico -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-        <!-- Izquierda: Titular monumental masivo -->
-        <div
-          class="lg:col-span-7 space-y-4 transition-all duration-1000 ease-out"
-          :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-        >
-          <span class="font-barlow text-xs sm:text-sm uppercase tracking-widest text-neutral-500 block font-medium">
-            Universidad de Monterrey · Escuela de Arte y Diseño
-          </span>
+      <!-- Titular Monumental 1:1 Figma (Barlow Condensed SemiBold 150px) -->
+      <div class="mb-10 sm:mb-16">
+        <span class="font-barlow text-xs sm:text-sm uppercase tracking-[0.25em] text-neutral-500 block mb-3 font-medium">
+          Escuela de Arte, Arquitectura y Diseño
+        </span>
+        <h1 class="font-barlow font-semibold text-5xl sm:text-7xl md:text-9xl lg:text-[125px] xl:text-[150px] text-[#070707] leading-[0.88] tracking-tight">
+          Centro Roberto<br />
+          Garza Sada
+        </h1>
+      </div>
 
-          <h1 class="font-barlow font-bold text-6xl sm:text-8xl lg:text-9xl xl:text-[130px] text-neutral-950 leading-[0.88] tracking-tight">
-            Centro Roberto<br />
-            Garza Sada
-          </h1>
-        </div>
+      <!-- Monumental Building Stage: Group 24 (w: 2210, h: 1593) -->
+      <div
+        class="relative w-full max-w-[2210px] mx-auto overflow-hidden bg-neutral-100 shadow-2xl group"
+        style="aspect-ratio: 2210 / 1593;"
+      >
+        <!-- Fotografía Monumental del Edificio CRGS -->
+        <img
+          src="/images/crgs-building.png"
+          alt="Centro Roberto Garza Sada - La Puerta de la Creación por Tadao Ando"
+          class="w-full h-full object-cover object-center grayscale-[15%] contrast-110 brightness-95 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-1000 ease-out"
+          loading="eager"
+        />
 
-        <!-- Derecha: Polígono masivo negro de Tadao Ando cortando diagonalmente -->
-        <div class="lg:col-span-5 flex justify-center lg:justify-end">
-          <div
-            class="relative w-full max-w-[480px] aspect-[5/6] sm:aspect-[6/7] lg:aspect-auto lg:h-[460px] transition-all duration-1000 delay-150 ease-out"
-            :class="isLoaded ? 'opacity-100 translate-x-0 translate-y-0 scale-100' : 'opacity-0 translate-x-6 -translate-y-2 scale-95'"
-          >
-            <svg
-              viewBox="0 0 600 680"
-              class="w-full h-full drop-shadow-[0_24px_48px_rgba(0,0,0,0.18)] select-none overflow-visible block"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <!-- Polígono Principal Techo Masivo Cortando Diagonalmente -->
-              <polygon points="240,0 600,0 600,680 0,500" fill="#0A0A0A" />
-              <!-- Facetas Geométricas Tectónicas Tadao Ando -->
-              <polygon points="240,0 600,260 600,680 270,350" fill="#141414" />
-              <polygon points="240,0 270,350 0,500" fill="#1C1C1C" />
-              <polygon points="600,260 600,680 380,610" fill="#050505" />
-              <!-- Líneas de junta constructiva y encofrado -->
-              <line x1="240" y1="0" x2="270" y2="350" stroke="#2B2B2B" stroke-width="1.5" />
-              <line x1="270" y1="350" x2="600" y2="260" stroke="#2B2B2B" stroke-width="1.5" />
-              <line x1="270" y1="350" x2="0" y2="500" stroke="#383838" stroke-width="1.5" />
-              <line x1="270" y1="350" x2="380" y2="610" stroke="#262626" stroke-width="1" />
-              <!-- Inscripción técnica monocromática -->
-              <text x="560" y="640" text-anchor="end" fill="#525252" font-family="'Space Grotesk', monospace" font-size="11" letter-spacing="0.2em">
-                CRGS // TADAO ANDO · 2013
-              </text>
-            </svg>
+        <!-- Overlay Tectónico y Blueprint Constructivo (Group 24) -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+        <!-- Inscripciones Arquitectónicas Monumentales -->
+        <div class="absolute bottom-6 sm:bottom-12 left-6 sm:left-12 right-6 sm:right-12 flex flex-wrap items-end justify-between gap-6 pointer-events-none">
+          <div class="space-y-1 sm:space-y-2 text-white">
+            <span class="font-sans text-[10px] sm:text-xs tracking-[0.3em] uppercase text-neutral-300 block">
+              Planta &amp; Alzado Monumental · Tadao Ando
+            </span>
+            <p class="font-barlow font-medium text-xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-white leading-none">
+              13,000 m² · Concreto Aparente Esculpido
+            </p>
+          </div>
+          <div class="font-sans text-[11px] sm:text-xs text-neutral-300 tracking-[0.2em] uppercase text-right">
+            <span>25°39'44"N 100°25'08"W</span>
+            <span class="block text-neutral-400">San Pedro Garza García · N.L.</span>
           </div>
         </div>
       </div>

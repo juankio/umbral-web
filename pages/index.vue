@@ -4,9 +4,9 @@
     <AppMarquee />
     <HomeIntro />
     <HomeBannerZM />
+    <AppMarquee />
     <HomeCrgs />
     <HomeInspiration />
-    <HomeSelectedProjectsCta />
   </div>
 </template>
 

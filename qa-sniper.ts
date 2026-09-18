@@ -74,11 +74,139 @@ async function runQA() {
       // Esperar a que las animaciones iniciales y renderizado concluyan
       await page.waitForTimeout(600)
 
-      // Verificación de imágenes rotas (naturalWidth === 0 o img.complete === false)
+      // 1. Verificación de elementos clave en el DOM según la ruta
+      const domChecks: { element: string; passed: boolean; desc: string }[] = []
+
+      // Header presente y visible en todas las páginas
+      const headerVisible = await page.locator('header').first().isVisible()
+      const headerLogoOk = await page.evaluate(() => {
+        const logo = document.querySelector('header img[alt="Umbral"]') as HTMLImageElement | null
+        return logo ? (logo.complete && logo.naturalWidth > 0) : false
+      })
+      domChecks.push({
+        element: 'Header & Logo',
+        passed: headerVisible && headerLogoOk,
+        desc: `Header visible: ${headerVisible}, Logo Umbral cargado: ${headerLogoOk}`
+      })
+
+      if (r.path === '/') {
+        // Home: Héroe tipográfico, monolito 3D, títulos y banner Zona Maco
+        const heroExists = (await page.locator('section').filter({ hasText: 'Cruza el' }).count()) > 0
+        const logoHeroOk = await page.evaluate(() => {
+          const img = document.querySelector('img[src*="logo-umbral-2"]') as HTMLImageElement | null
+          return img ? (img.complete && img.naturalWidth > 0) : false
+        })
+        const bannerZMExists = (await page.locator('section').filter({ hasText: 'DEL 3 AL 7 DE FEBRERO 2027' }).count()) > 0
+
+        domChecks.push({
+          element: 'Home Héroe & Títulos ("Cruza el" / "Abre la puerta")',
+          passed: heroExists,
+          desc: `Sección Héroe detectada con tipografía: ${heroExists}`
+        })
+        domChecks.push({
+          element: 'Home Monolito Logo Hero ("logo-umbral-2.png")',
+          passed: logoHeroOk,
+          desc: `Imagen monumental cargada: ${logoHeroOk}`
+        })
+        domChecks.push({
+          element: 'Home Banner Zona Maco ("Proyectos Seleccionados")',
+          passed: bannerZMExists,
+          desc: `Banner ZM detectado: ${bannerZMExists}`
+        })
+      } else if (r.path === '/zona-maco') {
+        // Zona Maco: Héroe triángulo origami, titular Proyectos seleccionados, carrusel y fotos
+        const heroTriangleExists = (await page.locator('#hero-triangle').count()) > 0
+        const projectsTitleExists = (await page.locator('h2').filter({ hasText: 'Proyectos seleccionados' }).count()) > 0
+        const projectsCardsCount = await page.locator('#proyectos article').count()
+
+        domChecks.push({
+          element: 'Zona Maco Héroe Triángulo (#hero-triangle)',
+          passed: heroTriangleExists,
+          desc: `Sección hero-triangle detectada: ${heroTriangleExists}`
+        })
+        domChecks.push({
+          element: 'Zona Maco Título "Proyectos seleccionados"',
+          passed: projectsTitleExists,
+          desc: `Titular H2 detectado: ${projectsTitleExists}`
+        })
+        domChecks.push({
+          element: 'Zona Maco Carrusel de Obras (#proyectos article)',
+          passed: projectsCardsCount > 0,
+          desc: `${projectsCardsCount} tarjetas de proyectos renderizadas`
+        })
+      } else if (r.path === '/obras/encuadre') {
+        // Obra Encuadre: Héroe de Obra, H1 Encuadre, Ficha técnica y Galería
+        const h1Text = (await page.locator('h1').first().innerText()).trim()
+        const isEncuadre = h1Text.toLowerCase().includes('encuadre')
+        const splitArticleExists = (await page.locator('article').count()) > 0
+        const heroImgOk = await page.evaluate(() => {
+          const img = document.querySelector('section img') as HTMLImageElement | null
+          return img ? (img.complete && img.naturalWidth > 0) : false
+        })
+
+        domChecks.push({
+          element: 'Obra H1 Título ("Encuadre")',
+          passed: isEncuadre,
+          desc: `H1 encontrado: "${h1Text}"`
+        })
+        domChecks.push({
+          element: 'Obra Split Layout (Galería + Ficha Técnica)',
+          passed: splitArticleExists,
+          desc: `Artículo split layout detectado: ${splitArticleExists}`
+        })
+        domChecks.push({
+          element: 'Obra Imagen Principal Hero Cargada',
+          passed: heroImgOk,
+          desc: `Imagen hero cargada OK: ${heroImgOk}`
+        })
+      } else if (r.path === '/crgs') {
+        // CRGS: Héroe Monumental, H1 Centro Roberto Garza Sada, Foto edificio y Tadao Ando
+        const h1Text = (await page.locator('h1').first().innerText()).replace(/\s+/g, ' ').trim()
+        const isCRGS = h1Text.includes('Centro Roberto Garza Sada')
+        const buildingImgOk = await page.evaluate(() => {
+          const img = document.querySelector('img[src*="crgs-building"]') as HTMLImageElement | null
+          return img ? (img.complete && img.naturalWidth > 0) : false
+        })
+        const tadaoSection = (await page.locator('section').filter({ hasText: 'Tadao Ando' }).count()) > 0
+
+        domChecks.push({
+          element: 'CRGS H1 Monumental ("Centro Roberto Garza Sada")',
+          passed: isCRGS,
+          desc: `H1 encontrado: "${h1Text}"`
+        })
+        domChecks.push({
+          element: 'CRGS Foto Monumental Edificio ("crgs-building.png")',
+          passed: buildingImgOk,
+          desc: `Foto edificio cargada OK: ${buildingImgOk}`
+        })
+        domChecks.push({
+          element: 'CRGS Sección Tadao Ando & Puerta de la Creación',
+          passed: tadaoSection,
+          desc: `Sección arquitectónica detectada: ${tadaoSection}`
+        })
+      }
+
+      const allDomPassed = domChecks.every(d => d.passed)
+      results.push({
+        suite: 'DOM Elements',
+        name: `${r.name} - Elementos Clave en el DOM (Desktop)`,
+        status: allDomPassed ? 'PASS' : 'FAIL',
+        details: domChecks.map(d => `${d.element}: ${d.passed ? 'OK' : 'FAIL'} (${d.desc})`).join(' | ')
+      })
+
+      // Scroll suave para hidratar lazy-loaded images y verificar que respondan
+      await page.evaluate(async () => {
+        window.scrollTo(0, document.body.scrollHeight)
+        await new Promise(r => setTimeout(r, 400))
+        window.scrollTo(0, 0)
+      })
+      await page.waitForTimeout(400)
+
+      // Verificación de imágenes rotas (error de carga HTTP o decode: complete && naturalWidth === 0)
       const brokenImages = await page.evaluate(() => {
         const imgs = Array.from(document.querySelectorAll('img'))
         return imgs
-          .filter(img => !img.complete || img.naturalWidth === 0)
+          .filter(img => img.complete && img.naturalWidth === 0)
           .map(img => img.src)
       })
 
@@ -147,10 +275,18 @@ async function runQA() {
       await page.goto(url, { waitUntil: 'networkidle' })
       await page.waitForTimeout(500)
 
+      // Scroll para hidratar lazy images en móvil
+      await page.evaluate(async () => {
+        window.scrollTo(0, document.body.scrollHeight)
+        await new Promise(r => setTimeout(r, 400))
+        window.scrollTo(0, 0)
+      })
+      await page.waitForTimeout(400)
+
       const brokenImagesMobile = await page.evaluate(() => {
         const imgs = Array.from(document.querySelectorAll('img'))
         return imgs
-          .filter(img => !img.complete || img.naturalWidth === 0)
+          .filter(img => img.complete && img.naturalWidth === 0)
           .map(img => img.src)
       })
 
@@ -220,13 +356,13 @@ async function runQA() {
     await context.close()
   }
 
-  // Interacción 3: Botón "VER UBICACIÓN" en Banner del Home -> navega a /zona-maco
+  // Interacción 3: Botón "EXPLORAR ZONA MACO" en Banner del Home -> navega a /zona-maco
   {
     const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } })
     const page = await context.newPage()
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle' })
 
-    const bannerBtn = page.locator('a:has-text("VER UBICACIÓN")')
+    const bannerBtn = page.locator('a:has-text("EXPLORAR ZONA MACO")')
     await bannerBtn.click()
     await page.waitForURL('**/zona-maco')
 
@@ -234,7 +370,7 @@ async function runQA() {
     const isZM = currentUrl.endsWith('/zona-maco')
     results.push({
       suite: 'Interacciones',
-      name: 'Home Banner - Botón "VER UBICACIÓN" navega a /zona-maco',
+      name: 'Home Banner - Botón "EXPLORAR ZONA MACO" navega a /zona-maco',
       status: isZM ? 'PASS' : 'FAIL',
       details: `URL actual alcanzada: ${currentUrl}`
     })
@@ -242,41 +378,34 @@ async function runQA() {
     await context.close()
   }
 
-  // Interacción 4: Zona Maco - Filtro de categorías de proyectos
+  // Interacción 4: Zona Maco - Navegación de Carrusel con Flechas (Next / Prev)
   {
     const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } })
     const page = await context.newPage()
     await page.goto('http://localhost:3000/zona-maco', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(600)
 
-    const categoriesToTest = ['Diseño', 'Arte Contemporáneo', 'Arte Moderno', 'Diseño Emergente', 'Todas']
-    let allFiltersPassed = true
-    const filterDetails: string[] = []
+    const nextBtn = page.locator('button[aria-label="Siguiente proyecto"]')
+    const prevBtn = page.locator('button[aria-label="Proyecto anterior"]')
 
-    for (const cat of categoriesToTest) {
-      const btn = page.getByRole('button', { name: cat, exact: true })
-      await btn.click()
-      await page.waitForTimeout(400)
+    const nextVisible = await nextBtn.isVisible()
+    const prevVisible = await prevBtn.isVisible()
 
-      const cardCount = await page.locator('#proyectos .obra-card').count()
-      filterDetails.push(`${cat}: ${cardCount} obras`)
-      if (cardCount === 0) {
-        allFiltersPassed = false
-      }
-    }
-
-    // Tomar screenshot de filtro específico
-    const filterBtn = page.getByRole('button', { name: 'Arte Moderno', exact: true })
-    await filterBtn.click()
+    // Clic en Next para mover el track del carrusel
+    await nextBtn.click()
     await page.waitForTimeout(400)
-    const filtroScreenshot = join(SCREENSHOT_DIR, 'zona-maco-filtro-arte-moderno.png')
-    await page.screenshot({ path: filtroScreenshot })
-    console.log(`📸 Screenshot Filtro Arte Moderno guardado: ${filtroScreenshot}`)
+    await nextBtn.click()
+    await page.waitForTimeout(400)
+    await prevBtn.click()
+    await page.waitForTimeout(400)
+
+    const cardCount = await page.locator('#proyectos article').count()
 
     results.push({
       suite: 'Interacciones',
-      name: 'Zona Maco - Filtro de Categorías Reactivo',
-      status: allFiltersPassed ? 'PASS' : 'FAIL',
-      details: filterDetails.join(' | ')
+      name: 'Zona Maco - Carrusel Infinito de Proyectos (Next / Prev / Drag)',
+      status: nextVisible && prevVisible && cardCount > 0 ? 'PASS' : 'FAIL',
+      details: `Botones activos: Next=${nextVisible}, Prev=${prevVisible} | ${cardCount} tarjetas en carrusel`
     })
 
     await context.close()
@@ -287,20 +416,26 @@ async function runQA() {
     const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } })
     const page = await context.newPage()
     await page.goto('http://localhost:3000/zona-maco', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(600)
 
-    // Seleccionamos la primera tarjeta de obra
-    const firstObraCard = page.locator('#proyectos .obra-card').first()
-    const cardTitle = await firstObraCard.locator('h3').innerText()
-    const fichaLink = firstObraCard.locator('a:has-text("Ficha Técnica")')
-    await fichaLink.click()
+    const carouselArea = page.locator('#proyectos')
+    await carouselArea.scrollIntoViewIfNeeded()
+    await page.waitForTimeout(500)
+
+    // Seleccionamos la primera tarjeta de obra en el carrusel
+    const firstObraCard = page.locator('#proyectos article').first()
+    const cardTitle = await firstObraCard.locator('.card-title').innerText()
+    const obraLink = firstObraCard.locator('a[href^="/obras/"]').first()
+    // En carruseles con RAF continuo (infinite ticker), dispatchEvent dispara la navegación limpiamente
+    await obraLink.dispatchEvent('click')
 
     await page.waitForURL('**/obras/**')
     const currentUrl = page.url()
     const isObraDetail = currentUrl.includes('/obras/')
 
     // Verificar que en la página de detalle cargue el split layout
-    const hasMetadata = await page.locator('article').isVisible()
-    const titleInDetail = await page.locator('h1').innerText()
+    const hasMetadata = await page.locator('article').first().isVisible()
+    const titleInDetail = await page.locator('h1').first().innerText()
 
     results.push({
       suite: 'Interacciones',
@@ -322,7 +457,7 @@ async function runQA() {
     const page = await context.newPage()
     await page.goto('http://localhost:3000/', { waitUntil: 'networkidle' })
 
-    const hamburgerBtn = page.locator('button[aria-label="Abrir menú"]')
+    const hamburgerBtn = page.locator('button[aria-label="Alternar menú de navegación"]')
     await hamburgerBtn.click()
     await page.waitForTimeout(300)
 
@@ -330,7 +465,7 @@ async function runQA() {
     await page.screenshot({ path: mobileMenuScreenshot })
     console.log(`📱 Screenshot Menú Móvil guardado: ${mobileMenuScreenshot}`)
 
-    const mobileNosotrosLink = page.locator('div.sm\\:hidden a:has-text("Nosotros")')
+    const mobileNosotrosLink = page.locator('header div.md\\:hidden a:has-text("Nosotros")')
     await mobileNosotrosLink.click()
     await page.waitForURL('**/crgs')
 

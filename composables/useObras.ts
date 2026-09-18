@@ -25,21 +25,22 @@ export const useObras = () => {
       title: 'Encuadre',
       subtitle: 'Exploración geométrica del vacío y la masa',
       category: 'Diseño',
-      price: '$500',
-      year: '2026',
+      price: '$00',
+      year: 'Año',
       publishedDate: '28/08/2026',
       edition: 'Edición limitada 1/10',
       designers: ['Ximena Silva', 'Daniela García', 'María Regina Hinojosa'],
       materials: 'Cemento de color, Barro, Yeso cerámico, Acrílicos de colores, Geopolímeros',
       dimensions: '45 × 32 × 18 cm',
       hours: '1234 horas',
-      quote: 'Ciudades dentro de Ciudades',
-      description: 'Inspirada en el monumental corte parabólico de Tadao Ando en La Puerta de la Creación, "Encuadre" condensa la tensión entre la pesadez telúrica del concreto y la permeabilidad lumínica.\n\nLa pieza articula planos inclinados que enmarcan sombras dinámicas según el cenit solar, integrando el vacío como materia plástica fundamental.',
-      heroImage: '/images/obra-encuadre-red.png',
+      quote: '“Cita de algunx de lxs integrantes del equipo”',
+      description: 'Cuando la ciudad satura, los rincones que usualmente pasan desapercibidos susurran que nos tomemos un momento para observar.\n\nDe pronto, la geometría a la que tanto estábamos acostumbradas se extiende en líneas que nunca habíamos notado, para componer entonces un marco perfecto que captura la esencia del lugar.',
+      heroImage: '/images/figma-obra-hero-11.png',
       gallery: [
-        '/images/obra-encuadre-1.png',
-        '/images/obra-encuadre-2.png',
-        '/images/obra-encuadre-3.png'
+        '/images/figma-obra-22.png',
+        '/images/figma-obra-24.png',
+        '/images/figma-obra-23.png',
+        '/images/figma-obra-25-panoramic.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -57,10 +58,10 @@ export const useObras = () => {
       hours: '180 horas',
       quote: 'La materia recuerda el carácter firme de quienes levantaron una escuela sobre la montaña.',
       description: 'Una abstracción tectónica de la solidez y visión del mecenazgo industrial regiomontano. Superficies ásperas contrastadas con aristas afiladas como navajas de afeitar.',
-      heroImage: '/images/obra-roberto-table.png',
+      heroImage: '/images/figma-related-roberto.png',
       gallery: [
-        '/images/obra-roberto-table.png',
-        '/images/obra-roberto.png'
+        '/images/figma-related-roberto.png',
+        '/images/obra-roberto-table.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -70,7 +71,8 @@ export const useObras = () => {
       subtitle: 'Tipografía monumental como monumento táctil',
       category: 'Diseño',
       price: '$00',
-      year: '2026',
+      year: 'Año',
+      publishedDate: '28/08/2026',
       edition: 'Edición de 12',
       designers: ['Emilio Sagaón', 'Alejandra Valdés'],
       materials: 'Madera de mezquite recuperado y tinta tipográfica mineral',
@@ -78,10 +80,10 @@ export const useObras = () => {
       hours: '85 horas',
       quote: 'La letra es estructura antes de ser sonido.',
       description: 'Una exploración de la letra no como signo legible inmediato sino como volumen arquitectónico habitable y contundente.',
-      heroImage: '/images/obra-sagaon-vase.png',
+      heroImage: '/images/figma-related-sagaon.png',
       gallery: [
-        '/images/obra-sagaon-vase.png',
-        '/images/obra-encuadre-1.png'
+        '/images/figma-related-sagaon.png',
+        '/images/obra-sagaon-vase.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -112,7 +114,7 @@ export const useObras = () => {
       subtitle: 'Flujos neuronales y convergencia multidisciplinaria',
       category: 'Diseño Emergente',
       price: '$00',
-      year: '2026',
+      year: 'Año',
       edition: 'Serie de 5',
       designers: ['Mariana Garza', 'Diego Sada'],
       materials: 'Aluminio anodizado mate y filamento bio-polímero translúcido',
@@ -120,10 +122,31 @@ export const useObras = () => {
       hours: '95 horas',
       quote: 'Ninguna disciplina existe aislada dentro del umbral del CRGS.',
       description: 'Representa el nodo colaborativo entre arte, diseño y tecnología. La urdimbre de líneas genera una celosía cinemática que muta según la perspectiva del observador.',
-      heroImage: '/images/obra-interconexion-tower.png',
+      heroImage: '/images/figma-related-interconexion.png',
       gallery: [
-        '/images/obra-interconexion-tower.png',
+        '/images/figma-related-interconexion.png',
         '/images/crgs-details.png'
+      ],
+      colorBadge: 'bg-neutral-900 text-white'
+    },
+    {
+      slug: 'entretiempo',
+      title: 'Entretiempo',
+      subtitle: 'Intersticios lumínicos en el umbral del tiempo',
+      category: 'Diseño',
+      price: '$00',
+      year: 'Año',
+      publishedDate: '28/08/2026',
+      edition: 'Edición de 6',
+      designers: ['Ana Sofía Martínez', 'Carlos Eugenio'],
+      materials: 'Vidrio templado, acero inoxidable y base de cuarzo',
+      dimensions: '48 × 30 × 20 cm',
+      hours: '90 horas',
+      quote: 'El intervalo entre dos instantes de contemplación pura.',
+      description: 'Una composición que atrapa la luz rasante en planos transparentes y opacos.',
+      heroImage: '/images/figma-related-entretiempo.png',
+      gallery: [
+        '/images/figma-related-entretiempo.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },
@@ -162,9 +185,9 @@ export const useObras = () => {
       hours: '160 horas',
       quote: 'Todo vuelo arquitectónico precisa un punto de apoyo inexorable.',
       description: 'Tributo directo al cálculo estructural del voladizo de 30 metros del edificio CRGS. Fuerza pura y equilibrio límite.',
-      heroImage: '/images/obra-cimiento.png',
+      heroImage: '/images/figma-related-cimiento.png',
       gallery: [
-        '/images/obra-cimiento.png',
+        '/images/figma-related-cimiento.png',
         '/images/crgs-building.png'
       ],
       colorBadge: 'bg-neutral-900 text-white'
@@ -217,8 +240,20 @@ export const useObras = () => {
     return obras.find(o => o.slug === slug)
   }
 
-  const getRelatedObras = (currentSlug: string, limit = 4): Obra[] => {
-    return obras.filter(o => o.slug !== currentSlug).slice(0, limit)
+  const getRelatedObras = (currentSlug: string, limit = 5): Obra[] => {
+    // Proyectos destacados seleccionados en Figma (112:102): Sagaón, Interconexión, Entretiempo, Cimiento, Roberto
+    const figmaOrder = ['sagaon', 'interconexion', 'entretiempo', 'cimiento', 'roberto']
+    const selected = figmaOrder
+      .filter(s => s !== currentSlug)
+      .map(s => obras.find(o => o.slug === s))
+      .filter((o): o is Obra => Boolean(o))
+
+    if (selected.length >= limit) {
+      return selected.slice(0, limit)
+    }
+
+    const rest = obras.filter(o => o.slug !== currentSlug && !figmaOrder.includes(o.slug))
+    return [...selected, ...rest].slice(0, limit)
   }
 
   return {

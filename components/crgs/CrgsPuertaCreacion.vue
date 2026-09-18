@@ -1,153 +1,71 @@
 <template>
-  <section
-    ref="sectionRef"
-    class="relative bg-[#0A0A0A] min-h-[75vh] lg:min-h-[85vh] overflow-hidden flex items-center justify-center select-none py-10 sm:py-16"
-  >
-    <!-- Resplandor ambiental verde esmeralda -->
-    <div
-      class="absolute inset-0 pointer-events-none flex items-center justify-center transition-opacity duration-1000"
-      :class="isOpen ? 'opacity-60' : 'opacity-20'"
-      aria-hidden="true"
-    >
-      <div class="w-[500px] sm:w-[750px] h-[360px] sm:h-[500px] bg-[#4BA550]/20 blur-[140px] rounded-full" />
-    </div>
-
-    <!-- Escenario Monumental Origami 3D -->
-    <div class="relative w-full max-w-[980px] mx-auto px-4 flex items-center justify-center perspective-[1200px]">
-      <!-- Cápsula Audiovisual Documental (Nivel Fondo Z-10) -->
-      <div
-        class="w-full max-w-[760px] aspect-[16/10] sm:aspect-video rounded-sm overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] z-10"
-        :class="isOpen ? 'scale-100 opacity-100 pointer-events-auto' : 'scale-90 opacity-0 pointer-events-none'"
-      >
-        <img
-          src="/images/crgs-building.png"
-          alt="Documental Tadao Ando y Centro Roberto Garza Sada"
-          class="w-full h-full object-cover grayscale contrast-110 brightness-90 transition-transform duration-1000"
-          :class="{ 'scale-105 filter-none': isPlaying }"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-black/40 to-transparent flex flex-col justify-between p-6 sm:p-8">
-          <div class="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-neutral-300">
-            <span class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full" :class="isPlaying ? 'bg-red-500 animate-pulse' : 'bg-[#4BA550]'" />
-              {{ isPlaying ? 'REPRODUCIENDO · LA REPENTINA' : 'REGISTRO AUDIOVISUAL · CRGS' }}
+  <section id="puerta-creacion" class="py-20 lg:py-32 bg-white border-b border-neutral-200 overflow-hidden">
+    <div class="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Columna Izquierda: Titular 146px + Descripción Arquitectónica de Tadao Ando -->
+        <div class="lg:col-span-7 space-y-8">
+          <div class="space-y-3">
+            <span class="font-barlow text-xs sm:text-sm uppercase tracking-[0.25em] text-neutral-500 font-semibold block">
+              01 / Espacio &amp; Arquitectura · Tadao Ando
             </span>
-            <span>13,000 m² · TADAO ANDO</span>
+            <h2 class="font-barlow font-medium text-5xl sm:text-7xl md:text-9xl lg:text-[120px] xl:text-[146px] text-[#070707] leading-[0.9] tracking-tight">
+              La Puerta<br />de la Creación
+            </h2>
           </div>
-          <div class="flex items-end justify-between gap-4">
-            <div>
-              <span class="font-mono text-[11px] text-[#4BA550] uppercase tracking-widest block mb-1">CÁPSULA DOCUMENTAL</span>
-              <h3 class="font-barlow font-semibold text-2xl sm:text-3xl text-white uppercase tracking-tight">Talleres &amp; Proceso Creativo</h3>
+
+          <!-- Píldoras de Metadatos Tectónicos -->
+          <div class="flex flex-wrap gap-2 sm:gap-3 font-sans text-xs uppercase tracking-wider text-neutral-600">
+            <span class="px-3 py-1 bg-neutral-100 border border-neutral-200">Premio Pritzker 1995</span>
+            <span class="px-3 py-1 bg-neutral-100 border border-neutral-200">70m Luz Estructural</span>
+            <span class="px-3 py-1 bg-neutral-100 border border-neutral-200">Certificación LEED Platino</span>
+          </div>
+
+          <!-- Descripción Arquitectónica Detallada -->
+          <div class="space-y-5 font-barlow text-lg sm:text-xl lg:text-2xl text-neutral-700 leading-snug max-w-3xl">
+            <p>
+              Concebido por el arquitecto japonés <strong class="font-semibold text-neutral-950">Tadao Ando</strong> como su primera obra construida en Latinoamérica, el Centro Roberto Garza Sada se articula en torno a un vano escultórico continuo que desafía la gravedad y enmarca la cordillera de la Sierra Madre Oriental.
+            </p>
+            <p class="text-base sm:text-lg text-neutral-600 font-sans leading-relaxed">
+              La monumental hendidura de concreto aparente postensado —conocida como "La Puerta de la Creación"— actúa como un umbral vivo donde convergen la luz cenital, las corrientes térmicas y las dinámicas creativas de más de 1,200 estudiantes y profesores. Sus más de 13,000 m² albergan talleres de escala 1:1, laboratorios de manufactura digital y espacios diáfanos que fomentan el aprendizaje interdisciplinario.
+            </p>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Prisma Origami Verde (#4BA550) & Visual del Vano Escultórico -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-[540px] aspect-[4/5] bg-neutral-950 overflow-hidden shadow-2xl group">
+            <!-- Fotografía con Grayscale Arquitectónico -->
+            <img
+              src="/images/crgs-building.png"
+              alt="Vano monumental de La Puerta de la Creación - Tadao Ando"
+              class="w-full h-full object-cover grayscale-[20%] contrast-115 brightness-95 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-1000 ease-out"
+              loading="lazy"
+            />
+            <!-- Facetas Geométricas de Origami Verde de la Identidad CRGS -->
+            <div class="absolute inset-0 pointer-events-none">
+              <svg viewBox="0 0 540 675" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="120,0 540,160 540,675 0,550" fill="#4BA550" fill-opacity="0.18" />
+                <polygon points="540,160 540,675 280,480" fill="#439A48" fill-opacity="0.25" />
+                <line x1="120" y1="0" x2="280" y2="480" stroke="#4BA550" stroke-width="1.5" stroke-opacity="0.6" />
+                <line x1="280" y1="480" x2="540" y2="160" stroke="#439A48" stroke-width="1.5" stroke-opacity="0.6" />
+              </svg>
             </div>
-            <button
-              type="button"
-              class="px-5 py-2.5 rounded-full bg-white text-black font-barlow font-bold text-xs uppercase tracking-widest hover:bg-[#4BA550] hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
-              @click.stop="isPlaying = !isPlaying"
-            >
-              <span>{{ isPlaying ? 'PAUSAR' : 'REPRODUCIR' }}</span>
-            </button>
+            <!-- Subtítulo técnico inferior -->
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 text-white">
+              <span class="font-sans text-[11px] uppercase tracking-[0.25em] text-[#4BA550] block mb-1">
+                Tectónica de Concreto
+              </span>
+              <p class="font-barlow font-semibold text-2xl uppercase tracking-tight">
+                Vano Escultórico · 70 Metros de Claro
+              </p>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Portal Origami Aperture (Triángulo Monumental Verde Esmeralda) -->
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20" style="transform-style: preserve-3d">
-        <div
-          class="relative w-[340px] sm:w-[440px] lg:w-[480px] aspect-[420/560] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          :class="isOpen ? 'scale-95 pointer-events-none opacity-0' : 'scale-100 cursor-pointer pointer-events-auto hover:scale-[1.02] opacity-100'"
-          role="button"
-          :aria-expanded="isOpen"
-          aria-label="Desplegar portal documental de La Puerta de la Creación"
-          @click="togglePortal"
-        >
-          <!-- Faceta Izquierda Origami -->
-          <svg
-            viewBox="0 0 420 560"
-            class="absolute inset-0 w-full h-full origami-facet filter drop-shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            :style="leftFacetStyle"
-          >
-            <polygon points="170,0 210,490 0,420" fill="#4BA550" />
-          </svg>
-
-          <!-- Faceta Derecha Origami -->
-          <svg
-            viewBox="0 0 420 560"
-            class="absolute inset-0 w-full h-full origami-facet filter drop-shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            :style="rightFacetStyle"
-          >
-            <polygon points="170,0 420,560 210,490" fill="#439A48" />
-          </svg>
-        </div>
-      </div>
-
-      <!-- Titular Monumental Itálico centrado que se desplaza hacia arriba al abrirse -->
-      <h2
-        class="font-barlow italic font-medium sm:font-semibold text-5xl sm:text-7xl lg:text-8xl text-center whitespace-nowrap select-none drop-shadow-[0_8px_32px_rgba(0,0,0,0.85)] z-20 pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
-        :class="isOpen ? '-translate-y-[calc(50%+150px)] sm:-translate-y-[calc(50%+280px)] scale-75 text-white/90' : '-translate-y-1/2 scale-100 text-white'"
-      >
-        La Puerta de la Creación
-      </h2>
     </div>
-
-    <!-- Botón de repliegue cuando está desplegado -->
-    <button
-      v-if="isOpen"
-      type="button"
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 font-mono text-xs uppercase tracking-[0.2em] text-neutral-400 hover:text-white transition-colors flex items-center gap-2 border-b border-neutral-700 pb-1 cursor-pointer"
-      @click="togglePortal"
-    >
-      <span>✕ CERRAR UMBRAL ORIGAMI</span>
-    </button>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-
-const sectionRef = ref<HTMLElement | null>(null)
-const isOpen = ref(false)
-const isPlaying = ref(false)
-const isReducedMotion = ref(false)
-let observer: IntersectionObserver | null = null
-
-const togglePortal = () => {
-  isOpen.value = !isOpen.value
-  if (!isOpen.value) isPlaying.value = false
-}
-
-const leftFacetStyle = computed(() => isReducedMotion.value
-  ? { opacity: isOpen.value ? '0' : '1', pointerEvents: (isOpen.value ? 'none' : 'auto') as const }
-  : {
-    transformOrigin: '15% 50%',
-    transform: isOpen.value ? 'rotateY(-90deg) translateX(-180px) scale(0.8)' : 'none',
-    opacity: isOpen.value ? '0' : '1',
-    pointerEvents: (isOpen.value ? 'none' : 'auto') as const
-  })
-
-const rightFacetStyle = computed(() => isReducedMotion.value
-  ? { opacity: isOpen.value ? '0' : '1', pointerEvents: (isOpen.value ? 'none' : 'auto') as const }
-  : {
-    transformOrigin: '85% 50%',
-    transform: isOpen.value ? 'rotateY(90deg) translateX(180px) scale(0.8)' : 'none',
-    opacity: isOpen.value ? '0' : '1',
-    pointerEvents: (isOpen.value ? 'none' : 'auto') as const
-  })
-
-onMounted(() => {
-  if (!import.meta.client) return
-  isReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (sectionRef.value && 'IntersectionObserver' in window) {
-    observer = new IntersectionObserver(([entry]) => {
-      if (entry?.isIntersecting && entry.intersectionRatio > 0.45) isOpen.value = true
-    }, { threshold: [0.45] })
-    observer.observe(sectionRef.value)
-  }
-})
-onUnmounted(() => { observer?.disconnect() })
+// Sección 2: La Puerta de la Creación (Barlow Condensed Medium 146px + Descripción Arquitectónica)
 </script>
-
-<style scoped>
-.origami-facet { backface-visibility: hidden; will-change: transform, opacity; }
-@media (prefers-reduced-motion: reduce) {
-  .origami-facet { transition: opacity 0.3s ease !important; transform: none !important; }
-}
-</style>

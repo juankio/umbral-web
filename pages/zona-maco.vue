@@ -3,6 +3,7 @@
     <ZonaMacoHero @select="handleCategorySelect" />
     <ZonaMacoContext />
     <ZonaMacoProjectsCarousel ref="carouselComponentRef" />
+    <ZonaMacoStudentsConstellation />
   </div>
 </template>
 
@@ -11,6 +12,7 @@ import { ref } from 'vue'
 import ZonaMacoHero from '~/components/zona-maco/ZonaMacoHero.vue'
 import ZonaMacoContext from '~/components/zona-maco/ZonaMacoContext.vue'
 import ZonaMacoProjectsCarousel from '~/components/zona-maco/ZonaMacoProjectsCarousel.vue'
+import ZonaMacoStudentsConstellation from '~/components/zona-maco/ZonaMacoStudentsConstellation.vue'
 
 useSeoMeta({
   title: 'Zona Maco 2026 · Expositores CRGS | UMBRAL',

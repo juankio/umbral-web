@@ -18,6 +18,7 @@
       <ZonaMacoHeroTriangle
         :progress="progress"
         class="absolute inset-0 z-40 pointer-events-none"
+        @select="onSelectCategory"
       />
     </div>
   </section>

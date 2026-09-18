@@ -1,38 +1,66 @@
 <template>
-  <section class="w-full bg-white py-4 sm:py-6 lg:py-8">
-    <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
-      <!-- Caja contenida piedra carbón con detalle arquitectónico -->
-      <div class="relative w-full bg-[#1C1C1C] border border-[#2E2E2E] py-6 sm:py-8 px-8 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 shadow-sm">
-        <!-- Cotas técnicas en las 4 esquinas del marco -->
-        <span class="absolute top-2 left-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
-        <span class="absolute top-2 right-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
-        <span class="absolute bottom-2 left-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
-        <span class="absolute bottom-2 right-2 font-mono text-[10px] text-white/20 select-none pointer-events-none">+</span>
+  <section class="w-full bg-[#1C1C1C] text-white py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Columna Izquierda: Triángulo Morado de Proyectos Seleccionados (#7B4680) -->
+        <div class="lg:col-span-6 flex justify-center items-center">
+          <NuxtLink
+            to="/zona-maco#proyectos"
+            class="group relative w-full max-w-[620px] aspect-[609/459] flex items-center justify-center cursor-pointer focus:outline-none select-none transition-transform duration-500 ease-out hover:scale-[1.03]"
+            aria-label="Ver Proyectos Seleccionados en Zona Maco"
+          >
+            <!-- Vector SVG exacto de Figma: Vector 1 (id: 222:32 / 332:225) -->
+            <svg
+              viewBox="0 0 609 459"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute inset-0 w-full h-full drop-shadow-[0_20px_40px_rgba(123,70,128,0.45)] transition-all duration-500 group-hover:drop-shadow-[0_25px_50px_rgba(123,70,128,0.65)]"
+            >
+              <path
+                d="M97.5656 459L0 0L608.937 422.109L97.5656 459Z"
+                fill="#7B4680"
+              />
+            </svg>
 
-        <!-- Columna Izquierda: Micro-tag y Fechas Oficiales -->
-        <div class="flex flex-col items-center md:items-start text-center md:text-left z-10">
-          <div class="flex items-center gap-2 mb-1.5 font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase select-none">
-            <span class="inline-block w-1.5 h-1.5 bg-[#F6D152] rounded-full animate-ping"></span>
-            <span>REPENTINA · ZONA MACO</span>
-          </div>
-          <h2 class="font-barlow font-bold text-3xl sm:text-4xl lg:text-[46px] text-white tracking-wide uppercase leading-none">
-            DEL 3 AL 7 DE FEBRERO 2027
-          </h2>
+            <!-- Contenido tipográfico montado sobre la masa del triángulo -->
+            <div class="relative z-10 text-center text-white flex flex-col items-center justify-center px-6 py-4 pointer-events-none translate-x-2 translate-y-2">
+              <span class="font-barlow text-sm sm:text-base lg:text-lg tracking-[0.2em] uppercase text-white/90 font-medium mb-2 block">
+                Haz click para ver los
+              </span>
+              <h2 class="font-barlow font-medium text-4xl sm:text-6xl md:text-7xl lg:text-[76px] text-white uppercase tracking-tight leading-[0.92] transition-all duration-300">
+                <span class="group-hover:underline underline-offset-8 decoration-2 decoration-white">Proyectos<br>Seleccionados</span>
+              </h2>
+              <span class="font-mono text-[11px] sm:text-xs text-white/90 uppercase tracking-[0.22em] bg-black/30 px-4 py-1.5 rounded-full border border-white/20 mt-4 inline-block backdrop-blur-xs">
+                Zona Maco 2027 · CDMX →
+              </span>
+            </div>
+          </NuxtLink>
         </div>
 
-        <!-- Columna Derecha: Botón blanco impecable con atracción magnética al cursor y elevación -->
-        <div class="inline-block shrink-0 z-10">
-          <NuxtLink
-            ref="buttonRef"
-            to="/zona-maco"
-            @mousemove="handleMouseMove"
-            @mouseleave="handleMouseLeave"
-            class="relative inline-flex items-center justify-center font-barlow font-bold text-xl sm:text-2xl text-black px-8 py-3.5 bg-white hover:bg-neutral-50 transition-all shadow-md hover:shadow-2xl hover:scale-[1.03] uppercase leading-none whitespace-nowrap select-none active:scale-95 will-change-transform"
-          >
-            <span ref="textRef" class="inline-block pointer-events-none will-change-transform">
-              VER UBICACIÓN
-            </span>
-          </NuxtLink>
+        <!-- Columna Derecha: Manifiesto descriptivo oficial de Zona Maco según Figma -->
+        <div class="lg:col-span-6 flex flex-col justify-center space-y-8 text-left">
+          <div class="flex items-center gap-3 font-mono text-xs tracking-[0.2em] text-[#F6D152] uppercase select-none">
+            <span class="inline-block w-2 h-2 bg-[#F6D152] rounded-full animate-ping"></span>
+            <span>REPENTINA · ZONA MACO 2027</span>
+          </div>
+
+          <h3 class="font-barlow font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-wide uppercase leading-tight">
+            DEL 3 AL 7 DE FEBRERO 2027 · CIUDAD DE MÉXICO
+          </h3>
+
+          <p class="font-barlow text-xl sm:text-2xl lg:text-[32px] leading-relaxed text-white/90 font-normal">
+            El CRGS participará por tercer año consecutivo en Zona Maco, la feria de arte y diseño más importante de Latinoamérica, del 3 al 7 de febrero de 2027 en la Ciudad de México. Este año el stand se renueva: por primera vez, tanto el diseño del espacio como los productos que se exhiben y venden serán desarrollados por alumnos actuales de la escuela.
+          </p>
+
+          <div class="pt-2">
+            <NuxtLink
+              to="/zona-maco"
+              class="inline-flex items-center gap-3 font-barlow font-bold text-xl sm:text-2xl text-black px-8 py-3.5 bg-white hover:bg-[#F6D152] transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wider active:scale-95"
+            >
+              <span>EXPLORAR ZONA MACO</span>
+              <span class="font-mono text-base">→</span>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -40,70 +68,5 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-import { animate } from 'animejs'
-
-const buttonRef = ref<HTMLElement | null>(null)
-const textRef = ref<HTMLElement | null>(null)
-let isPointerFine = false
-let prefersReducedMotion = false
-
-onMounted(() => {
-  if (!import.meta.client) return
-  isPointerFine = window.matchMedia('(pointer: fine)').matches
-  prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-})
-
-const handleMouseMove = (e: MouseEvent) => {
-  if (!isPointerFine || prefersReducedMotion || !buttonRef.value) return
-  const rect = buttonRef.value.getBoundingClientRect()
-  const centerX = rect.left + rect.width / 2
-  const centerY = rect.top + rect.height / 2
-  const distX = e.clientX - centerX
-  const distY = e.clientY - centerY
-
-  const moveX = Math.max(-14, Math.min(14, distX * 0.28))
-  const moveY = Math.max(-10, Math.min(10, distY * 0.32))
-
-  animate(buttonRef.value, {
-    translateX: moveX,
-    translateY: moveY - 3,
-    duration: 180,
-    ease: 'outQuad'
-  })
-
-  if (textRef.value) {
-    animate(textRef.value, {
-      translateX: moveX * 0.45,
-      translateY: moveY * 0.45,
-      duration: 180,
-      ease: 'outQuad'
-    })
-  }
-}
-
-const handleMouseLeave = () => {
-  if (!buttonRef.value || prefersReducedMotion) return
-  animate(buttonRef.value, {
-    translateX: 0,
-    translateY: 0,
-    duration: 550,
-    ease: 'outElastic(1, .6)'
-  })
-
-  if (textRef.value) {
-    animate(textRef.value, {
-      translateX: 0,
-      translateY: 0,
-      duration: 550,
-      ease: 'outElastic(1, .6)'
-    })
-  }
-}
-
-onUnmounted(() => {
-  if (buttonRef.value) {
-    animate(buttonRef.value, { translateX: 0, translateY: 0, duration: 0 })
-  }
-})
+// Sección Zona Maco + Proyectos Seleccionados integrada según Figma (Frame 112:2 / Rectangle 21)
 </script>

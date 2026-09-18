@@ -8,20 +8,15 @@
         <img src="/images/logo-umbral.png" alt="Umbral" class="h-9 sm:h-11 w-auto object-contain" />
       </NuxtLink>
 
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-8 lg:gap-10 font-barlow text-[28px] sm:text-[32px] font-normal leading-none">
-        <NuxtLink to="/" class="inline-block pb-1 border-b-2 text-black transition-colors duration-200"
-          :class="route.path === '/' ? 'border-black opacity-100' : 'border-transparent opacity-75 hover:opacity-100 hover:border-black/40'">
-          Inicio
-        </NuxtLink>
-
+      <!-- Desktop nav exacto Figma (Zona Maco + Nosotros) -->
+      <nav class="hidden md:flex items-center gap-8 lg:gap-12 font-barlow text-[28px] sm:text-[32px] font-normal leading-none">
         <!-- Dropdown Zona Maco -->
         <div class="relative group" @mouseenter="isDropdownOpen = true" @mouseleave="isDropdownOpen = false">
           <NuxtLink
             to="/zona-maco"
             @click="isDropdownOpen = !isDropdownOpen"
-            class="inline-flex items-center gap-2.5 pb-1 border-b-2 text-black transition-colors duration-200 cursor-pointer"
-            :class="isRouteActive('/zona-maco') ? 'border-black opacity-100' : 'border-transparent opacity-75 hover:opacity-100 hover:border-black/40'"
+            class="inline-flex items-center gap-2.5 pb-1 border-b-2 text-black transition-all duration-200 cursor-pointer"
+            :class="isRouteActive('/zona-maco') ? 'border-black opacity-100' : 'border-transparent opacity-80 hover:opacity-100 hover:border-black/40'"
           >
             <span>Zona Maco</span>
             <img
@@ -53,8 +48,8 @@
           </div>
         </div>
 
-        <NuxtLink to="/crgs" class="inline-block pb-1 border-b-2 text-black transition-colors duration-200"
-          :class="isRouteActive('/crgs') ? 'border-black opacity-100' : 'border-transparent opacity-75 hover:opacity-100 hover:border-black/40'">
+        <NuxtLink to="/crgs" class="inline-block pb-1 border-b-2 text-black transition-all duration-200"
+          :class="isRouteActive('/crgs') ? 'border-black opacity-100' : 'border-transparent opacity-80 hover:opacity-100 hover:border-black/40'">
           Nosotros
         </NuxtLink>
       </nav>

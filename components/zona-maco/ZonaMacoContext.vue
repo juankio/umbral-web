@@ -1,35 +1,63 @@
 <template>
-  <section id="contexto" class="py-16 sm:py-20 lg:py-24 bg-white border-b border-neutral-200">
+  <section id="repentina" class="py-20 sm:py-28 lg:py-32 bg-[#1C1C1C] text-white border-b border-neutral-900 relative select-none">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- 1. Columnas superiores limpias de texto editorial -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start mb-12 sm:mb-16">
-        <div>
-          <h2 class="font-barlow font-bold text-2xl sm:text-4xl text-neutral-950 leading-tight uppercase tracking-tight">
+      <!-- Titular Monumental: Nuestra repentina (Figma id: 332:373, Barlow Condensed 128px regular) -->
+      <div class="text-center mb-14 sm:mb-20">
+        <h2 class="font-barlow font-normal text-6xl sm:text-8xl md:text-9xl lg:text-[128px] text-white uppercase tracking-tight leading-none">
+          Nuestra repentina
+        </h2>
+      </div>
+
+      <!-- Dos columnas de contexto (Figma id: Group 7, y: 1555) con polígono origami conector (Vector 4) -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 items-center mb-16 sm:mb-20">
+        <!-- Columna izquierda: Contexto repentina y de dónde nacen los proyectos -->
+        <div class="space-y-4">
+          <h3 class="font-barlow font-normal text-3xl sm:text-4xl lg:text-[48px] leading-[1.08] text-white uppercase tracking-tight">
             Contexto repentina y de dónde nacen los proyectos
-          </h2>
-          <p class="mt-4 font-sans text-neutral-600 text-sm sm:text-base leading-relaxed font-light">
+          </h3>
+          <p class="font-sans text-neutral-400 text-sm sm:text-base leading-relaxed font-light">
             48 horas de inmersión total y experimentación continua en los talleres del Centro Roberto Garza Sada. La materia dialoga con la tensión del vacío para engendrar soluciones que disuelven fronteras entre disciplinas.
           </p>
         </div>
 
-        <div>
-          <h2 class="font-barlow font-bold text-2xl sm:text-4xl text-neutral-950 leading-tight uppercase tracking-tight">
+        <!-- Polígono origami conector (Vector 4, id: 325:20) -->
+        <div class="flex items-center justify-center py-2 lg:py-0">
+          <svg
+            width="122"
+            height="140"
+            viewBox="0 0 122 140"
+            fill="none"
+            class="drop-shadow-lg shrink-0 opacity-90 hover:opacity-100 transition-opacity"
+            aria-hidden="true"
+          >
+            <path
+              d="M0.5 0.432983V138.933L121 69.3623L1.61097 0.432983"
+              fill="#3F3F3F"
+              stroke="#000000"
+              stroke-width="1.2"
+            />
+          </svg>
+        </div>
+
+        <!-- Columna derecha: Información general y proceso de selección -->
+        <div class="space-y-4">
+          <h3 class="font-barlow font-normal text-3xl sm:text-4xl lg:text-[48px] leading-[1.08] text-white uppercase tracking-tight">
             Información general y proceso de selección
-          </h2>
-          <p class="mt-4 font-sans text-neutral-600 text-sm sm:text-base leading-relaxed font-light">
+          </h3>
+          <p class="font-sans text-neutral-400 text-sm sm:text-base leading-relaxed font-light">
             El comité curatorial del CRGS y especialistas invitados de Zona Maco evaluaron más de 60 propuestas de taller para seleccionar las 10 piezas definitivas que conforman la colección oficial 2026.
           </p>
         </div>
       </div>
 
-      <!-- 2. Marco panorámico arquitectónico de video -->
-      <div class="max-w-6xl mx-auto aspect-[16/8] sm:aspect-[16/9] bg-neutral-900 border border-neutral-300 relative overflow-hidden group shadow-lg">
+      <!-- Marco panorámico arquitectónico de video (image 18) -->
+      <div class="max-w-6xl mx-auto aspect-[16/8] sm:aspect-[16/9] bg-neutral-900 border border-neutral-700 relative overflow-hidden group shadow-2xl">
         <img
           src="/images/crgs-building.png"
           alt="Video proceso repentina"
-          class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-60 group-hover:scale-105 group-hover:opacity-75 transition-all duration-700"
+          class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700"
         />
-        <div class="absolute inset-0 bg-neutral-950/50 group-hover:bg-neutral-950/40 transition-colors duration-500" />
+        <div class="absolute inset-0 bg-neutral-950/60 group-hover:bg-neutral-950/40 transition-colors duration-500" />
 
         <!-- Trazos arquitectónicos diagonales en cruz / perspectiva isométrica -->
         <svg
@@ -43,10 +71,6 @@
           <polygon points="50,0 100,50 50,100 0,50" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.3" stroke-dasharray="1.5,1.5" />
           <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="0.25" />
           <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.12)" stroke-width="0.25" />
-          <path d="M 0,5 L 5,5 L 5,0" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
-          <path d="M 100,5 L 95,5 L 95,0" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
-          <path d="M 0,95 L 5,95 L 5,100" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
-          <path d="M 100,95 L 95,95 L 95,100" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
         </svg>
 
         <!-- Metadatos perimetrales técnicos -->
@@ -75,7 +99,7 @@
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
-          <h3 class="font-barlow font-bold text-3xl sm:text-5xl text-white uppercase tracking-wide drop-shadow-lg">
+          <h3 class="font-barlow font-normal text-3xl sm:text-5xl text-white uppercase tracking-wide drop-shadow-lg">
             Video proceso repentina
           </h3>
         </div>

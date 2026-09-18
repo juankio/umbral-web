@@ -21,13 +21,18 @@
             <ArchitecturalOrigami />
           </div>
 
-          <!-- Titular monumental UMBRAL centrado bajo el arco -->
-          <h1
+          <!-- Logo monumental UMBRAL \ CRGS exacto de Figma (id: 112:17) -->
+          <h1 class="sr-only">UMBRAL · Centro Roberto Garza Sada · UDEM</h1>
+          <div
             ref="umbralTitleRef"
-            class="hero-title-reveal mt-3 sm:mt-4 font-barlow font-normal text-5xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tight text-black text-center uppercase leading-none select-none opacity-0 will-change-transform"
+            class="hero-title-reveal mt-4 sm:mt-6 w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[440px] flex justify-center select-none opacity-0 will-change-transform"
           >
-            UMBRAL
-          </h1>
+            <img
+              src="/images/logo-umbral-2.png"
+              alt="UMBRAL · CRGS"
+              class="w-full h-auto object-contain pointer-events-none"
+            />
+          </div>
         </div>
 
         <!-- Derecha: Abre la puerta, (Stagger 1) -->

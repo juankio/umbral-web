@@ -1,9 +1,12 @@
 <template>
-  <section id="proyectos" class="py-16 sm:py-24 bg-white overflow-hidden select-none border-b border-neutral-200">
+  <section id="proyectos" class="py-20 sm:py-28 lg:py-32 bg-white overflow-hidden select-none border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-12">
-      <span class="font-mono text-xs uppercase tracking-widest text-neutral-400 block mb-3">Catálogo Oficial · 10 Piezas</span>
-      <h2 class="font-barlow font-bold text-5xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-neutral-950 leading-none">Proyectos Seleccionados</h2>
-      <div class="h-[2px] bg-neutral-300 max-w-6xl mx-auto mt-6" />
+      <!-- Titular: Proyectos seleccionados (Figma id: 325:68, Barlow Condensed 128px regular) -->
+      <h2 class="font-barlow font-normal text-5xl sm:text-7xl md:text-8xl lg:text-[128px] uppercase tracking-tight text-[#070707] leading-none">
+        Proyectos seleccionados
+      </h2>
+      <!-- Línea divisoria horizontal sutil (Figma Line 8, id: 325:8, stroke #030303) -->
+      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-7xl mx-auto mt-6 sm:mt-10 mb-8 sm:mb-12 opacity-90" />
     </div>
 
     <!-- Carrusel Infinito Track Wrapper -->
@@ -41,9 +44,11 @@
             </div>
           </NuxtLink>
 
-          <div class="mt-2.5 px-1 flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span class="truncate max-w-[180px]">{{ obra.designers[0] }}</span>
-            <span class="font-bold text-neutral-800">{{ obra.year }}</span>
+          <div class="mt-2.5 px-1 flex items-center justify-between text-xs">
+            <span class="font-barlow font-normal text-sm sm:text-base text-neutral-700 truncate max-w-[200px]" :title="obra.designers.join(', ')">
+              {{ obra.designers.join(', ') }}
+            </span>
+            <span class="font-mono text-xs font-bold text-neutral-900 ml-2 shrink-0">{{ obra.year }}</span>
           </div>
         </article>
       </div>

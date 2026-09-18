@@ -5,16 +5,29 @@
     <div class="w-full max-w-7xl h-full relative flex items-center justify-center">
       <!-- Bloque central monumental: Zona Maco / Expositores -->
       <div
-        class="text-center z-10 pointer-events-none will-change-transform absolute left-1/2 top-1/2"
+        class="text-center z-10 will-change-transform absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl px-4"
         :style="centerStyle"
       >
-        <h2 class="font-barlow font-bold text-6xl sm:text-8xl lg:text-9xl xl:text-[140px] text-white text-center leading-none tracking-tight">
+        <h2 class="font-barlow font-normal text-6xl sm:text-8xl lg:text-9xl xl:text-[140px] text-white text-center leading-none tracking-tight">
           Zona Maco
         </h2>
-        <div class="h-[2px] w-48 sm:w-72 bg-white mx-auto my-4 sm:my-6" />
-        <p class="font-barlow font-bold text-6xl sm:text-8xl lg:text-9xl xl:text-[140px] text-white text-center leading-none tracking-tight">
+        <div class="h-[2px] w-48 sm:w-72 bg-white/80 mx-auto my-4 sm:my-6" />
+        <p class="font-barlow font-normal text-6xl sm:text-8xl lg:text-9xl xl:text-[140px] text-white text-center leading-none tracking-tight">
           Expositores
         </p>
+
+        <!-- Enlaces a las 4 categorías de la feria -->
+        <nav aria-label="Categorías de expositores" class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-6 sm:mt-8 pointer-events-auto">
+          <button
+            v-for="cat in categories"
+            :key="cat"
+            type="button"
+            class="font-barlow text-xs sm:text-sm lg:text-base tracking-[0.2em] uppercase text-neutral-400 hover:text-white hover:border-white transition-all cursor-pointer border border-neutral-800 px-4 py-2 rounded-full focus:outline-none focus:ring-1 focus:ring-white"
+            @click="onSelect(cat)"
+          >
+            {{ cat }}
+          </button>
+        </nav>
       </div>
     </div>
   </section>
@@ -28,7 +41,21 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), { progress: 0 })
-defineEmits<{ (e: 'select', category: string): void }>()
+const emit = defineEmits<{ (e: 'select', category: string): void }>()
+
+const categories = [
+  'Arte Contemporáneo',
+  'Arte Moderno',
+  'Diseño Emergente',
+  'Diseño'
+]
+
+const onSelect = (category: string) => {
+  emit('select', category)
+  if (typeof document !== 'undefined') {
+    document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 const isReducedMotion = ref(false)
 
