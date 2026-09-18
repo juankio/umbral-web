@@ -14,9 +14,9 @@
         />
       </svg>
 
-      <!-- Texto Oficial 'Obras Seleccionadas' centrado exactamente en el cuerpo del triángulo (Figma 325:2 / Node 356:125) -->
-      <div class="absolute left-[52%] top-[56%] -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full text-center">
-        <h1 class="font-barlow font-normal text-3xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[76px] text-white text-center leading-[0.92] tracking-tight select-none">
+      <!-- Texto Oficial 'Obras Seleccionadas' centrado simétricamente (left: 41%, top: 48%) -->
+      <div class="absolute left-[41%] top-[48%] -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full text-center">
+        <h1 class="font-barlow font-normal text-3xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[70px] text-white text-center leading-[0.92] tracking-tight select-none">
           Obras<br>Seleccionadas
         </h1>
       </div>
@@ -25,5 +25,5 @@
 </template>
 
 <script setup lang="ts">
-// Triángulo monumental de Zona Maco con los ángulos y rotación exacta de Figma (Node 325:26 / 356:125)
+// Triángulo monumental de Zona Maco con titular centrado con simetría exacta en la masa del triángulo
 </script>
