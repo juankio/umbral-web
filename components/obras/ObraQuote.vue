@@ -38,3 +38,7 @@ const props = defineProps<{
 
 const displayQuote = computed(() => props.quote || '“Cita de algunx de lxs integrantes del equipo”')
 </script>
+
+<style scoped>
+/* Estilo limpio para evitar desincronización HMR de PostCSS */
+</style>
