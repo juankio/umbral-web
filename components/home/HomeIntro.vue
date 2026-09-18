@@ -8,7 +8,7 @@
             <img src="/images/logo-umbral.png" alt="Umbral - CRGS" class="w-full h-auto object-contain" />
           </div>
 
-          <div class="space-y-3.5 sm:space-y-4 font-barlow text-base sm:text-lg lg:text-[20px] leading-relaxed text-[#1C1C1C] text-left">
+          <div class="space-y-3.5 sm:space-y-4 font-barlow text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] leading-relaxed lg:leading-[1.25] text-[#1C1C1C] text-left">
             <p>
               Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> de la Escuela de Arte y Diseño de la Universidad de Monterrey.
             </p>

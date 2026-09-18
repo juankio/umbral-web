@@ -27,7 +27,7 @@
             Centro Roberto<br>Garza Sada
           </h2>
 
-          <div class="space-y-4 sm:space-y-5 font-barlow text-base sm:text-lg lg:text-[20px] leading-relaxed text-[#1C1C1C] text-left font-normal max-w-[540px]">
+          <div class="space-y-4 sm:space-y-5 font-barlow text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] leading-relaxed lg:leading-[1.25] text-[#1C1C1C] text-left font-normal max-w-[540px]">
             <p>
               Es un espacio de ideas y expresiones que congrega y desarrolla el mejor talento creativo, consolidándose como la sede de la formación, creación y preservación del arte, arquitectura y diseño en Latinoamérica.
             </p>

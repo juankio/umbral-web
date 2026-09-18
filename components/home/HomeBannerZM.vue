@@ -9,7 +9,7 @@
       <div class="relative w-full">
         <!-- Fila Superior: Párrafo oficial rozando la línea del título -->
         <div class="w-full flex justify-start sm:justify-end mb-5 sm:mb-4 lg:mb-3 z-30 relative">
-          <p class="font-barlow font-normal text-sm sm:text-base md:text-xl lg:text-[23px] xl:text-[26px] text-white/95 text-left sm:text-right leading-relaxed lg:leading-[1.18] tracking-normal select-none max-w-full sm:max-w-[560px] lg:max-w-[660px]">
+          <p class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] text-white/95 text-left sm:text-right leading-relaxed lg:leading-[1.25] tracking-normal select-none max-w-full sm:max-w-[560px] lg:max-w-[660px]">
             El CRGS participará por tercer año consecutivo en Zona Maco, la<br class="hidden lg:block">
             feria de arte y diseño más importante de Latinoamérica, <strong class="font-bold text-white">del 3 al 7</strong><br class="hidden lg:block">
             <strong class="font-bold text-white">de febrero de 2027 en la Ciudad de México.</strong> Este año el stand se<br class="hidden lg:block">
