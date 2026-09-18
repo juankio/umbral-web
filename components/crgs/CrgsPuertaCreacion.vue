@@ -38,16 +38,6 @@
             draggable="false"
           />
         </div>
-
-        <!-- Indicador sutil de clic para abrir cuando está cerrado -->
-        <div
-          v-if="!isSplit"
-          class="absolute -bottom-8 inset-x-0 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        >
-          <span class="font-barlow text-xs uppercase tracking-[0.2em] text-neutral-400">
-            Haz clic para abrir el vano
-          </span>
-        </div>
       </div>
 
       <!-- 2. Video Documental que emerge en el centro cuando el triángulo se parte a la mitad -->
@@ -82,10 +72,10 @@
 
       <!-- 3. Título Blanco Cursivo Monumental 1:1 Figma (#332:320)
            En reposo: centrado sobre el triángulo verde.
-           Al abrirse el video: se traslada abajo del reproductor de video de forma limpia y legible. -->
+           Al abrirse el video: se traslada arriba del reproductor de video de forma limpia. -->
       <div
         class="absolute inset-x-0 z-20 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none px-4"
-        :class="isSplit ? 'translate-y-[240px] sm:translate-y-[290px] lg:translate-y-[330px] scale-75 sm:scale-85 opacity-95' : 'translate-y-0 scale-100 opacity-100'"
+        :class="isSplit ? '-translate-y-[220px] sm:-translate-y-[270px] lg:-translate-y-[310px] scale-70 sm:scale-80 opacity-95' : 'translate-y-0 scale-100 opacity-100'"
       >
         <h2
           class="font-barlow font-medium italic text-4xl sm:text-6xl md:text-7xl lg:text-[100px] xl:text-[115px] text-white leading-none tracking-tight text-center drop-shadow-md select-none"
