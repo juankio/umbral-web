@@ -33,7 +33,7 @@
         </div>
 
         <!-- Triángulo Morado Oficial (#834384, id: 222:32): centrado sobre la mitad de la letra -->
-        <div class="absolute left-4 sm:left-16 lg:left-36 xl:left-44 bottom-[-40px] sm:bottom-[-60px] lg:bottom-[-95px] w-[260px] sm:w-[400px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10 opacity-90 lg:opacity-100">
+        <div class="absolute left-2 sm:left-16 lg:left-36 xl:left-44 bottom-[-20px] sm:bottom-[-60px] lg:bottom-[-95px] w-[230px] sm:w-[400px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10 opacity-80 lg:opacity-100">
           <svg
             viewBox="0 0 609 459"
             fill="none"

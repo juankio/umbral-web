@@ -9,18 +9,26 @@
         <!-- Frase Superior en Móvil / Derecha en Desktop: Abre la puerta, -->
         <h2
           ref="rightTextRef"
-          class="order-1 lg:order-none lg:absolute lg:right-4 xl:right-12 2xl:right-20 lg:top-[18%] lg:-translate-y-1/2 font-barlow text-3xl sm:text-5xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-right leading-none select-none tracking-normal will-change-transform mb-3 sm:mb-4 lg:mb-0"
+          class="order-1 lg:order-none lg:absolute lg:right-4 xl:right-12 2xl:right-20 lg:top-[18%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-right leading-none select-none tracking-normal will-change-transform mb-1 sm:mb-2 lg:mb-0"
         >
           Abre la puerta,
         </h2>
 
+        <!-- Frase Intermedia en Móvil / Izquierda en Desktop: Cruza el -->
+        <h2
+          ref="leftTextRef"
+          class="order-2 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[58%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mb-4 sm:mb-6 lg:mb-0"
+        >
+          Cruza el
+        </h2>
+
         <!-- Centro: Triángulo negro estático + Titular UMBRAL -->
-        <div class="order-2 lg:order-none flex flex-col items-center justify-center will-change-transform z-10 my-2 sm:my-4 lg:my-0">
+        <div class="order-3 lg:order-none flex flex-col items-center justify-center will-change-transform z-10 my-4 sm:my-6 lg:my-0">
           <!-- Vector SVG estático proporcional a la altura de la pantalla (Figma 112:13) -->
           <div ref="triangleRef" class="flex justify-center select-none pointer-events-none">
             <svg
               viewBox="0 0 365 500"
-              class="h-[26vh] sm:h-[34vh] lg:h-[46vh] max-h-[480px] min-h-[190px] w-auto block select-none"
+              class="h-[24vh] sm:h-[32vh] lg:h-[46vh] max-h-[480px] min-h-[170px] w-auto block select-none"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -37,14 +45,6 @@
             UMBRAL
           </h1>
         </div>
-
-        <!-- Frase Inferior en Móvil / Izquierda en Desktop: Cruza el -->
-        <h2
-          ref="leftTextRef"
-          class="order-3 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[58%] lg:-translate-y-1/2 font-barlow text-3xl sm:text-5xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mt-3 sm:mt-4 lg:mt-0"
-        >
-          Cruza el
-        </h2>
       </div>
     </div>
   </section>

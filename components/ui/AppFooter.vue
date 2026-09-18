@@ -1,8 +1,9 @@
 <template>
-  <footer class="w-full bg-[#0A0A0A] py-10 sm:py-14 px-6 sm:px-12 border-t border-white/10 text-white select-text">
-    <div class="max-w-[1720px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-8 items-start lg:items-center">
+  <footer class="w-full bg-[#0A0A0A] py-5 sm:py-8 lg:py-14 px-4 sm:px-8 lg:px-12 border-t border-white/10 text-white select-text">
+    <!-- 1. Versión Desktop 1:1 Figma (4 columnas completas en una sola fila) -->
+    <div class="hidden lg:grid max-w-[1720px] mx-auto grid-cols-4 gap-8 items-center">
       <!-- Columna 1: Escuela de Arte y Diseño -->
-      <div class="font-barlow font-bold text-sm sm:text-base tracking-[0.14em] uppercase text-white/95 leading-tight select-none">
+      <div class="font-barlow font-bold text-base tracking-[0.14em] uppercase text-white/95 leading-tight select-none">
         ESCUELA DE<br>
         ARTE Y DISEÑO<br>
         UNIVERSIDAD<br>
@@ -15,13 +16,13 @@
           <img
             src="/images/footer-crgs.png"
             alt="Centro Roberto Garza Sada de Arte Arquitectura y Diseño"
-            class="h-16 sm:h-20 w-auto object-contain"
+            class="h-20 w-auto object-contain"
           />
         </NuxtLink>
       </div>
 
       <!-- Columna 3: Enlaces oficiales -->
-      <div class="flex flex-col space-y-2.5 font-barlow text-sm sm:text-base">
+      <div class="flex flex-col space-y-2.5 font-barlow text-base">
         <a
           v-for="link in officialLinks"
           :key="link.name"
@@ -35,17 +36,56 @@
       </div>
 
       <!-- Columna 4: Logotipo oficial UDEM -->
-      <div class="flex items-center sm:justify-start lg:justify-end">
+      <div class="flex items-center justify-end">
         <a
           href="https://www.udem.edu.mx"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-3.5 sm:gap-4 group hover:opacity-90 transition-opacity"
+          class="flex items-center gap-4 group hover:opacity-90 transition-opacity"
           aria-label="Universidad de Monterrey"
         >
-          <img src="/images/footer-udem.png" alt="UDEM" class="h-8 sm:h-10 w-auto object-contain brightness-110" />
+          <img src="/images/footer-udem.png" alt="UDEM" class="h-10 w-auto object-contain brightness-110" />
           <div class="h-8 w-[1.5px] bg-white/50" />
-          <span class="font-barlow font-bold text-xs sm:text-sm tracking-[0.16em] uppercase text-white leading-tight">
+          <span class="font-barlow font-bold text-sm tracking-[0.16em] uppercase text-white leading-tight">
+            UNIVERSIDAD<br>DE MONTERREY
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. Versión Celular Ultra Compacta 1:1 Figma (la variante más chiquita) -->
+    <div class="flex lg:hidden items-center justify-between gap-3 sm:gap-6 max-w-lg mx-auto w-full py-1">
+      <!-- Izquierda: Escuela de Arte y Diseño -->
+      <div class="font-barlow font-bold text-[9px] sm:text-xs tracking-[0.12em] uppercase text-white/90 leading-tight select-none flex-shrink-0">
+        ESCUELA DE<br>
+        ARTE Y DISEÑO<br>
+        UNIVERSIDAD<br>
+        DE MONTERREY
+      </div>
+
+      <!-- Centro: Logo CRGS -->
+      <div class="flex-shrink-0 flex items-center justify-center">
+        <NuxtLink to="/crgs" class="inline-block hover:opacity-90 transition-opacity" aria-label="Centro Roberto Garza Sada">
+          <img
+            src="/images/footer-crgs.png"
+            alt="CRGS"
+            class="h-9 sm:h-12 w-auto object-contain"
+          />
+        </NuxtLink>
+      </div>
+
+      <!-- Derecha: Logo UDEM -->
+      <div class="flex-shrink-0 flex items-center justify-end">
+        <a
+          href="https://www.udem.edu.mx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 sm:gap-2.5 group hover:opacity-90 transition-opacity"
+          aria-label="Universidad de Monterrey"
+        >
+          <img src="/images/footer-udem.png" alt="UDEM" class="h-5 sm:h-7 w-auto object-contain brightness-110" />
+          <div class="h-5 sm:h-6 w-[1px] bg-white/40" />
+          <span class="font-barlow font-bold text-[8px] sm:text-[10px] tracking-[0.14em] uppercase text-white leading-none">
             UNIVERSIDAD<br>DE MONTERREY
           </span>
         </a>

@@ -22,31 +22,31 @@
 
     <!-- Escena Central: Información a la izquierda y Figura activa a la derecha -->
     <div class="mx-auto max-w-4xl lg:max-w-5xl px-4 sm:px-8 relative z-20">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center min-h-[460px]">
-        <!-- Columna Información y Biografía (A la izquierda) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-14 items-center min-h-[380px] lg:min-h-[460px]">
+        <!-- Columna Información y Biografía (A la izquierda en desktop, abajo en móvil) -->
         <div
           ref="activeTextRef"
-          class="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-center space-y-6"
+          class="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-center space-y-4 sm:space-y-6"
         >
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2 text-center lg:text-left">
             <span class="reveal-text font-barlow text-xs sm:text-sm tracking-[0.25em] uppercase text-[#A5BCD5] font-medium block">
               {{ currentSlide.badge }}
             </span>
-            <h3 class="reveal-text font-barlow font-medium text-3xl sm:text-4xl lg:text-[44px] text-white leading-tight">
+            <h3 class="reveal-text font-barlow font-medium text-2xl sm:text-3xl lg:text-[44px] text-white leading-tight">
               {{ currentSlide.name }}
             </h3>
           </div>
 
-          <div class="space-y-4 font-barlow text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed text-justify sm:text-left font-normal">
+          <div class="space-y-3 sm:space-y-4 font-barlow text-sm sm:text-base lg:text-xl text-white/80 leading-snug lg:leading-relaxed text-left font-normal">
             <p v-for="(text, idx) in currentSlide.paragraphs" :key="idx" class="reveal-text">
               {{ text }}
             </p>
           </div>
         </div>
 
-        <!-- Columna Triángulo Monumental Activo (A la derecha) -->
+        <!-- Columna Triángulo Monumental Activo (A la derecha en desktop, arriba en móvil) -->
         <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center">
-          <div class="relative w-[240px] sm:w-[320px] lg:w-[420px] h-[300px] sm:h-[420px] lg:h-[560px] flex items-center justify-center [perspective:1200px]">
+          <div class="relative w-[190px] sm:w-[280px] lg:w-[420px] h-[220px] sm:h-[340px] lg:h-[560px] flex items-center justify-center [perspective:1200px]">
             <div
               ref="activeTriangleRef"
               class="w-full h-full flex items-center justify-center will-change-transform"
