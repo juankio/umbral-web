@@ -12,7 +12,7 @@
         </div>
 
         <!-- Columna Derecha (Fija / Sticky): Ficha Técnica y Metadatos -->
-        <div class="lg:col-span-5">
+        <div class="lg:col-span-5 self-stretch">
           <ObraMeta :obra="obra" />
         </div>
       </div>
@@ -40,10 +40,10 @@ import { useObras } from '~/composables/useObras'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
-const { getObraBySlug, getRelatedObras } = useObras()
+const { obras, getObraBySlug } = useObras()
 
 const obra = computed(() => getObraBySlug(slug.value))
-const relatedObras = computed(() => getRelatedObras(slug.value, 5))
+const relatedObras = computed(() => obras.filter(o => o.slug !== slug.value))
 
 useSeoMeta({
   title: computed(() => obra.value ? `${obra.value.title} · Zona Maco 2026 | UMBRAL` : 'Obra · UMBRAL'),

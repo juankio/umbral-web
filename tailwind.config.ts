@@ -44,6 +44,9 @@ export default <Partial<Config>>{
         tightest: '-0.04em',
         tighter: '-0.02em',
       },
+      boxShadow: {
+        xs: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+      },
       opacity: {
         45: '0.45',
       }

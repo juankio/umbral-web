@@ -1,91 +1,85 @@
 <template>
-  <!-- Columna Derecha Fija / Sticky según Figma Frame 112:102 -->
-  <div class="lg:sticky lg:top-24 space-y-6 lg:space-y-8 select-none">
-    <!-- Header: Título 90px Medium + Año 64px Regular -->
-    <div class="flex items-baseline justify-between gap-4">
-      <h2 class="font-barlow font-medium text-5xl sm:text-7xl lg:text-[76px] xl:text-[90px] text-black uppercase leading-[0.9] tracking-tight">
-        {{ obra.title }}
-      </h2>
-      <span class="font-barlow font-normal text-3xl sm:text-4xl lg:text-[52px] xl:text-[64px] text-black leading-[0.9] flex-shrink-0">
-        {{ obra.year || 'Año' }}
-      </span>
-    </div>
+  <!-- Columna Derecha: Bloque Fijo Flotante a Escala Humana -->
+  <aside class="sticky top-24 self-start select-none">
+    <!-- Título en Title Case -->
+    <h2 class="font-barlow font-medium text-4xl sm:text-5xl lg:text-[56px] text-black leading-none mb-3">
+      {{ obra.title }}
+    </h2>
 
-    <!-- Descripción Oficial: Barlow Condensed Regular 32px -->
-    <div class="space-y-4 font-barlow font-normal text-lg sm:text-2xl lg:text-[28px] xl:text-[32px] text-black leading-[1.2] text-left sm:text-justify">
+    <!-- Descripción con Escala Proporcionada -->
+    <div class="font-barlow font-normal text-sm sm:text-base lg:text-[18px] leading-relaxed text-neutral-800 text-left mb-6 space-y-2">
       <p v-for="(paragraph, idx) in descriptionParagraphs" :key="idx">
         {{ paragraph }}
       </p>
     </div>
 
-    <!-- Ficha Técnica con Líneas Divisorias de 4px (Line 7, Line 8, Line 9) -->
-    <div class="pt-2">
-      <!-- Línea Divisoria 7 (Figma Line 7: 4px solid #030303) -->
-      <div class="w-full h-[4px] bg-[#030303] my-5 lg:my-6" />
+    <!-- Ficha Técnica con Líneas Divisorias Delgadas Continuas -->
+    <div class="w-full">
+      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
 
       <!-- Fila 1: Publicado -->
-      <div class="flex items-baseline justify-between gap-4 py-1">
-        <span class="font-barlow font-medium text-xl sm:text-2xl lg:text-[30px] xl:text-[36px] text-[#3F3F3F] leading-none">
+      <div class="flex items-baseline justify-between gap-4">
+        <span class="font-barlow text-sm text-neutral-500 leading-none">
           Publicado
         </span>
-        <span class="font-barlow font-normal text-lg sm:text-xl lg:text-[26px] xl:text-[32px] text-black text-right leading-none">
+        <span class="font-barlow text-sm sm:text-base text-black text-right leading-none">
           {{ publishedDate }}
         </span>
       </div>
 
-      <!-- Línea Divisoria 8 (Figma Line 8: 4px solid #030303) -->
-      <div class="w-full h-[4px] bg-[#030303] my-5 lg:my-6" />
+      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
 
       <!-- Fila 2: Materiales -->
-      <div class="flex items-start justify-between gap-4 py-1">
-        <span class="font-barlow font-medium text-xl sm:text-2xl lg:text-[30px] xl:text-[36px] text-[#3F3F3F] leading-none pt-1 flex-shrink-0">
+      <div class="flex items-start justify-between gap-4">
+        <span class="font-barlow text-sm text-neutral-500 leading-none pt-0.5 flex-shrink-0">
           Materiales
         </span>
-        <div class="flex flex-col items-end text-right space-y-1">
+        <div class="flex flex-col items-end text-right space-y-0.5">
           <span
             v-for="(material, idx) in materialsList"
             :key="idx"
-            class="font-barlow font-normal text-lg sm:text-xl lg:text-[26px] xl:text-[32px] text-black leading-[1.2]"
+            class="font-barlow text-sm sm:text-base text-black leading-snug"
           >
             {{ material }}
           </span>
         </div>
       </div>
 
-      <!-- Línea Divisoria 9 (Figma Line 9: 4px solid #030303) -->
-      <div class="w-full h-[4px] bg-[#030303] my-5 lg:my-6" />
+      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
 
       <!-- Fila 3: Diseñado por -->
-      <div class="flex items-start justify-between gap-4 py-1">
-        <span class="font-barlow font-medium text-xl sm:text-2xl lg:text-[30px] xl:text-[36px] text-[#3F3F3F] leading-none pt-1 flex-shrink-0">
+      <div class="flex items-start justify-between gap-4">
+        <span class="font-barlow text-sm text-neutral-500 leading-none pt-0.5 flex-shrink-0">
           Diseñado por
         </span>
-        <div class="flex flex-col items-end text-right space-y-1">
+        <div class="flex flex-col items-end text-right space-y-0.5">
           <span
             v-for="(designer, idx) in obra.designers"
             :key="idx"
-            class="font-barlow font-normal text-lg sm:text-xl lg:text-[26px] xl:text-[32px] text-black leading-[1.2]"
+            class="font-barlow text-sm sm:text-base text-black leading-snug"
           >
             {{ designer }}
           </span>
         </div>
       </div>
-    </div>
 
-    <!-- Fila Inferior: Precio 64px Regular + Botón Adquisición -->
-    <div class="pt-4 lg:pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="font-barlow font-normal text-4xl sm:text-5xl lg:text-[64px] text-black leading-none self-start sm:self-center">
-        {{ obra.price || '$00' }}
+      <div class="w-full h-[1px] bg-black/80 my-3 sm:my-4" />
+
+      <!-- Adquisición y Precio Proporcionado -->
+      <div class="pt-2 flex items-center justify-between gap-4">
+        <span class="font-barlow font-normal text-2xl sm:text-3xl text-black leading-none">
+          {{ obra.price || '$00' }}
+        </span>
+
+        <a
+          :href="mailtoLink"
+          class="px-5 py-2.5 bg-black text-white font-barlow font-medium text-xs sm:text-sm uppercase tracking-wider text-center hover:bg-neutral-800 active:scale-[0.98] transition-all duration-200"
+        >
+          Consultar Adquisición
+        </a>
       </div>
-
-      <a
-        :href="mailtoLink"
-        class="w-full sm:w-auto px-8 py-3.5 bg-black text-white font-barlow font-medium text-lg sm:text-xl uppercase tracking-widest text-center hover:bg-neutral-800 active:scale-[0.98] transition-all duration-300 shadow-md"
-      >
-        Consultar Adquisición
-      </a>
     </div>
-  </div>
+  </aside>
 </template>
 
 <script setup lang="ts">
@@ -96,30 +90,18 @@ const props = defineProps<{
   obra: Obra
 }>()
 
-// Fecha de publicación según ficha técnica de Figma
-const publishedDate = computed(() => {
-  return props.obra.publishedDate || '28/08/2026'
-})
+const publishedDate = computed(() => props.obra.publishedDate || '28/08/2026')
 
-// Lista vertical de materiales
 const materialsList = computed(() => {
   if (!props.obra.materials) return []
-  return props.obra.materials
-    .split(',')
-    .map(item => item.trim())
-    .filter(Boolean)
+  return props.obra.materials.split(',').map(item => item.trim()).filter(Boolean)
 })
 
-// Párrafos editoriales según Figma
 const descriptionParagraphs = computed(() => {
   if (!props.obra.description) return []
-  if (props.obra.description.includes('\n\n')) {
-    return props.obra.description.split('\n\n').filter(Boolean)
-  }
-  return [props.obra.description]
+  return props.obra.description.split('\n\n').filter(Boolean)
 })
 
-// Enlace de adquisición institucional
 const mailtoLink = computed(() => {
   const subject = encodeURIComponent(`Consulta Adquisición: ${props.obra.title} · Zona Maco 2026`)
   return `mailto:crgs@udem.edu.mx?subject=${subject}`
