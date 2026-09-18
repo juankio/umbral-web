@@ -143,9 +143,9 @@ export const useObras = () => {
       hours: '90 horas',
       quote: 'El intervalo entre dos instantes de contemplación pura.',
       description: 'Una composición que atrapa la luz rasante en planos transparentes y opacos.',
-      heroImage: '/images/figma-related-entretiempo.webp',
+      heroImage: '/images/figma-related-entretiempo.webp?v=2',
       gallery: [
-        '/images/figma-related-entretiempo.webp'
+        '/images/figma-related-entretiempo.webp?v=2'
       ],
       colorBadge: 'bg-neutral-900 text-white'
     },

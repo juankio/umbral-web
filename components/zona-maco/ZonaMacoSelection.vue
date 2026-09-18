@@ -67,7 +67,7 @@ const productos: ProductSelection[] = [
   { title: 'Encuadre', slug: 'encuadre', image: '/images/figma-product-encuadre.webp', bg: '#EDEDED' },
   { title: 'Roberto', slug: 'roberto', image: '/images/figma-product-roberto.webp', bg: '#E5E5E0' },
   // Fila 2
-  { title: 'Entretiempo', slug: 'entretiempo', image: '/images/figma-product-entretiempo.webp', bg: '#EAEAEA' },
+  { title: 'Entretiempo', slug: 'entretiempo', image: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA' },
   { title: 'Sagaón', slug: 'sagaon', image: '/images/figma-product-sagaon.webp', bg: '#D5CFC9' },
   // Fila 3
   { title: 'Interconexión', slug: 'interconexion', image: '/images/figma-product-interconexion.webp', bg: '#434B2E' },

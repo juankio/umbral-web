@@ -119,7 +119,7 @@
       >
         <div class="w-full h-full relative overflow-hidden bg-[#EAEAEA]">
           <img
-            src="/images/figma-product-entretiempo.webp"
+            src="/images/figma-product-entretiempo.webp?v=2"
             alt="Entretiempo"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="eager"

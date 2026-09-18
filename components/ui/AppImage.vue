@@ -97,13 +97,15 @@ const hasError = ref(false)
 const retryKey = ref(0)
 const imgRef = ref<HTMLImageElement | null>(null)
 
-// Detección y generación automática de ruta WebP
+// Detección y generación automática de ruta WebP con soporte para query params (?v=...)
 const webpSrc = computed(() => {
   if (!props.src) return ''
-  if (props.src.endsWith('.svg')) return ''
-  if (props.src.endsWith('.webp')) return props.src
-  if (props.src.endsWith('.png') || props.src.endsWith('.jpg') || props.src.endsWith('.jpeg')) {
-    return props.src.replace(/\.(png|jpg|jpeg)$/i, '.webp')
+  const [cleanUrl, query] = props.src.split('?')
+  const querySuffix = query ? `?${query}` : ''
+  if (cleanUrl.endsWith('.svg')) return ''
+  if (cleanUrl.endsWith('.webp')) return props.src
+  if (cleanUrl.endsWith('.png') || cleanUrl.endsWith('.jpg') || cleanUrl.endsWith('.jpeg')) {
+    return cleanUrl.replace(/\.(png|jpg|jpeg)$/i, '.webp') + querySuffix
   }
   return ''
 })
