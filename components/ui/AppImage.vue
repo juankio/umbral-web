@@ -19,7 +19,7 @@
     </div>
 
     <!-- Imagen con Fallback y Modern Picture Tag -->
-    <picture v-if="!hasError">
+    <picture v-if="!hasError" class="w-full h-full block">
       <source
         v-if="webpSrc"
         :srcset="computedWebpSrc"
@@ -83,7 +83,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   alt: '',
-  wrapperClass: '',
+  wrapperClass: 'w-full h-full',
   imgClass: 'w-full h-full object-cover',
   loading: 'lazy',
   fetchpriority: 'auto',
