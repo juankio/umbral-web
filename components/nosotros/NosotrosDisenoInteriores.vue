@@ -1,5 +1,5 @@
 <template>
-  <section id="diseno-interiores" class="relative w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-6 sm:pb-8 lg:pb-10 scroll-mt-24 lg:min-h-[calc(100vh-80px)] lg:max-h-[960px] flex flex-col justify-center overflow-hidden select-text">
+  <section id="diseno-interiores" class="relative w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-20 scroll-mt-24 flex flex-col justify-center overflow-hidden select-text">
     <!-- Encabezado de Sección 1:1 Figma (Node 413:144) con scroll reveal -->
     <div class="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20 text-center">
       <h2 ref="headingRef" class="font-barlow font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#070707] text-center leading-tight tracking-tight">
@@ -15,8 +15,8 @@
       <div ref="lineRef" class="w-full max-w-[1676px] mx-auto h-[1px] sm:h-[2px] bg-[#030303] my-2 sm:my-3 will-change-transform" />
     </div>
 
-    <!-- Carrusel Infinito con Giros Dinámicos -->
-    <NosotrosInfiniteCarousel :items="integrantesInteriores" />
+    <!-- Carrusel Infinito con 3 Triángulos Negros Arquitectónicos (sin fotos ni nombres) -->
+    <NosotrosInfiniteCarousel :items="triangulosInteriores" />
   </section>
 </template>
 
@@ -37,23 +37,24 @@ onMounted(() => {
   observeScrollReveal(lineRef, { type: 'divider', origin: 'center', delay: 200 })
 })
 
-const integrantesInteriores: CarouselItem[] = [
+// 3 triángulos negros arquitectónicos como placeholder interactivo con efecto de carrusel y giro 3D
+const triangulosInteriores: CarouselItem[] = [
   {
-    name: 'Miranda Salazar',
-    role: 'Estudiante de Diseño de Interiores',
-    image: '/images/integrantes-interiores-center.webp',
+    name: '',
+    role: '',
+    image: '/images/triangulo-negro-stand.svg',
     rotation: 4
   },
   {
-    name: 'Alumna de Diseño de Interiores',
-    role: 'Conceptualización y Espacio Expositivo',
-    image: '/images/integrantes-interiores-left.webp',
+    name: '',
+    role: '',
+    image: '/images/triangulo-negro-stand.svg',
     rotation: -5
   },
   {
-    name: 'Alumna de Diseño de Interiores',
-    role: 'Museografía & Montaje',
-    image: '/images/integrantes-interiores-right.webp',
+    name: '',
+    role: '',
+    image: '/images/triangulo-negro-stand.svg',
     rotation: 3
   }
 ]

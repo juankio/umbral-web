@@ -3,19 +3,17 @@
     <!-- Triángulo Monumental Negro en esquina superior derecha (1:1 Figma Node 407:67) con parallax y hover -->
     <div
       ref="triangleRef"
-      class="absolute top-0 right-0 w-[30vw] sm:w-[36vw] lg:w-[32vw] max-w-[580px] min-w-[120px] sm:min-w-[200px] lg:min-w-[260px] select-none z-0 translate-x-[4%] sm:translate-x-[2%] lg:translate-x-0 -translate-y-[4%] sm:-translate-y-[2%] lg:translate-y-0 will-change-transform pointer-events-none"
+      class="absolute top-4 sm:top-6 lg:top-8 right-0 lg:right-2 w-[30vw] sm:w-[36vw] lg:w-[32vw] max-w-[580px] min-w-[120px] sm:min-w-[200px] lg:min-w-[260px] select-none z-0 translate-x-[4%] sm:translate-x-[2%] lg:translate-x-0 will-change-transform pointer-events-none"
       aria-hidden="true"
     >
-      <picture>
-        <source srcset="/images/integrantes-hero-triangle.webp" type="image/webp" />
-        <img
-          src="/images/integrantes-hero-triangle.png"
-          alt=""
-          class="w-full h-auto object-contain block drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)] pointer-events-none"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </picture>
+      <svg
+        viewBox="0 0 991 603"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full h-auto block select-none pointer-events-none"
+      >
+        <path d="M0 535.815L281.43 0L990.673 603L0 535.815Z" fill="#1C1C1C" />
+      </svg>
     </div>
 
     <!-- Contenido Monumental del Hero (1:1 Figma Node 407:4) con scroll reveal -->
