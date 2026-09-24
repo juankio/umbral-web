@@ -24,11 +24,16 @@
 
         <!-- Centro: Triángulo negro estático + Titular UMBRAL -->
         <div class="order-3 lg:order-none flex flex-col items-center justify-center will-change-transform z-10 my-4 sm:my-6 lg:my-0">
-          <!-- Vector SVG estático proporcional a la altura de la pantalla (Figma 112:13) -->
-          <div ref="triangleRef" class="flex justify-center select-none pointer-events-none">
+          <!-- Vector SVG estático proporcional a la altura de la pantalla (Figma 112:13) con parallax y hover -->
+          <div
+            ref="triangleRef"
+            class="flex justify-center select-none cursor-pointer will-change-transform"
+            @mousemove="handleOrigamiMove(triangleRef, $event)"
+            @mouseleave="handleOrigamiLeave(triangleRef)"
+          >
             <svg
               viewBox="0 0 365 500"
-              class="h-[24vh] sm:h-[32vh] lg:h-[46vh] max-h-[480px] min-h-[170px] w-auto block select-none"
+              class="h-[24vh] sm:h-[32vh] lg:h-[46vh] max-h-[480px] min-h-[170px] w-auto block select-none pointer-events-none"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -51,8 +56,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { animate } from 'animejs'
+import { useParallaxMotion } from '~/composables/useParallaxMotion'
+import { useHoverMotion } from '~/composables/useHoverMotion'
 
 const heroSectionRef = ref<HTMLElement | null>(null)
 const leftTextRef = ref<HTMLElement | null>(null)
@@ -60,49 +67,57 @@ const rightTextRef = ref<HTMLElement | null>(null)
 const triangleRef = ref<HTMLElement | null>(null)
 const umbralTitleRef = ref<HTMLElement | null>(null)
 
+const activeAnims: any[] = []
+const { handleOrigamiMove, handleOrigamiLeave } = useHoverMotion()
+useParallaxMotion(triangleRef, 0.07, 28)
+
 onMounted(() => {
   if (!import.meta.client) return
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
   // Entrada suave sin FOUC
   if (leftTextRef.value) {
-    animate(leftTextRef.value, {
+    activeAnims.push(animate(leftTextRef.value, {
       opacity: [0, 1],
       translateX: [-25, 0],
       duration: 1000,
       delay: 100,
       ease: 'outExpo'
-    })
+    }))
   }
 
   if (rightTextRef.value) {
-    animate(rightTextRef.value, {
+    activeAnims.push(animate(rightTextRef.value, {
       opacity: [0, 1],
       translateX: [25, 0],
       duration: 1000,
       delay: 180,
       ease: 'outExpo'
-    })
+    }))
   }
 
   if (triangleRef.value) {
-    animate(triangleRef.value, {
+    activeAnims.push(animate(triangleRef.value, {
       opacity: [0, 1],
       scale: [0.98, 1],
       duration: 1000,
       delay: 220,
       ease: 'outExpo'
-    })
+    }))
   }
 
   if (umbralTitleRef.value) {
-    animate(umbralTitleRef.value, {
+    activeAnims.push(animate(umbralTitleRef.value, {
       opacity: [0, 1],
       translateY: [20, 0],
       duration: 1000,
       delay: 280,
       ease: 'outExpo'
-    })
+    }))
   }
+})
+
+onUnmounted(() => {
+  activeAnims.forEach(anim => anim?.revert?.() || anim?.pause?.())
 })
 </script>

@@ -1,22 +1,25 @@
 <template>
   <section id="proyectos" class="py-10 sm:py-14 bg-white select-none border-b border-neutral-200">
-    <!-- Encabezado de sección -->
+    <!-- Encabezado de sección con scroll reveal -->
     <div class="w-full px-4 sm:px-6 text-center">
-      <h2 class="font-barlow font-normal text-3xl sm:text-4xl lg:text-5xl text-[#070707] text-center leading-none uppercase tracking-tight">
+      <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl lg:text-5xl text-[#070707] text-center leading-none uppercase tracking-tight">
         Proyectos Seleccionados
       </h2>
-      <!-- Línea divisoria continua -->
-      <div class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[860px] mx-auto mt-4 mb-8 sm:mb-10" />
+      <!-- Línea divisoria continua con expansión horizontal -->
+      <div ref="dividerRef" class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[860px] mx-auto mt-4 mb-8 sm:mb-10 will-change-transform" />
     </div>
 
     <!-- Grid Compacto de 2 Columnas -->
     <div class="max-w-[860px] mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <article
-          v-for="item in productos"
+          v-for="(item, idx) in productos"
           :key="item.slug"
-          class="relative w-full aspect-square group overflow-hidden border border-neutral-200/80 shadow-sm hover:shadow-xl transition-shadow duration-500"
+          :ref="el => setCardRef(el, idx)"
+          class="relative w-full aspect-square group overflow-hidden border border-neutral-200/80 shadow-sm hover:shadow-xl transition-all duration-300 will-change-transform"
           :style="{ backgroundColor: item.bg }"
+          @mouseenter="onCardEnter(idx)"
+          @mouseleave="onCardLeave(idx)"
         >
           <NuxtLink
             :to="`/obras/${item.slug}`"
@@ -27,7 +30,7 @@
             <AppImage
               :src="item.image"
               :alt="item.title"
-              img-class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              img-class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
               loading="lazy"
             >
               <!-- Velo de fondo blanquito suave en hover según Figma -->
@@ -36,9 +39,9 @@
               />
             </AppImage>
 
-            <!-- Título en esquina inferior derecha sobre el fondo blanquito en hover (sin slash) -->
+            <!-- Título en esquina inferior derecha con deslizamiento vertical suave -->
             <div
-              class="absolute bottom-3 right-4 sm:bottom-4 sm:right-5 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
+              class="absolute bottom-3 right-4 sm:bottom-4 sm:right-5 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out transform translate-y-2 group-hover:translate-y-0"
             >
               <h3
                 class="card-title font-barlow font-medium text-2xl sm:text-3xl lg:text-4xl text-black leading-none tracking-tight select-none"
@@ -54,6 +57,10 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useScrollAnimation } from '~/composables/useScrollAnimation'
+import { useHoverMotion } from '~/composables/useHoverMotion'
+
 interface ProductSelection {
   title: string
   slug: string
@@ -61,22 +68,43 @@ interface ProductSelection {
   bg: string
 }
 
-// 10 productos exactos de Figma en orden estricto de izquierda a derecha, fila por fila
+const headingRef = ref<HTMLElement | null>(null)
+const dividerRef = ref<HTMLElement | null>(null)
+const cardEls = ref<HTMLElement[]>([])
+
+const { observeScrollReveal } = useScrollAnimation()
+const { handleCardEnter, handleCardLeave } = useHoverMotion()
+
+const setCardRef = (el: any, index: number) => {
+  if (el) cardEls.value[index] = el.$el ?? el
+}
+
+const onCardEnter = (idx: number) => {
+  handleCardEnter(cardEls.value[idx])
+}
+
+const onCardLeave = (idx: number) => {
+  handleCardLeave(cardEls.value[idx])
+}
+
 const productos: ProductSelection[] = [
-  // Fila 1
   { title: 'Encuadre', slug: 'encuadre', image: '/images/figma-product-encuadre.webp', bg: '#EDEDED' },
   { title: 'Roberto', slug: 'roberto', image: '/images/figma-product-roberto.webp', bg: '#E5E5E0' },
-  // Fila 2
   { title: 'Entretiempo', slug: 'entretiempo', image: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA' },
   { title: 'Sagaón', slug: 'sagaon', image: '/images/figma-product-sagaon.webp', bg: '#D5CFC9' },
-  // Fila 3
   { title: 'Interconexión', slug: 'interconexion', image: '/images/figma-product-interconexion.webp', bg: '#434B2E' },
   { title: 'Reliquia', slug: 'reliquia', image: '/images/figma-product-reliquia.webp', bg: '#BEBEBE' },
-  // Fila 4
   { title: 'Curado', slug: 'curado', image: '/images/figma-product-curado.webp', bg: '#DCDCDC' },
   { title: 'Cimiento', slug: 'cimiento', image: '/images/figma-product-cimiento.webp', bg: '#D0D0D0' },
-  // Fila 5
   { title: 'Mai', slug: 'mai', image: '/images/figma-product-mai.webp', bg: '#E2DFD8' },
   { title: 'Desmadre', slug: 'desmadre', image: '/images/figma-product-desmadre.webp', bg: '#D3D3D3' }
 ]
+
+onMounted(() => {
+  observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
+  observeScrollReveal(dividerRef, { type: 'divider', origin: 'center', delay: 150 })
+  cardEls.value.forEach((card, i) => {
+    observeScrollReveal(card, { type: 'card', delay: (i % 2) * 100 })
+  })
+})
 </script>

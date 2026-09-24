@@ -1,25 +1,31 @@
 <template>
   <div class="pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-center gap-6 border-t border-white/10 mt-8">
-    <!-- Flechas minimalistas -->
+    <!-- Flechas minimalistas con micro-interacción táctil -->
     <div class="flex items-center gap-3">
       <button
+        ref="prevBtnRef"
         type="button"
         aria-label="Figura anterior"
-        class="w-11 h-11 rounded-full border border-white/20 hover:border-white text-white/70 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#A5BCD5]"
+        class="w-11 h-11 rounded-full border border-white/20 hover:border-white text-white/70 hover:text-white flex items-center justify-center transition-all duration-200 active:scale-90 focus:outline-none focus:ring-2 focus:ring-[#A5BCD5] will-change-transform cursor-pointer"
+        @mouseenter="animateBtn(prevBtnRef, -2)"
+        @mouseleave="resetBtn(prevBtnRef)"
         @click="$emit('prev')"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <button
+        ref="nextBtnRef"
         type="button"
         aria-label="Figura siguiente"
-        class="w-11 h-11 rounded-full border border-white/20 hover:border-white text-white/70 hover:text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#A5BCD5]"
+        class="w-11 h-11 rounded-full border border-white/20 hover:border-white text-white/70 hover:text-white flex items-center justify-center transition-all duration-200 active:scale-90 focus:outline-none focus:ring-2 focus:ring-[#A5BCD5] will-change-transform cursor-pointer"
+        @mouseenter="animateBtn(nextBtnRef, 2)"
+        @mouseleave="resetBtn(nextBtnRef)"
         @click="$emit('next')"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -54,7 +60,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
+import { animate } from 'animejs'
 
 const props = defineProps<{
   current: number
@@ -67,6 +74,34 @@ defineEmits<{
   (e: 'next'): void
   (e: 'select', index: number): void
 }>()
+
+const prevBtnRef = ref<HTMLElement | null>(null)
+const nextBtnRef = ref<HTMLElement | null>(null)
+
+const isReduced = () => {
+  if (!import.meta.client) return false
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+const animateBtn = (el: HTMLElement | null, xShift: number) => {
+  if (!el || isReduced()) return
+  animate(el, {
+    scale: 1.08,
+    translateX: xShift,
+    duration: 220,
+    ease: 'outQuad'
+  })
+}
+
+const resetBtn = (el: HTMLElement | null) => {
+  if (!el || isReduced()) return
+  animate(el, {
+    scale: 1,
+    translateX: 0,
+    duration: 250,
+    ease: 'outQuad'
+  })
+}
 
 const formattedCounter = computed(() => {
   const cur = String(props.current + 1).padStart(2, '0')

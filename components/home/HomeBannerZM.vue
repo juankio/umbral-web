@@ -9,7 +9,7 @@
       <div class="relative w-full">
         <!-- Fila Superior: Párrafo oficial rozando la línea del título -->
         <div class="w-full flex justify-start sm:justify-end mb-5 sm:mb-4 lg:mb-3 z-30 relative">
-          <p class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] text-white/95 text-left sm:text-right leading-relaxed lg:leading-[1.25] tracking-normal select-none max-w-full sm:max-w-[560px] lg:max-w-[660px]">
+          <p ref="paragraphRef" class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] text-white/95 text-left sm:text-right leading-relaxed lg:leading-[1.25] tracking-normal select-none max-w-full sm:max-w-[560px] lg:max-w-[660px]">
             El CRGS participará por tercer año consecutivo en Zona Maco, la<br class="hidden lg:block">
             feria de arte y diseño más importante de Latinoamérica, <strong class="font-bold text-white">del 3 al 7</strong><br class="hidden lg:block">
             <strong class="font-bold text-white">de febrero de 2027 en la Ciudad de México.</strong> Este año el stand se<br class="hidden lg:block">
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Título Cursivo Oficial: rozando la 6ta línea del párrafo -->
-        <div class="relative z-30 w-full pointer-events-auto">
+        <div ref="titleRef" class="relative z-30 w-full pointer-events-auto">
           <NuxtLink
             to="/zona-maco#proyectos"
             class="group inline-block focus:outline-none"
@@ -33,7 +33,10 @@
         </div>
 
         <!-- Triángulo Morado Oficial (#834384, id: 222:32): centrado sobre la mitad de la letra -->
-        <div class="absolute -left-2 sm:left-12 lg:left-36 xl:left-44 -bottom-5 sm:bottom-[-60px] lg:bottom-[-95px] w-[190px] sm:w-[380px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10 opacity-75 lg:opacity-100">
+        <div
+          ref="purpleTriangleRef"
+          class="absolute -left-2 sm:left-12 lg:left-36 xl:left-44 -bottom-5 sm:bottom-[-60px] lg:bottom-[-95px] w-[190px] sm:w-[380px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10 opacity-75 lg:opacity-100 will-change-transform"
+        >
           <svg
             viewBox="0 0 609 459"
             fill="none"
@@ -52,5 +55,20 @@
 </template>
 
 <script setup lang="ts">
-// Sección 3: Rectangle 21 exacto de Figma centrado armónicamente en la mitad del frame
+import { ref, onMounted } from 'vue'
+import { useScrollAnimation } from '~/composables/useScrollAnimation'
+import { useParallaxMotion } from '~/composables/useParallaxMotion'
+
+const paragraphRef = ref<HTMLElement | null>(null)
+const titleRef = ref<HTMLElement | null>(null)
+const purpleTriangleRef = ref<HTMLElement | null>(null)
+
+const { observeScrollReveal } = useScrollAnimation()
+useParallaxMotion(purpleTriangleRef, 0.08, 30)
+
+onMounted(() => {
+  observeScrollReveal(paragraphRef, { type: 'paragraph', delay: 100 })
+  observeScrollReveal(titleRef, { type: 'heading', delay: 200 })
+  observeScrollReveal(purpleTriangleRef, { type: 'triangle', delay: 150 })
+})
 </script>

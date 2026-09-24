@@ -1,25 +1,28 @@
 <template>
   <section id="repentina" class="py-14 sm:py-20 lg:py-24 bg-[#1C1C1C] text-white select-none border-b border-neutral-900">
     <div class="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-      <!-- Titular: Nuestra Repentina exacto de Figma (id: 332:373) -->
-      <h2 class="font-barlow font-normal text-4xl sm:text-6xl md:text-7xl lg:text-[80px] text-white text-center leading-none mb-8 sm:mb-12">
+      <!-- Titular: Nuestra Repentina exacto de Figma (id: 332:373) con scroll reveal -->
+      <h2 ref="headingRef" class="font-barlow font-normal text-4xl sm:text-6xl md:text-7xl lg:text-[80px] text-white text-center leading-none mb-8 sm:mb-12">
         Nuestra Repentina
       </h2>
 
-      <!-- Marco Escultórico de la Repentina (Figma Group 7 / Node 325:11) -->
-      <div class="relative w-full max-w-[1040px] aspect-[1697/751] bg-neutral-900 overflow-hidden shadow-2xl border border-black/80">
+      <!-- Marco Escultórico de la Repentina (Figma Group 7 / Node 325:11) con hover y reveal -->
+      <div
+        ref="frameRef"
+        class="relative w-full max-w-[1040px] aspect-[1697/751] bg-neutral-900 overflow-hidden shadow-2xl border border-black/80 group cursor-pointer transition-transform duration-700 ease-out hover:scale-[1.01]"
+      >
         <!-- Fotografía oficial del stand de exposición en Zona Maco (Node 325:19) -->
         <AppImage
           src="/images/figma-zm-repentina-showcase.webp"
           alt="Exposición oficial de la Repentina en Zona Maco"
-          img-class="w-full h-full object-cover opacity-85"
+          img-class="w-full h-full object-cover opacity-85 transition-opacity duration-500 group-hover:opacity-95"
           wrapper-class="absolute inset-0 w-full h-full"
           loading="lazy"
         />
 
         <!-- Líneas Diagonales en X y Triángulo Central (Figma Lines 19 & 20 + Vector 4) -->
         <svg
-          class="absolute inset-0 w-full h-full pointer-events-none z-10"
+          class="absolute inset-0 w-full h-full pointer-events-none z-10 transition-transform duration-500 ease-out group-hover:scale-[1.015]"
           viewBox="0 0 1697 751"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,5 +48,16 @@
 </template>
 
 <script setup lang="ts">
-// Sección Nuestra Repentina 1:1 con Figma (Frame 325:2 / Group 7)
+import { ref, onMounted } from 'vue'
+import { useScrollAnimation } from '~/composables/useScrollAnimation'
+
+const headingRef = ref<HTMLElement | null>(null)
+const frameRef = ref<HTMLElement | null>(null)
+
+const { observeScrollReveal } = useScrollAnimation()
+
+onMounted(() => {
+  observeScrollReveal(headingRef, { type: 'heading', delay: 100 })
+  observeScrollReveal(frameRef, { type: 'image', delay: 200 })
+})
 </script>

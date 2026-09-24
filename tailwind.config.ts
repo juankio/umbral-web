@@ -13,6 +13,13 @@ export default <Partial<Config>>{
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '480px',
+      },
+      scale: {
+        80: '0.8',
+        85: '0.85',
+      },
       fontFamily: {
         barlow: ['"Barlow Condensed"', 'sans-serif'],
         sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],

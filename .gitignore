@@ -25,4 +25,5 @@ logs
 
 # QA Artifacts
 qa-screenshots/
+.playwright-mcp/
 

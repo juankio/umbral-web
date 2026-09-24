@@ -1,16 +1,16 @@
 <template>
   <section class="bg-white py-12 sm:py-16 lg:py-20 border-t border-neutral-200 select-text overflow-hidden">
     <div class="max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16">
-      <!-- Encabezado con Título y Controles con flechas -->
+      <!-- Encabezado con Título y Controles con flechas con scroll reveal -->
       <div class="flex items-center justify-between gap-4 mb-6 sm:mb-8">
-        <h2 class="font-barlow font-normal text-3xl sm:text-4xl text-black leading-none">
+        <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl text-black leading-none">
           Otros proyectos seleccionados
         </h2>
         <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
           <button
             type="button"
             aria-label="Proyecto anterior"
-            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-300 flex items-center justify-center text-black hover:border-black hover:bg-neutral-50 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-black cursor-pointer"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-300 flex items-center justify-center text-black hover:border-black hover:bg-neutral-50 hover:scale-105 active:scale-90 transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-black cursor-pointer shadow-xs"
             @click="prevSlide"
           >
             <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -20,7 +20,7 @@
           <button
             type="button"
             aria-label="Siguiente proyecto"
-            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-300 flex items-center justify-center text-black hover:border-black hover:bg-neutral-50 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-black cursor-pointer"
+            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-300 flex items-center justify-center text-black hover:border-black hover:bg-neutral-50 hover:scale-105 active:scale-90 transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-black cursor-pointer shadow-xs"
             @click="nextSlide"
           >
             <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -48,22 +48,21 @@
           <div
             v-for="(item, idx) in repeatedList"
             :key="`${item.slug}-${idx}`"
-            class="w-44 sm:w-52 lg:w-60 flex-shrink-0 group focus:outline-none"
+            class="w-44 sm:w-52 lg:w-60 flex-shrink-0 group focus:outline-none transition-transform duration-300 hover:-translate-y-1"
           >
             <NuxtLink
               :to="`/obras/${item.slug}`"
               class="block w-full focus:outline-none"
               @click="handleLinkClick"
             >
-              <!-- Imagen en marco cuadrado con velo blanquito suave en hover como en proyectos -->
-              <div class="relative w-44 sm:w-52 lg:w-60 aspect-square bg-neutral-100 overflow-hidden shadow-xs">
+              <!-- Imagen en marco cuadrado con velo blanquito suave en hover -->
+              <div class="relative w-44 sm:w-52 lg:w-60 aspect-square bg-neutral-100 overflow-hidden shadow-xs hover:shadow-lg transition-shadow duration-300">
                 <AppImage
                   :src="item.heroImage"
                   :alt="item.title"
                   img-class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 pointer-events-none select-none"
                   loading="lazy"
                 >
-                  <!-- Velo blanquito suave en hover idéntico a selección de proyectos -->
                   <div
                     class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none"
                   />
@@ -83,145 +82,41 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useScrollAnimation } from '~/composables/useScrollAnimation'
+import { useContinuousCarousel } from '~/composables/useContinuousCarousel'
 import type { Obra } from '~/composables/useObras'
 
 const props = defineProps<{
   related: Obra[]
 }>()
 
-const trackRef = ref<HTMLElement | null>(null)
-const isHovered = ref(false)
-const isDragging = ref(false)
+const headingRef = ref<HTMLElement | null>(null)
+const { observeScrollReveal } = useScrollAnimation()
 
-// Cuadruplicamos el conjunto para garantizar continuidad visual infinita en cualquier resolución
 const repeatedList = computed(() => {
   if (!props.related.length) return []
   return [...props.related, ...props.related, ...props.related, ...props.related]
 })
 
-let currentX = 0
-let targetX = 0
-let singleSetWidth = 0
-let animFrameId: number | null = null
-let resizeObserver: ResizeObserver | null = null
-
-let startPointerX = 0
-let dragStartX = 0
-let didDrag = false
-
-const updateDimensions = () => {
-  if (!trackRef.value || !props.related.length) return
-  const cards = trackRef.value.children
-  const n = props.related.length
-  if (cards.length > n && cards[n] instanceof HTMLElement && cards[0] instanceof HTMLElement) {
-    const calculatedWidth = (cards[n] as HTMLElement).offsetLeft - (cards[0] as HTMLElement).offsetLeft
-    if (calculatedWidth > 0) {
-      singleSetWidth = calculatedWidth
-    }
-  }
-}
-
-const getStepWidth = () => {
-  if (singleSetWidth > 0 && props.related.length) {
-    return singleSetWidth / props.related.length
-  }
-  return 280
-}
-
-const prevSlide = () => {
-  targetX -= getStepWidth()
-}
-
-const nextSlide = () => {
-  targetX += getStepWidth()
-}
-
-const onPointerDown = (e: PointerEvent) => {
-  isDragging.value = true
-  didDrag = false
-  startPointerX = e.clientX
-  dragStartX = currentX
-}
-
-const onPointerMove = (e: PointerEvent) => {
-  if (!isDragging.value) return
-  const diff = e.clientX - startPointerX
-  if (Math.abs(diff) > 5) {
-    didDrag = true
-  }
-  currentX = dragStartX - diff
-  targetX = currentX
-}
-
-const onPointerUp = () => {
-  if (!isDragging.value) return
-  isDragging.value = false
-}
-
-const onMouseLeave = () => {
-  isHovered.value = false
-  if (isDragging.value) {
-    isDragging.value = false
-  }
-}
-
-const handleLinkClick = (e: MouseEvent) => {
-  if (didDrag) {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-}
-
-const animate = () => {
-  if (singleSetWidth > 0) {
-    // Auto-desplazamiento continuo suave si no está en hover ni arrastre
-    if (!isHovered.value && !isDragging.value) {
-      targetX += 0.55
-    }
-
-    if (!isDragging.value) {
-      // Amortiguación fluida hacia targetX (lerp)
-      currentX += (targetX - currentX) * 0.08
-    }
-
-    // Normalización imperceptible para bucle infinito continuo
-    if (currentX >= singleSetWidth) {
-      currentX -= singleSetWidth
-      targetX -= singleSetWidth
-    } else if (currentX < 0) {
-      currentX += singleSetWidth
-      targetX += singleSetWidth
-    }
-
-    if (trackRef.value) {
-      trackRef.value.style.transform = `translate3d(${-currentX}px, 0, 0)`
-    }
-  }
-
-  animFrameId = requestAnimationFrame(animate)
-}
-
-onMounted(() => {
-  nextTick(() => {
-    updateDimensions()
-    animFrameId = requestAnimationFrame(animate)
-
-    if (typeof ResizeObserver !== 'undefined' && trackRef.value) {
-      resizeObserver = new ResizeObserver(() => {
-        updateDimensions()
-      })
-      resizeObserver.observe(trackRef.value)
-    }
-  })
+const {
+  trackRef,
+  isHovered,
+  isDragging,
+  prevSlide,
+  nextSlide,
+  onPointerDown,
+  onPointerMove,
+  onPointerUp,
+  onMouseLeave,
+  handleLinkClick
+} = useContinuousCarousel({
+  itemCount: () => props.related.length,
+  defaultStepWidth: 280,
+  speed: 0.55
 })
 
-onBeforeUnmount(() => {
-  if (animFrameId) {
-    cancelAnimationFrame(animFrameId)
-  }
-  if (resizeObserver) {
-    resizeObserver.disconnect()
-  }
+onMounted(() => {
+  observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
 })
 </script>

@@ -3,7 +3,7 @@
     <ZonaMacoHero />
     <ZonaMacoContext />
     <ZonaMacoSelection />
-    <ZonaMacoAdvisors />
+    <ZonaMacoIntegrantesBanner />
   </div>
 </template>
 
