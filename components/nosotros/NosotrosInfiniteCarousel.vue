@@ -2,6 +2,7 @@
   <div
     class="relative w-full overflow-hidden select-none py-2 sm:py-3"
     @mouseenter="isPaused = true" @mouseleave="isPaused = false"
+    @focusin="isPaused = true" @focusout="isPaused = false"
     @touchstart.passive="isPaused = true" @touchend.passive="isPaused = false"
     @pointerdown="onPointerDown" @pointerup="onPointerUp"
   >
@@ -97,11 +98,11 @@ const animateTransition = (dir: number) => {
       const baseRot = getNumericRotation(currentItem.value.rotation)
       cardAnim?.revert?.()
       cardAnim = animate(cardRef.value, {
-        rotate: [`${baseRot - (dir * 120)}deg`, `${baseRot}deg`],
-        scale: [0.8, 1],
-        opacity: [0.3, 1],
-        duration: 800,
-        ease: 'outBack(1.2)'
+        rotate: [`${baseRot - (dir * 20)}deg`, `${baseRot}deg`],
+        scale: [0.92, 1],
+        opacity: [0.6, 1],
+        duration: 650,
+        ease: 'outExpo'
       })
     }
     if (infoRef.value) {

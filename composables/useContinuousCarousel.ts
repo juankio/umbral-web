@@ -97,7 +97,8 @@ export function useContinuousCarousel(options: CarouselOptions) {
 
   const loop = () => {
     if (singleSetWidth > 0) {
-      if (!isHovered.value && !isDragging.value) {
+      const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (!isHovered.value && !isDragging.value && !prefersReducedMotion) {
         targetX += speed
       }
 

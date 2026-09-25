@@ -86,7 +86,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, nextTick, onMounted } from 'vue'
+import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { animate, stagger } from 'animejs'
 import { inspirationCarouselSlides } from '~/composables/useInspiration'
 import { useInspirationAutoplay } from '~/composables/useInspirationAutoplay'
@@ -99,13 +99,16 @@ const activeTextRef = ref<HTMLElement | null>(null)
 
 let isPointerDown = false
 let pointerStartX = 0
+let activeTriangleAnim: any = null
+let activeTextAnim: any = null
 
 const playSlideAnimation = (dir: number = 1) => {
   if (!import.meta.client || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
   nextTick(() => {
     if (activeTriangleRef.value) {
-      animate(activeTriangleRef.value, {
+      activeTriangleAnim?.revert?.()
+      activeTriangleAnim = animate(activeTriangleRef.value, {
         translateX: [`${dir * 70}px`, '0px'],
         scale: [0.93, 1],
         opacity: [0, 1],
@@ -117,7 +120,8 @@ const playSlideAnimation = (dir: number = 1) => {
     if (activeTextRef.value) {
       const texts = activeTextRef.value.querySelectorAll('.reveal-text')
       if (texts.length) {
-        animate(texts, {
+        activeTextAnim?.revert?.()
+        activeTextAnim = animate(texts, {
           opacity: [0, 1],
           translateX: [`${dir * 35}px`, '0px'],
           duration: 550,
@@ -178,5 +182,10 @@ const nextFigure = computed(() => slides[nextIndex.value])
 
 onMounted(() => {
   playSlideAnimation(1)
+})
+
+onUnmounted(() => {
+  activeTriangleAnim?.revert?.()
+  activeTextAnim?.revert?.()
 })
 </script>
