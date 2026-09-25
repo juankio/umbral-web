@@ -1,60 +1,51 @@
 <template>
   <section
     id="integrantes-banner"
-    class="relative py-16 sm:py-24 lg:py-28 bg-[#1C1C1C] text-white border-t border-neutral-800 overflow-hidden select-none"
+    class="relative w-full bg-[#1C1C1C] text-white py-14 sm:py-16 lg:py-16 lg:h-[calc(100vh-180px)] lg:max-h-[860px] lg:min-h-[620px] flex flex-col justify-center items-center overflow-hidden select-none scroll-mt-[72px]"
   >
-    <!-- Fondo geométrico arquitectónico sutil (Triángulo Umbral) con parallax -->
-    <div
-      ref="triangleRef"
-      class="absolute -right-8 -bottom-12 w-64 sm:w-80 lg:w-[440px] opacity-[0.05] pointer-events-none select-none will-change-transform"
-      aria-hidden="true"
-    >
-      <svg
-        viewBox="0 0 609 459"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-full h-auto block"
-      >
-        <path
-          d="M97.5656 459L0 0L608.937 422.109L97.5656 459Z"
-          fill="currentColor"
-          class="text-white"
-        />
-      </svg>
-    </div>
+    <!-- Contenedor Maestro Centrado Exactamente en la Mitad del Frame -->
+    <div class="relative w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col justify-center items-center my-auto">
+      <!-- Composición Unificada Encuadrada en la Mitad Vertical -->
+      <div class="relative w-full">
+        <!-- Fila Superior: Párrafo oficial institucional alineado a la derecha -->
+        <div class="w-full flex justify-start sm:justify-end mb-5 sm:mb-4 lg:mb-3 z-30 relative">
+          <p ref="paragraphRef" class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] text-white/95 text-left sm:text-right leading-relaxed lg:leading-[1.25] tracking-normal select-none max-w-full sm:max-w-[560px] lg:max-w-[660px]">
+            Conoce al equipo docente, profesores asesores y alumnas de<br class="hidden lg:block">
+            Diseño Gráfico e Interiores que conceptualizaron el sistema<br class="hidden lg:block">
+            visual y la museografía de <strong class="font-bold text-white">UMBRAL \ CRGS.</strong>
+          </p>
+        </div>
 
-    <div class="relative max-w-[1480px] mx-auto px-6 sm:px-12 lg:px-16 text-center z-10">
-      <!-- Título de llamada a la acción con scroll reveal -->
-      <h2 ref="headingRef" class="font-barlow font-normal text-4xl sm:text-6xl lg:text-7xl text-white text-center leading-none tracking-tight">
-        Integrantes de Umbral
-      </h2>
-
-      <!-- Divisor arquitectónico con expansión horizontal -->
-      <div ref="dividerRef" class="h-[2px] sm:h-[3px] bg-white/25 max-w-[860px] mx-auto mt-4 mb-6 sm:mb-8 will-change-transform" />
-
-      <!-- Subtexto descriptivo -->
-      <p ref="subtextRef" class="font-barlow font-light text-base sm:text-xl lg:text-2xl text-neutral-300 max-w-2xl mx-auto leading-relaxed select-text">
-        Conoce al equipo de diseño, alumnas y profesores asesores detrás de UMBRAL \ CRGS
-      </p>
-
-      <!-- Enlace arquitectónico con flecha hacia /nosotros y hover magnético -->
-      <div class="mt-8 sm:mt-11 flex justify-center">
-        <NuxtLink
-          to="/nosotros"
-          class="group inline-flex items-center gap-3.5 sm:gap-4 px-8 sm:px-10 py-3.5 sm:py-4 border border-white text-white bg-transparent hover:bg-white hover:text-[#1C1C1C] transition-all duration-300 ease-out font-barlow text-lg sm:text-xl font-normal tracking-wide cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white shadow-sm hover:shadow-2xl active:scale-[0.98]"
-          aria-label="Conocer integrantes de Umbral"
-          @mouseenter="handleArrowEnter(arrowRef, 8)"
-          @mouseleave="handleArrowLeave(arrowRef)"
-        >
-          <span>Conocer integrantes</span>
-          <span
-            ref="arrowRef"
-            class="font-mono text-xl sm:text-2xl inline-block will-change-transform transition-transform duration-200"
-            aria-hidden="true"
+        <!-- Título Cursivo Monumental con Enlace a /nosotros -->
+        <div ref="titleRef" class="relative z-30 w-full pointer-events-auto">
+          <NuxtLink
+            to="/nosotros"
+            class="group inline-block focus:outline-none"
+            aria-label="Conocer integrantes de Umbral"
           >
-            →
-          </span>
-        </NuxtLink>
+            <h2 class="font-barlow italic font-medium text-white text-3xl sm:text-5xl md:text-6xl lg:text-[84px] xl:text-[98px] 2xl:text-[108px] tracking-tight leading-none whitespace-normal lg:whitespace-nowrap drop-shadow-sm transition-all duration-300 group-hover:opacity-90">
+              <span class="group-hover:underline underline-offset-8 decoration-2 decoration-white">Integrantes Umbral</span>
+            </h2>
+          </NuxtLink>
+        </div>
+
+        <!-- Triángulo Arquitectónico Geométrico de Fondo (#333333) con Parallax y Scroll Reveal -->
+        <div
+          ref="triangleRef"
+          class="absolute -left-2 sm:left-12 lg:left-36 xl:left-44 -bottom-5 sm:bottom-[-60px] lg:bottom-[-95px] w-[190px] sm:w-[380px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10 opacity-75 lg:opacity-100 will-change-transform"
+        >
+          <svg
+            viewBox="0 0 609 459"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-auto block select-none"
+          >
+            <path
+              d="M97.5656 459L0 0L608.937 422.109L97.5656 459Z"
+              fill="#333333"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -63,22 +54,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import { useHoverMotion } from '~/composables/useHoverMotion'
 import { useParallaxMotion } from '~/composables/useParallaxMotion'
 
-const headingRef = ref<HTMLElement | null>(null)
-const dividerRef = ref<HTMLElement | null>(null)
-const subtextRef = ref<HTMLElement | null>(null)
-const arrowRef = ref<HTMLElement | null>(null)
+const paragraphRef = ref<HTMLElement | null>(null)
+const titleRef = ref<HTMLElement | null>(null)
 const triangleRef = ref<HTMLElement | null>(null)
 
 const { observeScrollReveal } = useScrollAnimation()
-const { handleArrowEnter, handleArrowLeave } = useHoverMotion()
-useParallaxMotion(triangleRef, 0.07, 30)
+useParallaxMotion(triangleRef, 0.08, 30)
 
 onMounted(() => {
-  observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
-  observeScrollReveal(dividerRef, { type: 'divider', origin: 'center', delay: 150 })
-  observeScrollReveal(subtextRef, { type: 'paragraph', delay: 200 })
+  observeScrollReveal(paragraphRef, { type: 'paragraph', delay: 100 })
+  observeScrollReveal(titleRef, { type: 'heading', delay: 200 })
+  observeScrollReveal(triangleRef, { type: 'triangle', delay: 150 })
 })
 </script>
