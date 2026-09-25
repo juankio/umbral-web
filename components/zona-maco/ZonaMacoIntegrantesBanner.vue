@@ -29,7 +29,7 @@
           </NuxtLink>
         </div>
 
-        <!-- Triángulo Arquitectónico Geométrico de Fondo (#333333) con Parallax y Scroll Reveal -->
+        <!-- Triángulo Dorado Oficial (#FDCF2C, umbral.gold) con Parallax y Scroll Reveal -->
         <div
           ref="triangleRef"
           class="absolute -left-2 sm:left-12 lg:left-36 xl:left-44 -bottom-5 sm:bottom-[-60px] lg:bottom-[-95px] w-[190px] sm:w-[380px] lg:w-[540px] xl:w-[600px] select-none pointer-events-none z-10 opacity-75 lg:opacity-100 will-change-transform"
@@ -42,7 +42,7 @@
           >
             <path
               d="M97.5656 459L0 0L608.937 422.109L97.5656 459Z"
-              fill="#333333"
+              fill="#FDCF2C"
             />
           </svg>
         </div>
