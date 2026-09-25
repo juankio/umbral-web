@@ -1,5 +1,14 @@
-import { onUnmounted } from 'vue'
+import { onUnmounted, getCurrentInstance } from 'vue'
 import { animate } from 'animejs'
+
+const isTouchOrMobileOrReduced = (): boolean => {
+  if (typeof window === 'undefined') return true
+  if (typeof import.meta !== 'undefined' && import.meta.client === false) return true
+  if (window.innerWidth < 1024) return true
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return true
+  return false
+}
 
 export function useHoverMotion() {
   const activeAnimations = new Set<any>()
@@ -10,8 +19,7 @@ export function useHoverMotion() {
   let pendingOrigamiRotate = 0
 
   const isReducedMotion = (): boolean => {
-    if (!import.meta.client) return false
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    return isTouchOrMobileOrReduced()
   }
 
   const stopElementAnimation = (el: HTMLElement | null) => {
@@ -32,7 +40,7 @@ export function useHoverMotion() {
 
   // Deslizamiento magnético sutil de flecha en enlaces arquitectónicos
   const handleArrowEnter = (el: HTMLElement | null, distance = 6) => {
-    if (!el || isReducedMotion()) return
+    if (!el || isTouchOrMobileOrReduced()) return
     stopElementAnimation(el)
     const anim = animate(el, {
       translateX: distance,
@@ -43,7 +51,7 @@ export function useHoverMotion() {
   }
 
   const handleArrowLeave = (el: HTMLElement | null) => {
-    if (!el || isReducedMotion()) return
+    if (!el || isTouchOrMobileOrReduced()) return
     stopElementAnimation(el)
     const anim = animate(el, {
       translateX: 0,
@@ -55,7 +63,7 @@ export function useHoverMotion() {
 
   // Elevación suave de tarjeta y velo translúcido
   const handleCardEnter = (el: HTMLElement | null) => {
-    if (!el || isReducedMotion()) return
+    if (!el || isTouchOrMobileOrReduced()) return
     stopElementAnimation(el)
     const anim = animate(el, {
       translateY: -4,
@@ -67,7 +75,7 @@ export function useHoverMotion() {
   }
 
   const handleCardLeave = (el: HTMLElement | null) => {
-    if (!el || isReducedMotion()) return
+    if (!el || isTouchOrMobileOrReduced()) return
     stopElementAnimation(el)
     const anim = animate(el, {
       translateY: 0,
@@ -80,7 +88,7 @@ export function useHoverMotion() {
 
   // Micro-inclinación de origami / vector arquitectónico con Throttling RAF y cancelación de tween previo
   const handleOrigamiMove = (el: HTMLElement | null, e: MouseEvent) => {
-    if (!el || isReducedMotion()) return
+    if (!el || isTouchOrMobileOrReduced()) return
 
     const rect = el.getBoundingClientRect()
     if (rect.width === 0 || rect.height === 0) return
@@ -92,7 +100,7 @@ export function useHoverMotion() {
     if (origamiRafId === null) {
       origamiRafId = requestAnimationFrame(() => {
         origamiRafId = null
-        if (!pendingOrigamiEl || isReducedMotion()) return
+        if (!pendingOrigamiEl || isTouchOrMobileOrReduced()) return
 
         stopElementAnimation(pendingOrigamiEl)
         const anim = animate(pendingOrigamiEl, {
@@ -107,7 +115,7 @@ export function useHoverMotion() {
   }
 
   const handleOrigamiLeave = (el: HTMLElement | null) => {
-    if (!el || isReducedMotion()) return
+    if (!el || isTouchOrMobileOrReduced()) return
 
     // Cancelar frames pendientes
     if (origamiRafId !== null) {
@@ -140,9 +148,11 @@ export function useHoverMotion() {
     activeAnimations.clear()
   }
 
-  onUnmounted(() => {
-    cleanup()
-  })
+  if (getCurrentInstance()) {
+    onUnmounted(() => {
+      cleanup()
+    })
+  }
 
   return {
     handleArrowEnter,
@@ -152,6 +162,7 @@ export function useHoverMotion() {
     handleOrigamiMove,
     handleOrigamiLeave,
     isReducedMotion,
+    isTouchOrMobileOrReduced,
     cleanup
   }
 }

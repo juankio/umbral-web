@@ -1,5 +1,14 @@
 import { onMounted, onUnmounted, watch, type Ref } from 'vue'
 
+export const isTouchOrMobileOrReduced = (): boolean => {
+  if (typeof window === 'undefined') return true
+  if (typeof import.meta !== 'undefined' && import.meta.client === false) return true
+  if (window.innerWidth < 1024) return true
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return true
+  return false
+}
+
 export function useParallaxMotion(
   targetRef: Ref<HTMLElement | null>,
   speed = 0.06,
@@ -9,15 +18,11 @@ export function useParallaxMotion(
   let initialTop = 0
   let isVisible = false
   let observer: IntersectionObserver | null = null
-
-  const isReducedMotion = (): boolean => {
-    if (!import.meta.client) return false
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  }
+  let isActive = false
 
   const updatePosition = () => {
     rafId = null
-    if (!import.meta.client || isReducedMotion() || !targetRef.value || !isVisible) return
+    if (!import.meta.client || isTouchOrMobileOrReduced() || !targetRef.value || !isVisible) return
 
     const scrollY = window.scrollY
     const offset = Math.max(-maxOffset, Math.min(maxOffset, (scrollY - initialTop) * speed))
@@ -25,7 +30,7 @@ export function useParallaxMotion(
   }
 
   const onScroll = () => {
-    if (!import.meta.client || isReducedMotion() || !isVisible || !targetRef.value) return
+    if (!isActive || !isVisible || !targetRef.value) return
     if (rafId === null) {
       rafId = requestAnimationFrame(updatePosition)
     }
@@ -37,33 +42,33 @@ export function useParallaxMotion(
     initialTop = rect.top + window.scrollY
   }
 
-  const onResize = () => {
-    if (!import.meta.client || isReducedMotion() || !targetRef.value) return
-    measureInitialPosition()
-    if (isVisible && rafId === null) {
-      rafId = requestAnimationFrame(updatePosition)
-    }
-  }
-
-  const cleanup = () => {
-    if (!import.meta.client) return
-
+  const teardownParallax = () => {
     if (rafId !== null) {
       cancelAnimationFrame(rafId)
       rafId = null
     }
-
-    window.removeEventListener('scroll', onScroll)
-    window.removeEventListener('resize', onResize)
-
     if (observer) {
       observer.disconnect()
       observer = null
     }
+    window.removeEventListener('scroll', onScroll)
+    isActive = false
+    isVisible = false
+    if (targetRef.value) {
+      targetRef.value.style.transform = ''
+    }
   }
 
-  onMounted(() => {
-    if (!import.meta.client || isReducedMotion()) return
+  const setupParallax = () => {
+    if (!import.meta.client || isTouchOrMobileOrReduced() || !targetRef.value) {
+      teardownParallax()
+      return
+    }
+
+    if (isActive) return
+
+    isActive = true
+    measureInitialPosition()
 
     observer = new IntersectionObserver(
       (entries) => {
@@ -83,27 +88,59 @@ export function useParallaxMotion(
       { rootMargin: '150px' }
     )
 
-    if (targetRef.value) {
-      measureInitialPosition()
-      observer.observe(targetRef.value)
+    observer.observe(targetRef.value)
+    window.addEventListener('scroll', onScroll, { passive: true })
+  }
+
+  const onResize = () => {
+    if (!import.meta.client) return
+    if (isTouchOrMobileOrReduced()) {
+      if (isActive) {
+        teardownParallax()
+      }
+      return
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true })
+    if (!isActive) {
+      setupParallax()
+    } else {
+      measureInitialPosition()
+      if (isVisible && rafId === null) {
+        rafId = requestAnimationFrame(updatePosition)
+      }
+    }
+  }
+
+  onMounted(() => {
+    if (!import.meta.client) return
+    if (!isTouchOrMobileOrReduced()) {
+      setupParallax()
+    }
     window.addEventListener('resize', onResize, { passive: true })
   })
 
   watch(
     targetRef,
     (newEl, oldEl) => {
-      if (!import.meta.client || isReducedMotion() || !observer) return
-      if (oldEl) observer.unobserve(oldEl)
+      if (!import.meta.client || isTouchOrMobileOrReduced()) return
+      if (oldEl && observer) observer.unobserve(oldEl)
       if (newEl) {
-        measureInitialPosition()
-        observer.observe(newEl)
+        if (!isActive) {
+          setupParallax()
+        } else if (observer) {
+          measureInitialPosition()
+          observer.observe(newEl)
+        }
       }
     },
     { flush: 'post' }
   )
+
+  const cleanup = () => {
+    if (!import.meta.client) return
+    window.removeEventListener('resize', onResize)
+    teardownParallax()
+  }
 
   onUnmounted(() => {
     cleanup()

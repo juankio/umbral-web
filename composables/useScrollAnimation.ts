@@ -1,4 +1,4 @@
-import { onUnmounted, ref, type Ref } from 'vue'
+import { onUnmounted, type Ref } from 'vue'
 import { animate } from 'animejs'
 
 export type ScrollAnimType = 'heading' | 'divider' | 'paragraph' | 'card' | 'triangle' | 'image'
@@ -21,17 +21,23 @@ export function useScrollAnimation() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches
   }
 
+  const isMobile = (): boolean => {
+    if (!import.meta.client) return false
+    return window.innerWidth < 768
+  }
+
   const observeScrollReveal = (
     elRef: Ref<HTMLElement | null> | HTMLElement | null,
     options: ScrollAnimOptions = {}
   ) => {
     if (!import.meta.client) return
 
+    const mobile = isMobile()
     const {
       type = 'heading',
       delay = 0,
-      duration = 800,
-      threshold = 0.15,
+      duration = mobile ? 500 : 800,
+      threshold = options.threshold ?? (mobile ? 0.05 : 0.15),
       once = true,
       origin = 'left center'
     } = options
@@ -50,6 +56,14 @@ export function useScrollAnimation() {
       return
     }
 
+    // Distancias de entrada discretas y suavizadas en móvil para prevenir saltos
+    const triangleOffset = mobile ? 10 : 24
+    const triangleScale = mobile ? 0.97 : 0.94
+    const imageOffset = mobile ? 10 : 18
+    const imageScale = mobile ? 0.98 : 0.96
+    const cardOffset = mobile ? 12 : 28
+    const textOffset = mobile ? 10 : 20
+
     // Estado inicial visual antes de la entrada
     if (type === 'divider') {
       targetEl.style.transformOrigin = origin
@@ -57,13 +71,13 @@ export function useScrollAnimation() {
       targetEl.style.opacity = '0'
     } else if (type === 'triangle') {
       targetEl.style.opacity = '0'
-      targetEl.style.transform = 'scale(0.94) translateY(24px)'
+      targetEl.style.transform = `scale(${triangleScale}) translateY(${triangleOffset}px)`
     } else if (type === 'image') {
       targetEl.style.opacity = '0'
-      targetEl.style.transform = 'scale(0.96) translateY(18px)'
+      targetEl.style.transform = `scale(${imageScale}) translateY(${imageOffset}px)`
     } else {
       targetEl.style.opacity = '0'
-      targetEl.style.transform = type === 'card' ? 'translateY(28px)' : 'translateY(20px)'
+      targetEl.style.transform = `translateY(${type === 'card' ? cardOffset : textOffset}px)`
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -82,30 +96,31 @@ export function useScrollAnimation() {
             scaleX: [0, 1],
             opacity: [0, 1],
             ease: 'outCubic',
-            duration: Math.max(duration, 750)
+            duration: Math.max(duration, mobile ? 450 : 750)
           }
         } else if (type === 'triangle') {
           animConfig = {
             ...animConfig,
             opacity: [0, 1],
-            scale: [0.94, 1],
-            translateY: [24, 0],
-            duration: Math.max(duration, 950)
+            scale: [triangleScale, 1],
+            translateY: [triangleOffset, 0],
+            duration: Math.max(duration, mobile ? 600 : 950)
           }
         } else if (type === 'image') {
           animConfig = {
             ...animConfig,
             opacity: [0, 1],
-            scale: [0.96, 1],
-            translateY: [18, 0],
-            duration: Math.max(duration, 900)
+            scale: [imageScale, 1],
+            translateY: [imageOffset, 0],
+            duration: Math.max(duration, mobile ? 550 : 900)
           }
         } else {
           animConfig = {
             ...animConfig,
             opacity: [0, 1],
-            translateY: [type === 'card' ? 28 : 20, 0],
-            ease: 'outExpo'
+            translateY: [type === 'card' ? cardOffset : textOffset, 0],
+            ease: 'outExpo',
+            duration: mobile ? Math.min(duration, 550) : duration
           }
         }
 
@@ -139,6 +154,7 @@ export function useScrollAnimation() {
   return {
     observeScrollReveal,
     cleanup,
-    isReducedMotion
+    isReducedMotion,
+    isMobile
   }
 }

@@ -42,7 +42,7 @@
           <!-- Triángulo Amarillo Oficial Vector 1 de Figma (#FDCF2C, id: 214:130) con parallax y hover -->
           <div
             ref="triangleRef"
-            class="relative z-20 w-[96%] sm:w-[98%] -my-14 sm:-my-20 lg:-my-24 self-start select-none cursor-pointer transition-transform duration-500 hover:scale-[1.025]"
+            class="relative z-20 w-[96%] sm:w-[98%] -my-14 sm:-my-20 lg:-my-24 self-start select-none cursor-pointer will-change-transform"
             @mousemove="handleOrigamiMove(triangleRef, $event)"
             @mouseleave="handleOrigamiLeave(triangleRef)"
           >

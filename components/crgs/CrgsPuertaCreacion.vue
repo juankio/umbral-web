@@ -121,7 +121,7 @@ const toggleSplit = () => {
       activeAnims.push(animate(titleRef.value, {
         translateY: 0, scale: 1, duration: isReduced ? 0 : 800, ease: 'outExpo',
         onComplete: () => {
-          if (!isSplit.value && !isReduced) {
+          if (!isSplit.value && !isReduced && !isTouchOrMobile()) {
             idleAnim?.restart?.() || idleAnim?.play?.()
           }
         }
@@ -130,8 +130,16 @@ const toggleSplit = () => {
   }
 }
 
+const isTouchOrMobile = () => {
+  if (!import.meta.client) return true
+  if (window.innerWidth < 1024) return true
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return true
+  return false
+}
+
 onMounted(() => {
-  if (!import.meta.client || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  if (!import.meta.client || isTouchOrMobile()) return
 
   if (triangleBoxRef.value) {
     idleAnim = animate(triangleBoxRef.value, { scale: [1, 1.018], translateY: [0, -5], duration: 3000, direction: 'alternate', loop: true, ease: 'inOutSine' })
