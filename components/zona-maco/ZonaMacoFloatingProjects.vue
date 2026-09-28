@@ -5,7 +5,7 @@
         v-for="(project, index) in projects"
         :key="project.to"
         :to="project.to"
-        class="floating-card absolute aspect-square pointer-events-auto group focus:outline-none cursor-pointer transition-transform duration-300"
+        class="floating-card absolute aspect-[3/4] pointer-events-auto group focus:outline-none cursor-pointer transition-transform duration-300"
         :class="[project.posClass, hoveredIndex === index ? 'z-35' : 'z-20']"
         :aria-label="project.ariaLabel"
         @mouseenter="handleMouseEnter(index)"

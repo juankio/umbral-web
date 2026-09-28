@@ -2,7 +2,7 @@
   <section id="diseno-grafico" class="relative w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-6 sm:pb-8 lg:pb-10 scroll-mt-24 lg:min-h-[calc(100vh-80px)] lg:max-h-[960px] flex flex-col justify-center overflow-hidden select-text">
     <!-- Encabezado de Sección 1:1 Figma (Node 417:275 & 417:273) con scroll reveal -->
     <div class="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20 text-center">
-      <h2 ref="headingRef" class="font-barlow font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#070707] text-center leading-tight tracking-tight">
+      <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-[#070707] text-center leading-tight tracking-tight">
         Stand de Diseño Gráfico
       </h2>
 
@@ -41,19 +41,19 @@ const integrantesGrafico: CarouselItem[] = [
   {
     name: 'Miranda Salazar',
     role: 'Estudiante de Diseño Gráfico',
-    image: '/images/integrantes-grafico-miranda.webp',
+    image: '/images/integrantes-interiores-center.webp',
     rotation: -4
   },
   {
     name: 'Natalia Núñez',
     role: 'Estudiante de Diseño Gráfico',
-    image: '/images/integrantes-grafico-left.webp',
+    image: '/images/integrantes-interiores-left.webp',
     rotation: 5
   },
   {
     name: 'Luciana Yañez',
     role: 'Estudiante de Diseño Gráfico',
-    image: '/images/integrantes-grafico-right.webp',
+    image: '/images/integrantes-interiores-right.webp',
     rotation: -3
   }
 ]

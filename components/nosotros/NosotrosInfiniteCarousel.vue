@@ -10,7 +10,7 @@
     <div class="relative w-full max-w-7xl mx-auto flex items-center justify-center gap-4 sm:gap-8 lg:gap-12 xl:gap-16 px-2 sm:px-4 min-h-[300px] sm:min-h-[380px] lg:min-h-[440px]" style="perspective: 1200px;">
       <!-- Integrante Anterior (Izquierda) -->
       <button v-if="prevItem" type="button" @click="prev" aria-label="Ver integrante anterior" class="group/prev flex flex-col items-center shrink-0 w-[140px] xs:w-[170px] sm:w-[220px] md:w-[280px] lg:w-[330px] xl:w-[360px] opacity-35 hover:opacity-75 transition-all duration-300 transform scale-80 sm:scale-85 cursor-pointer focus:outline-none">
-        <div class="relative w-full aspect-[4/5] flex items-center justify-center transition-transform duration-300 group-hover/prev:scale-105" :style="{ transform: `rotate(${getRotation(prevItem.rotation)})` }">
+        <div class="relative w-full aspect-[3/4] flex items-center justify-center transition-transform duration-300 group-hover/prev:scale-105" :style="{ transform: `rotate(${getRotation(prevItem.rotation)})` }">
           <AppImage :src="prevItem.image" :alt="prevItem.name" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="lazy" />
         </div>
         <span v-if="prevItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-400 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ prevItem.name }}</span>
@@ -18,18 +18,18 @@
 
       <!-- Integrante Activo Central (Focal con Giro Expresivo) -->
       <div v-if="currentItem" class="relative z-10 flex flex-col items-center shrink-0 w-[240px] xs:w-[280px] sm:w-[340px] md:w-[400px] lg:w-[460px] xl:w-[500px] 2xl:w-[540px]">
-        <div ref="cardRef" class="relative w-full aspect-[4/5] max-h-[46vh] flex items-center justify-center will-change-transform drop-shadow-[0_16px_36px_rgba(0,0,0,0.08)] hover:drop-shadow-[0_24px_48px_rgba(0,0,0,0.14)] transition-shadow duration-300" :style="{ transform: `rotate(${getRotation(currentItem.rotation)})` }">
+        <div ref="cardRef" class="relative w-full aspect-[3/4] max-h-[50vh] flex items-center justify-center will-change-transform drop-shadow-[0_16px_36px_rgba(0,0,0,0.08)] hover:drop-shadow-[0_24px_48px_rgba(0,0,0,0.14)] transition-shadow duration-300" :style="{ transform: `rotate(${getRotation(currentItem.rotation)})` }">
           <AppImage :src="currentItem.image" :alt="currentItem.name || 'Stand'" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="eager" />
         </div>
         <div v-if="currentItem.name" ref="infoRef" class="mt-2 sm:mt-2.5 text-center px-2 sm:px-4 will-change-transform">
-          <h3 class="font-barlow font-medium text-xl sm:text-2xl md:text-3xl lg:text-[34px] text-[#070707] leading-tight tracking-tight">{{ currentItem.name }}</h3>
-          <p v-if="currentItem.role" class="font-barlow font-normal text-xs sm:text-sm text-neutral-500 mt-0.5 tracking-tight">{{ currentItem.role }}</p>
+          <h3 class="font-barlow font-medium text-2xl sm:text-3xl lg:text-[32px] text-[#070707] leading-tight tracking-tight">{{ currentItem.name }}</h3>
+          <p v-if="currentItem.role" class="font-barlow font-normal text-xs sm:text-sm md:text-base text-neutral-500 mt-1 tracking-tight">{{ currentItem.role }}</p>
         </div>
       </div>
 
       <!-- Integrante Siguiente (Derecha) -->
       <button v-if="nextItem" type="button" @click="next" aria-label="Ver integrante siguiente" class="group/next flex flex-col items-center shrink-0 w-[140px] xs:w-[170px] sm:w-[220px] md:w-[280px] lg:w-[330px] xl:w-[360px] opacity-35 hover:opacity-75 transition-all duration-300 transform scale-80 sm:scale-85 cursor-pointer focus:outline-none">
-        <div class="relative w-full aspect-[4/5] flex items-center justify-center transition-transform duration-300 group-hover/next:scale-105" :style="{ transform: `rotate(${getRotation(nextItem.rotation)})` }">
+        <div class="relative w-full aspect-[3/4] flex items-center justify-center transition-transform duration-300 group-hover/next:scale-105" :style="{ transform: `rotate(${getRotation(nextItem.rotation)})` }">
           <AppImage :src="nextItem.image" :alt="nextItem.name || 'Stand'" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="lazy" />
         </div>
         <span v-if="nextItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-400 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ nextItem.name }}</span>

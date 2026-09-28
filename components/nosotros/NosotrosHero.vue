@@ -3,7 +3,7 @@
     <!-- Triángulo Monumental Negro en esquina superior derecha (1:1 Figma Node 407:67) con parallax y hover -->
     <div
       ref="triangleRef"
-      class="absolute top-4 sm:top-6 lg:top-8 right-0 lg:right-2 w-[30vw] sm:w-[36vw] lg:w-[32vw] max-w-[580px] min-w-[120px] sm:min-w-[200px] lg:min-w-[260px] select-none z-0 translate-x-[4%] sm:translate-x-[2%] lg:translate-x-0 will-change-transform pointer-events-none"
+      class="absolute top-4 sm:top-6 lg:top-8 right-0 lg:right-2 w-[18vw] sm:w-[22vw] lg:w-[20vw] max-w-[340px] min-w-[100px] sm:min-w-[140px] lg:min-w-[180px] select-none z-0 translate-x-[4%] sm:translate-x-[2%] lg:translate-x-0 will-change-transform pointer-events-none"
       aria-hidden="true"
     >
       <svg

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex items-center justify-center select-none w-full max-w-[560px] sm:max-w-[680px] lg:max-w-[780px] xl:max-w-[840px] pointer-events-none"
+    class="relative flex items-center justify-center select-none w-full max-w-[460px] sm:max-w-[560px] lg:max-w-[640px] xl:max-w-[680px] pointer-events-none"
   >
     <div class="relative w-full flex items-center justify-center">
       <!-- Vector Oficial de Figma con rotación nativa (viewBox: 0 0 1001 724, id: 325:26) -->
