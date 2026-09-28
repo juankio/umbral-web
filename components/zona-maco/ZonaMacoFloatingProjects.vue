@@ -5,7 +5,7 @@
         v-for="(project, index) in projects"
         :key="project.to"
         :to="project.to"
-        class="floating-card absolute w-22 sm:w-28 lg:w-34 xl:w-40 aspect-[3/4] pointer-events-auto group focus:outline-none cursor-pointer transition-transform duration-300"
+        class="floating-card absolute w-20 sm:w-24 lg:w-28 xl:w-34 aspect-[3/4] pointer-events-auto group focus:outline-none cursor-pointer transition-transform duration-300"
         :class="[project.posClass, hoveredIndex === index ? 'z-[35]' : 'z-20']"
         :aria-label="project.ariaLabel"
         @mouseenter="handleMouseEnter(index)"
@@ -51,17 +51,17 @@ interface FloatingProject {
 // Catálogo completo de los 10 productos de Zona Maco organizados en constelación/collage
 const projects: FloatingProject[] = [
   // Flanco Izquierdo y Base (5 piezas)
-  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'left-[3%] lg:left-[4%] xl:left-[6%] top-[8%] lg:top-[10%] -rotate-4 hover:rotate-0', ariaLabel: 'Ver obra Encuadre' },
-  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D3D3D3', posClass: 'left-[18%] lg:left-[20%] xl:left-[22%] top-[5%] lg:top-[7%] rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Desmadre' },
-  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#434B2E', posClass: 'left-[15%] lg:left-[17%] xl:left-[19%] top-[40%] lg:top-[42%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Interconexión' },
-  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#E2DFD8', posClass: 'left-[2%] lg:left-[3%] xl:left-[5%] top-[42%] lg:top-[44%] -rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Mai' },
-  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#DCDCDC', posClass: 'left-[22%] lg:left-[24%] xl:left-[26%] bottom-[4%] lg:bottom-[6%] -rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Curado' },
+  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'left-[2%] sm:left-[3%] lg:left-[4%] xl:left-[5%] top-[8%] lg:top-[10%] -rotate-4 hover:rotate-0', ariaLabel: 'Ver obra Encuadre' },
+  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D3D3D3', posClass: 'left-[11%] sm:left-[13%] lg:left-[14%] xl:left-[15%] top-[2%] lg:top-[3%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Desmadre' },
+  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#434B2E', posClass: 'left-[6%] sm:left-[8%] lg:left-[9%] xl:left-[10%] top-[34%] lg:top-[36%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Interconexión' },
+  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#E2DFD8', posClass: 'left-[1%] sm:left-[2%] lg:left-[2.5%] xl:left-[3%] top-[54%] lg:top-[56%] -rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Mai' },
+  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#DCDCDC', posClass: 'left-[7%] sm:left-[9%] lg:left-[10%] xl:left-[12%] bottom-[2%] lg:bottom-[3%] rotate-1 hover:rotate-0', ariaLabel: 'Ver obra Curado' },
   // Flanco Derecho, Pendiente y Punta (5 piezas)
-  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#E5E5E0', posClass: 'right-[24%] lg:right-[26%] xl:right-[28%] top-[6%] lg:top-[8%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Roberto' },
-  { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#BEBEBE', posClass: 'right-[4%] lg:right-[6%] xl:right-[8%] top-[8%] lg:top-[10%] -rotate-4 hover:rotate-0', ariaLabel: 'Ver obra Reliquia' },
-  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'right-[2%] lg:right-[4%] xl:right-[6%] top-[38%] lg:top-[40%] rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Sagaón' },
-  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA', posClass: 'right-[14%] lg:right-[16%] xl:right-[18%] top-[54%] lg:top-[56%] -rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Entretiempo' },
-  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D0D0D0', posClass: 'right-[26%] lg:right-[28%] xl:right-[30%] bottom-[4%] lg:bottom-[6%] rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Cimiento' }
+  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#E5E5E0', posClass: 'right-[18%] sm:right-[20%] lg:right-[21%] xl:right-[23%] top-[2%] lg:top-[3%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Roberto' },
+  { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#BEBEBE', posClass: 'right-[3%] sm:right-[4%] lg:right-[5%] xl:right-[6%] top-[8%] lg:top-[10%] -rotate-4 hover:rotate-0', ariaLabel: 'Ver obra Reliquia' },
+  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'right-[1%] sm:right-[2%] lg:right-[2.5%] xl:right-[3%] top-[38%] lg:top-[40%] rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Sagaón' },
+  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA', posClass: 'right-[6%] sm:right-[8%] lg:right-[9%] xl:right-[10%] top-[60%] lg:top-[62%] -rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Entretiempo' },
+  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D0D0D0', posClass: 'right-[18%] sm:right-[20%] lg:right-[22%] xl:right-[24%] bottom-[2%] lg:bottom-[3%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Cimiento' }
 ]
 
 const cardEls = ref<HTMLElement[]>([])
