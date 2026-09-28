@@ -56,6 +56,18 @@ export default <Partial<Config>>{
       },
       opacity: {
         45: '0.45',
+      },
+      spacing: {
+        '22': '5.5rem',
+        '26': '6.5rem',
+        '34': '8.5rem',
+        '38': '9.5rem',
+        '42': '10.5rem',
+        '46': '11.5rem',
+        '50': '12.5rem',
+      },
+      rotate: {
+        '4': '4deg',
       }
     }
   }
