@@ -7,12 +7,12 @@
       </h2>
 
       <!-- Bajada Institucional (1:1 Figma) -->
-      <p ref="subtextRef" class="font-barlow font-normal text-xs sm:text-sm md:text-base text-[#0B0B0B]/80 text-center max-w-2xl mx-auto leading-relaxed mt-1.5 mb-2.5">
+      <p ref="subtextRef" class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-2xl text-[#0B0B0B]/85 text-center leading-snug sm:leading-relaxed max-w-3xl sm:max-w-4xl mx-auto mt-2.5 sm:mt-3.5 mb-3.5 sm:mb-5">
         Alumnas de la Licenciatura de Diseño de Interiores conceptualizaron la museografía y el espacio expositivo del proyecto UMBRAL \ CRGS
       </p>
 
       <!-- Línea divisoria fina negra con expansión horizontal -->
-      <div ref="lineRef" class="w-full max-w-[1676px] mx-auto h-[1px] sm:h-[2px] bg-[#030303] my-2 sm:my-3 will-change-transform" />
+      <div ref="lineRef" class="w-full max-w-[1676px] mx-auto h-[1px] sm:h-[2px] bg-[#030303] my-3 sm:my-4 will-change-transform" />
     </div>
 
     <!-- Carrusel Infinito con 3 Triángulos Negros Arquitectónicos (sin fotos ni nombres) -->
