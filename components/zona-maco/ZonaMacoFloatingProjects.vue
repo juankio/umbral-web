@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden sm:block absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+  <div class="hidden lg:block absolute inset-0 pointer-events-none z-20 select-none">
     <div class="relative w-full h-full max-w-[1720px] mx-auto">
       <NuxtLink
         v-for="(project, index) in projects"
@@ -82,7 +82,7 @@ const projects: FloatingProject[] = [
     title: 'Curado',
     img: '/images/figma-product-curado.webp',
     bg: '#DCDCDC',
-    posClass: 'left-[20%] sm:left-[21%] lg:left-[22%] bottom-[6%] lg:bottom-[8%] w-28 sm:w-34 lg:w-40 aspect-[16/10] -rotate-2 z-25'
+    posClass: 'left-[18%] sm:left-[19%] lg:left-[20%] xl:left-[21%] top-[60%] lg:top-[62%] w-28 sm:w-34 lg:w-38 xl:w-40 aspect-[16/10] -rotate-2 z-25'
   },
   // Cluster Derecho (5 obras superpuestas en capas)
   {
@@ -118,7 +118,7 @@ const projects: FloatingProject[] = [
     title: 'Cimiento',
     img: '/images/figma-product-cimiento.webp',
     bg: '#D0D0D0',
-    posClass: 'right-[12%] sm:right-[13%] lg:right-[14%] bottom-[8%] lg:bottom-[10%] w-24 sm:w-28 lg:w-32 aspect-square -rotate-4 z-18'
+    posClass: 'right-[12%] sm:right-[13%] lg:right-[14%] top-[62%] lg:top-[64%] w-24 sm:w-28 lg:w-30 aspect-square -rotate-4 z-18'
   }
 ]
 
