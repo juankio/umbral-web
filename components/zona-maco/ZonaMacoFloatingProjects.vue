@@ -5,7 +5,7 @@
         v-for="(project, index) in projects"
         :key="project.to"
         :to="project.to"
-        class="floating-card absolute w-20 sm:w-24 lg:w-28 xl:w-34 aspect-[3/4] pointer-events-auto group focus:outline-none cursor-pointer transition-transform duration-300"
+        class="floating-card absolute w-22 sm:w-26 lg:w-30 xl:w-36 aspect-[3/4] pointer-events-auto group focus:outline-none cursor-pointer transition-transform duration-300"
         :class="[project.posClass, hoveredIndex === index ? 'z-[35]' : 'z-20']"
         :aria-label="project.ariaLabel"
         @mouseenter="handleMouseEnter(index)"
@@ -48,20 +48,20 @@ interface FloatingProject {
   ariaLabel: string
 }
 
-// Catálogo completo de los 10 productos de Zona Maco organizados en constelación/collage
+// Catálogo completo de los 10 productos en collage envolvente perimetral
 const projects: FloatingProject[] = [
-  // Flanco Izquierdo y Base (5 piezas)
+  // Flanco Izquierdo
   { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'left-[2%] sm:left-[3%] lg:left-[4%] xl:left-[5%] top-[8%] lg:top-[10%] -rotate-4 hover:rotate-0', ariaLabel: 'Ver obra Encuadre' },
-  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D3D3D3', posClass: 'left-[11%] sm:left-[13%] lg:left-[14%] xl:left-[15%] top-[2%] lg:top-[3%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Desmadre' },
-  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#434B2E', posClass: 'left-[6%] sm:left-[8%] lg:left-[9%] xl:left-[10%] top-[34%] lg:top-[36%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Interconexión' },
-  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#E2DFD8', posClass: 'left-[1%] sm:left-[2%] lg:left-[2.5%] xl:left-[3%] top-[54%] lg:top-[56%] -rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Mai' },
-  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#DCDCDC', posClass: 'left-[7%] sm:left-[9%] lg:left-[10%] xl:left-[12%] bottom-[2%] lg:bottom-[3%] rotate-1 hover:rotate-0', ariaLabel: 'Ver obra Curado' },
-  // Flanco Derecho, Pendiente y Punta (5 piezas)
-  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#E5E5E0', posClass: 'right-[18%] sm:right-[20%] lg:right-[21%] xl:right-[23%] top-[2%] lg:top-[3%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Roberto' },
+  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D3D3D3', posClass: 'left-[16%] sm:left-[17%] lg:left-[18%] xl:left-[19%] top-[0.5%] lg:top-[1%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Desmadre' },
+  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#434B2E', posClass: 'left-[13%] sm:left-[14%] lg:left-[15%] xl:left-[16%] top-[40%] lg:top-[42%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Interconexión' },
+  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#E2DFD8', posClass: 'left-[2%] sm:left-[2.5%] lg:left-[3%] xl:left-[3.5%] top-[48%] lg:top-[50%] -rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Mai' },
+  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#DCDCDC', posClass: 'left-[18%] sm:left-[19%] lg:left-[20%] xl:left-[21%] bottom-[0.5%] lg:bottom-[1%] -rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Curado' },
+  // Flanco Derecho
+  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#E5E5E0', posClass: 'right-[21%] sm:right-[22%] lg:right-[23%] xl:right-[25%] top-[4%] lg:top-[5%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Roberto' },
   { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#BEBEBE', posClass: 'right-[3%] sm:right-[4%] lg:right-[5%] xl:right-[6%] top-[8%] lg:top-[10%] -rotate-4 hover:rotate-0', ariaLabel: 'Ver obra Reliquia' },
-  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'right-[1%] sm:right-[2%] lg:right-[2.5%] xl:right-[3%] top-[38%] lg:top-[40%] rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Sagaón' },
-  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA', posClass: 'right-[6%] sm:right-[8%] lg:right-[9%] xl:right-[10%] top-[60%] lg:top-[62%] -rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Entretiempo' },
-  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D0D0D0', posClass: 'right-[18%] sm:right-[20%] lg:right-[22%] xl:right-[24%] bottom-[2%] lg:bottom-[3%] rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Cimiento' }
+  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'right-[1%] sm:right-[1.5%] lg:right-[2%] xl:right-[2.5%] top-[40%] lg:top-[42%] rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Sagaón' },
+  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA', posClass: 'right-[12%] sm:right-[13%] lg:right-[14%] xl:right-[15%] top-[54%] lg:top-[56%] -rotate-2 hover:rotate-0', ariaLabel: 'Ver obra Entretiempo' },
+  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D0D0D0', posClass: 'right-[22%] sm:right-[23%] lg:right-[24%] xl:right-[25%] bottom-[2%] lg:bottom-[3%] rotate-3 hover:rotate-0', ariaLabel: 'Ver obra Cimiento' }
 ]
 
 const cardEls = ref<HTMLElement[]>([])
@@ -72,20 +72,6 @@ const hoveredIndex = ref<number | null>(null)
 const setCardRef = (el: any, index: number) => {
   if (el) cardEls.value[index] = el.$el ?? el
 }
-
-// 10 ritmos asimétricos desfasados para respiración orgánica sin sincronía mecánica
-const FLOAT_CONFIGS = [
-  { y: [-5, 5], duration: 3600, delay: 0 },
-  { y: [4, -5], duration: 4200, delay: 250 },
-  { y: [-6, 4], duration: 3800, delay: 500 },
-  { y: [5, -4], duration: 4400, delay: 150 },
-  { y: [-4, 6], duration: 4000, delay: 650 },
-  { y: [5, -5], duration: 3900, delay: 100 },
-  { y: [-5, 4], duration: 4300, delay: 350 },
-  { y: [4, -6], duration: 3700, delay: 600 },
-  { y: [-4, 5], duration: 4500, delay: 200 },
-  { y: [6, -4], duration: 4100, delay: 450 }
-]
 
 const handleMouseEnter = (index: number) => {
   hoveredIndex.value = index
@@ -103,15 +89,18 @@ const handleMouseEnter = (index: number) => {
 }
 
 const handleMouseLeave = (index: number) => {
+  if (hoveredIndex.value === index) {
+    hoveredIndex.value = null
+  }
   const el = cardEls.value[index]
   if (!el) return
 
+  hoverAnims[index]?.pause()
   hoverAnims[index] = animate(el, {
     scale: 1,
     duration: 320,
     ease: 'outQuad',
     onComplete: () => {
-      if (hoveredIndex.value === index) hoveredIndex.value = null
       loopAnims[index]?.play()
     }
   })
@@ -134,20 +123,20 @@ onMounted(() => {
     animate(el, {
       opacity: [0, 1],
       duration: 750,
-      delay: i * 70,
+      delay: i * 80,
       ease: 'outQuad'
     })
 
-    const config = FLOAT_CONFIGS[i] ?? { y: [-5, 5], duration: 3800, delay: i * 150 }
     const anim = animate(el, {
-      translateY: config.y,
-      duration: config.duration,
-      delay: config.delay,
-      direction: 'alternate',
-      loop: true,
-      ease: 'inOutSine'
+      keyframes: [
+        { translateY: -6, duration: 2500 + (i * 150), ease: 'inOutSine' },
+        { translateY: 6, duration: 2900 + (i * 150), ease: 'inOutSine' },
+        { translateY: 0, duration: 2500 + (i * 150), ease: 'inOutSine' }
+      ],
+      delay: i * 200,
+      loop: true
     })
-    loopAnims.push(anim)
+    loopAnims[i] = anim
   })
 })
 
