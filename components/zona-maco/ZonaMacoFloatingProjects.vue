@@ -82,7 +82,7 @@ const projects: FloatingProject[] = [
     title: 'Curado',
     img: '/images/figma-product-curado.webp',
     bg: '#DCDCDC',
-    posClass: 'left-[18%] sm:left-[19%] lg:left-[20%] xl:left-[21%] top-[60%] lg:top-[62%] w-28 sm:w-34 lg:w-38 xl:w-40 aspect-[16/10] -rotate-2 z-25'
+    posClass: 'left-[18%] sm:left-[19%] lg:left-[20%] xl:left-[21%] top-[56%] lg:top-[58%] w-24 sm:w-28 lg:w-32 xl:w-36 aspect-square -rotate-2 z-25'
   },
   // Cluster Derecho (5 obras superpuestas en capas)
   {
