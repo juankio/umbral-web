@@ -3,9 +3,9 @@
     id="hero-triangle"
     class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] bg-white flex flex-col justify-between items-center select-none overflow-hidden"
   >
-    <!-- Área central del Hero con el triángulo oficial y las 6 obras flotantes -->
+    <!-- Área central del Hero con el triángulo oficial y las 10 obras en collage -->
     <div class="relative w-full flex-1 flex items-center justify-center px-4 sm:px-8 py-4 sm:py-6">
-      <!-- 6 obras flotantes en collage limpio de galería a sangre -->
+      <!-- 10 obras en collage superpuesto de galería a sangre -->
       <ZonaMacoFloatingProjects />
 
       <!-- Triángulo negro oficial (#1C1C1C) con 'Obras Seleccionadas' -->

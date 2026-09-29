@@ -70,6 +70,11 @@ export default <Partial<Config>>{
       },
       rotate: {
         '4': '4deg',
+      },
+      zIndex: {
+        '15': '15',
+        '18': '18',
+        '25': '25',
       }
     }
   }

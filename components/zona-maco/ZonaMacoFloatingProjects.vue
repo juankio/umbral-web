@@ -5,15 +5,15 @@
         v-for="(project, index) in projects"
         :key="project.to"
         :to="project.to"
-        class="floating-card absolute pointer-events-auto group focus:outline-none cursor-pointer transition-transform duration-300"
-        :class="[project.posClass, hoveredIndex === index ? 'z-[35]' : 'z-20']"
+        class="floating-card absolute pointer-events-auto group focus:outline-none cursor-pointer transition-all duration-300"
+        :class="[project.posClass, hoveredIndex === index ? '!z-[50] !rotate-0 scale-[1.08]' : '']"
         :aria-label="`Ver obra ${project.title}`"
         @mouseenter="handleMouseEnter(index)"
         @mouseleave="handleMouseLeave(index)"
       >
         <div
           :ref="(el) => setCardRef(el, index)"
-          class="w-full h-full relative overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.22)] transition-shadow duration-300 transform-gpu"
+          class="w-full h-full relative overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.14)] group-hover:shadow-[0_24px_48px_rgba(0,0,0,0.28)] transition-shadow duration-300 transform-gpu"
           :style="{ backgroundColor: project.bg }"
         >
           <img
@@ -46,81 +46,96 @@ interface FloatingProject {
   posClass: string
 }
 
-// 6 obras en collage limpio de galería a sangre rodeando el triángulo negro oficial
+// 10 obras en dos clusters de collage superpuesto rodeando el triángulo oficial
 const projects: FloatingProject[] = [
+  // Cluster Izquierdo (5 obras superpuestas en capas)
+  {
+    to: '/obras/desmadre',
+    title: 'Desmadre',
+    img: '/images/figma-product-desmadre.webp',
+    bg: '#D3D3D3',
+    posClass: 'left-[9%] sm:left-[10%] lg:left-[11%] top-[12%] lg:top-[14%] w-24 sm:w-28 lg:w-32 aspect-square -rotate-4 z-10'
+  },
   {
     to: '/obras/encuadre',
     title: 'Encuadre',
     img: '/images/figma-product-encuadre.webp',
     bg: '#EDEDED',
-    posClass: 'aspect-square w-24 sm:w-30 lg:w-36 xl:w-40 left-[12%] sm:left-[14%] lg:left-[15%] xl:left-[16%] top-[12%] lg:top-[14%] -rotate-2 hover:rotate-0'
+    posClass: 'left-[15%] sm:left-[16%] lg:left-[17%] top-[18%] lg:top-[20%] w-28 sm:w-32 lg:w-36 aspect-square rotate-2 z-15'
   },
   {
     to: '/obras/interconexion',
     title: 'Interconexión',
     img: '/images/figma-product-interconexion.webp',
     bg: '#434B2E',
-    posClass: 'aspect-square w-20 sm:w-24 lg:w-28 xl:w-32 left-[14%] sm:left-[15%] lg:left-[16%] xl:left-[17%] top-[37%] lg:top-[39%] rotate-2 hover:rotate-0 bg-[#434B2E]'
+    posClass: 'left-[17%] sm:left-[18%] lg:left-[19%] top-[38%] lg:top-[40%] w-24 sm:w-28 lg:w-32 aspect-square -rotate-3 z-20 bg-[#434B2E]'
+  },
+  {
+    to: '/obras/mai',
+    title: 'Mai',
+    img: '/images/figma-product-mai.webp',
+    bg: '#E2DFD8',
+    posClass: 'left-[9%] sm:left-[10%] lg:left-[11%] top-[42%] lg:top-[44%] w-22 sm:w-26 lg:w-30 aspect-square rotate-3 z-18 bg-[#E2DFD8]'
   },
   {
     to: '/obras/curado',
     title: 'Curado',
     img: '/images/figma-product-curado.webp',
     bg: '#DCDCDC',
-    posClass: 'aspect-[4/3] w-28 sm:w-34 lg:w-40 xl:w-44 left-[18%] sm:left-[20%] lg:left-[21%] xl:left-[22%] bottom-[3%] lg:bottom-[4%] rotate-1 hover:rotate-0'
+    posClass: 'left-[20%] sm:left-[21%] lg:left-[22%] bottom-[6%] lg:bottom-[8%] w-28 sm:w-34 lg:w-40 aspect-[16/10] -rotate-2 z-25'
+  },
+  // Cluster Derecho (5 obras superpuestas en capas)
+  {
+    to: '/obras/reliquia',
+    title: 'Reliquia',
+    img: '/images/figma-product-reliquia.webp',
+    bg: '#BEBEBE',
+    posClass: 'right-[10%] sm:right-[11%] lg:right-[12%] top-[10%] lg:top-[12%] w-26 sm:w-30 lg:w-34 aspect-square -rotate-3 z-10'
   },
   {
     to: '/obras/roberto',
     title: 'Roberto',
     img: '/images/figma-product-roberto.webp',
     bg: '#E5E5E0',
-    posClass: 'aspect-square w-20 sm:w-24 lg:w-28 xl:w-32 right-[26%] sm:right-[28%] lg:right-[29%] xl:right-[31%] top-[14%] lg:top-[16%] rotate-2 hover:rotate-0 bg-[#E5E5E0]'
+    posClass: 'right-[17%] sm:right-[18%] lg:right-[19%] top-[16%] lg:top-[18%] w-28 sm:w-32 lg:w-36 aspect-square rotate-3 z-15 bg-[#E5E5E0]'
   },
   {
     to: '/obras/sagaon',
     title: 'Sagaón',
     img: '/images/figma-product-sagaon.webp',
     bg: '#D5CFC9',
-    posClass: 'aspect-[3/4] w-22 sm:w-28 lg:w-32 xl:w-36 right-[12%] sm:right-[14%] lg:right-[15%] xl:right-[16%] top-[8%] lg:top-[10%] -rotate-2 hover:rotate-0'
+    posClass: 'right-[11%] sm:right-[12%] lg:right-[13%] top-[32%] lg:top-[34%] w-24 sm:w-28 lg:w-32 aspect-[3/4] -rotate-2 z-20'
   },
   {
     to: '/obras/entretiempo',
     title: 'Entretiempo',
     img: '/images/figma-product-entretiempo.webp',
     bg: '#EAEAEA',
-    posClass: 'aspect-square w-22 sm:w-28 lg:w-32 xl:w-36 right-[14%] sm:right-[16%] lg:right-[17%] xl:right-[18%] top-[50%] lg:top-[52%] rotate-2 hover:rotate-0'
+    posClass: 'right-[18%] sm:right-[19%] lg:right-[20%] top-[46%] lg:top-[48%] w-26 sm:w-30 lg:w-34 aspect-square rotate-2 z-25'
+  },
+  {
+    to: '/obras/cimiento',
+    title: 'Cimiento',
+    img: '/images/figma-product-cimiento.webp',
+    bg: '#D0D0D0',
+    posClass: 'right-[12%] sm:right-[13%] lg:right-[14%] bottom-[8%] lg:bottom-[10%] w-24 sm:w-28 lg:w-32 aspect-square -rotate-4 z-18'
   }
 ]
 
 const cardEls = ref<HTMLElement[]>([])
 const loopAnims: any[] = []
-const hoverAnims: any[] = []
 const hoveredIndex = ref<number | null>(null)
 
 const setCardRef = (el: any, index: number) => {
   if (el) cardEls.value[index] = el.$el ?? el
 }
-
 const handleMouseEnter = (index: number) => {
   hoveredIndex.value = index
-  const el = cardEls.value[index]
-  if (!el) return
   loopAnims[index]?.pause()
-  hoverAnims[index]?.pause()
-  hoverAnims[index] = animate(el, { scale: 1.05, duration: 250, ease: 'outQuad' })
 }
-
 const handleMouseLeave = (index: number) => {
   if (hoveredIndex.value === index) hoveredIndex.value = null
-  const el = cardEls.value[index]
-  if (!el) return
-  hoverAnims[index]?.pause()
-  hoverAnims[index] = animate(el, {
-    scale: 1,
-    duration: 300,
-    ease: 'outQuad',
-    onComplete: () => { loopAnims[index]?.play() }
-  })
+  loopAnims[index]?.play()
 }
 
 onMounted(() => {
@@ -133,14 +148,14 @@ onMounted(() => {
 
   cardEls.value.forEach((el, i) => {
     if (!el) return
-    animate(el, { opacity: [0, 1], duration: 700, delay: i * 70, ease: 'outQuad' })
+    animate(el, { opacity: [0, 1], duration: 600, delay: i * 40, ease: 'outQuad' })
     loopAnims[i] = animate(el, {
       keyframes: [
-        { translateY: -5, duration: 2500 + (i * 200), ease: 'inOutSine' },
-        { translateY: 5, duration: 2900 + (i * 200), ease: 'inOutSine' },
-        { translateY: 0, duration: 2500 + (i * 200), ease: 'inOutSine' }
+        { translateY: -4, duration: 2400 + (i * 140), ease: 'inOutSine' },
+        { translateY: 4, duration: 2800 + (i * 140), ease: 'inOutSine' },
+        { translateY: 0, duration: 2400 + (i * 140), ease: 'inOutSine' }
       ],
-      delay: i * 200,
+      delay: i * 100,
       loop: true
     })
   })
@@ -148,6 +163,5 @@ onMounted(() => {
 
 onUnmounted(() => {
   loopAnims.forEach((anim) => anim?.revert?.() || anim?.pause?.())
-  hoverAnims.forEach((anim) => anim?.revert?.() || anim?.pause?.())
 })
 </script>
