@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden lg:block absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+  <div class="hidden sm:block absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
     <div class="relative w-full h-full max-w-[1720px] mx-auto">
       <NuxtLink
         v-for="(project, index) in projects"
@@ -46,14 +46,50 @@ interface FloatingProject {
   posClass: string
 }
 
-// 6 obras en posiciones exactas de Figma Desktop - Primary
+// 6 obras en collage limpio de galería a sangre rodeando el triángulo negro oficial
 const projects: FloatingProject[] = [
-  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'aspect-square w-24 sm:w-32 lg:w-40 xl:w-44 left-[17%] lg:left-[19%] xl:left-[21%] top-[14%] lg:top-[16%] -rotate-2 hover:rotate-0' },
-  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#434B2E', posClass: 'aspect-square w-20 sm:w-26 lg:w-32 xl:w-36 left-[22%] lg:left-[24%] xl:left-[26%] top-[40%] lg:top-[42%] rotate-2 hover:rotate-0' },
-  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#DCDCDC', posClass: 'aspect-[4/3] w-28 sm:w-36 lg:w-44 xl:w-50 left-[30%] lg:left-[33%] xl:left-[35%] bottom-[8%] lg:bottom-[10%] rotate-1 hover:rotate-0' },
-  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#E5E5E0', posClass: 'aspect-square w-18 sm:w-22 lg:w-28 xl:w-32 right-[32%] lg:right-[34%] xl:right-[36%] top-[22%] lg:top-[24%] rotate-2 hover:rotate-0' },
-  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'aspect-[3/4] w-22 sm:w-28 lg:w-34 xl:w-38 right-[18%] lg:right-[20%] xl:right-[22%] top-[12%] lg:top-[14%] -rotate-2 hover:rotate-0' },
-  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp', bg: '#EAEAEA', posClass: 'aspect-square w-22 sm:w-28 lg:w-34 xl:w-38 right-[20%] lg:right-[22%] xl:right-[24%] top-[50%] lg:top-[52%] rotate-2 hover:rotate-0' }
+  {
+    to: '/obras/encuadre',
+    title: 'Encuadre',
+    img: '/images/figma-product-encuadre.webp',
+    bg: '#EDEDED',
+    posClass: 'aspect-square w-24 sm:w-30 lg:w-36 xl:w-40 left-[12%] sm:left-[14%] lg:left-[15%] xl:left-[16%] top-[12%] lg:top-[14%] -rotate-2 hover:rotate-0'
+  },
+  {
+    to: '/obras/interconexion',
+    title: 'Interconexión',
+    img: '/images/figma-product-interconexion.webp',
+    bg: '#434B2E',
+    posClass: 'aspect-square w-20 sm:w-24 lg:w-28 xl:w-32 left-[14%] sm:left-[15%] lg:left-[16%] xl:left-[17%] top-[37%] lg:top-[39%] rotate-2 hover:rotate-0 bg-[#434B2E]'
+  },
+  {
+    to: '/obras/curado',
+    title: 'Curado',
+    img: '/images/figma-product-curado.webp',
+    bg: '#DCDCDC',
+    posClass: 'aspect-[4/3] w-28 sm:w-34 lg:w-40 xl:w-44 left-[18%] sm:left-[20%] lg:left-[21%] xl:left-[22%] bottom-[3%] lg:bottom-[4%] rotate-1 hover:rotate-0'
+  },
+  {
+    to: '/obras/roberto',
+    title: 'Roberto',
+    img: '/images/figma-product-roberto.webp',
+    bg: '#E5E5E0',
+    posClass: 'aspect-square w-20 sm:w-24 lg:w-28 xl:w-32 right-[26%] sm:right-[28%] lg:right-[29%] xl:right-[31%] top-[14%] lg:top-[16%] rotate-2 hover:rotate-0 bg-[#E5E5E0]'
+  },
+  {
+    to: '/obras/sagaon',
+    title: 'Sagaón',
+    img: '/images/figma-product-sagaon.webp',
+    bg: '#D5CFC9',
+    posClass: 'aspect-[3/4] w-22 sm:w-28 lg:w-32 xl:w-36 right-[12%] sm:right-[14%] lg:right-[15%] xl:right-[16%] top-[8%] lg:top-[10%] -rotate-2 hover:rotate-0'
+  },
+  {
+    to: '/obras/entretiempo',
+    title: 'Entretiempo',
+    img: '/images/figma-product-entretiempo.webp',
+    bg: '#EAEAEA',
+    posClass: 'aspect-square w-22 sm:w-28 lg:w-32 xl:w-36 right-[14%] sm:right-[16%] lg:right-[17%] xl:right-[18%] top-[50%] lg:top-[52%] rotate-2 hover:rotate-0'
+  }
 ]
 
 const cardEls = ref<HTMLElement[]>([])
@@ -100,11 +136,11 @@ onMounted(() => {
     animate(el, { opacity: [0, 1], duration: 700, delay: i * 70, ease: 'outQuad' })
     loopAnims[i] = animate(el, {
       keyframes: [
-        { translateY: -5, duration: 2400 + (i * 150), ease: 'inOutSine' },
-        { translateY: 5, duration: 2800 + (i * 150), ease: 'inOutSine' },
-        { translateY: 0, duration: 2400 + (i * 150), ease: 'inOutSine' }
+        { translateY: -5, duration: 2500 + (i * 200), ease: 'inOutSine' },
+        { translateY: 5, duration: 2900 + (i * 200), ease: 'inOutSine' },
+        { translateY: 0, duration: 2500 + (i * 200), ease: 'inOutSine' }
       ],
-      delay: i * 180,
+      delay: i * 200,
       loop: true
     })
   })
