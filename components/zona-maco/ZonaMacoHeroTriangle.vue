@@ -16,13 +16,28 @@
         />
       </svg>
 
-      <!-- Texto Oficial 'Obras Seleccionadas' centrado simétricamente (left: 41%, top: 48%) -->
+      <!-- Tipografía y contenido exacto de Figma centrado en el triángulo -->
       <div
-        class="absolute left-[41%] top-[48%] -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full text-center"
+        class="absolute left-[41%] top-[48%] -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full text-center z-10"
       >
-        <h1 class="font-barlow font-normal text-3xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[70px] text-white text-center leading-[0.92] tracking-tight select-none">
+        <span
+          class="font-barlow text-[10px] sm:text-xs lg:text-sm text-neutral-300 font-medium tracking-[0.2em] uppercase mb-1 sm:mb-2 block select-none"
+        >
+          \ SELECCIÓN ZONA MACO
+        </span>
+
+        <h1
+          class="font-barlow font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] text-white leading-[0.92] tracking-tight select-none"
+        >
           Obras<br>Seleccionadas
         </h1>
+
+        <NuxtLink
+          to="#proyectos"
+          class="inline-block pointer-events-auto underline underline-offset-4 text-xs sm:text-sm text-neutral-300 hover:text-white transition-colors cursor-pointer mt-2 sm:mt-3"
+        >
+          Conoce más
+        </NuxtLink>
       </div>
     </div>
   </div>
