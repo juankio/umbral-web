@@ -1,7 +1,7 @@
 <template>
   <div
     class="animate-marquee-hover-boost group relative w-full overflow-hidden select-none cursor-pointer"
-    :class="theme === 'light' ? 'bg-white text-black border-t border-neutral-100 py-3 sm:py-3.5' : 'bg-[#1C1C1C] text-white py-3 sm:py-4'"
+    :class="theme === 'light' ? 'bg-white text-black border-y border-neutral-200 py-3.5 sm:py-4 lg:py-4.5' : 'bg-[#1C1C1C] text-white border-y border-neutral-900 py-3.5 sm:py-4 lg:py-4.5'"
     aria-hidden="true"
   >
     <div class="animate-marquee whitespace-nowrap flex items-center">
@@ -11,7 +11,7 @@
         class="flex items-center flex-shrink-0"
       >
         <span
-          class="font-barlow font-normal text-[26px] sm:text-[32px] lg:text-[42px] tracking-widest uppercase px-4 sm:px-8 leading-none select-none"
+          class="font-barlow font-normal text-[22px] sm:text-[28px] lg:text-[36px] xl:text-[40px] tracking-widest uppercase select-none leading-none px-4 sm:px-8"
           :class="theme === 'light' ? 'text-black' : 'text-white'"
         >
           {{ text }}
@@ -23,12 +23,12 @@
 
 <script setup lang="ts">
 interface Props {
-  theme?: 'light' | 'dark'
+  theme?: 'dark' | 'light'
   text?: string
 }
 
 withDefaults(defineProps<Props>(), {
-  theme: 'light',
+  theme: 'dark',
   text: 'PENSAMIENTO. MATERIA. CREACIÓN.'
 })
 </script>

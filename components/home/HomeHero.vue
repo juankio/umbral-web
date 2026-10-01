@@ -1,60 +1,58 @@
 <template>
   <section
     ref="heroSectionRef"
-    class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex flex-col justify-between items-center bg-white overflow-hidden select-none"
+    class="relative w-full min-h-[calc(100vh-80px)] lg:min-h-[calc(100vh-80px)] flex flex-col justify-between items-center bg-white overflow-hidden select-none"
   >
-    <div class="relative w-full max-w-[1720px] mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center items-center py-6 lg:py-0">
-      <!-- Contenedor relativo para el ensamble fiel a Figma -->
-      <div class="relative w-full flex flex-col lg:flex-row items-center justify-center">
-        <!-- Frase 1 en Móvil / Izquierda en Desktop: Abre la puerta, -->
-        <h2
-          ref="leftTextRef"
-          class="order-1 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[34%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mb-1 sm:mb-2 lg:mb-0"
+    <!-- Área central del Hero como lienzo limpio monumental -->
+    <div class="relative w-full flex-1 flex flex-col items-center justify-center px-6 sm:px-12 py-8 lg:py-0">
+      <!-- Frase 1 en Móvil (order 1) / Superior Izquierda en Desktop: Abre la puerta, -->
+      <h2
+        ref="leftTextRef"
+        class="order-1 lg:order-none lg:absolute lg:right-[calc(50%+160px)] xl:right-[calc(50%+190px)] 2xl:right-[calc(50%+220px)] lg:top-[20%] xl:top-[18%] font-barlow font-normal text-4xl sm:text-6xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] text-black text-center lg:text-right leading-none select-none tracking-normal whitespace-nowrap will-change-transform"
+      >
+        Abre la puerta,
+      </h2>
+
+      <!-- Frase 2 en Móvil (order 2) / Media-baja Derecha en Desktop: cruza el (en minúscula) -->
+      <h2
+        ref="rightTextRef"
+        class="order-2 lg:order-none lg:absolute lg:left-[calc(50%+160px)] xl:left-[calc(50%+190px)] 2xl:left-[calc(50%+220px)] lg:top-[50%] xl:top-[48%] font-barlow font-normal text-4xl sm:text-6xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] text-black text-center lg:text-left leading-none select-none tracking-normal whitespace-nowrap will-change-transform mb-6 sm:mb-8 lg:mb-0"
+      >
+        cruza el
+      </h2>
+
+      <!-- Centro: Monolito central (triángulo SVG + titular UMBRAL debajo) -->
+      <div class="order-3 lg:order-none relative z-10 flex flex-col items-center justify-center will-change-transform">
+        <!-- Vector SVG estático proporcional a la altura de la pantalla con parallax y hover -->
+        <div
+          ref="triangleRef"
+          class="flex justify-center select-none cursor-pointer will-change-transform"
+          @mousemove="handleOrigamiMove(triangleRef, $event)"
+          @mouseleave="handleOrigamiLeave(triangleRef)"
         >
-          Abre la puerta,
-        </h2>
-
-        <!-- Frase 2 en Móvil / Derecha en Desktop: Cruza el -->
-        <h2
-          ref="rightTextRef"
-          class="order-2 lg:order-none lg:absolute lg:right-4 xl:right-12 2xl:right-20 lg:top-[34%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-right leading-none select-none tracking-normal will-change-transform mb-4 sm:mb-6 lg:mb-0"
-        >
-          Cruza el
-        </h2>
-
-        <!-- Centro: Triángulo negro estático + Titular UMBRAL -->
-        <div class="order-3 lg:order-none flex flex-col items-center justify-center will-change-transform z-10 my-4 sm:my-6 lg:my-0">
-          <!-- Vector SVG estático proporcional a la altura de la pantalla (Figma 112:13) con parallax y hover -->
-          <div
-            ref="triangleRef"
-            class="flex justify-center select-none cursor-pointer will-change-transform"
-            @mousemove="handleOrigamiMove(triangleRef, $event)"
-            @mouseleave="handleOrigamiLeave(triangleRef)"
+          <svg
+            viewBox="0 0 365 500"
+            class="h-[300px] sm:h-[380px] lg:h-[460px] xl:h-[500px] w-auto block select-none pointer-events-none"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
-            <svg
-              viewBox="0 0 365 500"
-              class="h-[24vh] sm:h-[32vh] lg:h-[46vh] max-h-[480px] min-h-[170px] w-auto block select-none pointer-events-none"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path d="M0 349.751L90.4552 0L364.99 500L0 349.751Z" fill="black" />
-            </svg>
-          </div>
-
-          <!-- Titular monumental UMBRAL centrado directamente debajo -->
-          <h1
-            ref="umbralTitleRef"
-            class="font-barlow font-normal text-5xl sm:text-7xl lg:text-[100px] xl:text-[130px] 2xl:text-[144px] leading-none text-black tracking-tight text-center select-none mt-3 sm:mt-5 lg:mt-6 will-change-transform"
-          >
-            UMBRAL
-          </h1>
+            <path d="M0 349.751L90.4552 0L364.99 500L0 349.751Z" fill="black" />
+          </svg>
         </div>
+
+        <!-- Titular monumental UMBRAL centrado directamente debajo -->
+        <h1
+          ref="umbralTitleRef"
+          class="font-barlow font-normal text-6xl sm:text-8xl lg:text-[115px] xl:text-[144px] leading-none text-black tracking-tight text-center select-none mt-3 sm:mt-4 lg:mt-5 will-change-transform"
+        >
+          UMBRAL
+        </h1>
       </div>
     </div>
 
-    <!-- Marquee arquitectónico al pie -->
-    <AppMarquee theme="light" />
+    <!-- Marquee arquitectónico al pie (barra negra por defecto) -->
+    <AppMarquee />
   </section>
 </template>
 

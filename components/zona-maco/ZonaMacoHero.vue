@@ -12,8 +12,8 @@
       <ZonaMacoHeroTriangle class="relative z-30" />
     </div>
 
-    <!-- Marquee arquitectónico al pie reutilizable -->
-    <AppMarquee theme="light" />
+    <!-- Marquee arquitectónico al pie reutilizable (barra negra por defecto) -->
+    <AppMarquee />
   </section>
 </template>
 

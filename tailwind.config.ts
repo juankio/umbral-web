@@ -58,6 +58,7 @@ export default <Partial<Config>>{
         45: '0.45',
       },
       spacing: {
+        '4.5': '1.125rem',
         '18': '4.5rem',
         '22': '5.5rem',
         '26': '6.5rem',

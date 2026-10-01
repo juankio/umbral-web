@@ -100,7 +100,7 @@ const desktopLinks: NavItem[] = [
   { label: 'Zona Maco', to: '/zona-maco' },
   { label: 'Catálogo de Obras', to: '/zona-maco#proyectos' },
   { label: 'Integrantes', to: '/nosotros' },
-  { label: 'CRGS', to: '/crgs' }
+  { label: 'Nosotros', to: '/crgs' }
 ]
 
 const mobileLinks: NavItem[] = [
@@ -108,7 +108,7 @@ const mobileLinks: NavItem[] = [
   { index: '02', label: 'Zona Maco', to: '/zona-maco' },
   { index: '03', label: 'Catálogo de Obras', to: '/zona-maco#proyectos' },
   { index: '04', label: 'Integrantes', to: '/nosotros' },
-  { index: '05', label: 'CRGS', to: '/crgs' }
+  { index: '05', label: 'Nosotros', to: '/crgs' }
 ]
 
 const isLinkActive = (to: string) => {

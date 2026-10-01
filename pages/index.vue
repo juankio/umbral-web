@@ -3,7 +3,7 @@
     <HomeHero />
     <HomeIntro />
     <HomeBannerZM />
-    <AppMarquee theme="dark" />
+    <AppMarquee />
     <HomeCrgs />
     <HomeInspiration />
   </div>
