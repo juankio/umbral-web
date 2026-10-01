@@ -3,7 +3,8 @@
     id="puerta-creacion"
     class="relative w-full min-h-[95vh] lg:min-h-screen bg-[#1C1C1C] flex flex-col items-center justify-center overflow-hidden py-20 sm:py-28 px-4 select-text"
   >
-    <div class="relative flex items-center justify-center w-full max-w-[1360px] xl:max-w-[1480px] my-auto">
+    <!-- Contenedor maestro compartido y centrado -->
+    <div class="relative w-full max-w-[1540px] h-[520px] sm:h-[560px] lg:h-[600px] flex items-center justify-center">
       <!-- Monolito Central: Triángulo Verde Oficial CRGS #4BA550 -->
       <div
         ref="triangleBoxRef"
@@ -11,49 +12,37 @@
         :aria-expanded="isSplit"
         aria-label="La Puerta de la Creación de Tadao Ando. Haz clic para abrir el vano."
         tabindex="0"
-        class="relative w-[300px] sm:w-[380px] md:w-[440px] lg:w-[490px] xl:w-[520px] aspect-[650/890] max-h-[64vh] select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4BA550] rounded-xs"
+        class="relative w-[340px] sm:w-[380px] lg:w-[420px] h-full flex items-center justify-center select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4BA550] rounded-xs"
         :class="isSplit ? 'cursor-default pointer-events-none' : 'cursor-pointer'"
         @click="!isSplit && toggleSplit()"
         @keydown.enter.space.prevent="!isSplit && toggleSplit()"
       >
-        <!-- Ala Izquierda (se fractura y desliza cinemáticamente a la izquierda) -->
-        <div ref="leftWingRef" class="absolute inset-0 pointer-events-none will-change-transform" style="clip-path: inset(0 50% 0 0);">
-          <img
-            src="/images/crgs-puerta-creacion.svg"
-            alt="La Puerta de la Creación - Ala izquierda"
-            class="w-full h-full object-contain pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
-            draggable="false"
-          />
+        <!-- Ala Izquierda -->
+        <div ref="leftWingRef" class="absolute inset-0 h-full flex items-center justify-center pointer-events-none will-change-transform" style="clip-path: inset(0 50% 0 0);">
+          <img src="/images/crgs-puerta-creacion.svg" alt="La Puerta de la Creación - Ala izquierda" class="w-full h-full object-contain pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]" draggable="false" />
         </div>
 
-        <!-- Ala Derecha (se fractura y desliza cinemáticamente a la derecha) -->
-        <div ref="rightWingRef" class="absolute inset-0 pointer-events-none will-change-transform" style="clip-path: inset(0 0 0 50%);">
-          <img
-            src="/images/crgs-puerta-creacion.svg"
-            alt="La Puerta de la Creación - Ala derecha"
-            class="w-full h-full object-contain pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
-            draggable="false"
-          />
+        <!-- Ala Derecha -->
+        <div ref="rightWingRef" class="absolute inset-0 h-full flex items-center justify-center pointer-events-none will-change-transform" style="clip-path: inset(0 0 0 50%);">
+          <img src="/images/crgs-puerta-creacion.svg" alt="La Puerta de la Creación - Ala derecha" class="w-full h-full object-contain pointer-events-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]" draggable="false" />
         </div>
       </div>
 
-      <!-- Vano Central con Video Documental -->
+      <!-- Vano Central con Video Documental Centrado -->
       <div
         ref="videoBoxRef"
-        class="absolute inset-0 z-30 flex items-center justify-center opacity-0 scale-90"
-        :class="isSplit ? 'pointer-events-auto' : 'pointer-events-none'"
+        class="absolute inset-0 z-30 flex items-center justify-center opacity-0 pointer-events-none"
+        :class="{ '!pointer-events-auto': isSplit }"
       >
-        <div class="relative w-full max-w-4xl sm:max-w-5xl lg:max-w-6xl xl:max-w-[1240px] 2xl:max-w-[1320px] aspect-video bg-black border border-neutral-800 shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden rounded-xs">
+        <div class="relative w-[92vw] max-w-3xl sm:max-w-4xl lg:max-w-[1040px] xl:max-w-[1080px] aspect-video bg-black border border-neutral-800 shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden rounded-xs">
           <button
             type="button"
             @click="toggleSplit"
             class="absolute top-3 right-3 z-40 bg-black/85 hover:bg-white text-white hover:text-black border border-white/30 px-3.5 py-1 text-xs font-barlow uppercase tracking-wider rounded-full flex items-center gap-1.5 transition-all cursor-pointer shadow-lg focus:outline-none"
             aria-label="Cerrar vano y unir triángulo"
           >
-            <span>✕</span>
-            <span>Cerrar vano</span>
+            <span>✕ Cerrar vano</span>
           </button>
-
           <iframe
             v-if="showIframe"
             class="w-full h-full"
@@ -66,7 +55,7 @@
         </div>
       </div>
 
-      <!-- Título Monumental Cursivo (se desvanece al abrir para dar paso al reproductor) -->
+      <!-- Título Monumental Cursivo -->
       <div ref="titleRef" class="absolute inset-x-0 z-20 flex items-center justify-center pointer-events-none px-4 will-change-transform">
         <h2 class="font-barlow font-medium italic text-4xl sm:text-6xl md:text-7xl lg:text-[100px] xl:text-[115px] text-white leading-none tracking-tight text-center drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] select-none">
           La Puerta de la Creación
@@ -92,6 +81,10 @@ const videoBoxRef = ref<HTMLElement | null>(null)
 let idleAnim: any = null
 const activeAnims: any[] = []
 
+const isTouchOrMobile = () => !import.meta.client || window.innerWidth < 1024 ||
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+  window.matchMedia('(hover: none), (pointer: coarse)').matches
+
 const toggleSplit = () => {
   if (!import.meta.client) return
   const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -103,7 +96,7 @@ const toggleSplit = () => {
 
     const isMobile = window.innerWidth < 640
     const isTablet = window.innerWidth < 1024
-    const offset = isMobile ? 160 : (isTablet ? 360 : 540)
+    const offset = isMobile ? 180 : (isTablet ? 380 : 570)
 
     if (leftWingRef.value) activeAnims.push(animate(leftWingRef.value, { translateX: -offset, rotate: -2, opacity: 0.25, duration: isReduced ? 0 : 950, ease: 'outExpo' }))
     if (rightWingRef.value) activeAnims.push(animate(rightWingRef.value, { translateX: offset, rotate: 2, opacity: 0.25, duration: isReduced ? 0 : 950, ease: 'outExpo' }))
@@ -118,11 +111,7 @@ const toggleSplit = () => {
     if (rightWingRef.value) activeAnims.push(animate(rightWingRef.value, { translateX: 0, rotate: 0, opacity: 1, duration: isReduced ? 0 : 800, ease: 'outExpo' }))
     if (titleRef.value) {
       activeAnims.push(animate(titleRef.value, {
-        opacity: [0, 1],
-        translateY: 0,
-        scale: 1,
-        duration: isReduced ? 0 : 600,
-        ease: 'outExpo',
+        opacity: [0, 1], translateY: 0, scale: 1, duration: isReduced ? 0 : 600, ease: 'outExpo',
         onComplete: () => {
           if (!isSplit.value && !isReduced && !isTouchOrMobile()) {
             idleAnim?.restart?.() || idleAnim?.play?.()
@@ -133,20 +122,11 @@ const toggleSplit = () => {
   }
 }
 
-const isTouchOrMobile = () => {
-  if (!import.meta.client) return true
-  if (window.innerWidth < 1024) return true
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true
-  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return true
-  return false
-}
-
 onMounted(() => {
-  if (!import.meta.client || isTouchOrMobile()) return
-
-  if (triangleBoxRef.value) {
-    idleAnim = animate(triangleBoxRef.value, { scale: [1, 1.018], translateY: [0, -5], duration: 3000, direction: 'alternate', loop: true, ease: 'inOutSine' })
-  }
+  if (!import.meta.client || isTouchOrMobile() || !triangleBoxRef.value) return
+  idleAnim = animate(triangleBoxRef.value, {
+    scale: [1, 1.015], duration: 3000, direction: 'alternate', loop: true, ease: 'inOutSine'
+  })
 })
 
 onUnmounted(() => {
