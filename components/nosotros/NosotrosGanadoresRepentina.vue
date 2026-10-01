@@ -1,6 +1,6 @@
 <template>
-  <section id="ganadores-repentina" class="relative w-full bg-white py-6 sm:py-8 lg:py-10 scroll-mt-24 select-text">
-    <div class="w-full max-w-[1540px] mx-auto px-6 sm:px-10 lg:px-12">
+  <section id="ganadores-repentina" class="relative w-full bg-white py-5 sm:py-6 lg:py-8 scroll-mt-24 select-text">
+    <div class="w-full max-w-[720px] sm:max-w-[780px] lg:max-w-[820px] mx-auto px-4">
       <!-- Encabezado de Sección Oficial -->
       <div class="text-center">
         <h2
@@ -20,30 +20,31 @@
       <!-- Línea divisoria negra horizontal -->
       <div
         ref="lineRef"
-        class="w-full h-[1px] sm:h-[2px] bg-[#030303] max-w-[1540px] mx-auto mt-4 mb-6 sm:mb-8 will-change-transform"
+        class="w-full h-[1px] sm:h-[2px] bg-[#030303] mx-auto mt-4 mb-6 sm:mb-8 will-change-transform"
       />
 
       <!-- Bloques de Proyectos -->
-      <div class="space-y-6 sm:space-y-8">
+      <div class="space-y-4 sm:space-y-5">
         <div
           v-for="proyecto in proyectos"
           :key="proyecto.nombre"
           class="w-full"
         >
-          <h3 class="font-barlow font-normal text-xl sm:text-2xl text-[#0B0B0B] mb-3">
+          <h3 class="font-barlow font-normal text-base sm:text-lg text-[#0B0B0B] mb-2">
             {{ proyecto.nombre }}
           </h3>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             <article
               v-for="alumno in proyecto.alumnos"
               :key="alumno.name"
-              class="group flex flex-col py-3.5 px-4 sm:px-5 bg-neutral-50/70 hover:bg-neutral-100/90 border-l-2 border-[#030303] transition-colors"
+              class="group flex flex-col"
             >
-              <h4 class="font-barlow font-normal text-2xl sm:text-3xl text-[#0B0B0B] leading-tight group-hover:text-black">
+              <div class="w-full max-w-[160px] sm:max-w-[175px] lg:max-w-[185px] aspect-square bg-[#1C1C1C] overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 group-hover:scale-[1.01]" />
+              <h4 class="font-barlow font-normal text-lg sm:text-xl lg:text-2xl text-[#0B0B0B] mt-1.5 sm:mt-2 leading-tight">
                 {{ alumno.name }}
               </h4>
-              <p class="font-barlow text-xs sm:text-sm text-neutral-600 mt-1 leading-snug">
+              <p class="font-barlow text-xs text-neutral-600 mt-0.5 leading-snug">
                 {{ alumno.role }}
               </p>
             </article>
