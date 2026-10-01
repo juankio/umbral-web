@@ -1,10 +1,10 @@
 <template>
   <div
-    class="animate-marquee-hover-boost group relative w-full overflow-hidden select-none cursor-pointer"
+    class="group relative w-full overflow-hidden select-none"
     :class="theme === 'light' ? 'bg-white text-black border-y border-neutral-200 py-3.5 sm:py-4 lg:py-4.5' : 'bg-[#1C1C1C] text-white border-y border-neutral-900 py-3.5 sm:py-4 lg:py-4.5'"
     aria-hidden="true"
   >
-    <div class="animate-marquee whitespace-nowrap flex items-center">
+    <div class="animate-marquee whitespace-nowrap flex items-center group-hover:[animation-play-state:paused]">
       <div
         v-for="i in 8"
         :key="i"
