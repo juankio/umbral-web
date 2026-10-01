@@ -1,23 +1,23 @@
 <template>
   <section
     ref="heroSectionRef"
-    class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex flex-col justify-center items-center bg-white overflow-hidden py-8 sm:py-12 lg:py-0 select-none"
+    class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex flex-col justify-between items-center bg-white overflow-hidden select-none"
   >
-    <div class="relative w-full max-w-[1720px] mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center items-center">
+    <div class="relative w-full max-w-[1720px] mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center items-center py-6 lg:py-0">
       <!-- Contenedor relativo para el ensamble fiel a Figma -->
       <div class="relative w-full flex flex-col lg:flex-row items-center justify-center">
-        <!-- Frase 1 en Móvil / Izquierda Superior en Desktop: Abre la puerta, -->
+        <!-- Frase 1 en Móvil / Izquierda en Desktop: Abre la puerta, -->
         <h2
           ref="leftTextRef"
-          class="order-1 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[22%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mb-1 sm:mb-2 lg:mb-0"
+          class="order-1 lg:order-none lg:absolute lg:left-4 xl:left-12 2xl:left-20 lg:top-[34%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-left leading-none select-none tracking-normal will-change-transform mb-1 sm:mb-2 lg:mb-0"
         >
           Abre la puerta,
         </h2>
 
-        <!-- Frase 2 en Móvil / Derecha conduciendo al centro en Desktop: Cruza el -->
+        <!-- Frase 2 en Móvil / Derecha en Desktop: Cruza el -->
         <h2
           ref="rightTextRef"
-          class="order-2 lg:order-none lg:absolute lg:right-4 xl:right-12 2xl:right-20 lg:top-[44%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-right leading-none select-none tracking-normal will-change-transform mb-4 sm:mb-6 lg:mb-0"
+          class="order-2 lg:order-none lg:absolute lg:right-4 xl:right-12 2xl:right-20 lg:top-[34%] lg:-translate-y-1/2 font-barlow text-2xl sm:text-4xl lg:text-7xl xl:text-[96px] 2xl:text-[112px] font-normal text-[#070707] text-center lg:text-right leading-none select-none tracking-normal will-change-transform mb-4 sm:mb-6 lg:mb-0"
         >
           Cruza el
         </h2>
@@ -52,6 +52,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Marquee arquitectónico al pie -->
+    <AppMarquee theme="light" />
   </section>
 </template>
 

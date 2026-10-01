@@ -12,23 +12,8 @@
       <ZonaMacoHeroTriangle class="relative z-30" />
     </div>
 
-    <!-- Marquee arquitectónico al pie 1:1 con Figma (~42px continuo en negro sobre blanco) -->
-    <div
-      class="relative w-full overflow-hidden border-t border-neutral-100 bg-white py-3 sm:py-3.5 select-none"
-      aria-hidden="true"
-    >
-      <div class="animate-marquee whitespace-nowrap flex items-center">
-        <div
-          v-for="i in 8"
-          :key="i"
-          class="flex items-center flex-shrink-0"
-        >
-          <span class="font-barlow font-normal text-[28px] sm:text-[34px] lg:text-[42px] text-black tracking-widest uppercase px-4 sm:px-8 leading-none">
-            PENSAMIENTO. MATERIA. CREACIÓN.
-          </span>
-        </div>
-      </div>
-    </div>
+    <!-- Marquee arquitectónico al pie reutilizable -->
+    <AppMarquee theme="light" />
   </section>
 </template>
 

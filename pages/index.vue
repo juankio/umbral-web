@@ -1,10 +1,9 @@
 <template>
   <div>
     <HomeHero />
-    <AppMarquee />
     <HomeIntro />
     <HomeBannerZM />
-    <AppMarquee />
+    <AppMarquee theme="dark" />
     <HomeCrgs />
     <HomeInspiration />
   </div>
