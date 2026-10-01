@@ -1,7 +1,7 @@
 <template>
   <div
-    class="relative w-full aspect-[1697/751] sm:aspect-[1697/751] bg-neutral-950 overflow-hidden shadow-2xl transition-all duration-500 rounded-none border border-neutral-800/60"
-    :class="{ 'group cursor-pointer hover:border-neutral-700': !isPlaying }"
+    class="relative w-full aspect-[1697/751] max-h-[64vh] bg-neutral-950 overflow-hidden shadow-2xl transition-all duration-500 rounded-none border border-neutral-800/80 cursor-pointer"
+    :class="{ 'group hover:border-neutral-700': !isPlaying, 'cursor-default': isPlaying }"
     role="button"
     tabindex="0"
     :aria-label="isPlaying ? 'Reproductor de video documental' : 'Reproducir video documental de la Repentina'"
