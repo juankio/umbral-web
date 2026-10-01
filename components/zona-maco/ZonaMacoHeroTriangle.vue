@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex items-center justify-center select-none w-full max-w-[440px] sm:max-w-[500px] lg:max-w-[560px] xl:max-w-[600px] pointer-events-none"
+    class="relative flex items-center justify-center select-none w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[500px] xl:max-w-[530px] pointer-events-none drop-shadow-[0_16px_36px_rgba(0,0,0,0.18)]"
   >
     <!-- Vector Oficial del Triángulo Negro (viewBox: 0 0 1001 724) -->
     <svg
@@ -20,7 +20,7 @@
       class="absolute left-[41%] top-[48%] -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full text-center"
     >
       <h1
-        class="font-barlow font-normal text-3xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[70px] text-white text-center leading-[0.92] tracking-tight select-none"
+        class="text-white text-center font-barlow font-normal text-4xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[66px] leading-[0.92] tracking-tight select-none"
       >
         Obras<br>Seleccionadas
       </h1>

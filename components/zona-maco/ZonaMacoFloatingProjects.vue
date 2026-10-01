@@ -81,28 +81,18 @@ interface FloatingProject {
   posClass: string
 }
 
-// 10 obras expandidas de extremo a extremo (max-w-[1780px]) replicando la constelacion de Figma
+// 10 obras referenciadas al centro exacto del triángulo (calc(50% +/- offset))
 const projects: FloatingProject[] = [
-  // 1. Cimiento (Extremo Izquierdo puro, como en Figma)
-  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D9D9D9', posClass: 'lg:left-[2%] xl:left-[2.5%] 2xl:left-[3%] lg:top-[50%] -translate-y-1/2 w-28 sm:w-32 lg:w-36 xl:w-44 2xl:w-48 aspect-square bg-[#D9D9D9] z-12' },
-  // 2. Curado (Medio Izquierdo, vertical)
-  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#CFC4BE', posClass: 'lg:left-[19%] xl:left-[20%] 2xl:left-[21%] lg:top-[23%] xl:top-[24%] w-24 sm:w-28 lg:w-30 xl:w-38 2xl:w-40 aspect-[3/4] bg-[#CFC4BE] z-15' },
-  // 3. Desmadre (Arriba Centro-Izq)
-  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D9D9D9', posClass: 'lg:left-[32%] xl:left-[33%] 2xl:left-[34%] lg:top-[9%] xl:top-[10%] w-28 sm:w-32 lg:w-34 xl:w-42 2xl:w-46 aspect-square bg-[#D9D9D9] z-10' },
-  // 4. Encuadre (Abajo Izquierdo)
-  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'lg:left-[20%] xl:left-[21%] 2xl:left-[22%] lg:bottom-[13%] xl:bottom-[14%] w-28 sm:w-32 lg:w-34 xl:w-42 2xl:w-46 aspect-square bg-[#EDEDED] z-14' },
-  // 5. Entretiempo (Abajo Centro-Izq, solapando ligeramente a Encuadre)
-  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA', posClass: 'lg:left-[32%] xl:left-[33%] 2xl:left-[34%] lg:bottom-[7%] xl:bottom-[8%] w-28 sm:w-32 lg:w-34 xl:w-42 2xl:w-46 aspect-square bg-[#EAEAEA] z-16' },
-  // 6. Sagaon (Arriba Centro-Der)
-  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'lg:left-[59%] xl:left-[60%] 2xl:left-[61%] lg:top-[8%] xl:top-[9%] w-28 sm:w-32 lg:w-34 xl:w-42 2xl:w-46 aspect-square bg-[#D5CFC9] z-13' },
-  // 7. Reliquia (Arriba Derecha, solapando ligeramente a Sagaon)
-  { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#D7D7CC', posClass: 'lg:left-[70%] xl:left-[71%] 2xl:left-[72%] lg:top-[16%] xl:top-[17%] w-28 sm:w-32 lg:w-34 xl:w-42 2xl:w-46 aspect-square bg-[#D7D7CC] z-14' },
-  // 8. Roberto (Medio Derecha, torre verde olivo)
-  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#434B2E', posClass: 'lg:left-[67%] xl:left-[68%] 2xl:left-[69%] lg:top-[37%] xl:top-[38%] w-26 sm:w-30 lg:w-32 xl:w-40 2xl:w-44 aspect-square bg-[#434B2E] z-15' },
-  // 9. Mai (Extremo Derecho puro, como en Figma)
-  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#D9D9D9', posClass: 'lg:right-[2%] xl:right-[2.5%] 2xl:right-[3%] lg:top-[51%] -translate-y-1/2 w-28 sm:w-32 lg:w-36 xl:w-44 2xl:w-48 aspect-square bg-[#D9D9D9] z-11' },
-  // 10. Interconexion (Abajo Derecha)
-  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#CFC4BE', posClass: 'lg:left-[69%] xl:left-[70%] 2xl:left-[71%] lg:bottom-[11%] xl:bottom-[12%] w-28 sm:w-32 lg:w-36 xl:w-44 2xl:w-48 aspect-square bg-[#CFC4BE] z-12' }
+  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-600px)] xl:left-[calc(50%-660px)] lg:top-[calc(50%-20px)] w-28 sm:w-32 lg:w-36 xl:w-42 aspect-square z-12' },
+  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%-430px)] xl:left-[calc(50%-470px)] lg:top-[calc(50%-150px)] xl:top-[calc(50%-160px)] w-24 sm:w-28 lg:w-30 xl:w-36 aspect-[3/4] z-15' },
+  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-190px)] xl:left-[calc(50%-210px)] lg:top-[calc(50%-340px)] xl:top-[calc(50%-365px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-10' },
+  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'lg:left-[calc(50%-370px)] xl:left-[calc(50%-410px)] lg:top-[calc(50%+110px)] xl:top-[calc(50%+120px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-14' },
+  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'lg:left-[calc(50%-170px)] xl:left-[calc(50%-180px)] lg:top-[calc(50%+220px)] xl:top-[calc(50%+240px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-16' },
+  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%+140px)] xl:left-[calc(50%+160px)] lg:top-[calc(50%-260px)] xl:top-[calc(50%-280px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-13' },
+  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%+290px)] xl:left-[calc(50%+330px)] lg:top-[calc(50%-210px)] xl:top-[calc(50%-230px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-14' },
+  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA', posClass: 'lg:left-[calc(50%+300px)] xl:left-[calc(50%+340px)] lg:top-[calc(50%-30px)] xl:top-[calc(50%-30px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-15' },
+  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#434B2E', posClass: 'lg:left-[calc(50%+180px)] xl:left-[calc(50%+210px)] lg:top-[calc(50%+140px)] xl:top-[calc(50%+160px)] w-26 sm:w-30 lg:w-32 xl:w-38 aspect-square z-14' },
+  { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#D7D7CC', posClass: 'lg:left-[calc(50%+450px)] xl:left-[calc(50%+510px)] lg:top-[calc(50%-10px)] w-28 sm:w-32 lg:w-36 xl:w-42 aspect-square z-11' }
 ]
 
 const cardEls = ref<HTMLElement[]>([])
