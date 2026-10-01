@@ -30,7 +30,7 @@
 
           <div class="space-y-4 sm:space-y-5 font-barlow text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] leading-relaxed lg:leading-[1.25] text-[#1C1C1C] text-left font-normal max-w-[540px]">
             <p ref="p1Ref">
-              Es un espacio de ideas y expresiones que congrega y desarrolla el mejor talento creativo, consolidándose como la sede de la formación, creación y preservación del arte, arquitectura y diseño en Latinoamérica.
+              Es un espacio creado por el arquitecto <strong class="font-bold">Tadao Ando,</strong> de ideas y expresiones que congrega y desarrolla el mejor talento creativo, consolidándose como la sede de la formación, creación y preservación del arte, arquitectura y diseño en Latinoamérica.
             </p>
             <p ref="p2Ref">
               <strong class="font-bold">La Puerta de la Creación,</strong> es una joya arquitectónica, un emblema de diseño moderno y sostenibilidad y también un vibrante espacio educativo que inspira a estudiantes y profesionales por igual.
