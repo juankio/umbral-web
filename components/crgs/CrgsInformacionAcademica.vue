@@ -36,7 +36,7 @@
         <!-- Barra Diagonal Blanca Central (Slash Inclinado "/" 1:1 Figma) con scroll reveal -->
         <div ref="slashRef" class="flex items-center justify-center px-0.5 sm:px-3 lg:px-5 select-none pointer-events-none self-center z-20 flex-shrink-0 will-change-transform">
           <div
-            class="w-2 sm:w-3 lg:w-3.5 h-[180px] sm:h-[280px] md:h-[360px] lg:h-[430px] bg-white rounded-full rotate-[16deg] transform origin-center shadow-md transition-transform duration-500"
+            class="w-2 sm:w-3 lg:w-3.5 h-[180px] sm:h-[280px] md:h-[360px] lg:h-[430px] bg-white rounded-none rotate-[16deg] transform origin-center shadow-md transition-transform duration-500"
           />
         </div>
 

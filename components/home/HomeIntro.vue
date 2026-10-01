@@ -10,7 +10,7 @@
 
           <div class="space-y-3.5 sm:space-y-4 font-barlow text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] leading-relaxed lg:leading-[1.25] text-[#1C1C1C] text-left">
             <p ref="p1Ref">
-              Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> de la Escuela de Arte y Diseño de la Universidad de Monterrey.
+              Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> obra del arquitecto y Premio Pritzker <strong class="font-bold">Tadao Ando</strong> para la Escuela de Arte y Diseño de la Universidad de Monterrey.
             </p>
             <p ref="p2Ref">
               <strong class="font-bold">Funciona como un umbral entre la Escuela y el mundo:</strong> el lugar donde el trabajo de sus estudiantes y egresados, diseñadores y artistas, se cura, se presenta y se pone a circular. Más que un mercado, es una vitrina del talento que se forma en sus aulas y talleres.

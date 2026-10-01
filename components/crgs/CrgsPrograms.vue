@@ -44,13 +44,13 @@
 
             <!-- Información del Programa 1:1 Figma -->
             <div class="flex-grow space-y-1 select-text max-w-xs sm:max-w-sm">
-              <h3 class="font-barlow font-medium text-xl sm:text-2xl lg:text-[26px] text-black leading-tight group-hover:underline">
+              <h3 class="font-barlow font-medium text-xl sm:text-2xl lg:text-[26px] text-black leading-tight text-pretty [text-wrap:pretty] group-hover:underline">
                 {{ prog.name }}
               </h3>
               <span class="font-barlow text-base sm:text-lg text-neutral-500 block font-normal leading-none pt-0.5">
                 {{ prog.code }}
               </span>
-              <p class="font-barlow text-sm sm:text-base text-neutral-700 leading-snug pt-1">
+              <p class="font-barlow text-sm sm:text-base text-neutral-700 leading-snug pt-1 text-pretty [text-wrap:pretty]">
                 {{ prog.description }}
               </p>
             </div>
@@ -102,11 +102,11 @@ const subtextRef = ref<HTMLElement | null>(null)
 const { observeScrollReveal } = useScrollAnimation()
 
 const programs: Program[] = [
-  { code: 'LDG', name: 'Licenciatura en Diseño Gráfico', description: 'Estudia la Licenciatura en Diseño Gráfico en UDEM y desarolla tu creatividad con técnicas innovadoras.', image: '/images/program-triangle-2.webp' },
-  { code: 'LINT', name: 'Licenciatura en Diseño de Interiores', description: 'Estudia la Licenciatura en Diseño de Interiores en UDEM, y transforma diferentes espacios con creatividad.', image: '/images/program-triangle-3.webp' },
-  { code: 'LDM', name: 'Licenciatura en Diseño de Moda', description: 'Estudia la Licenciatura en Diseño de Moda en UDEM y crea tendencias innovadoras con una formación integral.', image: '/images/program-triangle-4.webp' },
-  { code: 'LDI', name: 'Licenciatura en Diseño Industrial', description: 'Estudia la Licenciatura en Diseño Industrial en UDEM y desarolla productos innovadores con un enfoque en funcionalidad.', image: '/images/program-triangle-5.webp' },
-  { code: 'LAED', name: 'Licenciatura en Animación y Efectos Digitales', description: 'Estudia la Licenciatura en Animación y Efectos Digitales en UDEM y domina técnicas de alto impacto.', image: '/images/program-triangle-1.webp' }
+  { code: 'LDG', name: 'Licenciatura en Diseño\u00A0Gráfico', description: 'Estudia la Licenciatura en Diseño Gráfico en UDEM y desarrolla tu creatividad con técnicas\u00A0innovadoras.', image: '/images/program-triangle-2.webp' },
+  { code: 'LINT', name: 'Licenciatura en Diseño de\u00A0Interiores', description: 'Estudia la Licenciatura en Diseño de Interiores en UDEM, y transforma diferentes espacios con\u00A0creatividad.', image: '/images/program-triangle-3.webp' },
+  { code: 'LDM', name: 'Licenciatura en Diseño de\u00A0Moda', description: 'Estudia la Licenciatura en Diseño de Moda en UDEM y crea tendencias innovadoras con una formación\u00A0integral.', image: '/images/program-triangle-4.webp' },
+  { code: 'LDI', name: 'Licenciatura en Diseño\u00A0Industrial', description: 'Estudia la Licenciatura en Diseño Industrial en UDEM y desarrolla productos innovadores con un enfoque en\u00A0funcionalidad.', image: '/images/program-triangle-5.webp' },
+  { code: 'LAED', name: 'Licenciatura en Animación y Efectos\u00A0Digitales', description: 'Estudia la Licenciatura en Animación y Efectos Digitales en UDEM y domina técnicas de alto\u00A0impacto.', image: '/images/program-triangle-1.webp' }
 ]
 
 const repeatedPrograms = computed(() => [...programs, ...programs, ...programs, ...programs])

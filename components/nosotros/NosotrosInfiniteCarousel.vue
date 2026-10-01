@@ -11,6 +11,7 @@
       <!-- Integrante Anterior (Izquierda) -->
       <button v-if="prevItem" type="button" @click="prev" aria-label="Ver integrante anterior" class="group/prev flex flex-col items-center shrink-0 w-[140px] xs:w-[170px] sm:w-[220px] md:w-[280px] lg:w-[330px] xl:w-[360px] opacity-35 hover:opacity-75 transition-all duration-300 transform scale-80 sm:scale-85 cursor-pointer focus:outline-none">
         <div class="relative w-full aspect-[3/4] flex items-center justify-center transition-transform duration-300 group-hover/prev:scale-105" :style="{ transform: `rotate(${getRotation(prevItem.rotation)})` }">
+          <div v-if="prevItem.facetShape" class="absolute inset-2 bg-[#1C1C1C]/[0.03] pointer-events-none -z-10" :style="{ clipPath: prevItem.facetShape }" aria-hidden="true" />
           <AppImage :src="prevItem.image" :alt="prevItem.name" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="lazy" />
         </div>
         <span v-if="prevItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-400 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ prevItem.name }}</span>
@@ -19,6 +20,7 @@
       <!-- Integrante Activo Central (Focal con Giro Expresivo) -->
       <div v-if="currentItem" class="relative z-10 flex flex-col items-center shrink-0 w-[240px] xs:w-[280px] sm:w-[340px] md:w-[400px] lg:w-[460px] xl:w-[500px] 2xl:w-[540px]">
         <div ref="cardRef" class="relative w-full aspect-[3/4] max-h-[50vh] flex items-center justify-center will-change-transform drop-shadow-[0_16px_36px_rgba(0,0,0,0.08)] hover:drop-shadow-[0_24px_48px_rgba(0,0,0,0.14)] transition-shadow duration-300" :style="{ transform: `rotate(${getRotation(currentItem.rotation)})` }">
+          <div v-if="currentItem.facetShape" class="absolute inset-2 sm:inset-4 bg-[#1C1C1C]/[0.05] pointer-events-none transition-all duration-500 -z-10" :class="currentItem.facetScale || 'scale-105'" :style="{ clipPath: currentItem.facetShape }" aria-hidden="true" />
           <AppImage :src="currentItem.image" :alt="currentItem.name || 'Stand'" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="eager" />
         </div>
         <div v-if="currentItem.name" ref="infoRef" class="mt-2 sm:mt-2.5 text-center px-2 sm:px-4 will-change-transform">
@@ -30,6 +32,7 @@
       <!-- Integrante Siguiente (Derecha) -->
       <button v-if="nextItem" type="button" @click="next" aria-label="Ver integrante siguiente" class="group/next flex flex-col items-center shrink-0 w-[140px] xs:w-[170px] sm:w-[220px] md:w-[280px] lg:w-[330px] xl:w-[360px] opacity-35 hover:opacity-75 transition-all duration-300 transform scale-80 sm:scale-85 cursor-pointer focus:outline-none">
         <div class="relative w-full aspect-[3/4] flex items-center justify-center transition-transform duration-300 group-hover/next:scale-105" :style="{ transform: `rotate(${getRotation(nextItem.rotation)})` }">
+          <div v-if="nextItem.facetShape" class="absolute inset-2 bg-[#1C1C1C]/[0.03] pointer-events-none -z-10" :style="{ clipPath: nextItem.facetShape }" aria-hidden="true" />
           <AppImage :src="nextItem.image" :alt="nextItem.name || 'Stand'" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="lazy" />
         </div>
         <span v-if="nextItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-400 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ nextItem.name }}</span>
@@ -71,7 +74,12 @@ import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { animate } from 'animejs'
 
 export interface CarouselItem {
-  name: string; role: string; image: string; rotation?: number | string
+  name: string
+  role: string
+  image: string
+  rotation?: number | string
+  facetShape?: string
+  facetScale?: string
 }
 
 const props = defineProps<{ items: CarouselItem[] }>()

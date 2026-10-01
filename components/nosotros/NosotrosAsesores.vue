@@ -39,46 +39,60 @@ onMounted(() => {
 
 const asesores: CarouselItem[] = [
   {
+    name: 'Jessica Ochoa',
+    role: 'Decana de la Escuela de Arte y Diseño',
+    image: '/images/asesor-jessica-tri.webp',
+    rotation: -6,
+    facetShape: 'polygon(50% 0%, 100% 100%, 0% 85%)',
+    facetScale: 'scale-[1.08]'
+  },
+  {
     name: 'Natalia Ceballos',
     role: 'Project Lead',
     image: '/images/asesor-natalia-tri.webp',
-    rotation: -4
+    rotation: 5,
+    facetShape: 'polygon(15% 0%, 100% 25%, 85% 100%, 0% 80%)',
+    facetScale: 'scale-[1.05]'
   },
   {
     name: 'Sergio Trujillo',
     role: 'Asesor de Diseño Gráfico',
     image: '/images/asesor-sergio-tri.webp',
-    rotation: 5
+    rotation: -3,
+    facetShape: 'polygon(0% 10%, 90% 0%, 100% 90%, 10% 100%)',
+    facetScale: 'scale-[1.07]'
   },
   {
     name: 'Edgar Morejón',
     role: 'Asesor de Diseño de Modas',
     image: '/images/asesor-edgar-tri.webp',
-    rotation: -5
+    rotation: 7,
+    facetShape: 'polygon(30% 0%, 100% 15%, 70% 100%, 0% 85%)',
+    facetScale: 'scale-[1.06]'
   },
   {
     name: 'Agustín Plancarte',
     role: 'Asesor de Diseño Industrial',
     image: '/images/asesor-agustin-tri.webp',
-    rotation: 4
+    rotation: -5,
+    facetShape: 'polygon(5% 0%, 100% 30%, 80% 100%, 0% 70%)',
+    facetScale: 'scale-[1.07]'
   },
   {
     name: 'Amparo Vázquez',
     role: 'Asesora Invitada',
     image: '/images/asesor-amparo-tri.webp',
-    rotation: -3
+    rotation: 4,
+    facetShape: 'polygon(20% 0%, 100% 10%, 90% 100%, 0% 95%)',
+    facetScale: 'scale-[1.05]'
   },
   {
     name: 'Nohemi Gamboa',
     role: 'Asesora Invitada',
     image: '/images/asesor-nohemi-tri.webp',
-    rotation: 5
-  },
-  {
-    name: 'Jessica Ochoa',
-    role: 'Asesora Invitada',
-    image: '/images/asesor-jessica-tri.webp',
-    rotation: -4
+    rotation: -7,
+    facetShape: 'polygon(0% 0%, 85% 15%, 100% 85%, 15% 100%)',
+    facetScale: 'scale-[1.08]'
   }
 ]
 </script>

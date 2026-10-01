@@ -23,7 +23,7 @@
           :key="i"
           class="flex items-center flex-shrink-0"
         >
-          <span class="font-barlow font-medium sm:font-bold text-[28px] sm:text-[34px] lg:text-[42px] text-black tracking-widest uppercase px-4 sm:px-8 leading-none">
+          <span class="font-barlow font-normal text-[28px] sm:text-[34px] lg:text-[42px] text-black tracking-widest uppercase px-4 sm:px-8 leading-none">
             PENSAMIENTO. MATERIA. CREACIÓN.
           </span>
         </div>

@@ -2,16 +2,16 @@
   <section id="proyectos" class="py-10 sm:py-14 bg-white select-none border-b border-neutral-200">
     <!-- Encabezado de sección con scroll reveal -->
     <div class="w-full px-4 sm:px-6 text-center">
-      <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl lg:text-5xl text-[#070707] text-center leading-none uppercase tracking-tight">
+      <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl lg:text-5xl text-[#070707] text-center leading-none tracking-tight">
         Proyectos Seleccionados
       </h2>
       <!-- Línea divisoria continua con expansión horizontal -->
-      <div ref="dividerRef" class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[860px] mx-auto mt-4 mb-8 sm:mb-10 will-change-transform" />
+      <div ref="dividerRef" class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1340px] xl:max-w-[1440px] mx-auto mt-4 mb-8 sm:mb-10 will-change-transform" />
     </div>
 
-    <!-- Grid Compacto de 2 Columnas -->
-    <div class="max-w-[860px] mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+    <!-- Grid Editorial de 3 Columnas -->
+    <div class="max-w-[1340px] xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
         <article
           v-for="(item, idx) in productos"
           :key="item.slug"
@@ -104,7 +104,7 @@ onMounted(() => {
   observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
   observeScrollReveal(dividerRef, { type: 'divider', origin: 'center', delay: 150 })
   cardEls.value.forEach((card, i) => {
-    observeScrollReveal(card, { type: 'card', delay: (i % 2) * 100 })
+    observeScrollReveal(card, { type: 'card', delay: (i % 3) * 80 })
   })
 })
 </script>

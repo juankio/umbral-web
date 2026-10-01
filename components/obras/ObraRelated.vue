@@ -4,7 +4,7 @@
       <!-- Encabezado con Título y Controles con flechas con scroll reveal -->
       <div class="flex items-center justify-between gap-4 mb-6 sm:mb-8">
         <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl text-black leading-none">
-          Otros proyectos seleccionados
+          Otros Proyectos Seleccionados
         </h2>
         <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
           <button

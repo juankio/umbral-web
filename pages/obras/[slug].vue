@@ -1,10 +1,18 @@
 <template>
   <div v-if="obra" class="bg-white min-h-screen text-black">
-    <!-- 1. Hero de la Obra: Foto enmarcada + Título 96px + Línea divisoria Line 6 -->
-    <ObraHero :obra="obra" />
+    <!-- Barra de navegación/retorno sutil superior -->
+    <nav class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 pt-6 sm:pt-8 pb-2 sm:pb-4">
+      <NuxtLink
+        to="/zona-maco"
+        class="inline-flex items-center gap-2 font-barlow font-normal text-sm sm:text-base text-neutral-600 hover:text-black transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-black group"
+      >
+        <span class="inline-block transition-transform duration-200 group-hover:-translate-x-1 select-none" aria-hidden="true">←</span>
+        <span>Zona Maco / Catálogo de Obras</span>
+      </NuxtLink>
+    </nav>
 
-    <!-- 2. Split Layout Exacto Figma (y: 1271 a 3800) -->
-    <article class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 py-10 lg:py-16">
+    <!-- Split Layout: Galería a la izquierda y Ficha Técnica a la derecha -->
+    <article class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 py-6 sm:py-8 lg:py-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-start">
         <!-- Columna Izquierda (Scrollable): Galería de Fotos + Fotograma de Video Oficial -->
         <div class="lg:col-span-7">
@@ -18,7 +26,7 @@
       </div>
     </article>
 
-    <!-- 3. Sección "Otros proyectos seleccionados" (Carrusel Horizontal Completo) -->
+    <!-- Sección "Otros Proyectos Seleccionados" (Carrusel Horizontal Completo) -->
     <ObraRelated :related="relatedObras" />
   </div>
 

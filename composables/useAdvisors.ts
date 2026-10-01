@@ -9,6 +9,14 @@ export interface Advisor {
 
 export const advisorsList: Advisor[] = [
   {
+    id: 'jessica',
+    name: 'Jessica Ochoa',
+    role: 'Decana de la Escuela de Arte y Diseño',
+    badge: 'ASESORÍA · ZONA MACO 2026',
+    image: '/images/asesor-jessica-tri.webp',
+    bio: 'Decana de la Escuela de Arte y Diseño del Centro Roberto Garza Sada de la Universidad de Monterrey. Ha liderado iniciativas estratégicas para impulsar la vinculación internacional, el pensamiento crítico y la proyección del talento creativo en plataformas globales como Zona Maco.'
+  },
+  {
     id: 'natalia',
     name: 'Natalia Ceballos',
     role: 'Diseño Industrial & Packaging',
