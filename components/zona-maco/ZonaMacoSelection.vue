@@ -1,7 +1,7 @@
 <template>
-  <section id="proyectos" class="scroll-mt-24 py-10 sm:py-14 bg-white select-none border-b border-neutral-200">
+  <section id="proyectos" class="relative overflow-hidden scroll-mt-24 py-10 sm:py-14 lg:py-16 bg-white select-none border-b border-neutral-200">
     <!-- Encabezado de sección con scroll reveal -->
-    <div class="w-full px-4 sm:px-6 text-center">
+    <div class="relative z-10 w-full px-4 sm:px-6 text-center">
       <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl lg:text-5xl text-[#070707] text-center leading-none tracking-tight">
         Proyectos Seleccionados
       </h2>
@@ -9,14 +9,15 @@
       <div ref="dividerRef" class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1440px] mx-auto mt-4 mb-8 sm:mb-10 will-change-transform" />
     </div>
 
-    <!-- Grid Editorial Compacto de 5 Columnas (2 filas × 5 proyectos) -->
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5 xl:gap-6">
+    <!-- Grid Editorial de 3 Columnas (patrón 3-3-3-1 centrado) -->
+    <div class="relative z-10 max-w-[1100px] xl:max-w-[1200px] mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         <article
           v-for="(item, idx) in productos"
           :key="item.slug"
           :ref="el => setCardRef(el, idx)"
           class="relative w-full aspect-square group overflow-hidden border-0 shadow-sm hover:shadow-xl transition-all duration-300 will-change-transform"
+          :class="{ 'lg:col-start-2': item.slug === 'desmadre' }"
           :style="{ backgroundColor: item.bg }"
           @mouseenter="onCardEnter(idx)"
           @mouseleave="onCardLeave(idx)"
@@ -54,20 +55,22 @@
       </div>
     </div>
 
-    <!-- Líneas en V oficiales de Figma al final (funnel de convergencia) -->
-    <div class="mt-10 sm:mt-14 lg:mt-16 flex items-end justify-center w-full max-w-[1680px] mx-auto pointer-events-none select-none overflow-hidden opacity-75 lg:opacity-90">
+    <!-- Líneas en V oficiales de Figma al fondo que abrazan la base de la cuadrícula -->
+    <div
+      class="absolute bottom-0 inset-x-0 pointer-events-none select-none z-0 flex items-end justify-center w-full max-w-[1500px] xl:max-w-[1680px] mx-auto overflow-hidden opacity-80 sm:opacity-90"
+    >
       <img
         src="/images/zm-lines-v-left.svg"
         alt=""
         aria-hidden="true"
-        class="w-1/2 max-w-[840px] h-auto object-contain object-bottom"
+        class="w-1/2 max-w-[750px] xl:max-w-[840px] h-auto object-contain object-bottom"
         loading="lazy"
       />
       <img
         src="/images/zm-lines-v-right.svg"
         alt=""
         aria-hidden="true"
-        class="w-1/2 max-w-[840px] h-auto object-contain object-bottom"
+        class="w-1/2 max-w-[750px] xl:max-w-[840px] h-auto object-contain object-bottom"
         loading="lazy"
       />
     </div>
@@ -107,22 +110,22 @@ const onCardLeave = (idx: number) => {
 
 const productos: ProductSelection[] = [
   { title: 'Encuadre', slug: 'encuadre', image: '/images/figma-product-encuadre.webp', bg: '#EDEDED' },
-  { title: 'Roberto', slug: 'roberto', image: '/images/figma-product-roberto.webp', bg: '#E5E5E0' },
   { title: 'Entretiempo', slug: 'entretiempo', image: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA' },
   { title: 'Sagaón', slug: 'sagaon', image: '/images/figma-product-sagaon.webp', bg: '#D5CFC9' },
-  { title: 'Interconexión', slug: 'interconexion', image: '/images/figma-product-interconexion.webp', bg: '#434B2E' },
-  { title: 'Reliquia', slug: 'reliquia', image: '/images/figma-product-reliquia.webp', bg: '#BEBEBE' },
-  { title: 'Curado', slug: 'curado', image: '/images/figma-product-curado.webp', bg: '#DCDCDC' },
-  { title: 'Cimiento', slug: 'cimiento', image: '/images/figma-product-cimiento.webp', bg: '#D0D0D0' },
-  { title: 'Mai', slug: 'mai', image: '/images/figma-product-mai.webp', bg: '#E2DFD8' },
-  { title: 'Desmadre', slug: 'desmadre', image: '/images/figma-product-desmadre.webp', bg: '#D3D3D3' }
+  { title: 'Interconexión', slug: 'interconexion', image: '/images/figma-product-interconexion.webp', bg: '#CFC4BE' },
+  { title: 'Roberto', slug: 'roberto', image: '/images/figma-product-roberto.webp', bg: '#434B2E' },
+  { title: 'Mai', slug: 'mai', image: '/images/figma-product-mai.webp', bg: '#D9D9D9' },
+  { title: 'Curado', slug: 'curado', image: '/images/figma-product-curado.webp', bg: '#CFC4BE' },
+  { title: 'Cimiento', slug: 'cimiento', image: '/images/figma-product-cimiento.webp', bg: '#D9D9D9' },
+  { title: 'Reliquia', slug: 'reliquia', image: '/images/figma-product-reliquia.webp', bg: '#D7D7CC' },
+  { title: 'Desmadre', slug: 'desmadre', image: '/images/figma-product-desmadre.webp', bg: '#D9D9D9' }
 ]
 
 onMounted(() => {
   observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
   observeScrollReveal(dividerRef, { type: 'divider', origin: 'center', delay: 150 })
   cardEls.value.forEach((card, i) => {
-    observeScrollReveal(card, { type: 'card', delay: (i % 5) * 60 })
+    observeScrollReveal(card, { type: 'card', delay: (i % 3) * 70 })
   })
 })
 </script>
