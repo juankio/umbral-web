@@ -3,7 +3,7 @@
     id="puerta-creacion"
     class="relative w-full min-h-[95vh] lg:min-h-screen bg-[#1C1C1C] flex flex-col items-center justify-center overflow-hidden py-20 sm:py-28 px-4 select-text"
   >
-    <div class="relative flex items-center justify-center w-full max-w-5xl my-auto">
+    <div class="relative flex items-center justify-center w-full max-w-[1360px] xl:max-w-[1480px] my-auto">
       <!-- Monolito Central: Triángulo Verde Oficial CRGS #4BA550 -->
       <div
         ref="triangleBoxRef"
@@ -43,7 +43,7 @@
         class="absolute inset-0 z-30 flex items-center justify-center opacity-0 scale-90"
         :class="isSplit ? 'pointer-events-auto' : 'pointer-events-none'"
       >
-        <div class="relative w-full max-w-2xl sm:max-w-3xl lg:max-w-4xl aspect-video bg-black border border-neutral-800 shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden rounded-xs">
+        <div class="relative w-full max-w-4xl sm:max-w-5xl lg:max-w-6xl xl:max-w-[1240px] 2xl:max-w-[1320px] aspect-video bg-black border border-neutral-800 shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden rounded-xs">
           <button
             type="button"
             @click="toggleSplit"
@@ -66,7 +66,7 @@
         </div>
       </div>
 
-      <!-- Título Monumental Cursivo (se eleva elegantemente sobre el reproductor) -->
+      <!-- Título Monumental Cursivo (se desvanece al abrir para dar paso al reproductor) -->
       <div ref="titleRef" class="absolute inset-x-0 z-20 flex items-center justify-center pointer-events-none px-4 will-change-transform">
         <h2 class="font-barlow font-medium italic text-4xl sm:text-6xl md:text-7xl lg:text-[100px] xl:text-[115px] text-white leading-none tracking-tight text-center drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] select-none">
           La Puerta de la Creación
@@ -103,12 +103,11 @@ const toggleSplit = () => {
 
     const isMobile = window.innerWidth < 640
     const isTablet = window.innerWidth < 1024
-    const offset = isMobile ? 120 : (isTablet ? 200 : 290)
-    const titleY = isMobile ? -210 : (isTablet ? -260 : -305)
+    const offset = isMobile ? 160 : (isTablet ? 360 : 540)
 
-    if (leftWingRef.value) activeAnims.push(animate(leftWingRef.value, { translateX: -offset, rotate: -2, opacity: 0.65, duration: isReduced ? 0 : 950, ease: 'outExpo' }))
-    if (rightWingRef.value) activeAnims.push(animate(rightWingRef.value, { translateX: offset, rotate: 2, opacity: 0.65, duration: isReduced ? 0 : 950, ease: 'outExpo' }))
-    if (titleRef.value) activeAnims.push(animate(titleRef.value, { translateY: titleY, scale: isMobile ? 0.72 : 0.8, duration: isReduced ? 0 : 900, ease: 'outExpo' }))
+    if (leftWingRef.value) activeAnims.push(animate(leftWingRef.value, { translateX: -offset, rotate: -2, opacity: 0.25, duration: isReduced ? 0 : 950, ease: 'outExpo' }))
+    if (rightWingRef.value) activeAnims.push(animate(rightWingRef.value, { translateX: offset, rotate: 2, opacity: 0.25, duration: isReduced ? 0 : 950, ease: 'outExpo' }))
+    if (titleRef.value) activeAnims.push(animate(titleRef.value, { opacity: [1, 0], translateY: -25, duration: isReduced ? 0 : 400, ease: 'outExpo' }))
     if (videoBoxRef.value) activeAnims.push(animate(videoBoxRef.value, { opacity: [0, 1], scale: [0.88, 1], duration: isReduced ? 0 : 850, delay: isReduced ? 0 : 120, ease: 'outExpo' }))
   } else {
     isSplit.value = false
@@ -119,7 +118,11 @@ const toggleSplit = () => {
     if (rightWingRef.value) activeAnims.push(animate(rightWingRef.value, { translateX: 0, rotate: 0, opacity: 1, duration: isReduced ? 0 : 800, ease: 'outExpo' }))
     if (titleRef.value) {
       activeAnims.push(animate(titleRef.value, {
-        translateY: 0, scale: 1, duration: isReduced ? 0 : 800, ease: 'outExpo',
+        opacity: [0, 1],
+        translateY: 0,
+        scale: 1,
+        duration: isReduced ? 0 : 600,
+        ease: 'outExpo',
         onComplete: () => {
           if (!isSplit.value && !isReduced && !isTouchOrMobile()) {
             idleAnim?.restart?.() || idleAnim?.play?.()

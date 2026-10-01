@@ -48,9 +48,9 @@
             ref="paragraphRef"
             class="font-barlow text-base sm:text-xl lg:text-[22px] xl:text-[26px] text-white/95 leading-relaxed text-left lg:text-right select-none max-w-full lg:max-w-[560px]"
           >
-            Conoce al equipo docente, profesores asesores y alumnas de
-            Diseño Gráfico e Interiores que conceptualizaron el sistema
-            visual y la museografía de <strong class="font-bold text-white">UMBRAL \ CRGS.</strong>
+            Conoce a los equipos de los proyectos seleccionados, equipo docente,
+            profesores asesores y alumnas de Diseño Gráfico e Interiores que
+            conceptualizaron el sistema visual y la museografía de <strong class="font-bold text-white">UMBRAL \ CRGS.</strong>
           </p>
         </div>
       </div>

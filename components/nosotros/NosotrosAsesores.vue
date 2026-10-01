@@ -88,7 +88,7 @@ const asesores: CarouselItem[] = [
   },
   {
     name: 'Nohemi Gamboa',
-    role: 'Asesora Invitada',
+    role: 'Project Lead',
     image: '/images/asesor-nohemi-tri.webp',
     rotation: -7,
     facetShape: 'polygon(0% 0%, 85% 15%, 100% 85%, 15% 100%)',
