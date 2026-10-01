@@ -1,6 +1,8 @@
 <template>
   <div class="bg-white min-h-screen overflow-x-hidden selection:bg-[#1C1C1C] selection:text-white">
     <NosotrosHero />
+    <AppMarquee />
+    <NosotrosGanadoresRepentina />
     <NosotrosAsesores />
     <NosotrosDisenoGrafico />
     <NosotrosDisenoInteriores />
@@ -9,6 +11,8 @@
 
 <script setup lang="ts">
 import NosotrosHero from '~/components/nosotros/NosotrosHero.vue'
+import AppMarquee from '~/components/ui/AppMarquee.vue'
+import NosotrosGanadoresRepentina from '~/components/nosotros/NosotrosGanadoresRepentina.vue'
 import NosotrosAsesores from '~/components/nosotros/NosotrosAsesores.vue'
 import NosotrosDisenoGrafico from '~/components/nosotros/NosotrosDisenoGrafico.vue'
 import NosotrosDisenoInteriores from '~/components/nosotros/NosotrosDisenoInteriores.vue'
