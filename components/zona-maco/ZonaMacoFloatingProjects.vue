@@ -1,35 +1,69 @@
 <template>
-  <div class="hidden lg:block absolute inset-0 pointer-events-none z-20 select-none">
-    <div class="relative w-full h-full max-w-[1720px] mx-auto">
-      <NuxtLink
-        v-for="(project, index) in projects"
-        :key="project.to"
-        :to="project.to"
-        class="floating-card absolute pointer-events-auto group focus:outline-none cursor-pointer transition-all duration-300"
-        :class="[project.posClass, hoveredIndex === index ? '!z-[50] !rotate-0 scale-[1.08]' : '']"
-        :aria-label="`Ver obra ${project.title}`"
-        @mouseenter="handleMouseEnter(index)"
-        @mouseleave="handleMouseLeave(index)"
-      >
-        <div
-          :ref="(el) => setCardRef(el, index)"
-          class="w-full h-full relative overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.14)] group-hover:shadow-[0_24px_48px_rgba(0,0,0,0.28)] transition-shadow duration-300 transform-gpu"
-          :style="{ backgroundColor: project.bg }"
+  <div>
+    <!-- Desktop Constellation (lg+): Agrupadas alrededor del título según Figma -->
+    <div class="hidden lg:block absolute inset-0 pointer-events-none z-20 select-none">
+      <div class="relative w-full h-full max-w-[1720px] mx-auto">
+        <NuxtLink
+          v-for="(project, index) in projects"
+          :key="project.to"
+          :to="project.to"
+          class="floating-card absolute pointer-events-auto group focus:outline-none cursor-pointer transition-all duration-300"
+          :class="[project.posClass, hoveredIndex === index ? '!z-50' : '']"
+          :aria-label="`Ver obra ${project.title}`"
+          @mouseenter="handleMouseEnter(index)"
+          @mouseleave="handleMouseLeave(index)"
         >
-          <img
-            :src="project.img"
-            :alt="project.title"
-            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-            loading="eager"
-            draggable="false"
-          />
-          <div class="absolute bottom-1.5 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-            <span class="font-barlow font-medium text-xs sm:text-sm text-black uppercase bg-white/90 px-1.5 py-0.5 shadow-xs">
-              {{ project.title }}
-            </span>
+          <div
+            :ref="(el) => setCardRef(el, index)"
+            class="w-full h-full relative overflow-hidden border border-black/10 shadow-[0_8px_24px_rgba(0,0,0,0.1)] group-hover:scale-105 group-hover:shadow-[0_16px_36px_rgba(0,0,0,0.2)] transition-all duration-300 transform-gpu flex items-center justify-center"
+            :style="{ backgroundColor: project.bg }"
+          >
+            <img
+              :src="project.img"
+              :alt="project.title"
+              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              loading="eager"
+              draggable="false"
+            />
+            <div class="absolute bottom-1.5 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+              <span class="font-barlow font-medium text-xs sm:text-sm text-black uppercase bg-white/95 px-1.5 py-0.5 shadow-xs border border-black/5">
+                {{ project.title }}
+              </span>
+            </div>
           </div>
-        </div>
-      </NuxtLink>
+        </NuxtLink>
+      </div>
+    </div>
+
+    <!-- Mobile Gallery (< lg): Tira horizontal y grid compacta armónica sin desbordes -->
+    <div class="lg:hidden w-full max-w-2xl mx-auto px-4 mt-2 sm:mt-4 select-none">
+      <div class="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-3 overflow-x-auto sm:overflow-visible pb-4 pt-1 px-1 no-scrollbar snap-x snap-mandatory">
+        <NuxtLink
+          v-for="project in projects"
+          :key="`mobile-${project.to}`"
+          :to="project.to"
+          class="group relative shrink-0 w-24 xs:w-28 sm:w-full aspect-square snap-center focus:outline-none transition-transform duration-200 active:scale-95"
+          :aria-label="`Ver obra ${project.title}`"
+        >
+          <div
+            class="w-full h-full relative overflow-hidden border border-black/10 shadow-[0_4px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.18)] flex items-center justify-center transition-all duration-200"
+            :style="{ backgroundColor: project.bg }"
+          >
+            <img
+              :src="project.img"
+              :alt="project.title"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+              draggable="false"
+            />
+            <div class="absolute bottom-1 right-1 pointer-events-none">
+              <span class="font-barlow font-medium text-[10px] text-black uppercase bg-white/90 px-1 py-0.2 shadow-2xs">
+                {{ project.title }}
+              </span>
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -46,80 +80,18 @@ interface FloatingProject {
   posClass: string
 }
 
-// 10 obras en dos clusters de collage superpuesto rodeando el triángulo oficial
+// 10 obras en constelación exterior segura abrazando el perímetro del triángulo (100% afuera)
 const projects: FloatingProject[] = [
-  // Cluster Izquierdo (5 obras superpuestas en capas)
-  {
-    to: '/obras/desmadre',
-    title: 'Desmadre',
-    img: '/images/figma-product-desmadre.webp',
-    bg: '#D3D3D3',
-    posClass: 'left-[9%] sm:left-[10%] lg:left-[11%] top-[12%] lg:top-[14%] w-24 sm:w-28 lg:w-32 aspect-square -rotate-4 z-10'
-  },
-  {
-    to: '/obras/encuadre',
-    title: 'Encuadre',
-    img: '/images/figma-product-encuadre.webp',
-    bg: '#EDEDED',
-    posClass: 'left-[15%] sm:left-[16%] lg:left-[17%] top-[18%] lg:top-[20%] w-28 sm:w-32 lg:w-36 aspect-square rotate-2 z-15'
-  },
-  {
-    to: '/obras/interconexion',
-    title: 'Interconexión',
-    img: '/images/figma-product-interconexion.webp',
-    bg: '#434B2E',
-    posClass: 'left-[17%] sm:left-[18%] lg:left-[19%] top-[38%] lg:top-[40%] w-24 sm:w-28 lg:w-32 aspect-square -rotate-3 z-20 bg-[#434B2E]'
-  },
-  {
-    to: '/obras/mai',
-    title: 'Mai',
-    img: '/images/figma-product-mai.webp',
-    bg: '#E2DFD8',
-    posClass: 'left-[9%] sm:left-[10%] lg:left-[11%] top-[42%] lg:top-[44%] w-22 sm:w-26 lg:w-30 aspect-square rotate-3 z-18 bg-[#E2DFD8]'
-  },
-  {
-    to: '/obras/curado',
-    title: 'Curado',
-    img: '/images/figma-product-curado.webp',
-    bg: '#DCDCDC',
-    posClass: 'left-[18%] sm:left-[19%] lg:left-[20%] xl:left-[21%] top-[56%] lg:top-[58%] w-24 sm:w-28 lg:w-32 xl:w-36 aspect-square -rotate-2 z-25'
-  },
-  // Cluster Derecho (5 obras superpuestas en capas)
-  {
-    to: '/obras/reliquia',
-    title: 'Reliquia',
-    img: '/images/figma-product-reliquia.webp',
-    bg: '#BEBEBE',
-    posClass: 'right-[10%] sm:right-[11%] lg:right-[12%] top-[10%] lg:top-[12%] w-26 sm:w-30 lg:w-34 aspect-square -rotate-3 z-10'
-  },
-  {
-    to: '/obras/roberto',
-    title: 'Roberto',
-    img: '/images/figma-product-roberto.webp',
-    bg: '#E5E5E0',
-    posClass: 'right-[17%] sm:right-[18%] lg:right-[19%] top-[16%] lg:top-[18%] w-28 sm:w-32 lg:w-36 aspect-square rotate-3 z-15 bg-[#E5E5E0]'
-  },
-  {
-    to: '/obras/sagaon',
-    title: 'Sagaón',
-    img: '/images/figma-product-sagaon.webp',
-    bg: '#D5CFC9',
-    posClass: 'right-[11%] sm:right-[12%] lg:right-[13%] top-[32%] lg:top-[34%] w-24 sm:w-28 lg:w-32 aspect-[3/4] -rotate-2 z-20'
-  },
-  {
-    to: '/obras/entretiempo',
-    title: 'Entretiempo',
-    img: '/images/figma-product-entretiempo.webp',
-    bg: '#EAEAEA',
-    posClass: 'right-[18%] sm:right-[19%] lg:right-[20%] top-[46%] lg:top-[48%] w-26 sm:w-30 lg:w-34 aspect-square rotate-2 z-25'
-  },
-  {
-    to: '/obras/cimiento',
-    title: 'Cimiento',
-    img: '/images/figma-product-cimiento.webp',
-    bg: '#D0D0D0',
-    posClass: 'right-[12%] sm:right-[13%] lg:right-[14%] top-[62%] lg:top-[64%] w-24 sm:w-28 lg:w-30 aspect-square -rotate-4 z-18'
-  }
+  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-100px)] xl:left-[calc(50%-110px)] lg:top-[calc(50%-310px)] xl:top-[calc(50%-330px)] w-28 sm:w-32 lg:w-36 aspect-square z-10' },
+  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%-460px)] xl:left-[calc(50%-500px)] lg:top-[calc(50%-160px)] xl:top-[calc(50%-170px)] w-28 sm:w-32 lg:w-36 aspect-square z-15' },
+  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-630px)] xl:left-[calc(50%-680px)] lg:top-[calc(50%-20px)] xl:top-[calc(50%-20px)] w-32 sm:w-36 lg:w-40 aspect-square z-12' },
+  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'lg:left-[calc(50%-430px)] xl:left-[calc(50%-470px)] lg:top-[calc(50%+80px)] xl:top-[calc(50%+90px)] w-28 sm:w-32 lg:w-36 aspect-square z-14' },
+  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'lg:left-[calc(50%-160px)] xl:left-[calc(50%-170px)] lg:top-[calc(50%+225px)] xl:top-[calc(50%+240px)] w-30 sm:w-34 lg:w-38 aspect-square z-16' },
+  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%+140px)] xl:left-[calc(50%+160px)] lg:top-[calc(50%-240px)] xl:top-[calc(50%-260px)] w-30 sm:w-34 lg:w-38 aspect-square z-13' },
+  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#E2DFD8', posClass: 'lg:left-[calc(50%+310px)] xl:left-[calc(50%+350px)] lg:top-[calc(50%-170px)] xl:top-[calc(50%-190px)] w-30 sm:w-34 lg:w-38 aspect-square z-11' },
+  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp', bg: '#EAEAEA', posClass: 'lg:left-[calc(50%+320px)] xl:left-[calc(50%+360px)] lg:top-[calc(50%-30px)] xl:top-[calc(50%-30px)] w-30 sm:w-34 lg:w-38 aspect-square z-15' },
+  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#434B2E', posClass: 'lg:left-[calc(50%+180px)] xl:left-[calc(50%+210px)] lg:top-[calc(50%+130px)] xl:top-[calc(50%+140px)] w-28 sm:w-32 lg:w-36 aspect-square z-14' },
+  { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#D7D7CC', posClass: 'lg:left-[calc(50%+370px)] xl:left-[calc(50%+410px)] lg:top-[calc(50%+80px)] xl:top-[calc(50%+90px)] w-28 sm:w-32 lg:w-36 aspect-square z-12' }
 ]
 
 const cardEls = ref<HTMLElement[]>([])
