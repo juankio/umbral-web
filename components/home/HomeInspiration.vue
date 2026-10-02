@@ -3,8 +3,8 @@
     <div class="max-w-[1440px] mx-auto px-6 sm:px-12 space-y-16 lg:space-y-24">
       <!-- Encabezado de Inspiración -->
       <div class="text-center space-y-4">
-        <h2 ref="titleRef" class="font-barlow font-medium text-5xl md:text-[80px] lg:text-[104px] text-white text-center leading-none uppercase tracking-tight">
-          NUESTRA INSPIRACIÓN
+        <h2 ref="titleRef" class="font-barlow font-medium text-5xl md:text-[80px] lg:text-[104px] xl:text-[124px] text-white text-center leading-none tracking-tight">
+          Nuestra Inspiración
         </h2>
         <p ref="subRef" class="font-barlow text-lg sm:text-2xl lg:text-3xl text-white/80 text-center leading-snug font-normal max-w-4xl mx-auto">
           Conoce acerca de los que hicieron el Centro Roberto Garza Sada una realidad.

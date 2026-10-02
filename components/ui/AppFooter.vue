@@ -25,10 +25,10 @@
         </a>
       </div>
 
-      <!-- Columna 2 (Centro-Izquierda): Logotipo oficial CRGS con enlace a /crgs -->
+      <!-- Columna 2 (Centro-Izquierda): Logotipo oficial CRGS con enlace a /nosotros -->
       <div class="flex items-center justify-start sm:justify-center lg:justify-center justify-self-start sm:justify-self-center lg:justify-self-center">
         <NuxtLink
-          to="/crgs"
+          to="/nosotros"
           class="inline-block hover:opacity-90 hover:scale-105 transition-all duration-300 flex-shrink-0"
           aria-label="Centro Roberto Garza Sada"
         >

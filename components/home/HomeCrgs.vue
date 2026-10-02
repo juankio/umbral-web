@@ -1,6 +1,6 @@
 <template>
-  <section ref="sectionRef" class="relative w-full bg-white py-16 sm:py-20 lg:py-28 overflow-hidden select-none">
-    <!-- Triángulo Azul Pastel Oficial (#A0BDD7) con animación y parallax -->
+  <section ref="sectionRef" id="HomeCrgs" class="relative w-full bg-white py-16 sm:py-20 lg:py-28 overflow-hidden select-none">
+    <!-- Triángulo Azul Pastel Oficial (#A5BCD5) con animación y parallax -->
     <div
       ref="blueTriangleRef"
       class="absolute -left-12 sm:-left-24 lg:-left-36 xl:-left-44 top-[14%] w-[440px] sm:w-[620px] lg:w-[820px] xl:w-[960px] z-0 select-none pointer-events-none will-change-transform"
@@ -13,7 +13,7 @@
       >
         <path
           d="M538.686 638.486L0 302.049L985 0L538.686 638.486Z"
-          fill="#A0BDD7"
+          fill="#A5BCD5"
         />
       </svg>
     </div>
@@ -28,12 +28,12 @@
             Centro Roberto<br>Garza Sada
           </h2>
 
-          <div class="space-y-4 sm:space-y-5 font-barlow text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] leading-relaxed lg:leading-[1.25] text-[#1C1C1C] text-left font-normal max-w-[540px]">
+          <div class="space-y-4 sm:space-y-5 font-barlow text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] leading-relaxed lg:leading-[1.2] tracking-[-0.02em] text-[#1C1C1C] text-left sm:text-justify font-normal max-w-[560px]">
             <p ref="p1Ref">
-              Es un espacio creado por el arquitecto <strong class="font-bold">Tadao Ando,</strong> de ideas y expresiones que congrega y desarrolla el mejor talento creativo, consolidándose como la sede de la formación, creación y preservación del arte, arquitectura y diseño en Latinoamérica.
+              Es un espacio creado por el arquitecto <strong class="font-medium text-[#1C1C1C]">Tadao Ando,</strong> donde buscaba crear un lugar para las ideas y expresiones que congrega y desarrolla el mejor talento creativo, consolidándose como la sede de la formación, creación y preservación del arte, arquitectura y diseño en Latinoamérica.
             </p>
             <p ref="p2Ref">
-              <strong class="font-bold">La Puerta de la Creación,</strong> es una joya arquitectónica, un emblema de diseño moderno y sostenibilidad y también un vibrante espacio educativo que inspira a estudiantes y profesionales por igual.
+              <strong class="font-medium text-[#1C1C1C]">La Puerta de la Creación,</strong> es una joya arquitectónica, un emblema de diseño moderno y sostenibilidad y también un vibrante espacio educativo que inspira a estudiantes y profesionales por igual.
             </p>
           </div>
         </div>

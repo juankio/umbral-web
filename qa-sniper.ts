@@ -26,7 +26,9 @@ async function runQA() {
     { path: '/', name: 'home' },
     { path: '/zona-maco', name: 'zona-maco' },
     { path: '/obras/encuadre', name: 'obra-encuadre' },
-    { path: '/crgs', name: 'crgs' }
+    { path: '/nosotros', name: 'nosotros' },
+    { path: '/integrantes', name: 'integrantes' },
+    { path: '/crgs', name: 'crgs-redirect' }
   ]
 
   for (const r of routes) {
@@ -159,7 +161,7 @@ async function runQA() {
           passed: heroImgOk,
           desc: `Imagen hero cargada OK: ${heroImgOk}`
         })
-      } else if (r.path === '/crgs') {
+      } else if (r.path === '/crgs' || r.path === '/nosotros') {
         // CRGS: Héroe Monumental, H1 Centro Roberto Garza Sada, Foto edificio y Tadao Ando
         const h1Text = (await page.locator('h1').first().innerText()).replace(/\s+/g, ' ').trim()
         const isCRGS = h1Text.includes('Centro Roberto Garza Sada')
@@ -312,7 +314,7 @@ async function runQA() {
   console.log(`🎯 EJECUTANDO PRUEBAS DE INTERACCIÓN`)
   console.log(`========================================`)
 
-  // Interacción 1: Header - Click en enlace "Nosotros" -> /crgs
+  // Interacción 1: Header - Click en enlace "Nosotros" -> /nosotros
   {
     const context = await browser.newContext({ viewport: { width: 1920, height: 1080 } })
     const page = await context.newPage()
@@ -320,14 +322,14 @@ async function runQA() {
 
     const nosotrosLink = page.locator('header nav a:has-text("Nosotros")')
     await nosotrosLink.click()
-    await page.waitForURL('**/crgs')
+    await page.waitForURL('**/nosotros')
 
     const currentUrl = page.url()
-    const isCrgs = currentUrl.endsWith('/crgs')
+    const isNosotros = currentUrl.endsWith('/nosotros')
     results.push({
       suite: 'Interacciones',
-      name: 'Header - Enlace "Nosotros" navega a /crgs',
-      status: isCrgs ? 'PASS' : 'FAIL',
+      name: 'Header - Enlace "Nosotros" navega a /nosotros',
+      status: isNosotros ? 'PASS' : 'FAIL',
       details: `URL actual alcanzada: ${currentUrl}`
     })
 
@@ -459,12 +461,12 @@ async function runQA() {
 
     const mobileNosotrosLink = page.locator('header div.md\\:hidden a:has-text("Nosotros")')
     await mobileNosotrosLink.click()
-    await page.waitForURL('**/crgs')
+    await page.waitForURL('**/nosotros')
 
     results.push({
       suite: 'Mobile',
-      name: 'Mobile Drawer - Menú hamburguesa abre y navega a /crgs',
-      status: page.url().endsWith('/crgs') ? 'PASS' : 'FAIL',
+      name: 'Mobile Drawer - Menú hamburguesa abre y navega a /nosotros',
+      status: page.url().endsWith('/nosotros') ? 'PASS' : 'FAIL',
       details: `Navegó a: ${page.url()}`
     })
 

@@ -1,25 +1,30 @@
 <template>
-  <section ref="sectionRef" class="w-full bg-white py-12 sm:py-16 lg:py-20 overflow-hidden">
-    <div class="max-w-[1200px] mx-auto px-6 sm:px-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
-        <!-- Columna Izquierda: Logo y Manifiesto Oficial -->
-        <div class="lg:col-span-7 flex flex-col space-y-5 sm:space-y-6">
-          <div ref="logoRef" class="max-w-[220px] sm:max-w-[260px] w-full">
-            <img src="/images/logo-umbral.png" alt="Umbral - CRGS" class="w-full h-auto object-contain" />
-          </div>
+  <section ref="sectionRef" class="w-full bg-white overflow-hidden">
+    <div class="max-w-[1200px] xl:max-w-[1280px] mx-auto px-6 sm:px-10 py-10 sm:py-12 lg:py-14 xl:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
+        <!-- Columna Izquierda: Encabezado con Logotipo Oficial y Manifiesto Justificado -->
+        <div class="lg:col-span-7 flex flex-col w-full max-w-[720px]">
+          <!-- Titular: Logotipo Vectorial Oficial UMBRAL \ CRGS (Nodo 117:386 Figma) -->
+          <img
+            ref="headingRef"
+            src="/images/logo-umbral.webp"
+            alt="UMBRAL \ CRGS"
+            class="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] xl:max-w-[390px] h-auto object-contain mb-4 sm:mb-5 lg:mb-6 block"
+          />
 
-          <div class="space-y-3.5 sm:space-y-4 font-barlow text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[24px] leading-relaxed lg:leading-[1.25] text-[#1C1C1C] text-left">
+          <!-- Manifiesto de párrafos con tipografía Barlow Condensed exacta de Figma (Nodo 112:33) -->
+          <div class="font-barlow text-sm sm:text-base lg:text-[19px] xl:text-[21px] leading-[1.22] tracking-[-0.015em] text-[#1C1C1C] text-justify space-y-3 sm:space-y-3.5 lg:space-y-4 font-normal">
             <p ref="p1Ref">
-              Es la plataforma del <strong class="font-bold">Centro Roberto Garza Sada,</strong> creado por el arquitecto <strong class="font-bold">Tadao Ando</strong> para la Escuela de Arte y Diseño de la Universidad de Monterrey.
+              Es la plataforma del <span class="font-medium">Centro Roberto Garza Sada,</span> de la Escuela de Arte y Diseño de la Universidad de Monterrey.
             </p>
             <p ref="p2Ref">
-              <strong class="font-bold">Funciona como un umbral entre la Escuela y el mundo:</strong> el lugar donde el trabajo de sus estudiantes y egresados, diseñadores y artistas, se cura, se presenta y se pone a circular. Más que un mercado, es una vitrina del talento que se forma en sus aulas y talleres.
+              <span class="font-medium">Funciona como un umbral entre la Escuela y el mundo:</span> el lugar donde el trabajo de sus estudiantes y egresados, diseñadores y artistas, se cura, se presenta y se pone a circular. Más que un mercado, es una vitrina del talento que se forma en sus aulas y talleres.
             </p>
             <p ref="p3Ref">
               Cada pieza que aparece aquí atravesó el mismo camino: un pensamiento que se hizo materia para convertirse finalmente en creación.
             </p>
             <p ref="p4Ref">
-              El CRGS realizó una repentina de diseño para definir los proyectos que se expondrán en Zona Maco. Participaron 35 equipos, quienes tuvieron 8 horas para desarrollar una propuesta bajo el concepto "el diseño del norte". De esta dinámica se seleccionaron los 10 proyectos que representarán al CRGS en Zona Maco 2027, la feria de arte y diseño más importante de Latinoamérica.
+              El CRGS realizó una repentina de diseño para definir los proyectos que se expondrán en Zona Maco. Participaron 35 equipos, quienes tuvieron 8 horas para desarrollar una propuesta bajo el concepto "el diseño del norte". De esta dinámica se seleccionaron los 10 proyectos que representarán al CRGS en Zona Maco 2027, la feria de arte y diseño más importante de Latinoamérica
             </p>
             <p ref="p5Ref" class="font-bold">
               La Repentina Zona Maco 2027 es el primer capítulo de este proyecto.
@@ -27,37 +32,37 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Fotos puras y triángulo oficial Vector 1 de Figma (#FDCF2C) -->
-        <div class="lg:col-span-5 relative flex flex-col items-center w-full max-w-[480px] lg:max-w-[500px] mx-auto lg:ml-auto">
+        <!-- Columna Derecha: Fotos puras y triángulo amarillo oficial Vector 1 de Figma (#F6D152) -->
+        <div class="lg:col-span-5 relative flex flex-col items-center w-full max-w-[380px] lg:max-w-[420px] xl:max-w-[440px] mx-auto lg:ml-auto">
           <!-- Foto 1 (Arriba): Exterior atardecer CRGS (desfasada a la derecha) -->
-          <div ref="photo1Ref" class="relative z-10 w-[85%] sm:w-[88%] self-end shadow-sm">
+          <div ref="photo1Ref" class="relative z-10 w-[82%] sm:w-[84%] self-end shadow-sm">
             <AppImage
               src="/images/figma-intro-crgs-top.webp"
               alt="Centro Roberto Garza Sada - Voladizo exterior al atardecer"
               img-class="w-full h-auto object-cover block"
-              loading="lazy"
+              loading="eager"
             />
           </div>
 
-          <!-- Triángulo Amarillo Oficial Vector 1 de Figma (#FDCF2C, id: 214:130) con parallax y hover -->
+          <!-- Triángulo Amarillo Oficial (Nodo 112:35 Figma) -->
           <div
-            ref="triangleRef"
-            class="relative z-20 w-[96%] sm:w-[98%] -my-14 sm:-my-20 lg:-my-24 self-start select-none cursor-pointer will-change-transform"
-            @mousemove="handleOrigamiMove(triangleRef, $event)"
-            @mouseleave="handleOrigamiLeave(triangleRef)"
+            ref="triangleParallaxRef"
+            class="relative z-20 w-full -my-10 sm:-my-12 lg:-my-14 xl:-my-16 will-change-transform"
           >
-            <svg viewBox="0 0 652 432" fill="none" class="w-full h-auto block select-none">
-              <path d="M420.661 432L0 276.517L651.902 0L420.661 432Z" fill="#FDCF2C" />
-            </svg>
+            <div class="w-full select-none">
+              <svg viewBox="0 0 680 385" fill="none" class="w-full h-auto block select-none pointer-events-none">
+                <path d="M229.276 384.749L0 0L680 194.197L229.276 384.749Z" fill="#F6D152" />
+              </svg>
+            </div>
           </div>
 
           <!-- Foto 2 (Abajo): Escalinata y patio de concreto CRGS -->
-          <div ref="photo2Ref" class="relative z-0 w-full self-start shadow-sm">
+          <div ref="photo2Ref" class="relative z-0 w-[88%] sm:w-[90%] self-start shadow-sm">
             <AppImage
               src="/images/figma-intro-crgs-bottom.webp"
               alt="Centro Roberto Garza Sada - Escalinata y patio de concreto"
               img-class="w-full h-auto object-cover block"
-              loading="lazy"
+              loading="eager"
             />
           </div>
         </div>
@@ -70,10 +75,9 @@
 import { ref, onMounted } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
 import { useParallaxMotion } from '~/composables/useParallaxMotion'
-import { useHoverMotion } from '~/composables/useHoverMotion'
 
 const sectionRef = ref<HTMLElement | null>(null)
-const logoRef = ref<HTMLElement | null>(null)
+const headingRef = ref<HTMLElement | null>(null)
 const p1Ref = ref<HTMLElement | null>(null)
 const p2Ref = ref<HTMLElement | null>(null)
 const p3Ref = ref<HTMLElement | null>(null)
@@ -81,21 +85,20 @@ const p4Ref = ref<HTMLElement | null>(null)
 const p5Ref = ref<HTMLElement | null>(null)
 const photo1Ref = ref<HTMLElement | null>(null)
 const photo2Ref = ref<HTMLElement | null>(null)
-const triangleRef = ref<HTMLElement | null>(null)
+const triangleParallaxRef = ref<HTMLElement | null>(null)
 
 const { observeScrollReveal } = useScrollAnimation()
-const { handleOrigamiMove, handleOrigamiLeave } = useHoverMotion()
-useParallaxMotion(triangleRef, 0.06, 24)
+useParallaxMotion(triangleParallaxRef, 0.05, 20)
 
 onMounted(() => {
-  observeScrollReveal(logoRef, { type: 'heading', delay: 50 })
+  observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
   observeScrollReveal(p1Ref, { type: 'paragraph', delay: 100 })
   observeScrollReveal(p2Ref, { type: 'paragraph', delay: 160 })
   observeScrollReveal(p3Ref, { type: 'paragraph', delay: 220 })
   observeScrollReveal(p4Ref, { type: 'paragraph', delay: 280 })
   observeScrollReveal(p5Ref, { type: 'paragraph', delay: 340 })
   observeScrollReveal(photo1Ref, { type: 'image', delay: 120 })
-  observeScrollReveal(triangleRef, { type: 'triangle', delay: 200 })
+  observeScrollReveal(triangleParallaxRef, { type: 'triangle', delay: 200 })
   observeScrollReveal(photo2Ref, { type: 'image', delay: 280 })
 })
 </script>

@@ -1,98 +1,144 @@
 <template>
-  <section id="asesores-proyectos" class="relative w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-6 sm:pb-8 lg:pb-10 scroll-mt-24 lg:min-h-[calc(100vh-80px)] lg:max-h-[960px] flex flex-col justify-center overflow-hidden select-text">
-    <!-- Encabezado de Sección 1:1 Figma (Node 407:65 & 417:268) con scroll reveal -->
-    <div class="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20 text-center">
-      <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-[#070707] text-center leading-tight tracking-tight">
-        Asesores de Proyectos
-      </h2>
+  <section id="asesores-proyectos" class="relative w-full bg-white pt-4 pb-20 sm:pt-6 sm:pb-28 lg:pt-8 lg:pb-36 xl:pb-44 scroll-mt-24 select-text">
+    <div class="w-full max-w-[1500px] xl:max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-12">
+      <!-- Línea horizontal completa antes de Asesores de Proyectos (1:1 Figma) -->
+      <div
+        ref="lineTopRef"
+        class="h-[1.5px] bg-[#070707] w-full mb-14 sm:mb-16 lg:mb-20 will-change-transform"
+      />
 
-      <!-- Bajada Institucional (1:1 Figma Node 417:268) -->
-      <p ref="subtextRef" class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-2xl text-[#0B0B0B]/85 text-center leading-snug sm:leading-relaxed max-w-3xl sm:max-w-4xl mx-auto mt-2.5 sm:mt-3.5 mb-3.5 sm:mb-5">
-        Profesores de la Escuela de Arte y Diseño fueron asesores y guías durante el proceso de los proyectos seleccionados.
-      </p>
+      <!-- Encabezado oficial con triángulo naranja de Figma detrás (Nodo 503:227) -->
+      <div class="relative flex items-center justify-center py-8 sm:py-10 lg:py-12 mb-20 sm:mb-24 lg:mb-28">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <svg
+            ref="triangleRef"
+            viewBox="0 0 269 283"
+            class="w-[180px] sm:w-[220px] lg:w-[250px] xl:w-[269px] h-auto mx-auto select-none pointer-events-none will-change-transform"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M28.9293 251.912L0 0L269 282.562L28.9293 251.912Z" fill="#E69D37" />
+          </svg>
+        </div>
 
-      <!-- Línea divisoria fina negra con expansión horizontal -->
-      <div ref="lineRef" class="w-full max-w-[1676px] mx-auto h-[1px] sm:h-[2px] bg-[#030303] my-3 sm:my-4 will-change-transform" />
+        <h2
+          ref="headingRef"
+          class="relative z-10 font-barlow font-normal text-4xl sm:text-5xl lg:text-6xl text-[#070707] text-center leading-tight tracking-tight will-change-transform"
+        >
+          Asesores de Proyectos
+        </h2>
+      </div>
+
+      <!-- Retícula escalonada de 4 columnas (alternando desplazamiento 3+1) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 lg:gap-x-9 gap-y-7 sm:gap-y-9 lg:gap-y-10 max-w-[1080px] xl:max-w-[1140px] 2xl:max-w-[1200px] mx-auto">
+        <NosotrosCreadorCard
+          v-for="(asesor, index) in asesores"
+          :key="asesor.name + asesor.career"
+          :alumno="asesor"
+          :class="colStartClasses[index]"
+        />
+      </div>
+
+      <!-- Línea negra horizontal completa de cierre de Asesores (1:1 Figma) -->
+      <div
+        ref="lineBottomRef"
+        class="h-[1.5px] bg-[#070707] w-full mt-14 sm:mt-16 lg:mt-20 will-change-transform"
+      />
     </div>
-
-    <!-- Carrusel Infinito con Giros Dinámicos (Figma) -->
-    <NosotrosInfiniteCarousel :items="asesores" />
   </section>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import NosotrosInfiniteCarousel, { type CarouselItem } from './NosotrosInfiniteCarousel.vue'
+import NosotrosCreadorCard, { type AlumnoCreador } from './NosotrosCreadorCard.vue'
 
+const triangleRef = ref<HTMLElement | null>(null)
 const headingRef = ref<HTMLElement | null>(null)
-const subtextRef = ref<HTMLElement | null>(null)
-const lineRef = ref<HTMLElement | null>(null)
+const lineTopRef = ref<HTMLElement | null>(null)
+const lineBottomRef = ref<HTMLElement | null>(null)
 
 const { observeScrollReveal } = useScrollAnimation()
 
 onMounted(() => {
-  observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
-  observeScrollReveal(subtextRef, { type: 'paragraph', delay: 120 })
-  observeScrollReveal(lineRef, { type: 'divider', origin: 'center', delay: 200 })
+  observeScrollReveal(lineTopRef, { type: 'divider', origin: 'right center', delay: 40 })
+  observeScrollReveal(triangleRef, { type: 'triangle', delay: 80 })
+  observeScrollReveal(headingRef, { type: 'heading', delay: 120 })
+  observeScrollReveal(lineBottomRef, { type: 'divider', origin: 'left center', delay: 120 })
 })
 
-const asesores: CarouselItem[] = [
+// Alternancia de 3 columnas en retícula de 4 (Fila 1: 1,2,3 / Fila 2: 2,3,4 / Fila 3: 1,2,3 / Fila 4: 2,3,4)
+const colStartClasses = [
+  'lg:col-start-1', 'lg:col-start-2', 'lg:col-start-3',
+  'lg:col-start-2', 'lg:col-start-3', 'lg:col-start-4',
+  'lg:col-start-1', 'lg:col-start-2', 'lg:col-start-3',
+  'lg:col-start-2', 'lg:col-start-3', 'lg:col-start-4'
+]
+
+const asesores: AlumnoCreador[] = [
+  // Fila 1 (Izquierda: cols 1, 2, 3)
   {
     name: 'Jessica Ochoa',
-    role: 'Decana de la Escuela de Arte y Diseño',
-    image: '/images/asesor-jessica-tri.webp',
-    rotation: -6,
-    facetShape: 'polygon(50% 0%, 100% 100%, 0% 85%)',
-    facetScale: 'scale-[1.08]'
-  },
-  {
-    name: 'Natalia Ceballos',
-    role: 'Project Lead',
-    image: '/images/asesor-natalia-tri.webp',
-    rotation: 5,
-    facetShape: 'polygon(15% 0%, 100% 25%, 85% 100%, 0% 80%)',
-    facetScale: 'scale-[1.05]'
-  },
-  {
-    name: 'Sergio Trujillo',
-    role: 'Asesor de Diseño Gráfico',
-    image: '/images/asesor-sergio-tri.webp',
-    rotation: -3,
-    facetShape: 'polygon(0% 10%, 90% 0%, 100% 90%, 10% 100%)',
-    facetScale: 'scale-[1.07]'
-  },
-  {
-    name: 'Edgar Morejón',
-    role: 'Asesor de Diseño de Modas',
-    image: '/images/asesor-edgar-tri.webp',
-    rotation: 7,
-    facetShape: 'polygon(30% 0%, 100% 15%, 70% 100%, 0% 85%)',
-    facetScale: 'scale-[1.06]'
-  },
-  {
-    name: 'Agustín Plancarte',
-    role: 'Asesor de Diseño Industrial',
-    image: '/images/asesor-agustin-tri.webp',
-    rotation: -5,
-    facetShape: 'polygon(5% 0%, 100% 30%, 80% 100%, 0% 70%)',
-    facetScale: 'scale-[1.07]'
-  },
-  {
-    name: 'Amparo Vázquez',
-    role: 'Asesora Invitada',
-    image: '/images/asesor-amparo-tri.webp',
-    rotation: 4,
-    facetShape: 'polygon(20% 0%, 100% 10%, 90% 100%, 0% 95%)',
-    facetScale: 'scale-[1.05]'
+    career: 'Decana de la Escuela de Arte y Diseño',
+    image: '/images/figma-asesor-jessica-ochoa.webp'
   },
   {
     name: 'Nohemi Gamboa',
-    role: 'Project Lead',
-    image: '/images/asesor-nohemi-tri.webp',
-    rotation: -7,
-    facetShape: 'polygon(0% 0%, 85% 15%, 100% 85%, 15% 100%)',
-    facetScale: 'scale-[1.08]'
+    career: 'Lider De Proyecto',
+    image: '/images/figma-asesor-nohemi-hd.webp'
+  },
+  {
+    name: 'Natalia Ceballos',
+    career: 'Lider De Proyecto',
+    image: '/images/figma-asesor-natalia-ceballos.webp'
+  },
+  // Fila 2
+  {
+    name: 'Cristobal Guerra',
+    career: 'Director del Programa Académico LDG',
+    image: '/images/figma-asesor-cristobal-guerra.webp'
+  },
+  {
+    name: 'Sergio Trujillo',
+    career: 'Asesor de Diseño Gráfico',
+    image: '/images/figma-asesor-sergio-trujillo.webp'
+  },
+  {
+    name: 'Edgar Morejón',
+    career: 'Asesor de Diseño de Modas',
+    image: '/images/figma-asesor-edgar-morejon.webp'
+  },
+  // Fila 3
+  {
+    name: 'Amparo Vázquez',
+    career: 'Asesora Invitada',
+    image: '/images/figma-asesor-amparo-vazquez.webp'
+  },
+  {
+    name: 'Agustín Plancarte',
+    career: 'Asesor de Diseño Industrial',
+    image: '/images/figma-asesor-agustin-plancarte.webp'
+  },
+  {
+    name: 'Mafer Culebra',
+    career: 'Asesor de Diseño Industrial',
+    image: '/images/figma-asesor-mafer-culebra.webp'
+  },
+  // Fila 4
+  {
+    name: 'María Eugenia Santos',
+    career: 'Directora de Programa Académico LINT',
+    image: '/images/figma-asesor-maria-eugenia-santos.webp'
+  },
+  {
+    name: 'Daniela Santos',
+    career: 'Directora del Programa Académico LDI',
+    image: '/images/figma-asesor-daniela-santos.webp'
+  },
+  {
+    name: 'María de los Angeles Castillo',
+    career: 'Asesor de Diseño de Interiores',
+    image: '/images/figma-asesor-maria-angeles-castillo.webp'
   }
 ]
 </script>

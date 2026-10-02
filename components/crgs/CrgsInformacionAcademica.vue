@@ -43,7 +43,7 @@
         <!-- Bloque Derecho: Triángulo Integrantes Arriba + Texto Abajo a la Derecha -->
         <div ref="rightBlockRef" class="flex flex-col items-end w-[45%] sm:w-auto relative z-10 -mt-4 sm:-mt-8 lg:-mt-12 will-change-transform">
           <NuxtLink
-            to="/nosotros"
+            to="/integrantes"
             class="block group cursor-pointer w-full flex justify-end transition-transform duration-500 ease-out hover:scale-[1.03]"
             aria-label="Integrantes de Umbral"
           >
@@ -56,7 +56,7 @@
           </NuxtLink>
 
           <NuxtLink
-            to="/nosotros"
+            to="/integrantes"
             class="font-barlow text-sm sm:text-2xl lg:text-[38px] font-normal text-white hover:text-[#4BA550] transition-colors leading-[0.95] tracking-tight text-right mt-2 sm:mt-4 select-text"
             aria-label="Integrantes de Umbral"
           >

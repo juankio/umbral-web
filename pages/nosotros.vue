@@ -1,27 +1,30 @@
 <template>
-  <div class="bg-white min-h-screen overflow-x-hidden selection:bg-[#1C1C1C] selection:text-white">
-    <NosotrosHero />
-    <AppMarquee />
-    <NosotrosGanadoresRepentina />
-    <NosotrosAsesores />
-    <NosotrosDisenoGrafico />
-    <NosotrosDisenoInteriores />
+  <div class="bg-white min-h-screen">
+    <!-- 1. Hero Institucional Centro Roberto Garza Sada -->
+    <CrgsHero />
+
+    <!-- 2. La Puerta de la Creación (Arquitectura & Video Tadao Ando) -->
+    <CrgsPuertaCreacion />
+
+    <!-- 3. Oferta Académica / Programas Profesionales -->
+    <CrgsPrograms />
+
+    <!-- 4. Díptico Más Información de Carreras / CTA Integrantes -->
+    <CrgsInformacionAcademica />
   </div>
 </template>
 
 <script setup lang="ts">
-import NosotrosHero from '~/components/nosotros/NosotrosHero.vue'
-import AppMarquee from '~/components/ui/AppMarquee.vue'
-import NosotrosGanadoresRepentina from '~/components/nosotros/NosotrosGanadoresRepentina.vue'
-import NosotrosAsesores from '~/components/nosotros/NosotrosAsesores.vue'
-import NosotrosDisenoGrafico from '~/components/nosotros/NosotrosDisenoGrafico.vue'
-import NosotrosDisenoInteriores from '~/components/nosotros/NosotrosDisenoInteriores.vue'
+import CrgsHero from '~/components/crgs/CrgsHero.vue'
+import CrgsPuertaCreacion from '~/components/crgs/CrgsPuertaCreacion.vue'
+import CrgsPrograms from '~/components/crgs/CrgsPrograms.vue'
+import CrgsInformacionAcademica from '~/components/crgs/CrgsInformacionAcademica.vue'
 
 useSeoMeta({
-  title: 'Integrantes Umbral · UMBRAL',
-  ogTitle: 'Integrantes Umbral · UMBRAL',
-  description: 'Conoce a los integrantes, asesores y alumnas detrás del sistema visual y espacial de Umbral, Centro Roberto Garza Sada · Universidad de Monterrey.',
-  ogDescription: 'Conoce a los integrantes, asesores y alumnas detrás del sistema visual y espacial de Umbral, Centro Roberto Garza Sada · Universidad de Monterrey.',
+  title: 'Nosotros · Centro Roberto Garza Sada | UMBRAL',
+  ogTitle: 'Nosotros · Centro Roberto Garza Sada | UMBRAL',
+  description: 'Conoce el Centro Roberto Garza Sada de la Universidad de Monterrey, La Puerta de la Creación diseñada por Tadao Ando y su oferta académica en Arte, Arquitectura y Diseño.',
+  ogDescription: 'Conoce el Centro Roberto Garza Sada de la Universidad de Monterrey, La Puerta de la Creación diseñada por Tadao Ando y su oferta académica en Arte, Arquitectura y Diseño.',
   ogImage: 'https://umbral-web-three.vercel.app/images/og-umbral.jpg',
   ogUrl: 'https://umbral-web-three.vercel.app/nosotros',
   twitterCard: 'summary_large_image'

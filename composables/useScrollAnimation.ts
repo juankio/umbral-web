@@ -37,7 +37,7 @@ export function useScrollAnimation() {
       type = 'heading',
       delay = 0,
       duration = mobile ? 500 : 800,
-      threshold = options.threshold ?? (mobile ? 0.05 : 0.15),
+      threshold = options.threshold ?? (type === 'divider' ? 0.01 : (mobile ? 0.05 : 0.15)),
       once = true,
       origin = 'left center'
     } = options

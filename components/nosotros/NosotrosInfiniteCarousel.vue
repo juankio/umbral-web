@@ -14,7 +14,7 @@
           <div v-if="prevItem.facetShape" class="absolute inset-2 bg-[#1C1C1C]/[0.03] pointer-events-none -z-10" :style="{ clipPath: prevItem.facetShape }" aria-hidden="true" />
           <AppImage :src="prevItem.image" :alt="prevItem.name" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="lazy" />
         </div>
-        <span v-if="prevItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-400 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ prevItem.name }}</span>
+        <span v-if="prevItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-500 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ prevItem.name }}</span>
       </button>
 
       <!-- Integrante Activo Central (Focal con Giro Expresivo) -->
@@ -25,7 +25,7 @@
         </div>
         <div v-if="currentItem.name" ref="infoRef" class="mt-2 sm:mt-2.5 text-center px-2 sm:px-4 will-change-transform">
           <h3 class="font-barlow font-medium text-2xl sm:text-3xl lg:text-[32px] text-[#070707] leading-tight tracking-tight">{{ currentItem.name }}</h3>
-          <p v-if="currentItem.role" class="font-barlow font-normal text-xs sm:text-sm md:text-base text-neutral-500 mt-1 tracking-tight">{{ currentItem.role }}</p>
+          <p v-if="currentItem.role" class="font-barlow font-normal text-xs sm:text-sm md:text-base text-neutral-600 mt-1 tracking-tight">{{ currentItem.role }}</p>
         </div>
       </div>
 
@@ -35,7 +35,7 @@
           <div v-if="nextItem.facetShape" class="absolute inset-2 bg-[#1C1C1C]/[0.03] pointer-events-none -z-10" :style="{ clipPath: nextItem.facetShape }" aria-hidden="true" />
           <AppImage :src="nextItem.image" :alt="nextItem.name || 'Stand'" img-class="w-full h-full object-contain pointer-events-none select-none" wrapper-class="w-full h-full flex items-center justify-center" loading="lazy" />
         </div>
-        <span v-if="nextItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-400 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ nextItem.name }}</span>
+        <span v-if="nextItem.name" class="mt-1.5 font-barlow text-xs sm:text-sm text-neutral-500 font-medium truncate max-w-[120px] sm:max-w-[180px] text-center">{{ nextItem.name }}</span>
       </button>
     </div>
 

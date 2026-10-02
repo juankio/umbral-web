@@ -145,7 +145,7 @@ const {
   onTouchEnd
 } = useInspirationAutoplay({
   total: slides.length,
-  initialIndex: 0,
+  initialIndex: 1,
   duration: 5500,
   onNavigate: (_index, dir) => playSlideAnimation(dir)
 })

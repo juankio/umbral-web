@@ -1,60 +1,80 @@
 <template>
-  <section id="diseno-grafico" class="relative w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-6 sm:pb-8 lg:pb-10 scroll-mt-24 lg:min-h-[calc(100vh-80px)] lg:max-h-[960px] flex flex-col justify-center overflow-hidden select-text">
-    <!-- Encabezado de Sección 1:1 Figma (Node 417:275 & 417:273) con scroll reveal -->
-    <div class="w-full max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-20 text-center">
-      <h2 ref="headingRef" class="font-barlow font-normal text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-[#070707] text-center leading-tight tracking-tight">
-        Stand de Diseño Gráfico
-      </h2>
+  <section id="diseno-grafico" class="relative w-full bg-white pt-4 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12 scroll-mt-24 select-text">
+    <div class="w-full max-w-[1500px] xl:max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-12">
+      <!-- Línea horizontal completa antes de Stand de Diseño Gráfico (1:1 Figma) -->
+      <div
+        ref="lineRef"
+        class="h-[1.5px] bg-[#070707] w-full mb-12 sm:mb-14 lg:mb-16 will-change-transform"
+      />
 
-      <!-- Bajada Institucional (1:1 Figma Node 417:273) -->
-      <p ref="subtextRef" class="font-barlow font-normal text-base sm:text-lg md:text-xl lg:text-2xl text-[#0B0B0B]/85 text-center leading-snug sm:leading-relaxed max-w-3xl sm:max-w-4xl mx-auto mt-2.5 sm:mt-3.5 mb-3.5 sm:mb-5">
-        Alumnas de la Licenciatura de Diseño Gráfico de 7mo semestre diseñaron el sistema de comunicación visual completo del proyecto UMBRAL \ CRGS
-      </p>
+      <!-- Encabezado oficial con triángulo azul de Figma detrás (Nodo 503:221) -->
+      <div class="relative flex items-center justify-center py-4 sm:py-6 mb-16 sm:mb-20 lg:mb-24">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <svg
+            ref="triangleRef"
+            viewBox="0 0 456 188"
+            class="w-[280px] sm:w-[350px] lg:w-[410px] xl:w-[456px] h-auto mx-auto select-none pointer-events-none will-change-transform"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M173.164 0L456 117.201L0 187.941L173.164 0Z" fill="#A5BCD5" />
+          </svg>
+        </div>
 
-      <!-- Línea divisoria fina negra con expansión horizontal -->
-      <div ref="lineRef" class="w-full max-w-[1676px] mx-auto h-[1px] sm:h-[2px] bg-[#030303] my-3 sm:my-4 will-change-transform" />
+        <h2
+          ref="headingRef"
+          class="relative z-10 font-barlow font-normal text-4xl sm:text-5xl lg:text-6xl text-[#070707] text-center leading-tight tracking-tight will-change-transform"
+        >
+          Stand de Diseño Gráfico
+        </h2>
+      </div>
+
+      <!-- Grid editorial de 3 alumnas (Alineada a la IZQUIERDA según Figma Frame 407:2) -->
+      <div class="w-full max-w-[1050px] lg:max-w-[1150px] mr-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <NosotrosCreadorCard
+            v-for="alumno in integrantesGrafico"
+            :key="alumno.name"
+            :alumno="alumno"
+          />
+        </div>
+      </div>
     </div>
-
-    <!-- Carrusel Infinito con Giros Dinámicos -->
-    <NosotrosInfiniteCarousel :items="integrantesGrafico" />
   </section>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import NosotrosInfiniteCarousel, { type CarouselItem } from './NosotrosInfiniteCarousel.vue'
+import NosotrosCreadorCard, { type AlumnoCreador } from './NosotrosCreadorCard.vue'
 
+const triangleRef = ref<HTMLElement | null>(null)
 const headingRef = ref<HTMLElement | null>(null)
-const subtextRef = ref<HTMLElement | null>(null)
 const lineRef = ref<HTMLElement | null>(null)
 
 const { observeScrollReveal } = useScrollAnimation()
 
 onMounted(() => {
-  observeScrollReveal(headingRef, { type: 'heading', delay: 50 })
-  observeScrollReveal(subtextRef, { type: 'paragraph', delay: 120 })
-  observeScrollReveal(lineRef, { type: 'divider', origin: 'center', delay: 200 })
+  observeScrollReveal(lineRef, { type: 'divider', origin: 'right center', delay: 40 })
+  observeScrollReveal(triangleRef, { type: 'triangle', delay: 80 })
+  observeScrollReveal(headingRef, { type: 'heading', delay: 120 })
 })
 
-const integrantesGrafico: CarouselItem[] = [
+const integrantesGrafico: AlumnoCreador[] = [
   {
-    name: 'Miranda Salazar',
-    role: 'Estudiante de Diseño Gráfico',
-    image: '/images/integrantes-interiores-center.webp',
-    rotation: -4
+    name: 'Natalia Nuñez',
+    career: 'Diseño Gráfico',
+    image: '/images/figma-grafico-natalia-nunez.webp'
   },
   {
-    name: 'Natalia Núñez',
-    role: 'Estudiante de Diseño Gráfico',
-    image: '/images/integrantes-interiores-left.webp',
-    rotation: 5
+    name: 'Miranda Salazar',
+    career: 'Diseño Gráfico',
+    image: '/images/figma-grafico-miranda-salazar.webp'
   },
   {
     name: 'Luciana Yañez',
-    role: 'Estudiante de Diseño Gráfico',
-    image: '/images/integrantes-interiores-right.webp',
-    rotation: -3
+    career: 'Diseño Gráfico',
+    image: '/images/figma-grafico-luciana-yanez.webp'
   }
 ]
 </script>

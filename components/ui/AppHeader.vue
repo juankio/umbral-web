@@ -1,20 +1,20 @@
 <template>
   <header
-    class="sticky top-0 z-50 w-full transition-[padding,background-color,border-color,box-shadow] duration-300 bg-white"
-    :class="isScrolled ? 'border-b border-neutral-200/80 shadow-xs py-3 sm:py-4' : 'border-b border-transparent py-4 sm:py-6'"
+    class="sticky top-0 z-50 w-full transition-[background-color,border-color,box-shadow] duration-300 bg-white h-[72px] lg:h-[80px] flex items-center"
+    :class="isScrolled ? 'border-b border-neutral-200/80 shadow-xs' : 'border-b border-transparent'"
   >
-    <div class="max-w-[1720px] mx-auto px-6 sm:px-12 flex items-center justify-between">
+    <div class="w-full max-w-[1720px] mx-auto px-8 lg:px-16 flex items-center justify-between">
       <NuxtLink
         to="/"
         class="inline-flex items-center transition-opacity hover:opacity-85 outline-none select-none"
         aria-label="Ir al inicio de Umbral"
         @click="isMobileMenuOpen = false"
       >
-        <img src="/images/logo-umbral.webp" alt="Umbral" class="h-8 sm:h-9 w-auto object-contain" />
+        <img src="/images/logo-umbral.webp" alt="Umbral" class="h-7 sm:h-8 lg:h-8.5 w-auto object-contain" />
       </NuxtLink>
 
       <!-- Desktop nav: Enlaces limpios de primer nivel -->
-      <nav class="hidden md:flex items-center gap-8 lg:gap-10 font-barlow text-xl sm:text-2xl font-normal leading-none">
+      <nav class="hidden lg:flex items-center gap-8 lg:gap-10 font-barlow text-xl sm:text-2xl font-normal leading-none">
         <NuxtLink
           v-for="link in desktopLinks"
           :key="link.to"
@@ -30,7 +30,7 @@
       <button
         type="button"
         @click="isMobileMenuOpen = !isMobileMenuOpen"
-        class="md:hidden p-2 -mr-2 text-black transition-colors hover:text-neutral-600 focus:outline-none"
+        class="lg:hidden p-2 -mr-2 text-black transition-colors hover:text-neutral-600 focus:outline-none"
         :aria-expanded="isMobileMenuOpen"
         aria-label="Alternar menú de navegación"
       >
@@ -46,7 +46,7 @@
       <div
         v-if="isMobileMenuOpen"
         ref="mobileMenuRef"
-        class="fixed inset-x-0 top-[60px] bottom-0 z-50 bg-white md:hidden flex flex-col justify-between overflow-y-auto px-6 py-6 sm:px-10 sm:py-8 border-t border-neutral-100"
+        class="fixed inset-x-0 top-[72px] bottom-0 z-50 bg-white lg:hidden flex flex-col justify-between overflow-y-auto px-6 py-6 sm:px-10 sm:py-8 border-t border-neutral-100"
       >
         <nav class="flex flex-col gap-4 pt-2">
           <div
@@ -99,26 +99,28 @@ const isScrolled = computed(() => y.value > 20)
 const desktopLinks: NavItem[] = [
   { label: 'Zona Maco', to: '/zona-maco' },
   { label: 'Catálogo de Obras', to: '/zona-maco#proyectos' },
-  { label: 'Integrantes', to: '/nosotros' },
-  { label: 'Nosotros', to: '/crgs' }
+  { label: 'Integrantes', to: '/integrantes' },
+  { label: 'Nosotros', to: '/nosotros' }
 ]
 
 const mobileLinks: NavItem[] = [
-  { index: '01', label: 'Inicio', to: '/' },
-  { index: '02', label: 'Zona Maco', to: '/zona-maco' },
-  { index: '03', label: 'Catálogo de Obras', to: '/zona-maco#proyectos' },
-  { index: '04', label: 'Integrantes', to: '/nosotros' },
-  { index: '05', label: 'Nosotros', to: '/crgs' }
+  { index: '01', label: 'Zona Maco', to: '/zona-maco' },
+  { index: '02', label: 'Catálogo de Obras', to: '/zona-maco#proyectos' },
+  { index: '03', label: 'Integrantes', to: '/integrantes' },
+  { index: '04', label: 'Nosotros', to: '/nosotros' }
 ]
 
 const isLinkActive = (to: string) => {
   if (to === '/') return route.path === '/'
   if (to.includes('#')) {
     const [path, hash] = to.split('#')
-    return route.path === path && route.hash === `#${hash}`
+    return (route.path === path && route.hash === `#${hash}`) || route.path.startsWith('/obras')
   }
   if (to === '/zona-maco') {
-    return route.path === '/zona-maco' && !route.hash
+    return route.path === '/zona-maco' && (!route.hash || route.hash !== '#proyectos')
+  }
+  if (to === '/nosotros') {
+    return route.path.startsWith('/nosotros') || route.path.startsWith('/crgs')
   }
   return route.path.startsWith(to)
 }

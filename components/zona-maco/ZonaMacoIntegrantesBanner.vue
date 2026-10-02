@@ -28,10 +28,10 @@
             </div>
           </div>
 
-          <!-- Título Cursivo Monumental con Enlace a /nosotros -->
+          <!-- Título Cursivo Monumental con Enlace a /integrantes -->
           <div ref="titleRef" class="relative z-10 w-full pointer-events-auto">
             <NuxtLink
-              to="/nosotros"
+              to="/integrantes"
               class="group inline-block focus:outline-none"
               aria-label="Conocer integrantes de Umbral"
             >

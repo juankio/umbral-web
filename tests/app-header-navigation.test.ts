@@ -1,72 +1,77 @@
 import { describe, it, expect } from 'bun:test'
 
 describe('AppHeader Arquitectura de Navegación & Secciones', () => {
-  const navSections = [
-    {
-      id: 'maco',
-      index: '02',
-      label: 'Zona Maco',
-      to: '/zona-maco',
-      match: (p: string) => p.startsWith('/zona-maco'),
-      items: [
-        { label: 'Página Principal', to: '/zona-maco' },
-        { label: 'Catálogo de Obras', to: '/zona-maco#proyectos' }
-      ]
-    },
-    {
-      id: 'nosotros',
-      index: '03',
-      label: 'Nosotros',
-      to: '/nosotros',
-      match: (p: string) => p.startsWith('/nosotros') || p.startsWith('/crgs'),
-      items: [
-        { label: 'Integrantes Umbral', to: '/nosotros' },
-        { label: 'Centro Roberto Garza Sada', to: '/crgs' }
-      ]
-    }
+  const desktopLinks = [
+    { label: 'Zona Maco', to: '/zona-maco' },
+    { label: 'Catálogo de Obras', to: '/zona-maco#proyectos' },
+    { label: 'Integrantes', to: '/integrantes' },
+    { label: 'Nosotros', to: '/nosotros' }
   ]
 
-  it('Define correctamente la sección 01 (Inicio) como ruta base', () => {
-    const section01 = { index: '01', label: 'Inicio', to: '/' }
-    expect(section01.index).toBe('01')
-    expect(section01.label).toBe('Inicio')
-    expect(section01.to).toBe('/')
+  const mobileLinks = [
+    { index: '01', label: 'Zona Maco', to: '/zona-maco' },
+    { index: '02', label: 'Catálogo de Obras', to: '/zona-maco#proyectos' },
+    { index: '03', label: 'Integrantes', to: '/integrantes' },
+    { index: '04', label: 'Nosotros', to: '/nosotros' }
+  ]
+
+  const isLinkActive = (to: string, currentPath: string, currentHash: string = '') => {
+    if (to === '/') return currentPath === '/'
+    if (to.includes('#')) {
+      const [path, hash] = to.split('#')
+      return (currentPath === path && currentHash === `#${hash}`) || currentPath.startsWith('/obras')
+    }
+    if (to === '/zona-maco') {
+      return currentPath === '/zona-maco' && (!currentHash || currentHash !== '#proyectos')
+    }
+    if (to === '/nosotros') {
+      return currentPath.startsWith('/nosotros') || currentPath.startsWith('/crgs')
+    }
+    return currentPath.startsWith(to)
+  }
+
+  it('Define exactamente los 4 ítems de navegación oficial de Figma en desktop', () => {
+    expect(desktopLinks).toHaveLength(4)
+    expect(desktopLinks[0]).toEqual({ label: 'Zona Maco', to: '/zona-maco' })
+    expect(desktopLinks[1]).toEqual({ label: 'Catálogo de Obras', to: '/zona-maco#proyectos' })
+    expect(desktopLinks[2]).toEqual({ label: 'Integrantes', to: '/integrantes' })
+    expect(desktopLinks[3]).toEqual({ label: 'Nosotros', to: '/nosotros' })
   })
 
-  it('Contiene la sección 02 (Zona Maco) con sus sub-enlaces requeridos', () => {
-    const maco = navSections.find(s => s.id === 'maco')
-    expect(maco).toBeDefined()
-    expect(maco?.index).toBe('02')
-    expect(maco?.label).toBe('Zona Maco')
-    expect(maco?.to).toBe('/zona-maco')
-    expect(maco?.items).toHaveLength(2)
-    expect(maco?.items[0]).toEqual({ label: 'Página Principal', to: '/zona-maco' })
-    expect(maco?.items[1]).toEqual({ label: 'Catálogo de Obras', to: '/zona-maco#proyectos' })
+  it('Define exactamente los 4 ítems de navegación oficial de Figma en móvil', () => {
+    expect(mobileLinks).toHaveLength(4)
+    expect(mobileLinks[0]).toEqual({ index: '01', label: 'Zona Maco', to: '/zona-maco' })
+    expect(mobileLinks[1]).toEqual({ index: '02', label: 'Catálogo de Obras', to: '/zona-maco#proyectos' })
+    expect(mobileLinks[2]).toEqual({ index: '03', label: 'Integrantes', to: '/integrantes' })
+    expect(mobileLinks[3]).toEqual({ index: '04', label: 'Nosotros', to: '/nosotros' })
   })
 
-  it('Contiene la sección 03 (Nosotros) con sus sub-enlaces requeridos', () => {
-    const nosotros = navSections.find(s => s.id === 'nosotros')
-    expect(nosotros).toBeDefined()
-    expect(nosotros?.index).toBe('03')
-    expect(nosotros?.label).toBe('Nosotros')
-    expect(nosotros?.to).toBe('/nosotros')
-    expect(nosotros?.items).toHaveLength(2)
-    expect(nosotros?.items[0]).toEqual({ label: 'Integrantes Umbral', to: '/nosotros' })
-    expect(nosotros?.items[1]).toEqual({ label: 'Centro Roberto Garza Sada', to: '/crgs' })
+  it('Valida isLinkActive para Zona Maco vs Catálogo de Obras con Hash y Detalle /obras/[slug]', () => {
+    // En la página de Zona Maco sin hash
+    expect(isLinkActive('/zona-maco', '/zona-maco', '')).toBe(true)
+    expect(isLinkActive('/zona-maco#proyectos', '/zona-maco', '')).toBe(false)
+
+    // En la sección de proyectos dentro de Zona Maco
+    expect(isLinkActive('/zona-maco', '/zona-maco', '#proyectos')).toBe(false)
+    expect(isLinkActive('/zona-maco#proyectos', '/zona-maco', '#proyectos')).toBe(true)
+
+    // En el detalle de una obra /obras/encuadre
+    expect(isLinkActive('/zona-maco', '/obras/encuadre', '')).toBe(false)
+    expect(isLinkActive('/zona-maco#proyectos', '/obras/encuadre', '')).toBe(true)
   })
 
-  it('Valida el matcher de rutas para Zona Maco y Nosotros', () => {
-    const maco = navSections.find(s => s.id === 'maco')!
-    const nosotros = navSections.find(s => s.id === 'nosotros')!
+  it('Valida isLinkActive para Integrantes y Nosotros (incluyendo alias /crgs)', () => {
+    // En /integrantes
+    expect(isLinkActive('/integrantes', '/integrantes')).toBe(true)
+    expect(isLinkActive('/nosotros', '/integrantes')).toBe(false)
 
-    expect(maco.match('/zona-maco')).toBe(true)
-    expect(maco.match('/zona-maco/obra-1')).toBe(true)
-    expect(maco.match('/nosotros')).toBe(false)
+    // En /nosotros
+    expect(isLinkActive('/nosotros', '/nosotros')).toBe(true)
+    expect(isLinkActive('/integrantes', '/nosotros')).toBe(false)
 
-    expect(nosotros.match('/nosotros')).toBe(true)
-    expect(nosotros.match('/crgs')).toBe(true)
-    expect(nosotros.match('/crgs/historia')).toBe(true)
-    expect(nosotros.match('/zona-maco')).toBe(false)
+    // En alias /crgs
+    expect(isLinkActive('/nosotros', '/crgs')).toBe(true)
+    expect(isLinkActive('/integrantes', '/crgs')).toBe(false)
   })
 
   it('El menú móvil gestiona el cierre al pulsar Escape o cambiar de ruta', () => {

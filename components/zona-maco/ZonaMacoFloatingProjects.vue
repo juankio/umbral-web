@@ -15,7 +15,7 @@
         >
           <div
             :ref="(el) => setCardRef(el, index)"
-            class="w-full h-full relative overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)] group-hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)] transition-all duration-300 transform-gpu flex items-center justify-center"
+            class="w-full h-full relative overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_28px_rgba(0,0,0,0.12)] group-hover:shadow-[0_14px_28px_rgba(0,0,0,0.12)] transition-all duration-300 transform-gpu flex items-center justify-center"
             :style="{ backgroundColor: project.bg }"
           >
             <img
@@ -42,12 +42,11 @@
           v-for="project in projects"
           :key="`mobile-${project.to}`"
           :to="project.to"
-          class="group relative shrink-0 w-24 xs:w-28 sm:w-full snap-center focus:outline-none transition-all duration-200 active:scale-95 hover:scale-105"
-          :class="project.title === 'Curado' ? 'aspect-[3/4]' : 'aspect-square'"
+          class="group relative shrink-0 w-24 xs:w-28 sm:w-full aspect-square snap-center focus:outline-none transition-all duration-200 active:scale-95 hover:scale-105"
           :aria-label="`Ver obra ${project.title}`"
         >
           <div
-            class="w-full h-full relative overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)] group-hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)] flex items-center justify-center transition-all duration-200"
+            class="w-full h-full relative overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_28px_rgba(0,0,0,0.12)] group-hover:shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center transition-all duration-200"
             :style="{ backgroundColor: project.bg }"
           >
             <img
@@ -81,18 +80,18 @@ interface FloatingProject {
   posClass: string
 }
 
-// 10 obras referenciadas al centro exacto del triángulo (calc(50% +/- offset))
+// 10 obras referenciadas al centro exacto del canvas (calc(50% +/- offset)) abrazando el titular monumental (Figma Frame 325:2)
 const projects: FloatingProject[] = [
-  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-600px)] xl:left-[calc(50%-660px)] lg:top-[calc(50%-20px)] w-28 sm:w-32 lg:w-36 xl:w-42 aspect-square z-12' },
-  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%-430px)] xl:left-[calc(50%-470px)] lg:top-[calc(50%-150px)] xl:top-[calc(50%-160px)] w-24 sm:w-28 lg:w-30 xl:w-36 aspect-[3/4] z-15' },
-  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-190px)] xl:left-[calc(50%-210px)] lg:top-[calc(50%-340px)] xl:top-[calc(50%-365px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-10' },
-  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'lg:left-[calc(50%-370px)] xl:left-[calc(50%-410px)] lg:top-[calc(50%+110px)] xl:top-[calc(50%+120px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-14' },
-  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'lg:left-[calc(50%-170px)] xl:left-[calc(50%-180px)] lg:top-[calc(50%+220px)] xl:top-[calc(50%+240px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-16' },
-  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-interconexion.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%+140px)] xl:left-[calc(50%+160px)] lg:top-[calc(50%-260px)] xl:top-[calc(50%-280px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-13' },
-  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%+290px)] xl:left-[calc(50%+330px)] lg:top-[calc(50%-210px)] xl:top-[calc(50%-230px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-14' },
-  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-entretiempo.webp?v=2', bg: '#EAEAEA', posClass: 'lg:left-[calc(50%+300px)] xl:left-[calc(50%+340px)] lg:top-[calc(50%-30px)] xl:top-[calc(50%-30px)] w-28 sm:w-32 lg:w-34 xl:w-40 aspect-square z-15' },
-  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-roberto.webp', bg: '#434B2E', posClass: 'lg:left-[calc(50%+180px)] xl:left-[calc(50%+210px)] lg:top-[calc(50%+140px)] xl:top-[calc(50%+160px)] w-26 sm:w-30 lg:w-32 xl:w-38 aspect-square z-14' },
-  { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#D7D7CC', posClass: 'lg:left-[calc(50%+450px)] xl:left-[calc(50%+510px)] lg:top-[calc(50%-10px)] w-28 sm:w-32 lg:w-36 xl:w-42 aspect-square z-11' }
+  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-160px)] xl:left-[calc(50%-180px)] lg:top-[calc(50%-260px)] xl:top-[calc(50%-290px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-10' },
+  { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-entretiempo.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%+160px)] xl:left-[calc(50%+190px)] lg:top-[calc(50%-270px)] xl:top-[calc(50%-300px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-13' },
+  { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%+330px)] xl:left-[calc(50%+380px)] lg:top-[calc(50%-210px)] xl:top-[calc(50%-240px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-14' },
+  { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-interconexion.webp', bg: '#434B2E', posClass: 'lg:left-[calc(50%+170px)] xl:left-[calc(50%+200px)] lg:top-[calc(50%-80px)] xl:top-[calc(50%-90px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-14' },
+  { to: '/obras/reliquia', title: 'Reliquia', img: '/images/figma-product-reliquia.webp', bg: '#D7D7CC', posClass: 'lg:left-[calc(50%+460px)] xl:left-[calc(50%+520px)] lg:top-[calc(50%+10px)] xl:top-[calc(50%+15px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-11' },
+  { to: '/obras/sagaon', title: 'Sagaón', img: '/images/figma-product-sagaon.webp', bg: '#D5CFC9', posClass: 'lg:left-[calc(50%+300px)] xl:left-[calc(50%+340px)] lg:top-[calc(50%+140px)] xl:top-[calc(50%+160px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-16' },
+  { to: '/obras/entretiempo', title: 'Entretiempo', img: '/images/figma-product-roberto.webp', bg: '#EAEAEA', posClass: 'lg:left-[calc(50%-160px)] xl:left-[calc(50%-180px)] lg:top-[calc(50%+150px)] xl:top-[calc(50%+170px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-15' },
+  { to: '/obras/encuadre', title: 'Encuadre', img: '/images/figma-product-encuadre.webp', bg: '#EDEDED', posClass: 'lg:left-[calc(50%-330px)] xl:left-[calc(50%-370px)] lg:top-[calc(50%+140px)] xl:top-[calc(50%+160px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-14' },
+  { to: '/obras/cimiento', title: 'Cimiento', img: '/images/figma-product-cimiento.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-480px)] xl:left-[calc(50%-540px)] lg:top-[calc(50%+10px)] xl:top-[calc(50%+15px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-12' },
+  { to: '/obras/curado', title: 'Curado', img: '/images/figma-product-curado.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%-330px)] xl:left-[calc(50%-370px)] lg:top-[calc(50%-150px)] xl:top-[calc(50%-170px)] w-24 sm:w-26 lg:w-28 xl:w-32 aspect-square z-15' }
 ]
 
 const cardEls = ref<HTMLElement[]>([])
@@ -116,8 +115,8 @@ onMounted(() => {
     animate(el, { opacity: [0, 1], duration: 600, delay: i * 40, ease: 'outQuad' })
     loopAnims[i] = animate(el, {
       keyframes: [
-        { translateY: -4, duration: 2400 + (i * 140), ease: 'inOutSine' },
-        { translateY: 4, duration: 2800 + (i * 140), ease: 'inOutSine' },
+        { translateY: -2.5, duration: 2400 + (i * 140), ease: 'inOutSine' },
+        { translateY: 2.5, duration: 2800 + (i * 140), ease: 'inOutSine' },
         { translateY: 0, duration: 2400 + (i * 140), ease: 'inOutSine' }
       ],
       delay: i * 100,

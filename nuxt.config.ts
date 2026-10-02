@@ -64,6 +64,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   srcDir: '.',
+  routeRules: {
+    '/crgs': { redirect: { to: '/nosotros', statusCode: 301 } }
+  },
   components: [
     {
       path: '~/components',
