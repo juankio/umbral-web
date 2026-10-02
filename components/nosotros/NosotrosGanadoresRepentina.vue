@@ -30,8 +30,9 @@
       <div class="w-full flex flex-col">
         <div
           v-for="(proyecto, idx) in proyectos"
+          :id="proyecto.id"
           :key="proyecto.id"
-          class="w-full"
+          class="w-full scroll-mt-28"
           :class="[
             proyecto.alumnos.length === 2 ? 'max-w-[720px]' : (proyecto.alumnos.length === 4 ? 'max-w-[1300px]' : 'max-w-[1050px] lg:max-w-[1150px]'),
             proyecto.align === 'right' ? 'ml-auto' : 'mr-auto'

@@ -58,13 +58,15 @@
           Diseñado por
         </span>
         <div class="flex flex-col items-end text-right space-y-1">
-          <span
+          <NuxtLink
             v-for="(designer, idx) in obra.designers"
             :key="idx"
-            class="font-barlow font-normal text-base sm:text-lg lg:text-[22px] text-black leading-[1.2]"
+            :to="`/integrantes#${obra.slug}`"
+            class="font-barlow font-normal text-base sm:text-lg lg:text-[22px] text-black leading-[1.2] hover:underline transition-colors"
+            :title="`Ver a ${designer} en Integrantes`"
           >
             {{ designer }}
-          </span>
+          </NuxtLink>
         </div>
       </div>
     </div>

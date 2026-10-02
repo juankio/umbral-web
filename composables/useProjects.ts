@@ -3,7 +3,7 @@ import type { Project } from '../types'
 export const projects: Project[] = [
   {
     id: 'encuadre', slug: 'encuadre', title: 'Encuadre', year: 2026, price: 500, accentColor: '#13650F', isSelected: true,
-    designers: ['Ximena Silva', 'Daniela García', 'María Regina Hinojosa'],
+    designers: ['Ximena Silva', 'Daniela García', 'Regina Hinojosa'],
     materials: ['Cemento de color', 'Barro', 'Yeso cerámico', 'Acrílicos de colores', 'Geopolímeros'],
     publishedDate: '28/08/2026', quote: '“Ciudades dentro de Ciudades.”',
     hours: 'Aproximadamente 1234 horas de producción por pieza.',
@@ -14,7 +14,7 @@ export const projects: Project[] = [
   },
   {
     id: 'roberto', slug: 'roberto', title: 'Roberto', year: 2026, price: 450, accentColor: '#7B4680', isSelected: false,
-    designers: ['Carlos Mendoza', 'Sofía Villarreal'],
+    designers: ['Roberto Flores', 'Marlen Rendon', 'Sofia Lammoglia'],
     materials: ['Concreto polimérico', 'Acero laminado', 'Pigmentos minerales'],
     publishedDate: '15/09/2026', quote: '“El rigor estructural como expresión de permanencia.”',
     hours: 'Aproximadamente 480 horas de taller y fundición.',
@@ -25,7 +25,7 @@ export const projects: Project[] = [
   },
   {
     id: 'interconexion', slug: 'interconexion', title: 'Interconexión', year: 2026, price: 600, accentColor: '#E16A5F', isSelected: false,
-    designers: ['Andrés Cantú', 'Valeria Morales'],
+    designers: ['Cynthia Cazarin', 'Jorge Lamoy', 'Eugenio Gonzalez'],
     materials: ['Filamentos tensores', 'Aluminio anodizado', 'Resina traslúcida'],
     publishedDate: '02/10/2026', quote: '“Puentes invisibles entre materia y experiencia.”',
     hours: 'Aproximadamente 920 horas de montaje y calibración.',
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   },
   {
     id: 'entretiempo', slug: 'entretiempo', title: 'Entretiempo', year: 2026, price: 550, accentColor: '#E69D37', isSelected: false,
-    designers: ['Mauricio Garza', 'Elena Treviño'],
+    designers: ['Paulina Amezcua', 'Oscar Cortés', 'Jimena Flores'],
     materials: ['Madera tratada', 'Vidrio templado', 'Latón cepillado'],
     publishedDate: '11/10/2026', quote: '“El tiempo suspendido en el umbral de la luz.”',
     hours: 'Aproximadamente 650 horas de modelado y experimentación.',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
   },
   {
     id: 'sagaon', slug: 'sagaon', title: 'Sagaón', year: 2026, price: 480, accentColor: '#A5BCD5', isSelected: false,
-    designers: ['Javier Sagaón', 'Renata Elizondo'],
+    designers: ['Camila Vargas', 'Graciela Santiago'],
     materials: ['Cobre electropulido', 'Mármol travertino', 'Tinta litográfica'],
     publishedDate: '24/10/2026', quote: '“Trazos tipográficos convertidos en volumen.”',
     hours: 'Aproximadamente 530 horas de grabado y ensamble.',
@@ -58,7 +58,7 @@ export const projects: Project[] = [
   },
   {
     id: 'reliquia', slug: 'reliquia', title: 'Reliquia', year: 2026, price: 520, accentColor: '#F6D152', isSelected: false,
-    designers: ['Lucía Benítez', 'Mateo Sada'],
+    designers: ['Regina Galán', 'Melissa Marroquin', 'Diego Escamilla'],
     materials: ['Bronce fundido', 'Cerámica de alta temperatura', 'Textil encerado'],
     publishedDate: '05/11/2026', quote: '“El vestigio del pasado como génesis de lo nuevo.”',
     hours: 'Aproximadamente 740 horas de orfebrería experimental.',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
   },
   {
     id: 'mai', slug: 'mai', title: 'Mai', year: 2026, price: 490, accentColor: '#7B4680', isSelected: false,
-    designers: ['Mariana Ibarra', 'Esteban Ramos'],
+    designers: ['Cecilia Mañueco', 'Natalia Saénz', 'Isabella Pozas', 'Sara Abril'],
     materials: ['Neopreno prensado', 'Fibra de carbono', 'Pigmento orgánico'],
     publishedDate: '18/11/2026', quote: '“Fluidez y contención en un único gesto formal.”',
     hours: 'Aproximadamente 610 horas de patronaje y moldeado.',
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   },
   {
     id: 'cimiento', slug: 'cimiento', title: 'Cimiento', year: 2026, price: 580, accentColor: '#13650F', isSelected: false,
-    designers: ['Rodrigo Lozano', 'Camila Flores'],
+    designers: ['Diana Ruanova', 'Diego González', 'Matías Romero'],
     materials: ['Hormigón lavado', 'Piedra caliza triturada', 'Acero de refuerzo'],
     publishedDate: '01/12/2026', quote: '“Sostener no es solo soportar peso, es definir el lugar.”',
     hours: 'Aproximadamente 880 horas de vaciado y texturizado.',
@@ -91,7 +91,7 @@ export const projects: Project[] = [
   },
   {
     id: 'curado', slug: 'curado', title: 'Curado', year: 2026, price: 470, accentColor: '#A5BCD5', isSelected: false,
-    designers: ['Paulina Garza', 'David Serna'],
+    designers: ['Camila León', 'Carolina Saldaña', 'Paula Aranda'],
     materials: ['Cera microcristalina', 'Hierro oxidado controlado', 'Yeso alabastro'],
     publishedDate: '12/12/2026', quote: '“La pátina es el registro visible de la paciencia.”',
     hours: 'Aproximadamente 450 horas de curado y tratamiento.',
