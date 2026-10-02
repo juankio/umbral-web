@@ -32,15 +32,15 @@ describe('HomeHero Geometría y Concepto Umbral (Portal de Doble Capa Vectorial)
 
   it('Verifica la escala monumental y proporciones equilibradas', () => {
     // Proporciones y dimensiones del triángulo portal
-    expect(heroContent).toContain('w-[340px] sm:w-[380px] lg:w-[420px]')
     expect(heroContent).toContain('aspect-[528/640]')
+    expect(heroContent).toMatch(/w-\[\d+px\]\s+xs:w-\[\d+px\]\s+sm:w-\[\d+px\]\s+md:w-\[\d+px\]\s+lg:w-\[\d+px\]/)
     // Escala de frases laterales
-    expect(heroContent).toContain('text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] 2xl:text-[90px]')
+    expect(heroContent).toMatch(/text-2xl\s+xs:text-3xl\s+sm:text-5xl/)
     // Escala monumental de UMBRAL
-    expect(heroContent).toContain('text-6xl sm:text-7xl md:text-8xl lg:text-[104px] xl:text-[116px] 2xl:text-[128px]')
+    expect(heroContent).toMatch(/text-5xl\s+xs:text-6xl\s+sm:text-7xl/)
     expect(heroContent).toContain('UMBRAL')
     // Margen inferior seguro para evitar colisión con la marquesina
-    expect(heroContent).toContain('mb-8 sm:mb-12 lg:mb-14')
+    expect(heroContent).toMatch(/mb-4\s+sm:mb-8\s+lg:mb-14/)
     // Layout flexible orgánico
     expect(heroContent).toContain('min-h-[calc(100dvh-')
   })

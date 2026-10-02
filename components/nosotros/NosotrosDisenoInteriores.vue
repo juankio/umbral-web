@@ -31,7 +31,7 @@
 
       <!-- Grid editorial de 3 alumnas (Desplazada a la DERECHA según Figma Frame 407:2) -->
       <div class="w-full max-w-[1050px] lg:max-w-[1150px] ml-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
           <NosotrosCreadorCard
             v-for="alumno in integrantesInteriores"
             :key="alumno.name"

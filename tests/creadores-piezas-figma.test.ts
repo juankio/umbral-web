@@ -75,7 +75,7 @@ describe('Sección Creadores De Las Piezas (1:1 Figma Nodos 407:65, 503:218, 463
   it('8. Tarjetas de alumnos modulares y estilos requeridos', () => {
     expect(cardCode).toContain('aspect-square bg-[#EAEAEA] overflow-hidden')
     expect(cardCode).toContain('grayscale contrast-105')
-    expect(cardCode).toContain('font-barlow font-normal text-lg sm:text-xl lg:text-[22px] text-[#070707] mt-2 leading-tight')
-    expect(cardCode).toContain('font-barlow font-normal text-xs sm:text-sm text-neutral-600 mt-0.5 leading-snug')
+    expect(cardCode).toMatch(/font-barlow font-normal text-sm xs:text-base sm:text-xl lg:text-\[22px\] text-\[#070707\]/)
+    expect(cardCode).toMatch(/font-barlow font-normal text-\[10px\] xs:text-xs sm:text-sm text-neutral-600/)
   })
 })

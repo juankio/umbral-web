@@ -35,6 +35,15 @@
         :class="{ '!pointer-events-auto': isSplit }"
       >
         <div class="relative w-[92vw] max-w-3xl sm:max-w-4xl lg:max-w-[1040px] xl:max-w-[1080px] aspect-video bg-black border border-neutral-800 shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden rounded-xs">
+          <a
+            href="https://www.youtube.com/watch?v=Ro-pZcZIuPQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="absolute top-3 left-3 z-40 bg-black/85 hover:bg-white text-white hover:text-black border border-white/30 px-3.5 py-1 text-xs font-barlow uppercase tracking-wider rounded-full flex items-center gap-1.5 transition-all shadow-lg"
+            aria-label="Ver video directamente en YouTube"
+          >
+            <span>Ver en YouTube ↗</span>
+          </a>
           <button
             type="button"
             @click="toggleSplit"
@@ -46,10 +55,11 @@
           <iframe
             v-if="showIframe"
             class="w-full h-full"
-            src="https://www.youtube-nocookie.com/embed/Ro-pZcZIuPQ?autoplay=1&rel=0"
+            src="https://www.youtube.com/embed/Ro-pZcZIuPQ?autoplay=1&rel=0"
             title="Centro Roberto Garza Sada: La Puerta de la Creación (Tadao Ando)"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           />
         </div>

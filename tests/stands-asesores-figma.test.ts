@@ -87,7 +87,7 @@ describe('Secciones Stands y Asesores (1:1 Figma Nodos 417:275, 413:144, 460:447
     expect(asesoresCode).not.toContain('NosotrosInfiniteCarousel')
 
     // Retícula escalonada de 4 columnas (3-1 alternando)
-    expect(asesoresCode).toContain('grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')
+    expect(asesoresCode).toContain('grid-cols-2 sm:grid-cols-2 lg:grid-cols-4')
     expect(asesoresCode).toContain('colStartClasses')
     expect(asesoresCode).toContain('lg:col-start-1')
     expect(asesoresCode).toContain('lg:col-start-4')

@@ -5,7 +5,7 @@
   >
     <!-- Contenedor central proporcional de amplitud monumental de galería -->
     <div class="relative w-full max-w-[1840px] mx-auto min-h-[580px] sm:min-h-[640px] lg:min-h-[740px] xl:min-h-[780px] px-3 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center my-auto">
-      <ZonaMacoHeroTitle class="relative z-10 pointer-events-none" />
+      <ZonaMacoHeroTriangle class="relative z-10 pointer-events-none" />
       <ZonaMacoFloatingProjects />
     </div>
 
@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import ZonaMacoHeroTitle from './ZonaMacoHeroTitle.vue'
+import ZonaMacoHeroTriangle from './ZonaMacoHeroTriangle.vue'
 import ZonaMacoFloatingProjects from './ZonaMacoFloatingProjects.vue'
 
 defineEmits<{ (e: 'select', category: string): void }>()

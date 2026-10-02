@@ -35,18 +35,18 @@
       </div>
     </div>
 
-    <!-- Mobile Gallery (< lg): Tira horizontal y grid compacta armónica sin desbordes ni bordes duros -->
-    <div class="lg:hidden w-full max-w-2xl mx-auto px-4 mt-6 select-none">
-      <div class="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-3 overflow-x-auto sm:overflow-visible pb-4 pt-1 px-1 no-scrollbar snap-x snap-mandatory">
+    <!-- Mobile Gallery (< lg): Cuadrícula simétrica 5x2 limpia con las 10 obras -->
+    <div class="lg:hidden w-full max-w-md mx-auto px-4 mt-6 select-none">
+      <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
         <NuxtLink
           v-for="project in projects"
           :key="`mobile-${project.to}`"
           :to="project.to"
-          class="group relative shrink-0 w-24 xs:w-28 sm:w-full aspect-square snap-center focus:outline-none transition-all duration-200 active:scale-95 hover:scale-105"
+          class="group relative w-full aspect-square focus:outline-none transition-all duration-200 active:scale-95 hover:scale-105"
           :aria-label="`Ver obra ${project.title}`"
         >
           <div
-            class="w-full h-full relative overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_28px_rgba(0,0,0,0.12)] group-hover:shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center transition-all duration-200"
+            class="w-full h-full relative overflow-hidden shadow-xs hover:shadow-md flex items-center justify-center transition-all duration-200"
             :style="{ backgroundColor: project.bg }"
           >
             <img
@@ -56,14 +56,12 @@
               loading="lazy"
               draggable="false"
             />
-            <div class="absolute bottom-1 right-1 pointer-events-none">
-              <span class="font-barlow font-medium text-[10px] text-black uppercase bg-white/90 px-1 py-0.2 shadow-2xs">
-                {{ project.title }}
-              </span>
-            </div>
           </div>
         </NuxtLink>
       </div>
+      <p class="font-mono text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-widest text-center mt-3">
+        10 Obras Seleccionadas · Toca para explorar
+      </p>
     </div>
   </div>
 </template>

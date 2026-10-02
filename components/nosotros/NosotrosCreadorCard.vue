@@ -10,10 +10,10 @@
         height="400"
       />
     </div>
-    <h4 class="font-barlow font-normal text-lg sm:text-xl lg:text-[22px] text-[#070707] mt-2 leading-tight">
+    <h4 class="font-barlow font-normal text-sm xs:text-base sm:text-xl lg:text-[22px] text-[#070707] mt-1.5 sm:mt-2 leading-tight">
       {{ alumno.name }}
     </h4>
-    <p class="font-barlow font-normal text-xs sm:text-sm text-neutral-600 mt-0.5 leading-snug">
+    <p class="font-barlow font-normal text-[10px] xs:text-xs sm:text-sm text-neutral-600 mt-0.5 leading-snug">
       {{ alumno.career }}
     </p>
   </article>

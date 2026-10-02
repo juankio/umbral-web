@@ -33,7 +33,7 @@
           <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
             Cimiento
           </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
             <NosotrosCreadorCard
               v-for="alumno in cimientoAlumnos"
               :key="alumno.name"
@@ -52,7 +52,7 @@
           <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
             Curado
           </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
             <NosotrosCreadorCard
               v-for="alumno in curadoAlumnos"
               :key="alumno.name"
@@ -71,7 +71,7 @@
           <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
             Encuadre
           </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
             <NosotrosCreadorCard
               v-for="alumno in encuadreAlumnos"
               :key="alumno.name"
@@ -90,7 +90,7 @@
           <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
             Curado
           </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
             <NosotrosCreadorCard
               v-for="alumno in curadoAlumnos"
               :key="'curado-bottom-' + alumno.name"

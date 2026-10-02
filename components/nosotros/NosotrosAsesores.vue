@@ -30,7 +30,7 @@
       </div>
 
       <!-- Retícula escalonada de 4 columnas (alternando desplazamiento 3+1) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 lg:gap-x-9 gap-y-7 sm:gap-y-9 lg:gap-y-10 max-w-[1080px] xl:max-w-[1140px] 2xl:max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 lg:gap-9 gap-y-6 sm:gap-y-9 lg:gap-y-10 max-w-[1080px] xl:max-w-[1140px] 2xl:max-w-[1200px] mx-auto">
         <NosotrosCreadorCard
           v-for="(asesor, index) in asesores"
           :key="asesor.name + asesor.career"
