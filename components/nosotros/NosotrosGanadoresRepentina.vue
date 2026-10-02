@@ -26,77 +26,41 @@
         </h2>
       </div>
 
-      <!-- 2. Ritmo Asimétrico en Zigzag de los 3 Equipos -->
+      <!-- 2. Ritmo Asimétrico en Zigzag de los 10 Proyectos Oficiales (equipos de 2, 3 o 4) -->
       <div class="w-full flex flex-col">
-        <!-- FILA 1: Cimiento (ALINEADA A LA IZQUIERDA) -->
-        <div class="w-full max-w-[1050px] lg:max-w-[1150px] mr-auto">
+        <div
+          v-for="(proyecto, idx) in proyectos"
+          :key="proyecto.id"
+          class="w-full"
+          :class="[
+            proyecto.alumnos.length === 2 ? 'max-w-[720px]' : (proyecto.alumnos.length === 4 ? 'max-w-[1300px]' : 'max-w-[1050px] lg:max-w-[1150px]'),
+            proyecto.align === 'right' ? 'ml-auto' : 'mr-auto'
+          ]"
+        >
           <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
-            Cimiento
+            {{ proyecto.name }}
           </h3>
-          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
-            <NosotrosCreadorCard
-              v-for="alumno in cimientoAlumnos"
-              :key="alumno.name"
-              :alumno="alumno"
-            />
-          </div>
-          <!-- Línea negra horizontal debajo de Cimiento -->
           <div
-            ref="lineCimientoRef"
-            class="h-[1.5px] bg-[#070707] w-full max-w-[1050px] lg:max-w-[1150px] mt-8 mb-14 sm:mb-16 will-change-transform"
-          />
-        </div>
-
-        <!-- FILA 2: Curado (DESPLAZADA A LA DERECHA) -->
-        <div class="w-full max-w-[1050px] lg:max-w-[1150px] ml-auto">
-          <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
-            Curado
-          </h3>
-          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
+            class="grid gap-3 sm:gap-8 lg:gap-10"
+            :class="{
+              'grid-cols-2': proyecto.alumnos.length === 2,
+              'grid-cols-3': proyecto.alumnos.length === 3,
+              'grid-cols-2 sm:grid-cols-4': proyecto.alumnos.length === 4
+            }"
+          >
             <NosotrosCreadorCard
-              v-for="alumno in curadoAlumnos"
-              :key="alumno.name"
+              v-for="alumno in proyecto.alumnos"
+              :key="proyecto.id + '-' + alumno.name"
               :alumno="alumno"
             />
           </div>
-          <!-- Línea negra horizontal debajo de Curado -->
+          <!-- Línea negra horizontal individual de cada fila en zigzag -->
           <div
-            ref="lineCuradoRef"
-            class="h-[1.5px] bg-[#070707] w-full max-w-[1050px] lg:max-w-[1150px] ml-auto mt-8 mb-14 sm:mb-16 will-change-transform"
+            v-if="idx < proyectos.length - 1"
+            :ref="el => setLineRef(el, idx)"
+            class="h-[1.5px] bg-[#070707] w-full mt-8 mb-14 sm:mb-16 will-change-transform"
+            :class="proyecto.align === 'right' ? 'ml-auto' : ''"
           />
-        </div>
-
-        <!-- FILA 3: Encuadre (ALINEADA A LA IZQUIERDA) -->
-        <div class="w-full max-w-[1050px] lg:max-w-[1150px] mr-auto">
-          <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
-            Encuadre
-          </h3>
-          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
-            <NosotrosCreadorCard
-              v-for="alumno in encuadreAlumnos"
-              :key="alumno.name"
-              :alumno="alumno"
-            />
-          </div>
-          <!-- Línea negra horizontal debajo de Encuadre -->
-          <div
-            ref="lineEncuadreRef"
-            class="h-[1.5px] bg-[#070707] w-full max-w-[1050px] lg:max-w-[1150px] mt-8 mb-14 sm:mb-16 will-change-transform"
-          />
-        </div>
-
-        <!-- FILA 4: Curado (DESPLAZADA A LA DERECHA - 1:1 FIGMA) -->
-        <div class="w-full max-w-[1050px] lg:max-w-[1150px] ml-auto">
-          <h3 class="font-barlow text-2xl sm:text-3xl text-[#070707] mb-4 text-left">
-            Curado
-          </h3>
-          <div class="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-10">
-            <NosotrosCreadorCard
-              v-for="alumno in curadoAlumnos"
-              :key="'curado-bottom-' + alumno.name"
-              :alumno="alumno"
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -106,75 +70,31 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import NosotrosCreadorCard, { type AlumnoCreador } from './NosotrosCreadorCard.vue'
+import { useCreadores } from '~/composables/useCreadores'
+import NosotrosCreadorCard from './NosotrosCreadorCard.vue'
 
 const triangleRef = ref<HTMLElement | null>(null)
 const headingRef = ref<HTMLElement | null>(null)
-const lineCimientoRef = ref<HTMLElement | null>(null)
-const lineCuradoRef = ref<HTMLElement | null>(null)
-const lineEncuadreRef = ref<HTMLElement | null>(null)
+const lineRefs = ref<HTMLElement[]>([])
 
+const setLineRef = (el: any, idx: number) => {
+  if (el) lineRefs.value[idx] = el.$el ?? el
+}
+
+const { proyectos } = useCreadores()
 const { observeScrollReveal } = useScrollAnimation()
 
 onMounted(() => {
   observeScrollReveal(triangleRef, { type: 'triangle', delay: 40 })
   observeScrollReveal(headingRef, { type: 'heading', delay: 100 })
-  observeScrollReveal(lineCimientoRef, { type: 'divider', origin: 'left center', delay: 120 })
-  observeScrollReveal(lineCuradoRef, { type: 'divider', origin: 'right center', delay: 120 })
-  observeScrollReveal(lineEncuadreRef, { type: 'divider', origin: 'left center', delay: 120 })
+  lineRefs.value.forEach((line, idx) => {
+    if (!line) return
+    const align = proyectos[idx]?.align ?? 'left'
+    observeScrollReveal(line, {
+      type: 'divider',
+      origin: align === 'right' ? 'right center' : 'left center',
+      delay: 120
+    })
+  })
 })
-
-const cimientoAlumnos: AlumnoCreador[] = [
-  {
-    name: 'Diana Ruanova',
-    career: 'Diseño Industrial',
-    image: '/images/alumno-diana-ruanova.webp'
-  },
-  {
-    name: 'Diego González',
-    career: 'Diseño Industrial',
-    image: '/images/alumno-diego-gonzalez.webp'
-  },
-  {
-    name: 'Matías Romero',
-    career: 'Diseño Industrial',
-    image: '/images/alumno-matias-romero.webp'
-  }
-]
-
-const curadoAlumnos: AlumnoCreador[] = [
-  {
-    name: 'Camila León',
-    career: 'Diseño De Modas',
-    image: '/images/alumno-camila-leon.webp'
-  },
-  {
-    name: 'Carolina Saldaña',
-    career: 'Diseño Gráfico',
-    image: '/images/alumno-carolina-saldana.webp'
-  },
-  {
-    name: 'Paula Aranda',
-    career: 'Diseño De Modas',
-    image: '/images/alumno-paula-aranda.webp'
-  }
-]
-
-const encuadreAlumnos: AlumnoCreador[] = [
-  {
-    name: 'Ximena Silva',
-    career: 'Diseño Industrial',
-    image: '/images/alumno-ximena-silva.webp'
-  },
-  {
-    name: 'Daniela García',
-    career: 'Diseño Industrial',
-    image: '/images/alumno-daniela-garcia.webp'
-  },
-  {
-    name: 'Regina Hinojosa',
-    career: 'Diseño Industrial',
-    image: '/images/alumno-regina-hinojosa.webp'
-  }
-]
 </script>
