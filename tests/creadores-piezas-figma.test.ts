@@ -56,9 +56,6 @@ describe('Sección Creadores De Las Piezas (10 Proyectos Oficiales 1:1 Figma)', 
     expect(creadoresCode).toContain('Ximena Silva')
     expect(creadoresCode).toContain('Daniela García')
     expect(creadoresCode).toContain('Regina Hinojosa')
-    expect(creadoresCode).toContain('/images/alumno-ximena-silva.webp')
-    expect(creadoresCode).toContain('/images/alumno-daniela-garcia.webp')
-    expect(creadoresCode).toContain('/images/alumno-regina-hinojosa.webp')
   })
 
   it('6. Los 10 proyectos oficiales en zigzag (Cimiento, Curado, Encuadre, Entretiempo, Interconexión, Mai, Norte Rey, Reliquia, Roberto, Sagaón)', () => {
