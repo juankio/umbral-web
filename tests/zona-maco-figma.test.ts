@@ -10,8 +10,8 @@ describe('Zona Maco Hero & Floating Projects Figma Frame 325:2 Alignment', () =>
   const heroContent = readFileSync(heroPath, 'utf-8')
 
   it('Verifica las 10 obras seleccionadas y sus posiciones exactas en Figma Frame 325:2', () => {
-    // 1. Desmadre: Arriba centro-izq
-    expect(floatingContent).toContain("title: 'Desmadre'")
+    // 1. Norte Rey: Arriba centro-izq
+    expect(floatingContent).toContain("title: 'Norte Rey'")
     expect(floatingContent).toContain('lg:left-[calc(50%-230px)] xl:left-[calc(50%-290px)]')
     expect(floatingContent).toContain('lg:top-[calc(50%-320px)] xl:top-[calc(50%-380px)]')
 

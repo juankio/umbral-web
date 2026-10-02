@@ -112,8 +112,8 @@ export const useCreadores = () => {
       name: 'Sagaón',
       align: 'right',
       alumnos: [
-        { name: 'Regina Galán', career: 'Diseño Gráfico', image: FOTO_CAMILA },
-        { name: 'Melissa Marroquin', career: 'Diseño Gráfico', image: FOTO_PAULA }
+        { name: 'Camila Vargas', career: 'Diseño Industrial', image: FOTO_CAMILA },
+        { name: 'Graciela Santiago', career: 'Diseño Industrial', image: FOTO_PAULA }
       ]
     }
   ]

@@ -101,8 +101,8 @@ export const projects: Project[] = [
     galleryImages: ['/images/obra-curado.webp', '/images/crgs-details.webp'],
   },
   {
-    id: 'desmadre', slug: 'desmadre', title: 'Desmadre', year: 2026, price: 620, accentColor: '#E16A5F', isSelected: false,
-    designers: ['Colectivo Taller Abierto CRGS'],
+    id: 'norte-rey', slug: 'norte-rey', title: 'Norte Rey', year: 2026, price: 620, accentColor: '#E16A5F', isSelected: false,
+    designers: ['Amanda Peña', 'Isabella Fuentes'],
     materials: ['Materiales de desecho de taller', 'Acrílicos fluorescentes', 'Hierro soldado'],
     publishedDate: '20/12/2026', quote: '“Del caos ordenado nace el nuevo lenguaje plástico.”',
     hours: 'Aproximadamente 1100 horas de experimentación colectiva.',
@@ -117,6 +117,7 @@ export function useProjects() {
   const getAllProjects = (): Project[] => projects
 
   const getProjectBySlug = (slug: string): Project | undefined => {
+    if (slug === 'desmadre') return projects.find((p) => p.slug === 'norte-rey' || p.id === 'norte-rey')
     return projects.find((p) => p.slug === slug || p.id === slug)
   }
 

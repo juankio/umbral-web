@@ -58,6 +58,13 @@ describe('Sección Creadores De Las Piezas (10 Proyectos Oficiales 1:1 Figma)', 
     expect(creadoresCode).toContain('Regina Hinojosa')
   })
 
+  it('5b. Sagaón con integrantes oficiales 1:1 Figma (Camila Vargas y Graciela Santiago)', () => {
+    expect(creadoresCode).toContain('Sagaón')
+    expect(creadoresCode).toContain('Camila Vargas')
+    expect(creadoresCode).toContain('Graciela Santiago')
+    expect(creadoresCode).toContain('Diseño Industrial')
+  })
+
   it('6. Los 10 proyectos oficiales en zigzag (Cimiento, Curado, Encuadre, Entretiempo, Interconexión, Mai, Norte Rey, Reliquia, Roberto, Sagaón)', () => {
     const diezProyectos = [
       'Cimiento', 'Curado', 'Encuadre', 'Entretiempo', 'Interconexión',

@@ -85,7 +85,7 @@ const asesores: AlumnoCreador[] = [
   {
     name: 'Nohemi Gamboa',
     career: 'Lider De Proyecto',
-    image: '/images/figma-asesor-nohemi-hd.webp'
+    image: '/images/figma-asesor-nohemi-original.webp'
   },
   {
     name: 'Natalia Ceballos',

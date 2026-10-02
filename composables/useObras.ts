@@ -213,14 +213,14 @@ export const useObras = () => {
       colorBadge: 'bg-neutral-900 text-white'
     },
     {
-      slug: 'desmadre',
-      title: 'Desmadre',
+      slug: 'norte-rey',
+      title: 'Norte Rey',
       subtitle: 'Orden fractal nacido del caos de taller',
       category: 'Diseño Emergente',
       price: '$500',
       year: '2026',
       edition: 'Serie de 4',
-      designers: ['Rodrigo Garza', 'Estudio Repentina CRGS'],
+      designers: ['Amanda Peña', 'Isabella Fuentes'],
       materials: 'Sobrantes de corte CNC, acrílico fundido y resina epóxica',
       dimensions: '55 × 45 × 15 cm',
       hours: '105 horas',
@@ -236,6 +236,7 @@ export const useObras = () => {
   ]
 
   const getObraBySlug = (slug: string): Obra | undefined => {
+    if (slug === 'desmadre') return obras.find(o => o.slug === 'norte-rey')
     return obras.find(o => o.slug === slug)
   }
 

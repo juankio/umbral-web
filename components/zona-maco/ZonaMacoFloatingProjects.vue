@@ -80,7 +80,7 @@ interface FloatingProject {
 
 // 10 obras referenciadas al centro exacto del canvas (calc(50% +/- offset)) abrazando el titular monumental (Figma Frame 325:2)
 const projects: FloatingProject[] = [
-  { to: '/obras/desmadre', title: 'Desmadre', img: '/images/figma-product-desmadre.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-230px)] xl:left-[calc(50%-290px)] lg:top-[calc(50%-320px)] xl:top-[calc(50%-380px)] w-28 xs:w-32 sm:w-36 lg:w-[155px] xl:w-[185px] aspect-square z-10' },
+  { to: '/obras/norte-rey', title: 'Norte Rey', img: '/images/figma-product-desmadre.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%-230px)] xl:left-[calc(50%-290px)] lg:top-[calc(50%-320px)] xl:top-[calc(50%-380px)] w-28 xs:w-32 sm:w-36 lg:w-[155px] xl:w-[185px] aspect-square z-10' },
   { to: '/obras/interconexion', title: 'Interconexión', img: '/images/figma-product-entretiempo.webp', bg: '#CFC4BE', posClass: 'lg:left-[calc(50%+188px)] xl:left-[calc(50%+230px)] lg:top-[calc(50%-335px)] xl:top-[calc(50%-400px)] w-28 xs:w-32 sm:w-36 lg:w-[155px] xl:w-[185px] aspect-square z-13' },
   { to: '/obras/mai', title: 'Mai', img: '/images/figma-product-mai.webp', bg: '#D9D9D9', posClass: 'lg:left-[calc(50%+320px)] xl:left-[calc(50%+390px)] lg:top-[calc(50%-275px)] xl:top-[calc(50%-330px)] w-28 xs:w-32 sm:w-36 lg:w-[155px] xl:w-[185px] aspect-square z-14' },
   { to: '/obras/roberto', title: 'Roberto', img: '/images/figma-product-interconexion.webp', bg: '#434B2E', posClass: 'lg:left-[calc(50%+200px)] xl:left-[calc(50%+245px)] lg:top-[calc(50%-150px)] xl:top-[calc(50%-180px)] w-28 xs:w-32 sm:w-36 lg:w-[155px] xl:w-[185px] aspect-square z-14' },

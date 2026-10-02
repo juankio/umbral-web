@@ -97,7 +97,7 @@ describe('Secciones Stands y Asesores (1:1 Figma Nodos 417:275, 413:144, 460:447
     expect(asesoresCode).toContain('Decana de la Escuela de Arte y Diseño')
     expect(asesoresCode).toContain('/images/figma-asesor-jessica-ochoa.webp')
     expect(asesoresCode).toContain('Nohemi Gamboa')
-    expect(asesoresCode).toContain('/images/figma-asesor-nohemi-hd.webp')
+    expect(asesoresCode).toContain('/images/figma-asesor-nohemi-original.webp')
     expect(asesoresCode).toContain('Natalia Ceballos')
     expect(asesoresCode).toContain('/images/figma-asesor-natalia-ceballos.webp')
 

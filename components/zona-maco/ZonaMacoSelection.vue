@@ -9,7 +9,7 @@
       <div ref="dividerRef" class="h-[2px] sm:h-[3px] bg-[#030303] max-w-[1440px] mx-auto mt-4 mb-8 sm:mb-10 will-change-transform" />
     </div>
 
-    <!-- Grid Editorial de 3 Columnas (patrón Figma: 3-3-3-1 con Desmadre centrado) -->
+    <!-- Grid Editorial de 3 Columnas (patrón Figma: 3-3-3-1 con Norte Rey centrado) -->
     <div class="relative z-10 max-w-[1040px] xl:max-w-[1100px] mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 lg:gap-8">
         <article
@@ -18,7 +18,7 @@
           :ref="el => setCardRef(el, idx)"
           :class="[
             'relative w-full aspect-square group overflow-hidden border-0 shadow-sm hover:shadow-xl transition-all duration-300 will-change-transform',
-            { 'lg:col-start-2': item.slug === 'desmadre' }
+            { 'lg:col-start-2': item.slug === 'norte-rey' || item.slug === 'desmadre' }
           ]"
           :style="{ backgroundColor: item.bg }"
           @mouseenter="onCardEnter(idx)"
@@ -122,7 +122,7 @@ const productos: ProductSelection[] = [
   { title: 'Curado', slug: 'curado', image: '/images/figma-product-curado.webp', bg: '#CFC4BE' },
   { title: 'Cimiento', slug: 'cimiento', image: '/images/figma-product-cimiento.webp', bg: '#D9D9D9' },
   { title: 'Reliquia', slug: 'reliquia', image: '/images/figma-product-reliquia.webp', bg: '#D7D7CC' },
-  { title: 'Desmadre', slug: 'desmadre', image: '/images/figma-product-desmadre.webp', bg: '#D9D9D9' }
+  { title: 'Norte Rey', slug: 'norte-rey', image: '/images/figma-product-desmadre.webp', bg: '#D9D9D9' }
 ]
 
 onMounted(() => {
