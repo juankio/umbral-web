@@ -1,67 +1,73 @@
 <template>
-  <footer ref="footerRef" class="w-full bg-[#070707] py-8 sm:py-12 lg:py-14 px-6 sm:px-10 lg:px-12 border-t border-white/10 text-white select-text will-change-transform">
-    <div class="max-w-[1720px] mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-8 lg:gap-x-10 xl:gap-x-14 gap-y-8 sm:gap-y-10 items-start sm:items-center">
-      <!-- Columna 1: Logotipo oficial UDEM -->
+  <footer ref="footerRef" class="w-full bg-[#000000] py-10 sm:py-14 lg:py-16 px-6 sm:px-10 lg:px-16 border-t border-white/10 text-white select-text will-change-transform">
+    <div class="max-w-[1720px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-8 sm:gap-y-10 items-center">
+      <!-- 1. Bloque Oficial Escuela de Arte y Diseño -->
       <div class="flex items-center justify-start justify-self-start">
-        <a
-          href="https://www.udem.edu.mx"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-2.5 sm:gap-4 group hover:opacity-90 transition-opacity"
-          aria-label="Universidad de Monterrey"
-        >
-          <picture>
-            <source srcset="/images/footer-udem.webp" type="image/webp" />
-            <img
-              src="/images/footer-udem.png"
-              alt="UDEM"
-              class="h-7 sm:h-9 lg:h-10 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-300"
-            />
-          </picture>
-          <div class="h-7 sm:h-8 w-[1.5px] bg-white/50" />
-          <span class="font-barlow font-bold text-[10px] xs:text-xs sm:text-sm tracking-[0.14em] sm:tracking-[0.16em] uppercase text-white leading-tight">
-            UNIVERSIDAD<br>DE MONTERREY
-          </span>
-        </a>
+        <img
+          src="/images/logo-escuela-official.png"
+          alt="Escuela de Arte y Diseño - Universidad de Monterrey"
+          class="h-11 xs:h-13 sm:h-15 lg:h-16 w-auto object-contain select-none"
+        />
       </div>
 
-      <!-- Columna 2: Logotipo oficial CRGS con enlace a /nosotros -->
+      <!-- 2. Logotipo Diagonal Oficial Centro Roberto Garza Sada -->
       <div class="flex items-center justify-end sm:justify-center lg:justify-center justify-self-end sm:justify-self-center lg:justify-self-center">
         <NuxtLink
           to="/nosotros"
           class="inline-block hover:opacity-90 hover:scale-105 transition-all duration-300 flex-shrink-0"
           aria-label="Centro Roberto Garza Sada"
         >
-          <picture>
-            <source srcset="/images/footer-crgs.webp" type="image/webp" />
-            <img
-              src="/images/footer-crgs.png"
-              alt="Centro Roberto Garza Sada de Arte Arquitectura y Diseño"
-              class="h-12 xs:h-14 sm:h-20 w-auto object-contain"
-            />
-          </picture>
+          <img
+            src="/images/footer-crgs.png"
+            alt="Centro Roberto Garza Sada de Arte Arquitectura y Diseño"
+            class="h-12 xs:h-14 sm:h-16 lg:h-18 w-auto object-contain select-none"
+          />
         </NuxtLink>
       </div>
 
-      <!-- Columna 3: Bloque tipográfico institucional -->
-      <div class="flex flex-col justify-start sm:justify-center lg:justify-center justify-self-start sm:justify-self-center lg:justify-self-center">
-        <div class="font-barlow font-bold text-[11px] xs:text-xs sm:text-sm lg:text-base tracking-[0.14em] uppercase text-white/95 leading-tight select-none text-left">
-          ESCUELA DE<br>
-          ARTE Y DISEÑO<br>
-          UNIVERSIDAD<br>
-          DE MONTERREY
-        </div>
+      <!-- 3. Logotipo Oficial UDEM | Universidad de Monterrey (1:1 Imagen Oficial) -->
+      <div class="flex items-center justify-start sm:justify-center lg:justify-center justify-self-start sm:justify-self-center lg:justify-self-center">
+        <a
+          href="https://www.udem.edu.mx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block group hover:opacity-90 transition-opacity"
+          aria-label="Universidad de Monterrey"
+        >
+          <img
+            src="/images/logo-udem-official.png"
+            alt="UDEM | Universidad de Monterrey"
+            class="h-7 xs:h-8 sm:h-9 lg:h-10 w-auto object-contain select-none"
+          />
+        </a>
       </div>
 
-      <!-- Columna 4: Lista vertical de enlaces oficiales con subrayado -->
-      <div class="flex flex-col space-y-2 sm:space-y-2.5 font-barlow text-xs xs:text-sm sm:text-base justify-self-end sm:justify-self-end lg:justify-self-end items-end sm:items-end lg:items-end">
+      <!-- 4. Logotipo Oficial ZONA MACO (1:1 Imagen Usuario) -->
+      <div class="flex items-center justify-end sm:justify-center lg:justify-center justify-self-end sm:justify-self-center lg:justify-self-center">
+        <a
+          href="https://zsonamaco.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block group hover:opacity-90 hover:scale-105 transition-all duration-300"
+          aria-label="Zona Maco México Arte Contemporáneo"
+        >
+          <img
+            src="/images/logo-zona-maco-white.png"
+            alt="ZONA MACO"
+            class="h-8 xs:h-9 sm:h-10 lg:h-11 w-auto object-contain select-none"
+          />
+        </a>
+      </div>
+
+      <!-- 5. Lista Vertical de Enlaces Oficiales (1:1 Screenshot Usuario) -->
+      <div class="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col space-y-2 sm:space-y-2.5 font-barlow text-xs sm:text-sm justify-self-center md:justify-self-end lg:justify-self-end items-center md:items-end lg:items-end text-center md:text-right">
         <a
           v-for="link in officialLinks"
           :key="link.name"
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-white/80 hover:text-white underline underline-offset-4 decoration-1 decoration-white/30 hover:decoration-white hover:-translate-x-0.5 lg:hover:-translate-x-1 transition-all duration-200 w-fit text-right"
+          class="text-white hover:text-white underline underline-offset-4 decoration-1 decoration-white/40 hover:decoration-white hover:-translate-x-0.5 transition-all duration-200 w-fit text-right"
         >
           {{ link.name }}
         </a>
