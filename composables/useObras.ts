@@ -56,7 +56,7 @@ export const useObras = () => {
       dimensions: '60 × 25 × 25 cm',
       hours: '180 horas',
       quote: 'La materia recuerda el carácter firme de quienes levantaron una escuela sobre la montaña.',
-      description: 'Una abstracción tectónica de la solidez y visión del mecenazgo industrial regiomontano. Superficies ásperas contrastadas con aristas afiladas como navajas de afeitar.',
+      description: 'Identidad Regiomontana: Conexión directa con la herencia industrial y la disponibilidad del acero en Nuevo León.\n\nEsencia Brutalista: Estética cruda, honesta y de alto impacto visual mediante la lámina de acero.\n\nSe busca que la persona que compre nuestro producto, se lleve una parte del crgs indirectamente y que sea parte de su espacio.',
       heroImage: '/images/figma-related-roberto.webp',
       gallery: [
         '/images/figma-related-roberto.webp',
@@ -78,7 +78,7 @@ export const useObras = () => {
       dimensions: '70 × 50 × 6 cm',
       hours: '85 horas',
       quote: 'La letra es estructura antes de ser sonido.',
-      description: 'Una exploración de la letra no como signo legible inmediato sino como volumen arquitectónico habitable y contundente.',
+      description: 'Nace de la convivencia entre dos fuerzas: la naturaleza imponente del paisaje norteño y la transformación de una ciudad industrial. La sierra, la piedra caliza, las grutas y el agua se traducen en formas, vacíos y texturas, mientras materiales como el encino, la anacahuita, el cuero y la palma conservan fragmentos de ese territorio.\n\nEl jarrón convierte el paisaje en materia: su vacío evoca la Huasteca y sus encapsulados preservan la identidad natural y artesanal del norte, creando un objeto donde lo áspero y lo orgánico, lo permanente y lo efímero, coexisten.',
       heroImage: '/images/figma-related-sagaon.webp',
       gallery: [
         '/images/figma-related-sagaon.webp',
@@ -99,7 +99,7 @@ export const useObras = () => {
       dimensions: '35 × 28 × 22 cm',
       hours: '110 horas',
       quote: 'La montaña nos provee la piedra y el viento le talla su memoria.',
-      description: 'Pieza arqueológica ficticia rescatada del subsuelo donde se asientan las zapatas de La Puerta de la Creación.',
+      description: 'Una parte de nuestra cultura noroestense que pasa desapercibido, pero ha dejado una huella profunda en nuestra historia. La citricultura como reflejo de resiliencia, esfuerzo y tradición, ha marcado generaciones enteras y se convierte hoy en una reliquia que preserva el legado de nuestra tierra.',
       heroImage: '/images/figma-product-reliquia.webp',
       gallery: [
         '/images/figma-product-reliquia.webp',
@@ -120,7 +120,7 @@ export const useObras = () => {
       dimensions: '38 × 38 × 12 cm',
       hours: '95 horas',
       quote: 'Ninguna disciplina existe aislada dentro del umbral del CRGS.',
-      description: 'Representa el nodo colaborativo entre arte, diseño y tecnología. La urdimbre de líneas genera una celosía cinemática que muta según la perspectiva del observador.',
+      description: 'La propuesta nace de la combinación entre la identidad industrial y la cultura del norte de México y el brutalismo. A través de una jarra y un conjunto de cuatro vasos, se busca representar la unión familiar en la hora de la comida tan característica de Monterrey, y los colores junto con el diseño el brutalismo.\n\nLa cerámica, el concreto y el acero de la varilla se integran en piezas de geometría sólida, donde cada material expresa una parte de la identidad del concepto: calidez, unión e industria.',
       heroImage: '/images/figma-related-interconexion.webp',
       gallery: [
         '/images/figma-related-interconexion.webp',
@@ -142,7 +142,7 @@ export const useObras = () => {
       dimensions: '48 × 30 × 20 cm',
       hours: '90 horas',
       quote: 'El intervalo entre dos instantes de contemplación pura.',
-      description: 'Una composición que atrapa la luz rasante en planos transparentes y opacos.',
+      description: 'El CRGS, como obra de arte brutalista, interrumpe, impone y revela un antes y un después en la vida de cada uno de las personas que cruzan sus puertas.',
       heroImage: '/images/figma-related-entretiempo.webp?v=2',
       gallery: [
         '/images/figma-related-entretiempo.webp?v=2'
@@ -183,7 +183,7 @@ export const useObras = () => {
       dimensions: '110 × 40 × 35 cm',
       hours: '160 horas',
       quote: 'Todo vuelo arquitectónico precisa un punto de apoyo inexorable.',
-      description: 'Tributo directo al cálculo estructural del voladizo de 30 metros del edificio CRGS. Fuerza pura y equilibrio límite.',
+      description: 'Esta pieza busca interpretar el brutalismo del edificio CRGS a partir de la idea de un diseño honesto, donde la estructura se muestra tal como es, sin añadir elementos decorativos que busquen ocultarla o disfrazarla.',
       heroImage: '/images/figma-related-cimiento.webp',
       gallery: [
         '/images/figma-related-cimiento.webp',
@@ -204,7 +204,7 @@ export const useObras = () => {
       dimensions: '120 × 90 cm',
       hours: '130 horas',
       quote: 'El lienzo respira cuando la pintura renuncia a la saturación.',
-      description: 'Superficie austera que absorbe la luz incidente, creando una presencia casi táctil en el muro.',
+      description: 'México es un país con una cultura muy abundante, parte de esa cultura es la la gente cotidiana, específicamente como deciden representar, vestir.\n\nNuevo León siendo un estado pegado a estados unidos gana un reconocimiento de ser un lugar con una gran influencia estadounidense, ¿que tan "mexicano" queda nuevo león?\n\nQueremos retar el estereotipo, enseñar quien es el neoleonés actual, puede ser exactamente quien piensas o puede que no.\n\nLa indumentaria es una de las maneras de representarnos al mundo, hay muchas decisiones detrás de lo que usamos, por mas inocentes o "sin importancia" que parezcan. La vestimenta representa una manera de identidad y que mejor forma de demostrar quien es el neoleonés de hoy que con la que se pone.\n\nNo buscamos clasificar a las personas, sino observar las distintas realidades que conforman un mismo estado.',
       heroImage: '/images/figma-product-curado.webp',
       gallery: [
         '/images/figma-product-curado.webp',
@@ -225,7 +225,7 @@ export const useObras = () => {
       dimensions: '55 × 45 × 15 cm',
       hours: '105 horas',
       quote: 'En el clímax de la repentina, el desorden se transforma en rigor geométrico.',
-      description: 'Una oda al proceso frenético de las 48 horas de la Repentina. Los descartes de corte industrial son reensamblados en una pieza vibrante.',
+      description: '"Norte Rey" toma como punto de partida el vinilo como objeto y como experiencia. Su formato circular, inspirado directamente en un disco, se despliega hacia abajo, revelando progresivamente el contenido como si se estuviera descubriendo un álbum nuevo.\n\nCada edición funciona como una cápsula de su genero, acompañada por un CD con sonidos emblemáticos y una postal coleccionable.\n\nTres géneros. Tres escenas. Un mismo territorio.',
       heroImage: '/images/figma-product-desmadre.webp',
       gallery: [
         '/images/figma-product-desmadre.webp',
