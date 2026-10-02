@@ -1,26 +1,42 @@
 <template>
   <section class="relative w-full bg-[#1C1C1C] h-[calc(100dvh-72px)] lg:h-[calc(100dvh-80px)] flex flex-col justify-between overflow-hidden select-none">
-    <!-- Vector Arquitectónico Oficial 1:1 Figma (Node 503:215 - Modo de aislamiento con rayos blancos) -->
+    <!-- Vector Arquitectónico: Versión Desktop 1:1 Figma (Node 503:215 - Modo de aislamiento) -->
     <div
-      class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden"
+      class="hidden sm:block absolute inset-0 pointer-events-none select-none z-0 overflow-hidden"
       aria-hidden="true"
     >
       <img
         src="/images/figma-node-503-215.svg"
         alt=""
-        class="w-full h-full object-cover object-left lg:object-right opacity-60 sm:opacity-85 lg:opacity-100 select-none pointer-events-none"
+        class="w-full h-full object-cover object-right select-none pointer-events-none"
         loading="eager"
       />
     </div>
 
-    <!-- Espaciador superior para posicionar el titular en el tercio inferior -->
-    <div class="flex-1 w-full min-h-[25vh] sm:min-h-0" />
+    <!-- Vector Arquitectónico: Versión Móvil Limpia y Proporcional (Líneas Finas de Perspectiva) -->
+    <div
+      class="sm:hidden absolute inset-0 pointer-events-none select-none z-0 overflow-hidden flex items-center justify-end"
+      aria-hidden="true"
+    >
+      <svg class="w-full h-full opacity-20" viewBox="0 0 390 700" fill="none" preserveAspectRatio="none">
+        <line x1="420" y1="40" x2="0" y2="300" stroke="white" stroke-width="1.5" />
+        <line x1="420" y1="85" x2="0" y2="335" stroke="white" stroke-width="1.5" />
+        <line x1="420" y1="130" x2="0" y2="370" stroke="white" stroke-width="1.5" />
+        <line x1="420" y1="175" x2="0" y2="405" stroke="white" stroke-width="1.5" />
+        <line x1="420" y1="220" x2="0" y2="440" stroke="white" stroke-width="1.5" />
+        <line x1="420" y1="265" x2="0" y2="475" stroke="white" stroke-width="1.5" />
+        <line x1="420" y1="310" x2="0" y2="510" stroke="white" stroke-width="1.5" />
+      </svg>
+    </div>
 
-    <!-- Contenedor anclado en la parte inferior izquierda con margen generoso -->
-    <div class="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 pb-10 sm:pb-14 lg:pb-16 text-left">
+    <!-- Espaciador superior -->
+    <div class="flex-1 w-full" />
+
+    <!-- Contenedor anclado en la parte inferior izquierda -->
+    <div class="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 pb-8 sm:pb-12 lg:pb-14 text-left">
       <h1
         ref="titleRef"
-        class="font-barlow font-normal text-white text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-[100px] xl:text-[120px] 2xl:text-[128px] leading-[0.92] tracking-tight text-left will-change-transform drop-shadow-md"
+        class="font-barlow font-normal text-white text-5xl sm:text-7xl md:text-8xl lg:text-[100px] xl:text-[120px] 2xl:text-[128px] leading-[0.92] tracking-tight text-left will-change-transform"
       >
         Integrantes de<br />Umbral
       </h1>

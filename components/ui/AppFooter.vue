@@ -1,13 +1,13 @@
 <template>
   <footer ref="footerRef" class="w-full bg-[#070707] py-8 sm:py-12 lg:py-14 px-6 sm:px-10 lg:px-12 border-t border-white/10 text-white select-text will-change-transform">
-    <div class="max-w-[1720px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 xl:gap-14 items-center">
-      <!-- Columna 1 (Extremo Izquierda): Logotipo oficial UDEM -->
+    <div class="max-w-[1720px] mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-8 lg:gap-x-10 xl:gap-x-14 gap-y-8 sm:gap-y-10 items-start sm:items-center">
+      <!-- Columna 1: Logotipo oficial UDEM -->
       <div class="flex items-center justify-start justify-self-start">
         <a
           href="https://www.udem.edu.mx"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-3 sm:gap-4 group hover:opacity-90 transition-opacity"
+          class="flex items-center gap-2.5 sm:gap-4 group hover:opacity-90 transition-opacity"
           aria-label="Universidad de Monterrey"
         >
           <picture>
@@ -15,18 +15,18 @@
             <img
               src="/images/footer-udem.png"
               alt="UDEM"
-              class="h-8 sm:h-9 lg:h-10 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-300"
+              class="h-7 sm:h-9 lg:h-10 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-300"
             />
           </picture>
-          <div class="h-8 w-[1.5px] bg-white/50" />
-          <span class="font-barlow font-bold text-xs sm:text-sm tracking-[0.16em] uppercase text-white leading-tight">
+          <div class="h-7 sm:h-8 w-[1.5px] bg-white/50" />
+          <span class="font-barlow font-bold text-[10px] xs:text-xs sm:text-sm tracking-[0.14em] sm:tracking-[0.16em] uppercase text-white leading-tight">
             UNIVERSIDAD<br>DE MONTERREY
           </span>
         </a>
       </div>
 
-      <!-- Columna 2 (Centro-Izquierda): Logotipo oficial CRGS con enlace a /nosotros -->
-      <div class="flex items-center justify-start sm:justify-center lg:justify-center justify-self-start sm:justify-self-center lg:justify-self-center">
+      <!-- Columna 2: Logotipo oficial CRGS con enlace a /nosotros -->
+      <div class="flex items-center justify-end sm:justify-center lg:justify-center justify-self-end sm:justify-self-center lg:justify-self-center">
         <NuxtLink
           to="/nosotros"
           class="inline-block hover:opacity-90 hover:scale-105 transition-all duration-300 flex-shrink-0"
@@ -37,15 +37,15 @@
             <img
               src="/images/footer-crgs.png"
               alt="Centro Roberto Garza Sada de Arte Arquitectura y Diseño"
-              class="h-16 sm:h-20 w-auto object-contain"
+              class="h-12 xs:h-14 sm:h-20 w-auto object-contain"
             />
           </picture>
         </NuxtLink>
       </div>
 
-      <!-- Columna 3 (Centro-Derecha): Bloque tipográfico institucional -->
+      <!-- Columna 3: Bloque tipográfico institucional -->
       <div class="flex flex-col justify-start sm:justify-center lg:justify-center justify-self-start sm:justify-self-center lg:justify-self-center">
-        <div class="font-barlow font-bold text-xs sm:text-sm lg:text-base tracking-[0.14em] uppercase text-white/95 leading-tight select-none text-left">
+        <div class="font-barlow font-bold text-[11px] xs:text-xs sm:text-sm lg:text-base tracking-[0.14em] uppercase text-white/95 leading-tight select-none text-left">
           ESCUELA DE<br>
           ARTE Y DISEÑO<br>
           UNIVERSIDAD<br>
@@ -53,15 +53,15 @@
         </div>
       </div>
 
-      <!-- Columna 4 (Extremo Derecha): Lista vertical de enlaces oficiales con subrayado -->
-      <div class="flex flex-col space-y-2.5 font-barlow text-sm sm:text-base justify-self-start sm:justify-self-end lg:justify-self-end items-start sm:items-end lg:items-end">
+      <!-- Columna 4: Lista vertical de enlaces oficiales con subrayado -->
+      <div class="flex flex-col space-y-2 sm:space-y-2.5 font-barlow text-xs xs:text-sm sm:text-base justify-self-end sm:justify-self-end lg:justify-self-end items-end sm:items-end lg:items-end">
         <a
           v-for="link in officialLinks"
           :key="link.name"
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-white/80 hover:text-white underline underline-offset-4 decoration-1 decoration-white/30 hover:decoration-white hover:-translate-x-0.5 lg:hover:-translate-x-1 transition-all duration-200 w-fit text-left sm:text-right lg:text-right"
+          class="text-white/80 hover:text-white underline underline-offset-4 decoration-1 decoration-white/30 hover:decoration-white hover:-translate-x-0.5 lg:hover:-translate-x-1 transition-all duration-200 w-fit text-right"
         >
           {{ link.name }}
         </a>
